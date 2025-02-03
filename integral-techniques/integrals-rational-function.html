@@ -1,0 +1,28 @@
+<html lang="ja">
+    <head>
+        <title>有理関数の積分</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <h1>有理関数の積分</h1>
+            有理関数の積分は以下の手順で求めることができる。
+            <h3>１．真分数化</h3>
+            多項式 \(A(x),~B(x)\) において、\(\deg A(x)\ge \deg B(x)\) のとき、\(A(x)\) を \(B(x)\) で割った商を \(Q(x)\) 、余りを \(R(x)\) とすると
+            \[
+            \int \frac{A(x)}{B(x)} dx = \int \frac{B(x)Q(x)+R(x)}{B(x)} dx = \int Q(x) dx + \int \frac{R(x)}{B(x)} dx
+            \]
+            このとき、\(Q(x)\) は多項式であるから \(\int Q(x)dx\) は計算できる。
+            <h3>２．微分形接触</h3>
+            \(R(x)=kB'(x)+C(x)\)
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+    </body>
+</html>

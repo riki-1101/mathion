@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>重積分</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <h1>重積分</h1>
+            <div class="def">
+                <div>定義（2重積分）</div>
+                <p></p>
+                関数 \(f(x,y)\) は長方形 \(D=[a,b]\times[c,d]\) 上で有界とする。次のように区間 \([a,b]\) を \(m\) 個の区間に、区間 \([c,d]\) を \(n\) 個の区間に分割する。
+                \[
+                [a,b] = [x_0,x_1] \cup [x_1,x_2] \cup \cdots \cup [x_{m-1},x_m]
+                \]
+                \[
+                [c,d] = [y_0,y_1] \cup [y_1,y_2] \cup \cdots \cup [y_{n-1},y_n]
+                \]
+                そして \(\varDelta x_i = x_i - x_{i-1},~\varDelta y_j = y_j - y_{j-1}\) とし、\(|\varDelta| = \max\limits_{1\le i\le m,1\le j\le n} (\varDelta x_i,\varDelta y_j)\) と定める。
+                <p></p>
+                \(\xi_i\in [x_{i-1},x_i],~\eta_j\in [y_{j-1},y_j]\) を任意にとるとき、リーマン和
+                \[
+                \sum_{i=1}^m\sum_{j=1}^n f(\xi_i,\eta_j)\varDelta x_i\varDelta y_j
+                \]
+                について、\(\{\xi_i\},\{\eta_j\}\) のとり方によらず
+                \[
+                \lim_{|\varDelta| \to 0}\sum_{i=1}^m\sum_{j=1}^n f(\xi_i,\eta_j)\varDelta x_i\varDelta y_j
+                \]
+                が存在するならば、\(f(x,y)\) は長方形 \(D\) 上でリーマン積分可能であるといい、この極限値を
+                \[
+                \iint_D f(x,y)dxdy
+                \]
+                と書き、これを \(f(x,y)\) の \(D\) 上の2重積分という。
+            </div>
+            <p></p>
+            <div class="th">
+                <div>性質</div>
+                <ol class="enumerate">
+                    <li>\(k,l\in\mathbb{R}\) に対して<br>\(\displaystyle\iint_D\{kf(x,y)+lg(x,y)\}dxdy=k\iint_Df(x,y)dxdy+l\iint_Dg(x,y)dxdy\)</li>
+                    <li>\(D_1\cap D_2=\phi\) のとき<br>\(\displaystyle\iint_{D_1\cup D_2}f(x,y)dxdy=\iint_{D_1}f(x,y)dxdy+\iint_{D_2}f(x,y)dxdy\)</li>
+                    <li>任意の \((x,y)\in D\) に対して \(f(x,y)\le g(x,y)\) が成り立つとき<br>\(\displaystyle\iint_Df(x,y)dxdy\le\iint_Dg(x,y)dxdy\)</li>
+                </ol>
+            </div>
+            <p></p>
+            <div class="ex">
+                <div>例題</div>
+                \(\displaystyle\iint_{[0,1]\times[1,2]}x^2ydxdy\) を求めよ。
+            </div>
+            <p></p>
+            <div class="ans">
+                <div>解答</div>
+                \(m,n\in\mathbb{Z}\) として区間 \([0,2],[1,2]\) を
+                \[
+                [0,2]=\left[0,\frac{2}{m}\right]\cup\left[\frac{2}{m},\frac{2\cdot2}{m}\right]\cup\cdots\cup\left[\frac{2(m-1)}{m},2\right]=\bigcup_{i=1}^m\left[\frac{2(i-1)}{m},\frac{2i}{m}\right]
+                \]
+                \[
+                [1,2]=\left[1,1+\frac{1}{n}\right]\cup\left[1+\frac{1}{n},1+\frac{2}{n}\right]\cup\cdots\cup\left[1+\frac{n-1}{n},2\right]=\bigcup_{j=1}^n\left[1+\frac{j-1}{n},1+\frac{j}{n}\right]
+                \]
+                のように分割すると
+                \[
+                \varDelta x_i=\frac{2i}{m}-\frac{2(i-1)}{m}=\frac{2}{m},~~\varDelta y_j=\left(1+\frac{j}{n}\right)-\left(1+\frac{j-1}{n}\right)=\frac{1}{n}
+                \]
+                であり、区間 \(\displaystyle\left[\frac{2(i-1)}{m},\frac{2i}{m}\right]\) から点 \(\displaystyle\frac{2i}{m}\) を、区間 \(\displaystyle\left[1+\frac{j-1}{n},1+\frac{j}{n}\right]\) から点 \(1+\displaystyle\frac{j}{n}\) を選ぶ。
+                <p></p>
+                このとき \(x^2y\) のリーマン和は
+                \[
+                \sum_{i=1}^m\sum_{j=1}^n{\left(\frac{2i}{m}\right)}^2\left(1+\frac{j}{n}\right)\frac{2}{m}\cdot\frac{1}{n}
+                \]
+                となる。区間の幅は
+                \[
+                |\varDelta| = \max_{1 \le k \le n} \varDelta x_k=\frac{1}{n}
+                \]
+                であり、\(|\varDelta| \to 0\) のとき \(n \to \infty\) であるから
+                \[
+                \begin{align}
+                \lim_{n \to \infty}\sum_{k=1}^n \left(\frac{k}{n}\right)^2\frac{1}{n}
+                &=\lim_{n \to \infty}\frac{1}{n^3}\sum_{k=1}^nk^2\\
+                &=\lim_{n \to \infty}\frac{1}{n^3}\cdot\frac{1}{6}n(n+1)(2n+1)\\
+                &=\lim_{n \to \infty}\frac{1}{6}\left(1+\frac{1}{n}\right)\left(2+\frac{1}{n}\right)\\
+                &=\frac{1}{6}\cdot1\cdot2\\
+                &=\frac{1}{3}
+                \end{align}
+                \]
+                したがって
+                \[
+                \int_0^1x^2dx=\frac{1}{3}
+                \]
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="js/header.js"></script>
+        <script src="js/footer.js"></script>
+    </body>
+</html>

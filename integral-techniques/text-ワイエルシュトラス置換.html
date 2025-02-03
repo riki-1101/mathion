@@ -1,0 +1,53 @@
+<html lang="ja">
+    <head>
+        <title>ワイエルシュトラス置換</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div id="container">
+                <div id="contents">
+                    <h1>ワイエルシュトラス置換</h1>
+                    \(R(x,y)\) を \(x,y\) の有理関数とする。
+                    \[
+                    \int R(\cos x ,\sin x) dx
+                    \]
+                    はワイエルシュトラス置換と呼ばれる置換積分を行うことで有理関数の積分に帰着される。
+                    <div class="th">
+                        <div class="bold">定理 ワイエルシュトラス置換</div>
+                        積分 \(\displaystyle\int R(\cos x ,\sin x)dx\) は
+                        \[
+                        t=\tan\frac{x}{2}
+                        \]
+                        と置換すると \(t\) の有理関数の積分に帰着される。
+                    </div>
+                    証明
+                    <div>
+                        \[
+                        \begin{align}
+                        \sin x&=2\sin\frac{x}{2}\cos\frac{x}{2}=2\tan\frac{x}{2}\cos^2\frac{x}{2}=\frac{2t}{1+t^2}\\
+                        \cos x&=2\cos^2\frac{x}{2}-1=\frac{2}{1+t^2}-1=\frac{1-t^2}{1+t^2}\\
+                        \tan x&=\frac{2t}{1+t^2}\\
+                        dt&=\frac{1}{2\cos^2\frac{x}{2}}dx=\frac{1+t^2}{2}dx\Leftrightarrow dx=\frac{2}{1+t^2}dt
+                        \end{align}
+                        \]
+                        であるから
+                        \[
+                        \int R(\cos x ,\sin x) dx=\int R\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right) \frac{2}{1+t^2}dt
+                        \]
+                        この積分の被積分関数は \(t\) の有理関数である。
+                    </div>
+                </div>
+                <div id="side-menu"></div>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="./js/header.js"></script>
+        <script src="./js/footer.js"></script>
+        <script src="./js/side-menu.js"></script>
+    </body>
+</html>
