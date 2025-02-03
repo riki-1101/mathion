@@ -6,9 +6,8 @@
 
 body {
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", sans-serif;
-    margin: 6vw 0 0 0;
+    margin: 8vw 0 0 0;
     padding: 0;
-    background-color: #cfcfcf;
 }
 
 a {
@@ -17,10 +16,9 @@ a {
 
 /*全体に対する擬似要素*/
 :root {
-    scroll-padding-top: 7vw;
+    scroll-padding-top: 9vw;
 }
 
-/*header*/
 header {
     display: flex;
     width: 100%;
@@ -32,13 +30,20 @@ header {
     top: 0;
     align-items: center;
     z-index: 1;
-    #title {
-        font-family: serif;
-        font-size: 6vw;
-        color: navy;
+    div {
+        margin: 0 auto;
+        #title {
+            font-family: serif;
+            font-size: 6vw;
+            color: navy;
+        }
     }
 }
 
+#homeimg {
+    padding: 2vw;
+    font-size: 4vw;
+}
 
 .page {
     list-style: none;
@@ -52,7 +57,6 @@ header {
         }
     }
 }
-
 
 h1 {
     font-family: serif;
@@ -82,28 +86,13 @@ h1 {
   }
 
 
-/*footer*/
 footer {
     background-color: #aba8a8;
-    color: rgb(0, 0, 0);
-    .footer-menu {
-        height: 60px;
-        ul {
-            list-style: none;
-            text-align: center;
-            line-height: 60px;
-            li {
-                margin: 10px;
-                display: inline;
-            }
-        }
-    }
+    height: 8vw;
     .copyright {
         text-align: center;
     }
 }
-
-
 
 
 main {
@@ -301,8 +290,6 @@ table {
     border-radius: 0.5vw;
 }
 
-
-
 .enumerate {
     margin: 0;
     padding-left: 2vw;
@@ -333,7 +320,6 @@ table {
     }
 }
 
-
 .problem {
     margin-bottom: 3.5vw;
     font-size: 2.5vw;
@@ -344,8 +330,6 @@ table {
     margin: 10px;
     padding: 10px;
 }
-
-
 
 .math-left mjx-container[jax="CHTML"][display="true"] {
     text-align: left !important;
