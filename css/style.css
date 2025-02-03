@@ -91,9 +91,9 @@ footer {
 
 main {
     width: 100%;
-    padding: 2vw;
+    padding: 5px 10px;
     background-color: aliceblue;
-            
+    
     #table-of-contents {
         width: 90%;
         margin: 3vw auto;
@@ -119,7 +119,6 @@ main {
         }
         a {
             color: black;
-            text-decoration: none;
         }
     }
 
