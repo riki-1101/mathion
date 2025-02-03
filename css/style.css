@@ -125,88 +125,76 @@ footer {
 }
 
 
+
+
 main {
-    font-size: max(1.5vw,9px);
-    margin-top: 0px;
-    background-color: #6a669a;
-
-    #container {
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-
-        #contents {
-            width: 80%;
-            margin: 2vh 5px;
-            padding: 1vh 2vw;
-            background-color: aliceblue;
-            border-radius: 3px;
+    width: 100%;
+    background-color: aliceblue;
             
-            #table-of-contents {
-                width: 90%;
-                margin: 3vw auto;
-                background-color: whitesmoke;
-                border: 0.1vw solid #aaa;
-                div {
-                    display: flex;
-                    padding: 0.7vw 2vw;
-                    color: black;
-                    font-weight: 600;
-                    font-size: 2vw;
-                }
-                ol {
-                    list-style-type: disc;
-                    margin: 0;
-                }
-                ol ol {
-                    margin-top: 5px;
-                    padding-left: 1.1em;
-                }
-                li {
-                    padding: 5px 0;
-                    font-weight: 600;
-                }
-                a {
-                    color: black;
-                    text-decoration: none;
-                }
-            }
+    #table-of-contents {
+        width: 90%;
+        margin: 3vw auto;
+        background-color: whitesmoke;
+        border: 0.1vw solid #aaa;
+        div {
+            display: flex;
+            padding: 0.7vw 2vw;
+            color: black;
+            font-weight: 600;
+            font-size: 2vw;
+        }
+        ol {
+            list-style-type: disc;
+            margin: 0;
+        }
+        ol ol {
+            margin-top: 5px;
+            padding-left: 1.1em;
+        }
+        li {
+            padding: 5px 0;
+            font-weight: 600;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    }
         
-            h2 {
-                margin: 1vw 0;
-                font-family: sans-serif;
-                a {
-                    display: block;
-                    border-left: solid 0.5vw black;
-                    padding-left: 1vw;
-                }
-            }
+    h2 {
+        margin: 1vw 0;
+        font-family: sans-serif;
+        a {
+            display: block;
+            border-left: solid 0.5vw black;
+            padding-left: 1vw;
+        }
+    }
             
-            .space {
-                margin: 5vw;
-            }
+    .space {
+        margin: 5vw;
+    }
         
-            .article {
-                padding: 1vw 2vw;
-            }
+    .article {
+        padding: 1vw 2vw;
+    }
             
-            .def {
-                padding: 1vw 1.5vw;
-                background-color: blanchedalmond;
-                border: 0.1vw solid #aaa;
-                border-radius: 0.5vw;
-                div {
-                    font-weight: bold;
-                }
-                ol {
-                    margin: 0;
-                    padding-left: 2vw;
-                    li {
-                        margin: 2vw 0 0 0;
-                    }
-                }
+    .def {
+        padding: 1vw 1.5vw;
+        background-color: blanchedalmond;
+        border: 0.1vw solid #aaa;
+        border-radius: 0.5vw;
+        div {
+            font-weight: bold;
+        }
+        ol {
+            margin: 0;
+            padding-left: 2vw;
+            li {
+                margin: 2vw 0 0 0;
             }
+        }
+    }
             
             .th {
                 padding: 1vw 1.5vw;
@@ -268,29 +256,6 @@ main {
                 }
             }
         }
-
-        #side-menu {
-            width: 20%;
-            margin: 2vh 5px;
-            padding: 2vw;
-            background-color: aliceblue;
-            border-radius: 3px;
-            #search {
-                display: flex;
-                width: 100%;
-                height: 2vw;
-            }
-            ul {
-                text-align: left;
-                flex-direction: column;
-                padding-left: 10px;
-                li {
-                    padding: 10px 0px;
-                }
-            }
-        }
-    }
-}
 
 
 .integral-imgs {
