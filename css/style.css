@@ -91,7 +91,7 @@ footer {
 
 main {
     width: 100%;
-    padding: 5px 10px;
+    padding: 1px 10px;
     background-color: aliceblue;
     
     #table-of-contents {
@@ -145,38 +145,38 @@ main {
     }
             
     .def {
-        padding: 1vw 1.5vw;
+        padding: 10px;
         background-color: blanchedalmond;
-        border: 0.1vw solid #aaa;
-        border-radius: 0.5vw;
+        border: 1px solid #aaa;
+        border-radius: 5px;
         div {
             font-weight: bold;
+            margin-bottom: 5px;
         }
         ol {
-            margin: 0;
-            padding-left: 2vw;
+            padding-left: 25px;
             li {
-                margin: 2vw 0 0 0;
+                margin: 10px 0;
             }
         }
     }
             
-            .th {
-                padding: 1vw 1.5vw;
-                background-color: blanchedalmond;
-                border: 0.1vw solid #aaa;
-                border-radius: 0.5vw;
-                div {
-                    font-weight: bold;
-                }
-                ol {
-                    margin: 0;
-                    padding-left: 2vw;
-                    li {
-                        margin: 2vw 0 0 0;
-                    }
-                }
+    .th {
+        padding: 10px;
+        background-color: blanchedalmond;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        div {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        ol {
+            padding-left: 25px;
+            li {
+                margin: 10px 0;
             }
+        }
+    }
             
             details.pf {
                 padding: 1vw 0;
