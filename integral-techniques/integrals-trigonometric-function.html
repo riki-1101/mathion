@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>三角関数の積分</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/math/css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div id="container">
+                <div id="contents">
+                    <h1>三角関数の積分</h1>
+                    <div id="table-of-contents">
+                        <div>目次</div>
+                        <ol>
+                            <li><a href="#1"></a></li>
+                            <li><a href="#2"></a></li>
+                            <li><a href="#3"></a></li>
+                            <li><a href="">正接関数の積分</a></li>
+                            <li><a href="">ベータ関数の利用</a></li>
+                            <li><a href="">ロバチェフスキーの積分公式</a></li>
+                            <li><a href="">ラプラス変換の応用</a></li>
+                            <li><a href="">留数定理の応用</a></li>
+                            <li><a href="#ex">演習問題</a></li>
+                        </ol>
+                    </div>
+                    <h2><a id="">正接関数の積分</a></h2>
+                    <div class="article">
+                        \[
+                        \int f(\tan x)dx
+                        \]
+                    </div>
+                    <p></p>
+                    <div class="th">
+                        <div>定理</div>
+                        \(t=\tan x\) と置換することにより
+                        <ol>
+                            <li>\(\displaystyle\int f(\tan x)dx=\int\frac{f(t)}{t^2+1}dt\)</li>
+                            <li>\(\displaystyle\int f(\tan x)\sec^2xdx=\int f(t)dt\)</li>
+                        </ol>
+                    </div>
+                    <p class="space"></p>
+                    <h2><a id="">ベータ関数の利用</a></h2>
+                    <div class="article">
+                        \[
+                        \int_0^\frac{\pi}{2}\sin^px\cos^qxdx
+                        \]
+                        の形の積分を考える。
+                    </div>
+                    <p></p>
+                    <div class="th">
+                        <div>定理（ベータ関数の三角関数表示）</div>
+                        \[
+                        B(x,y)=2\int_0^\frac{\pi}{2}\sin^{2x-1}\theta\cos^{2y-1}\theta d\theta
+                        \]
+                    </div>
+                    <p></p>
+                    <div class="article">
+                        これを用いることにより
+                        \[
+                        \int_0^\frac{\pi}{2}\sin^px\cos^qxdx=\frac{1}{2}B\left(\frac{p+1}{2},\frac{q+1}{2}\right)
+                        \]
+                        が成り立つ。
+                    </div>
+                    <p class="space"></p>
+                    <h2><a id="">ロバチェフスキーの積分公式</a></h2>
+                    <div class="article">
+
+                    </div>
+                    <div class="th">
+                        <div>定理（ロバチェフスキーの積分公式）</div>
+                        \(f(x)=f(\pi+x)=f(\pi-x)\) を満たす \(\mathbb{R}_{\ge0}\) 上の連続関数 \(f\) に対して
+                        \[
+                        \int_0^\infty\frac{\sin^2x}{x^2}f(x)dx=\int_0^\infty\frac{\sin x}{x}f(x)dx=\int_0^\frac{\pi}{2}f(x)dx
+                        \]
+                        が成り立つ。
+                    </div>
+                    <p class="space"></p>
+                    <h2><a id="">ラプラス変換の応用</a></h2>
+                    <div class="article">
+                        \(P(x)\) は整式とする。
+                        \[
+                        \int_a^b\frac{\sin^nx}{P(x)}dx,~~~~~\int_a^b\frac{\cos^nx}{P(x)}dx
+                        \]
+                        の形の積分を考える。
+                        <p></p>
+                        \[
+                        I(t)=\int_a^b\frac{\sin^n(tx)}{P(x)}dx
+                        \]
+                        として、\(I(t)\) をラプラス変換すると
+                        \[
+                        \begin{align}
+                        \mathcal{L}[I(t)]&=\int_0^\infty e^{-st}\int_a^b\frac{\sin^n(tx)}{P(x)}dxdt\\
+                        &=\int_a^b\frac{1}{P(x)}\int_0^\infty e^{-st}\sin^n(tx)dtdx=\int_a^b\frac{\mathcal{L}[\sin^n(tx)]}{P(x)}dx
+                        \end{align}
+                        \]
+                        これを逆ラプラス変換することにより、\(I(t)\) が求まる。
+                    </div>
+                    <p class="space"></p>
+                    <h2><a id="">留数定理の応用</a></h2>
+                    <div class="article">
+                        \[
+                        \int_0^{2\pi}R(\cos x,\sin x)dx
+                        \]
+                    </div>
+                    <p></p>
+                    <div class="th">
+                        <div>定理（留数定理の三角関数の積分への応用）</div>
+                        \(\cos\theta,\sin\theta\) の有理関数 \(R(\cos x,\sin x)\) に対して
+                        \[
+                        \int_0^{2\pi}R(\cos x,\sin x)dx=\int_{|z|=1}R\left(\frac{z+z^{-1}}{2},\frac{z-z^{-1}}{2i}\right)\frac{dz}{iz}
+                        \]
+                        が成り立つ。
+                    </div>
+                    <p class="space"></p>
+                    <div class="ex">
+                        <div>例題</div>
+
+                    </div>
+                    <a href="javascript:history.back();" class="back">戻る</a>
+                </div>
+                <div id="side-menu"></div>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="/math/js/header.js"></script>
+        <script src="/math/js/footer.js"></script>
+        <script src="/math/js/side-menu.js"></script>
+    </body>
+</html>

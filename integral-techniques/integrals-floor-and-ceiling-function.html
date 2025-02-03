@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>床関数・天井関数の積分</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/math/css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div id="container">
+                <div id="contents">
+                    <h1>床関数・天井関数の積分</h1>
+                    <div id="contents">
+                        <div class="article">
+                            
+                        </div>
+                        <div id="table-of-contents">
+                            <div>
+                                目次
+                            </div>
+                            <ol>
+                                <li><a href="#1">床関数の積分</a></li>
+                                <li><a href="#2">天井関数の積分</a></li>
+                                <li><a href="#ex">演習問題</a></li>
+                            </ol>
+                        </div>
+                        <h2><a id="1">床関数の積分</a></h2>
+                        <div class="article">
+                            床関数とは、\(x\in\mathbb{R}\) に対して、\(x\) を超えない最大の整数を返す関数で、\(\lfloor x \rfloor\) と書かれる。
+                            <p></p>
+                            \(m,n\in\mathbb{Z}\) とするとき
+                            \[
+                            \int_m^n\lfloor x \rfloor dx=\sum_{k=m}^{n-1}\int_k^{k+1}\lfloor x \rfloor dx
+                            \]
+                            ここで、\(k\lt x\lt k+1\) のとき \(\lfloor x \rfloor=k\) であるから
+                            \[
+                            \sum_{k=m}^{n-1}\int_k^{k+1}\lfloor x \rfloor dx
+                            =\sum_{k=m}^{n-1}\int_k^{k+1}kdx
+                            =\sum_{k=m}^{n-1}k\int_k^{k+1}dx
+                            =\sum_{k=m}^{n-1}k
+                            \]
+                            と計算できる。
+                        </div>
+                        <p class="space"></p>
+                        <h2><a id="2">天井関数の積分</a></h2>
+                        <div class="article">
+                            
+                        </div>
+                        <p class="space"></p>
+                        <h2><a id="ex">演習問題</a></h2>
+                        <div class="ex">
+                            <div>問題１</div>
+                            
+                        </div>
+                        <details class="ans">
+                            <summary>解答</summary>
+                            <div>
+                                
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div id="side-menu"></div>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="/math/js/header.js"></script>
+        <script src="/math/js/footer.js"></script>
+        <script src="/math/js/side-menu.js"></script>
+    </body>
+</html>

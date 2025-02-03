@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/math/css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div id="container">
+                <div id="contents">
+                    <div class="problem">
+                        \[
+                        \int_0^1\frac{(\log x)^n}{x^2+1}dx
+                        \]
+                    </div>
+                    <div class="calculation">
+                        \[
+                        \begin{align}
+                        &\int_0^1\frac{(\log x)^n}{x^2+1}dx
+                        =\int_0^1\sum_{m=0}^\infty(-x^2)^m(\log x)^ndx
+                        =\sum_{m=0}^\infty(-1)^m\int_0^1x^{2m}(\log x)^ndx
+                        \end{align}
+                        \]
+                        <hr>
+                        substitution
+                        \[
+                        \log x=-t~~~~~dx=-e^{-t}dt~~~~~t~|~\infty\to 0
+                        \]
+                        <hr>
+                        \[
+                        \begin{align}
+                        &\sum_{m=0}^\infty(-1)^m\int_0^1x^{2m}(\log x)^ndx
+                        =\sum_{m=0}^\infty(-1)^m\int_\infty^0e^{-2mt}(-t)^n(-e^{-t})dt\\
+                        &=\sum_{m=0}^\infty(-1)^{m+n}\int_0^\infty e^{-(2m+1)t}t^ndt
+                        \end{align}
+                        \]
+                        <hr>
+                        substitution
+                        \[
+                        (2m+1)t=u~~~~~dt=\frac{1}{2m+1}du~~~~~u~|~0\to\infty
+                        \]
+                        <hr>
+                        \[
+                        \begin{align}
+                        &\sum_{m=0}^\infty(-1)^{m+n}\int_0^\infty e^{-(2m+1)t}t^ndt
+                        =\sum_{m=0}^\infty(-1)^{m+n}\int_0^\infty e^{-u}\left(\frac{u}{2m+1}\right)^n\frac{1}{2m+1}du\\
+                        &=\sum_{m=0}^\infty\frac{(-1)^{m+n}}{(2m+1)^{n+1}}\int_0^\infty e^{-u}u^ndu
+                        =\sum_{m=0}^\infty\frac{(-1)^{m+n}}{(2m+1)^{n+1}}\Gamma(n+1)
+                        =\sum_{m=0}^\infty\frac{(-1)^{m+n}n!}{(2m+1)^{n+1}}\\
+                        &=n!(-1)^n\sum_{m=0}^\infty\frac{(-1)^{m}}{(2m+1)^{n+1}}
+                        =n!(-1)^n\beta(n+1)
+                        \end{align}
+                        \]
+                    </div>
+                    <div class="answer">
+                        \[
+                        \int_0^1\frac{(\log x)^n}{x^2+1}dx=n!(-1)^n\beta(n+1)
+                        \]
+                    </div>
+                    <a href="javascript:history.back();" class="back">戻る</a>
+                </div>
+                <div id="side-menu"></div>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="/math/js/header.js"></script>
+        <script src="/math/js/footer.js"></script>
+        <script src="/math/js/side-menu.js"></script>
+    </body>
+</html>
