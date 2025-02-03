@@ -74,7 +74,7 @@ footer {
     position: absolute;
     left: 0;
     width: 100%;
-    height: max(0.6vh,4px);
+    height: 2px;
     content: '';
     background-image: -webkit-gradient(linear, right top, left top, from(#30cfd0), to(#330867));
     background-image: -webkit-linear-gradient(right, #30cfd0 0%, #330867 100%);
@@ -125,7 +125,6 @@ main {
 
     h1 {
         font-family: serif;
-        font-weight: normal;
         position: relative;
         padding: 5px;
     }
