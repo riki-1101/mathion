@@ -66,12 +66,7 @@ footer {
     }
 }
 
-h1 {
-    font-family: serif;
-    font-size: 3vw;
-    position: relative;
-    padding: 1vh 1vw;
-}
+
   
   h1:before,
   h1:after {
@@ -128,15 +123,18 @@ main {
             text-decoration: none;
         }
     }
+
+    h1 {
+        font-family: serif;
+        position: relative;
+        padding: 1vh 1vw;
+    }
         
     h2 {
         margin: 1vw 0;
         font-family: sans-serif;
-        a {
-            display: block;
-            border-left: solid 0.5vw black;
-            padding-left: 1vw;
-        }
+        border-left: solid 0.5vw black;
+        padding-left: 1vw;
     }
             
     .space {
