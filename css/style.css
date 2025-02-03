@@ -16,7 +16,7 @@ a {
 
 /*全体に対する擬似要素*/
 :root {
-    scroll-padding-top: 9vw;
+    scroll-padding-top: 70px;
 }
 
 header {

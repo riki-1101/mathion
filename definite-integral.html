@@ -13,9 +13,7 @@
         <main>
             <h1>定積分</h1>
             <div id="table-of-contents">
-                <div>
-                    目次
-                </div>
+                <div>目次</div>
                 <ol>
                     <li><a href="#1">リーマン積分の定義</a></li>
                     <li><a href="#2">リーマン積分可能性</a></li>
@@ -29,13 +27,13 @@
                 \[
                 [a,b] = [x_0,x_1] \cup [x_1,x_2] \cup \cdots \cup [x_{n-1},x_n]
                 \]
-                各区間の幅を \(\varDelta x_k = x_k - x_{k-1}\) とし、代表点 \(t_k \in [x_{k-1},x_k]\) を任意にとる。このとき
+                \(\varDelta x_k = x_k - x_{k-1}\) とし、代表点 \(t_k \in [x_{k-1},x_k]\) を任意にとる。このとき
                 \[
                 \sum_{k=1}^n f(t_k)\varDelta x_k
                 \]
                 を \(f\) のリーマン和という。
                 <p></p>
-                区間の幅を \(|\varDelta| = \max\limits_{1 \le k \le n} \varDelta x_k\) と定め、\(|\varDelta| \to 0\) となるように分割を変える。
+                \(|\varDelta| = \max\limits_{1 \le k \le n} \varDelta x_k\) と定め、\(|\varDelta| \to 0\) となるように分割を変える。
                 <p></p>
                 このとき、分割および \(\{t_k\}\) のとり方によらず
                 \[
@@ -81,7 +79,7 @@
                 <div>
                 \(n\in\mathbb{Z}\) として区間 \([0,1]\) を
                 \[
-                [0,1]=\left[0,\frac{1}{n}\right]\cup\left[\frac{1}{n},\frac{2}{n}\right]\cup\cdots\cup\left[\frac{n-1}{n},1\right]=\bigcup_{k=1}^n\left[\frac{k-1}{n},\frac{k}{n}\right]
+                [0,1]=\left[0,\frac{1}{n}\right]\cup\left[\frac{1}{n},\frac{2}{n}\right]\cup\cdots\cup\left[\frac{n-1}{n},1\right]
                 \]
                 のように分割すると
                 \[
