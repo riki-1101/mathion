@@ -91,7 +91,7 @@ footer {
 
 main {
     width: 100%;
-    padding: 1vw;
+    padding: 2vw;
     background-color: aliceblue;
             
     #table-of-contents {
@@ -104,7 +104,6 @@ main {
             padding: 0.7vw 2vw;
             color: black;
             font-weight: 600;
-            font-size: 2vw;
         }
         ol {
             list-style-type: disc;
@@ -132,10 +131,10 @@ main {
     }
         
     h2 {
-        margin: 1vw 0;
+        margin: 5px 0;
         font-family: sans-serif;
-        border-left: solid 0.5vw black;
-        padding-left: 1vw;
+        border-left: solid 5px black;
+        padding-left: 10px;
     }
             
     .space {
@@ -143,7 +142,7 @@ main {
     }
         
     .article {
-        padding: 1vw 2vw;
+        padding: 5px 10px;
     }
             
     .def {
@@ -256,22 +255,19 @@ main {
     ul {
         display: block;
         padding-left: 5px;
-        margin: 0 0 4vw 0;
         li {
             list-style: none;
-            border-left: 0.7vw solid black;
+            border-left: 5px solid black;
             background-color: lightgrey;
-            margin-bottom: 1vw;
+            margin-bottom: 10px;
             a {
                 display: block;
-                padding: 0.7vw 2vw;
-                font-size: 2vw;
+                padding: 5px 10px;
                 color: steelblue;
             }
         }
     }
 }
-
 
 table {
     width: 80%;
@@ -290,10 +286,7 @@ table {
     }
 }
 
-.article {
-    padding: 1vw 2vw;
-    border-radius: 0.5vw;
-}
+
 
 .enumerate {
     margin: 0;
