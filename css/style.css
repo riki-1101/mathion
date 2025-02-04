@@ -246,7 +246,7 @@ main {
             border-bottom: 1px solid black;
             .int-frame {
                 display: flex;
-                height: 70px;
+                height: 80px;
                 color: black;
                 .int-level {
                     margin: 10px 0 0 10px;
