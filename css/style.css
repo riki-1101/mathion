@@ -242,6 +242,21 @@ main {
     ul {
         list-style: none;
         padding: 0;
+        li {
+            border-bottom: 1px solid black;
+            .int-frame {
+                display: flex;
+                height: 60px;
+                color: black;
+                .int-level {
+                    margin: 0 0 0 10px;
+                    width: 100px;
+                }
+                .int-thumbnail {
+                    align-content: center;
+                }
+            }
+        }
     }
 }
 
