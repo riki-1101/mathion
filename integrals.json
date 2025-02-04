@@ -1,6 +1,6 @@
 [
     {
-        "url": "integrals/int_0^1_frac{(logx)^n}{x^2+1}dx.html",
+        "url": "integrals/int_0^1 frac{(logx)^n}{x^2+1}dx.html",
         "level": "Basic",
         "formula": "\\displaystyle\\int_0^1\\frac{(\\log x)^n}{x^2+1}dx"
     },
