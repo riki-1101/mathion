@@ -246,10 +246,10 @@ main {
             border-bottom: 1px solid black;
             .int-frame {
                 display: flex;
-                height: 60px;
+                height: 70px;
                 color: black;
                 .int-level {
-                    margin: 0 0 0 10px;
+                    margin: 10px 0 0 10px;
                     width: 100px;
                 }
                 .int-thumbnail {
