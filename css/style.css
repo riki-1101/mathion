@@ -254,6 +254,7 @@ main {
                 }
                 .int-thumbnail {
                     align-content: center;
+                    height: 100%;
                 }
             }
         }
