@@ -13,31 +13,69 @@
         <header id="header"></header>
         <main>
             <h1>積分問題集</h1>
+            <select id="level-filter" onchange="filterList()">
+                <option value="all">すべてのレベル</option>
+                <option value="Basic">Basic</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+            <select id="category-filter" onchange="filterList()">
+                <option value="all">すべて</option>
+                <option value="trigonometric">三角関数</option>
+                <option value="logarithmic">対数関数</option>
+                <option value="polynomial">多項式</option>
+            </select>
             <ul id="integral-list"></ul>
             <script>
-                document.addEventListener("DOMContentLoaded", function() {
+                let data = [];  // JSON データを保存
+
+                document.addEventListener("DOMContentLoaded", function () {
                     fetch("integrals.json")
-                        .then(response => response.json())
-                        .then(data => {
-                            const list = document.getElementById("integral-list");
-                            data.forEach(item => {
-                                const li = document.createElement("li");
-                                li.innerHTML = `
-                                    <a href="${item.url}">
-                                        <div class="int-frame">
-                                            <div class="int-level" level="${item.level.toLowerCase()}">${item.level}</div>
-                                            <div class="int-thumbnail">\\(${item.formula}\\)</div>
-                                        </div>
-                                    </a>
-                                `;
-                                list.appendChild(li);
-                            });
-                            if (window.MathJax) {
-                                MathJax.typesetPromise();
-                            }
-                        })
-                        .catch(error => console.error("Error loading integral data:", error));
+                    .then(response => response.json())
+                    .then(json => {
+                        data = json;
+                        renderList(data); // 初期状態ですべて表示
+                    })
+                    .catch(error => console.error("JSON の読み込みエラー:", error));
                 });
+
+                // フィルタ機能
+                function filterList() {
+                    const selectedCategory = document.getElementById("category-filter").value;
+                    const selectedLevel = document.getElementById("level-filter").value;
+
+                    const filteredData = data.filter(item => {
+                        const matchesCategory = selectedCategory === "all" || (Array.isArray(item.category) && item.category.includes(selectedCategory));
+                        const matchesLevel = selectedLevel === "all" || item.level === selectedLevel;
+                        return matchesCategory && matchesLevel;
+                    });
+
+                    renderList(filteredData);
+                }
+
+                // リストを表示
+                function renderList(filteredData) {
+                    const list = document.getElementById("integral-list");
+                    list.innerHTML = ""; // 既存のリストをクリア
+
+                    filteredData.forEach(item => {
+                        const li = document.createElement("li");
+                        li.innerHTML = `
+                        <a href="${item.url}">
+                            <div class="int-frame">
+                                <div class="int-level" level="${item.level.toLowerCase()}">${item.level}</div>
+                                <div class="int-thumbnail">\\(${item.formula}\\)</div>
+                            </div>
+                        </a>
+                        `;
+                        list.appendChild(li);
+                    });
+
+                    // MathJax の再レンダリング（数式用）
+                    if (window.MathJax) {
+                        MathJax.typesetPromise();
+                    }
+                }
             </script>
         </main>
         <footer id="footer"></footer>

@@ -2,12 +2,14 @@
     {
         "url": "integrals/int_0^1 frac{(logx)^n}{x^2+1}dx.html",
         "level": "Basic",
-        "formula": "\\displaystyle\\int_0^1\\frac{(\\log x)^n}{x^2+1}dx"
+        "formula": "\\displaystyle\\int_0^1\\frac{(\\log x)^n}{x^2+1}dx~~~(n\\in\\mathbb{N})",
+        "category": ["logarithmic"]
     },
     {
         "url": "integrals/.html",
         "level": "Basic",
-        "formula": "\\displaystyle\\int_0^\\infty\\frac{(\\log x)^n}{x^2+1}dx"
+        "formula": "\\displaystyle\\int_0^\\infty\\frac{(\\log x)^n}{x^2+1}dx~~~(n\\in\\mathbb{N})",
+        "category": ["logarithmic"]
     },
     {
         "url": "integrals/.html",
@@ -17,6 +19,11 @@
     {
         "url": "integrals/.html",
         "level": "Basic",
-        "formula": "\\displaystyle\\int_{-\\pi}^\\pi\\frac{\\sin^{2n}x}{(1+e^x)\\sqrt{1+\\cos x}}dx"
+        "formula": "\\displaystyle\\int_{-\\pi}^\\pi\\frac{\\sin^{2n}x}{(1+e^x)\\sqrt{1+\\cos x}}dx~~~(n\\in\\mathbb{N})"
+    },
+    {
+        "url": "integrals/.html",
+        "level": "Basic",
+        "formula": "\\displaystyle\\int\\frac{\\tan2x}{\\sin^6x+\\cos^6x}dx"
     }
 ]
