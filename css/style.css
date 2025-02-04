@@ -89,10 +89,9 @@ footer {
     bottom: 0;
   }
 
-
 main {
     width: 100%;
-    padding: 1px 10px;
+    padding: 1px 10px 10px 10px;
     background-color: aliceblue;
     
     #table-of-contents {

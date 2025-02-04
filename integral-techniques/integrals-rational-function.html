@@ -13,13 +13,36 @@
             <h1>有理関数の積分</h1>
             有理関数の積分は以下の手順で求めることができる。
             <h3>１．真分数化</h3>
-            多項式 \(A(x),~B(x)\) において、\(\deg A(x)\ge \deg B(x)\) のとき、\(A(x)\) を \(B(x)\) で割った商を \(Q(x)\) 、余りを \(R(x)\) とすると
+            \(A(x),~B(x)\) を多項式とし、\(\deg A(x)\ge \deg B(x)\) とする。
+            <p></p>
+            \(A(x)\) を \(B(x)\) で割った商を \(Q(x)\) 、余りを \(R(x)\) とすると
             \[
-            \int \frac{A(x)}{B(x)} dx = \int \frac{B(x)Q(x)+R(x)}{B(x)} dx = \int Q(x) dx + \int \frac{R(x)}{B(x)} dx
+            \begin{align}
+            \int\frac{A(x)}{B(x)}dx
+            &=\int\frac{B(x)Q(x)+R(x)}{B(x)}dx\\
+            &=\int Q(x)dx+\int\frac{R(x)}{B(x)}dx
+            \end{align}
             \]
-            このとき、\(Q(x)\) は多項式であるから \(\int Q(x)dx\) は計算できる。
+            このとき、\(Q(x)\) は多項式であるから \(\displaystyle\int Q(x)dx\) は計算できる。
             <h3>２．微分形接触</h3>
-            \(R(x)=kB'(x)+C(x)\)
+            \(R(x)=kB'(x)+C(x)~~(k\in\mathbb{R})\) と表せるとき
+            \[
+            \begin{align}
+            \int\frac{R(x)}{B(x)}dx
+            &=k\int\frac{B'(x)}{B(x)}dx+\int\frac{C(x)}{B(x)}dx\\
+            &=k\log|B(x)|+\int\frac{C(x)}{B(x)}dx
+            \end{align}
+            \]
+            <h3>３．部分分数分解</h3>
+            \(\displaystyle\frac{C(x)}{B(x)}\) は真分数式である。
+            <p></p>
+            任意の真分数式は \(a,p,q,l,m,\alpha,\beta,\gamma\in\mathbb{R}\) として
+            \[
+            \frac{\alpha}{(x-a)^l},~~\frac{\beta x+\gamma}{(x^2+px+q)^m}~~(p^2-4q\lt0)
+            \]
+            の和で表せることが知られている。
+            <p></p>
+            \(\displaystyle\int\frac{C(x)}{B(x)}dx\) は \(\displaystyle\frac{C(x)}{B(x)}\) を部分分数分解することで計算できる。
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
