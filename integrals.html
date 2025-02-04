@@ -13,34 +13,32 @@
         <header id="header"></header>
         <main>
             <h1>積分問題集</h1>
-            <div id="int-list">
-                <ul id="integral-list"></ul>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        fetch("integrals.json")
-                            .then(response => response.json())
-                            .then(data => {
-                                const list = document.getElementById("integral-list");
-                                data.forEach(item => {
-                                    const li = document.createElement("li");
-                                    li.innerHTML = `
-                                        <a href="${item.url}">
-                                            <div class="int-frame">
-                                                <div class="int-level" level="${item.level.toLowerCase()}">${item.level}</div>
-                                                <div class="int-thumbnail">\\(${item.formula}\\)</div>
-                                            </div>
-                                        </a>
-                                    `;
-                                    list.appendChild(li);
-                                });
-                                if (window.MathJax) {
-                                    MathJax.typesetPromise();
-                                }
-                            })
-                            .catch(error => console.error("Error loading integral data:", error));
-                    });
-                </script>
-            </div>
+            <ul id="integral-list"></ul>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    fetch("integrals.json")
+                        .then(response => response.json())
+                        .then(data => {
+                            const list = document.getElementById("integral-list");
+                            data.forEach(item => {
+                                const li = document.createElement("li");
+                                li.innerHTML = `
+                                    <a href="${item.url}">
+                                        <div class="int-frame">
+                                            <div class="int-level" level="${item.level.toLowerCase()}">${item.level}</div>
+                                            <div class="int-thumbnail">\\(${item.formula}\\)</div>
+                                        </div>
+                                    </a>
+                                `;
+                                list.appendChild(li);
+                            });
+                            if (window.MathJax) {
+                                MathJax.typesetPromise();
+                            }
+                        })
+                        .catch(error => console.error("Error loading integral data:", error));
+                });
+            </script>
         </main>
         <footer id="footer"></footer>
         <script src="js/header.js"></script>

@@ -222,40 +222,22 @@ main {
         }
 
 
-.integral-imgs {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+#integral-list {
     list-style: none;
-    padding-left: 0;
-    img {
-        width: 18vw;
-        height: 10vw;
-        margin: 1px;
-        padding: 10px;
-        background-color: white;
-        border-radius: 5px;
-    }
-}
-
-#int-list {
-    ul {
-        list-style: none;
-        padding: 0;
-        li {
-            border-bottom: 1px solid black;
-            .int-frame {
-                display: flex;
-                height: 80px;
-                color: black;
-                .int-level {
-                    margin: 10px 0 0 10px;
-                    width: 100px;
-                }
-                .int-thumbnail {
-                    align-content: center;
-                    height: 100%;
-                }
+    padding: 0;
+    li {
+        border-bottom: 1px solid black;
+        .int-frame {
+            display: flex;
+            height: 80px;
+            color: black;
+            .int-level {
+                margin: 10px 0 0 10px;
+                width: 80px;
+            }
+            .int-thumbnail {
+                align-content: center;
+                height: 100%;
             }
         }
     }
@@ -299,8 +281,6 @@ table {
         border: solid 1px;
     }
 }
-
-
 
 .enumerate {
     margin: 0;
