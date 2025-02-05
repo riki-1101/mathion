@@ -12,6 +12,12 @@
         "category": ["irrational"]
     },
     {
+        "url": "integrals/basic/frac{1}{asin^2x+bcos^2x.html",
+        "level": "Basic",
+        "formula": "\\displaystyle\\int\\frac{1}{a\\sin^2x+b\\cos^2x}dx",
+        "category": ["trigonometric"]
+    },
+    {
         "url": "integrals/[0,1] frac{(logx)^n}{x^2+1}.html",
         "level": "Basic",
         "formula": "\\displaystyle\\int_0^1\\frac{(\\log x)^n}{x^2+1}dx~~~(n\\in\\mathbb{N})",

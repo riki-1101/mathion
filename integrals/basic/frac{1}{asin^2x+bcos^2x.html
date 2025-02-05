@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../js/script.js"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div class="problem">
+                \[
+                \int\frac{1}{a\sin^2x+b\cos^2x}dx~~~(a,b\gt0)
+                \]
+            </div>
+            <div class="calculation">
+                \[
+                \begin{align}
+                &\int\frac{1}{a\sin^2x+b\cos^2x}dx\\
+                &=\int\frac{\sec^2x}{a\tan^2x+b}dx
+                \end{align}
+                \]
+                <hr>
+                substitution
+                \[
+                t=\tan x~~~~~dt=\sec^2xdx
+                \]
+                <hr>
+                \[
+                \begin{align}
+                &\int\frac{\sec^2x}{a\tan^2x+b}dx\\
+                &=\int\frac{1}{at^2+b}dt\\
+                &=\frac{1}{a}\int\frac{1}{t^2+\frac{b}{a}}dt\\
+                &=\frac{1}{a}\cdot\sqrt{\frac{a}{b}}\arctan\sqrt{\frac{a}{b}}t+C\\
+                &=\frac{1}{\sqrt{ab}}\arctan\left(\sqrt{\frac{a}{b}}\tan x\right)+C\\
+                \end{align}
+                \]
+            </div>
+            <div class="answer">
+                \[
+                \begin{align}
+                &\int\frac{1}{a\sin^2x+b\cos^2x}dx\\
+                &=\frac{1}{\sqrt{ab}}\arctan\left(\sqrt{\frac{a}{b}}\tan x\right)+C
+                \end{align}
+                \]
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../../js/header.js"></script>
+        <script src="../../js/footer.js"></script>
+    </body>
+</html>
