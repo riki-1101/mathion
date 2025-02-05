@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../js/script.js"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div class="problem">
+                \[
+                \int\sqrt{a^2-x^2}dx~~~(a\gt0)
+                \]
+            </div>
+            <div class="calculation">
+                \[
+                \begin{align}
+                &\int\sqrt{a^2-x^2}dx\\
+                &=\int(x)'\sqrt{a^2-x^2}dx\\
+                &=x\sqrt{a^2-x^2}-\int x\cdot\frac{-2x}{2\sqrt{a^2-x^2}}dx\\
+                &=x\sqrt{a^2-x^2}-\int\frac{-x^2}{\sqrt{a^2-x^2}}dx\\
+                &=x\sqrt{a^2-x^2}-\int\frac{(a^2-x^2)-a^2}{\sqrt{a^2-x^2}}dx\\
+                &=x\sqrt{a^2-x^2}-\int\sqrt{a^2-x^2}dx+\int\frac{a^2}{\sqrt{a^2-x^2}}dx\\
+                \end{align}
+                \]
+                <hr>
+                \[
+                \begin{align}
+                &\int\sqrt{a^2-x^2}dx\\
+                &=\frac{1}{2}\left(x\sqrt{a^2-x^2}+\int\frac{a^2}{\sqrt{a^2-x^2}}dx\right)\\
+                &=\frac{1}{2}\left(x\sqrt{a^2-x^2}+a^2\arcsin\frac{x}{a}\right)+C
+                \end{align}
+                \]
+            </div>
+            <div class="answer">
+                \[
+                \int\frac{1}{x^2+x+1}dx=\frac{2}{\sqrt{3}}\arctan\frac{2x+1}{\sqrt{3}}+C
+                \]
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../../js/header.js"></script>
+        <script src="../../js/footer.js"></script>
+    </body>
+</html>
