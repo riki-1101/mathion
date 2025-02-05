@@ -14,7 +14,7 @@
     {
         "url": "integrals/basic/frac{1}{asin^2x+bcos^2x.html",
         "level": "Basic",
-        "formula": "\\displaystyle\\int\\frac{1}{a\\sin^2x+b\\cos^2x}dx",
+        "formula": "\\displaystyle\\int\\frac{1}{a\\sin^2x+b\\cos^2x}dx~~~(a,b\\gt0)",
         "category": ["trigonometric"]
     },
     {
