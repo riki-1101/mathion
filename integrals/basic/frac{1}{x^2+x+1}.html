@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../js/script.js"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div class="problem">
+                \[
+                \int\frac{1}{x^2+x+1}dx
+                \]
+            </div>
+            <div class="calculation">
+                \[
+                \begin{align}
+                &\int\frac{1}{x^2+x+1}dx\\
+                &=\int\frac{1}{\left(x+\frac{1}{2}\right)^2+\frac{3}{4}}dx\\
+                &=\int\frac{1}{\left(x+\frac{1}{2}\right)^2+\left(\frac{\sqrt{3}}{2}\right)^2}dx\\
+                &=\frac{2}{\sqrt{3}}\arctan\frac{2\left(x+\frac{1}{2}\right)}{\sqrt{3}}+C\\
+                &=\frac{2}{\sqrt{3}}\arctan\frac{2x+1}{\sqrt{3}}+C
+                \end{align}
+                \]
+            </div>
+            <div class="answer">
+                \[
+                \int\frac{1}{x^2+x+1}dx=\frac{2}{\sqrt{3}}\arctan\frac{2x+1}{\sqrt{3}}+C
+                \]
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../../js/header.js"></script>
+        <script src="../../js/footer.js"></script>
+    </body>
+</html>

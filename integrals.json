@@ -1,5 +1,11 @@
 [
     {
+        "url": "integrals/basic/frac{1}{x^2+x+1}.html",
+        "level": "Basic",
+        "formula": "\\displaystyle\\int\\frac{1}{x^2+x+1}dx",
+        "category": ["rational"]
+    },
+    {
         "url": "integrals/int_0^1 frac{(logx)^n}{x^2+1}dx.html",
         "level": "Basic",
         "formula": "\\displaystyle\\int_0^1\\frac{(\\log x)^n}{x^2+1}dx~~~(n\\in\\mathbb{N})",
