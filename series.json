@@ -1,9 +1,57 @@
-[
+[   {
+        "url": "series/basic/[1,n] k(k+1).html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^nk(k+1)",
+        "category": ["rational"]
+    },
+    {
+        "url": "series/basic/[1,n] k(k+1)(k+2).html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^nk(k+1)(k+2)",
+        "category": ["rational"]
+    },
+    {
+        "url": "series/basic/[1,n] (k+1)^3.html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^n(k+1)^3",
+        "category": ["rational"]
+    },
     {
         "url": "series/basic/[1,n] frac{1}{k(k+1)}.html",
         "level": "Basic",
         "type": "sum",
         "formula": "\\displaystyle\\sum_{k=1}^n\\frac{1}{k(k+1)}",
         "category": ["rational"]
+    },
+    {
+        "url": "series/basic/[1,n] frac{1}{k(k+1)(k+2)}.html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^n\\frac{1}{k(k+1)(k+2)}",
+        "category": ["rational"]
+    },
+    {
+        "url": "series/basic/[1,n] frac{1}{k(k+1)(k+2)(k+3)}.html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^n\\frac{1}{k(k+1)(k+2)(k+3)}",
+        "category": ["rational"]
+    },
+    {
+        "url": "series/basic/[1,n] frac{1}{k(k+1)---(k+m)}.html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^n\\frac{1}{k(k+1)\\cdots(k+m)}",
+        "category": ["rational"]
+    },
+    {
+        "url": "series/basic/[1,n] frac{1}{sqrt{k}+sqrt{k+1}}.html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^n\\frac{1}{\\sqrt{k}+\\sqrt{k+1}}",
+        "category": ["irrational"]
     }
 ]
