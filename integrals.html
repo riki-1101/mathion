@@ -27,7 +27,15 @@
                 <option value="exponential">指数関数</option>
                 <option value="logarithmic">対数関数</option>
             </select>
-            <ul id="integral-list"></ul>
+            <select id="type-filter" onchange="filterList()">
+                <option value="all">すべてのタイプ</option>
+                <option value="indefinite">不定積分</option>
+                <option value="definite">定積分</option>
+                <option value="double">二重積分</option>
+                <option value="triple">三重積分</option>
+                <option value="complex">複素積分</option>
+            </select>
+            <ul id="problem-list"></ul>
             <script>
                 let data = [];  // JSON データを保存
 
@@ -45,11 +53,13 @@
                 function filterList() {
                     const selectedCategory = document.getElementById("category-filter").value;
                     const selectedLevel = document.getElementById("level-filter").value;
+                    const selectedType = document.getElementById("type-filter").value;
 
                     const filteredData = data.filter(item => {
                         const matchesCategory = selectedCategory === "all" || (Array.isArray(item.category) && item.category.includes(selectedCategory));
                         const matchesLevel = selectedLevel === "all" || item.level === selectedLevel;
-                        return matchesCategory && matchesLevel;
+                        const matchesType = selectedType === "all" || item.type === selectedType;
+                        return matchesCategory && matchesLevel && matchesType;
                     });
 
                     renderList(filteredData);
@@ -57,7 +67,7 @@
 
                 // リストを表示
                 function renderList(filteredData) {
-                    const list = document.getElementById("integral-list");
+                    const list = document.getElementById("problem-list");
                     list.innerHTML = ""; // 既存のリストをクリア
 
                     filteredData.forEach(item => {

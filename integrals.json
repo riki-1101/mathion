@@ -2,46 +2,54 @@
     {
         "url": "integrals/basic/frac{1}{x^2+x+1}.html",
         "level": "Basic",
+        "type": "indefinite",
         "formula": "\\displaystyle\\int\\frac{1}{x^2+x+1}dx",
         "category": ["rational"]
     },
     {
         "url": "integrals/basic/sqrt{a^2-x^2}.html",
         "level": "Basic",
+        "type": "indefinite",
         "formula": "\\displaystyle\\int\\sqrt{a^2-x^2}dx~~~(a\\gt0)",
         "category": ["irrational"]
     },
     {
         "url": "integrals/basic/frac{1}{asin^2x+bcos^2x.html",
         "level": "Basic",
+        "type": "indefinite",
         "formula": "\\displaystyle\\int\\frac{1}{a\\sin^2x+b\\cos^2x}dx~~~(a,b\\gt0)",
         "category": ["trigonometric"]
     },
     {
         "url": "integrals/[0,1] frac{(logx)^n}{x^2+1}.html",
         "level": "Basic",
+        "type": "definite",
         "formula": "\\displaystyle\\int_0^1\\frac{(\\log x)^n}{x^2+1}dx~~~(n\\in\\mathbb{N})",
         "category": ["logarithmic"]
     },
     {
         "url": "integrals/.html",
         "level": "Basic",
+        "type": "definite",
         "formula": "\\displaystyle\\int_0^\\infty\\frac{(\\log x)^n}{x^2+1}dx~~~(n\\in\\mathbb{N})",
         "category": ["logarithmic"]
     },
     {
         "url": "integrals/.html",
         "level": "Basic",
+        "type": "indefinite",
         "formula": "\\displaystyle\\int\\frac{\\log(1+\\sin x)}{1+\\sin x}dx"
     },
     {
         "url": "integrals/.html",
         "level": "Basic",
+        "type": "definite",
         "formula": "\\displaystyle\\int_{-\\pi}^\\pi\\frac{\\sin^{2n}x}{(1+e^x)\\sqrt{1+\\cos x}}dx~~~(n\\in\\mathbb{N})"
     },
     {
         "url": "integrals/.html",
         "level": "Basic",
+        "type": "indefinite",
         "formula": "\\displaystyle\\int\\frac{\\tan2x}{\\sin^6x+\\cos^6x}dx"
     }
 ]
