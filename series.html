@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>総和・級数</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <h1>総和・級数</h1>
+            <select id="level-filter" onchange="filterList()">
+                <option value="all">すべてのレベル</option>
+                <option value="Basic">Basic</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+            <select id="category-filter" onchange="filterList()">
+                <option value="all">すべての関数</option>
+                <option value="rational">有理関数</option>
+                <option value="irrational">無理関数</option>
+                <option value="trigonometric">三角関数</option>
+                <option value="exponential">指数関数</option>
+                <option value="logarithmic">対数関数</option>
+            </select>
+            <ul id="integral-list"></ul>
+            <script>
+                let data = [];  // JSON データを保存
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    fetch("series.json")
+                    .then(response => response.json())
+                    .then(json => {
+                        data = json;
+                        renderList(data); // 初期状態ですべて表示
+                    })
+                    .catch(error => console.error("JSON の読み込みエラー:", error));
+                });
+
+                // フィルタ機能
+                function filterList() {
+                    const selectedCategory = document.getElementById("category-filter").value;
+                    const selectedLevel = document.getElementById("level-filter").value;
+
+                    const filteredData = data.filter(item => {
+                        const matchesCategory = selectedCategory === "all" || (Array.isArray(item.category) && item.category.includes(selectedCategory));
+                        const matchesLevel = selectedLevel === "all" || item.level === selectedLevel;
+                        return matchesCategory && matchesLevel;
+                    });
+
+                    renderList(filteredData);
+                }
+
+                // リストを表示
+                function renderList(filteredData) {
+                    const list = document.getElementById("integral-list");
+                    list.innerHTML = ""; // 既存のリストをクリア
+
+                    filteredData.forEach(item => {
+                        const li = document.createElement("li");
+                        li.innerHTML = `
+                        <a href="${item.url}">
+                            <div class="int-frame">
+                                <div class="int-level" level="${item.level.toLowerCase()}">${item.level}</div>
+                                <div class="int-thumbnail">\\(${item.formula}\\)</div>
+                            </div>
+                        </a>
+                        `;
+                        list.appendChild(li);
+                    });
+
+                    // MathJax の再レンダリング（数式用）
+                    if (window.MathJax) {
+                        MathJax.typesetPromise();
+                    }
+                }
+            </script>
+        </main>
+        <footer id="footer"></footer>
+        <script src="js/header.js"></script>
+        <script src="js/footer.js"></script>
+    </body>
+</html>
