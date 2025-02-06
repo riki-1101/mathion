@@ -1,6 +1,6 @@
 [
     {
-        "url": "integrals/basic/[1,n] frac{1}{k(k+1)}.html",
+        "url": "series/basic/[1,n] frac{1}{k(k+1)}.html",
         "level": "Basic",
         "formula": "\\displaystyle\\sum_{k=1}^n\\frac{1}{k(k+1)}",
         "category": ["rational"]
