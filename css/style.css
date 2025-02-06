@@ -337,15 +337,6 @@ table {
     }
 }
 
-.list-roman {
-    li {
-        counter-increment: num;
-    }
-    li::before {
-        content: counter(num, lower-roman);
-    }
-}
-
 .problem {
     font-size: 17px;
     border-bottom: 1px solid black;
