@@ -14,6 +14,13 @@
         "category": ["irrational"]
     },
     {
+        "url": "integrals/basic/frac{1}{sinx}.html",
+        "level": "Basic",
+        "type": "indefinite",
+        "formula": "\\displaystyle\\int\\frac{1}{\\sin x}dx",
+        "category": ["trigonometric"]
+    },
+    {
         "url": "integrals/basic/frac{1}{asin^2x+bcos^2x.html",
         "level": "Basic",
         "type": "indefinite",
