@@ -177,7 +177,6 @@ footer {
         padding: 5px 10px;
         overflow-x: scroll;
         overflow-y: hidden;
-        scrollbar-width: none;
     }
             
     .def {
