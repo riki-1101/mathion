@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const nav = document.querySelector("nav");
 
     hamburger.addEventListener("click", function () {
-        nav.classList.toggle("open");
-        hamburger.classList.toggle("active"); // ハンバーガーのアニメーション
+        this.classList.toggle("active"); // ハンバーガーアイコンの変化
+        nav.classList.toggle("open"); // ナビゲーションメニューの開閉
     });
 });
 
