@@ -44,7 +44,7 @@ header div #title {
     color: navy;
 }
 
-/* ハンバーガーメニューのスタイル修正 */
+/* ハンバーガーメニュー */
 .hamburger {
     position: fixed;
     top: 15px;
@@ -62,7 +62,7 @@ header div #title {
     transition: 0.4s;
 }
 
-/* クリック時のアニメーション修正 */
+/* クリック時のアニメーション */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
     transform-origin: center;
