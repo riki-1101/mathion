@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>多項式×指数の和</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>多項式×指数の和</h1>
+            <div id="table-of-contents">
+                <div>目次</div>
+                <ol>
+                    <li><a href="#1">今回の内容の説明</a></li>
+                    <li><a href="#2">具体的な計算例</a></li>
+                    <li><a href="#ex">演習問題</a></li>
+                </ol>
+            </div>
+            <h2><a id="1">今回の内容の説明</a></h2>
+            <div class="article">
+                多項式 \(P(k)\) と指数 \(r^k\) の積の和
+                \[
+                \sum_{k=1}^nP(k)r^k
+                \]
+                を考える。これは直接、総和の公式を用いることができないため、
+                \[
+                \sum_{k=1}^n\{f(k+1)-f(k)\}=f(n+1)-f(1)
+                \]
+                を利用する。では、
+                \[
+                P(k)r^k=f(k+1)-f(k)
+                \]
+                となるような \(f(k)\) はどのように見つければよいのだろうか。
+            </div>
+            <p class="space"></p>
+            <h2><a id="2">具体的な計算例</a></h2>
+            <div class="article">
+                \[
+                \sum_{k=1}^n(2k^2+3k+1)2^k
+                \]
+                を考える。
+                \[
+                (2k^2+3k+1)2^k=f(k+1)-f(k)
+                \]
+                となるような \(f(k)\) を見つける方法として、恒等式を用いる方法がある。
+                今回、多項式部分は２次式であるから
+                \[
+                f(k)=(ak^2+bk+c)2^k
+                \]
+                と置いてみる。このとき
+                \[
+                \begin{align}
+                f(k+1)&=\{a(k+1)^2+b(k+1)+c\}2^{k+1}\\
+                &=(ak^2+2ak+a+bk+b+c)2^{k+1}\\
+                &=\{ak^2+(2a+b)k+a+b+c\}2^{k+1}\\
+                &=\{2ak^2+(4a+2b)k+2a+2b+2c\}2^{k}
+                \end{align}
+                \]
+                であるから
+                \[
+                \begin{align}
+                &f(k+1)-f(k)\\
+                &=\{2ak^2+(4a+2b)k+2a+2b+2c\}2^{k}-(ak^2+bk+c)2^k\\
+                &=\{ak^2+(4a+b)k+2a+2b+c\}2^{k}
+                \end{align}
+                \]
+                これが \((2k^2+3k+1)2^k\) と等しくなればよいから、係数を比較して
+                \[
+                a=2,~~~~~4a+b=3,~~~~~2a+2b+c=1
+                \]
+                これを解くと
+                \[
+                a=2,~~~~~b=-5,~~~~~c=7
+                \]
+                となり、
+                \[
+                f(k)=(2k^2-5k+7)2^k
+                \]
+                とすればよいことがわかる。実際、
+                \[
+                \begin{align}
+                &f(k+1)-f(k)\\
+                &=\{2(k+1)^2-5(k+1)+7\}2^{k+1}-(2k^2-5k+7)2^k\\
+                &=(4k^2+8k+4-10k-10+14-2k^2+5k-7)2^k\\
+                &=(2k^2+3k+1)2^k
+                \end{align}
+                \]
+                である。
+                <p></p>
+                したがって
+                \[
+                \begin{align}
+                &\sum_{k=1}^n(2k^2+3k+1)2^k\\
+                &=\sum_{k=1}^n\{f(k+1)-f(k)\}\\
+                &=f(n+1)-f(1)\\
+                &=\{2(n+1)^2-5(n+1)+7\}\cdot2^{n+1}-(2\cdot2^2-5\cdot2+7)\cdot2\\
+                &=(2n^2-n+4)2^{n+1}-10
+                \end{align}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2><a id="ex">演習問題</a></h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>総和の定義と性質</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>総和の定義と性質</h1>
+            <div id="table-of-contents">
+                <div>目次</div>
+                <ol>
+                    <li><a href="#1">総和の定義と性質</a></li>
+                    <li><a href="#2">総和の計算方法</a></li>
+                    <li><a href="#ex">演習問題</a></li>
+                </ol>
+            </div>
+            <h2><a id="1">総和の定義と性質</a></h2>
+            <div class="article">
+                
+            </div>
+            <div class="def">
+                <div>定義（総和記号）</div>
+                数列 \(\{a_n\}\) に対して、
+                \[
+                \sum_{k=1}^na_k=a_1+a_2+\cdots+a_n
+                \]
+                第 \(m\) 項から第 \(n\) 項までの和を
+            </div>
+            <div class="article">
+                記号Σはギリシャ文字
+            </div>
+            <div class="th">
+                <div>定理（総和の線形性）</div>
+                \[
+                \displaystyle\sum_{k=m}^n(pa_k+qb_k)=p\sum_{k=m}^na_k+q\sum_{k=m}^nb_k
+                \]
+            </div>
+            <p class="space"></p>
+            <h2><a id="2">総和の計算方法</a></h2>
+            <div class="article">
+                差の形（差分）を作ることで総和は計算できる。差分とは、
+                \[
+                f(k+1)-f(k)
+                \]
+                のように、項がずれた差の形のことをいう。この形の総和は次のように計算できる。
+            </div>
+            <div class="th">
+                <div>定理（差分の総和）</div>
+                \[
+                \sum_{k=1}^n\{f(k+1)-f(k)\}=f(n+1)-f(1)
+                \]
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \[
+                    \begin{align}
+                    &\sum_{k=1}^n\{f(k+1)-f(k)\}\\
+                    &=\{f(2)-f(1)\}+\{f(3)-f(2)\}+\{f(4)+f(3)\}\\
+                    &~~~~~+\cdots+\{f(n)-f(n-1)\}+\{f(n+1)-f(n)\}\\
+                    &=f(n+1)-f(1)
+                    \end{align}
+                    \]
+                </div>
+            </details>
+            <div class="article">
+                2項ずれた差の形 \(f(k+2)-f(k)\) であっても同様にして
+                \[
+                \begin{align}
+                &\sum_{k=1}^n\{f(k+2)-f(k)\}\\
+                &=f(n+1)+f(n+2)-f(1)-f(2)
+                \end{align}
+                \]
+                のように計算できる。
+                <p></p>
+                この方法により、
+            </div>
+            <div class="th">
+                <div>定理（総和の公式）</div>
+                <ol>
+                    <li>\(\displaystyle\sum_{k=1}^nc=cn~~~~~(c=\mathrm{const.})\)</li>
+                    <li>\(\displaystyle\sum_{k=1}^nk=\frac{1}{2}n(n+1)\)</li>
+                    <li>\(\displaystyle\sum_{k=1}^nk^2=\frac{1}{6}n(n+1)(2n+1)\)</li>
+                    <li>\(\displaystyle\sum_{k=1}^nk^3=\left\{\frac{1}{2}n(n+1)\right\}^2\)</li>
+                </ol>
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    unknown
+                </div>
+            </details>
+            <p></p>
+            <div class="th">
+                <div>定理（）</div>
+                
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    unknown
+                </div>
+            </details>
+            <p class="space"></p>
+            <h2><a id="ex">演習問題</a></h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+    </body>
+</html>
