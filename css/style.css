@@ -213,49 +213,51 @@ footer {
         }
     }
             
-            details.pf {
-                padding: 1vw 0;
-                summary {
-                    padding: 0.8vw;
-                    background-color: lightgray;
-                }
-                div {
-                    padding: 1vw;
-                    background-color: lightgray;
-                    border-top: 0.3vw solid black;
-                    ol {
-                        margin: 0;
-                        padding-left: 2vw;
-                        li {
-                            margin: 0 0 1vw 0;
-                        }
-                    }
-                }
-            }
-            
-            .ex {
-                padding: 1vw 1.5vw;
-                border: 1.5px solid black;
-                background-color: blanchedalmond;
-                border-radius: 0.5vw;
-                div {
-                    font-weight: bold;
-                }
-            }
-            
-            details.ans {
-                padding: 1vw 0;
-                summary {
-                    padding: 0.8vw;
-                    background-color: lightgray;
-                }
-                div {
-                    padding: 1vw;
-                    background-color: lightgray;
-                    border-top: 0.3vw solid black;
+    details.pf {
+        padding: 1vw 0;
+        summary {
+            padding: 0.8vw;
+            background-color: lightgray;
+        }
+        div {
+            padding: 1vw;
+            background-color: lightgray;
+            border-top: 0.3vw solid black;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            ol {
+                margin: 0;
+                padding-left: 2vw;
+                li {
+                    margin: 0 0 1vw 0;
                 }
             }
         }
+    }
+            
+    .ex {
+        padding: 1vw 1.5vw;
+        border: 1.5px solid black;
+        background-color: blanchedalmond;
+        border-radius: 0.5vw;
+        div {
+            font-weight: bold;
+        }
+    }
+            
+    details.ans {
+        padding: 1vw 0;
+        summary {
+            padding: 0.8vw;
+            background-color: lightgray;
+        }
+        div {
+            padding: 1vw;
+            background-color: lightgray;
+            border-top: 0.3vw solid black;
+        }
+    }
+}
 
 
 #problem-list {
