@@ -313,25 +313,28 @@ footer {
     }
             
     .ex {
-        padding: 1vw 1.5vw;
-        border: 1.5px solid black;
+        padding: 10px;
+        border: 1px solid #aaa;
         background-color: blanchedalmond;
-        border-radius: 0.5vw;
+        border-radius: 5px;
         div {
             font-weight: bold;
+            margin-bottom: 5px;
         }
     }
             
     details.ans {
-        padding: 1vw 0;
+        padding: 5px 0;
         summary {
-            padding: 0.8vw;
+            padding: 5px;
             background-color: lightgray;
         }
         div {
-            padding: 1vw;
+            padding: 5px;
             background-color: lightgray;
-            border-top: 0.3vw solid black;
+            border-top: 2px solid black;
+            overflow-x: scroll;
+            overflow-y: hidden;
         }
     }
 }
