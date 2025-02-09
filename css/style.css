@@ -261,6 +261,8 @@ footer {
         background-color: blanchedalmond;
         border: 1px solid #aaa;
         border-radius: 5px;
+        overflow-x: scroll;
+        overflow-y: hidden;
         div {
             font-weight: bold;
             margin-bottom: 5px;
@@ -278,6 +280,8 @@ footer {
         background-color: blanchedalmond;
         border: 1px solid #aaa;
         border-radius: 5px;
+        overflow-x: scroll;
+        overflow-y: hidden;
         div {
             font-weight: bold;
             margin-bottom: 5px;
