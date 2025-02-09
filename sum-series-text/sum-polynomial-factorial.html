@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>多項式×階乗の和</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>多項式×階乗の和</h1>
+            <div id="table-of-contents">
+                <div>目次</div>
+                <ol>
+                    <li><a href="#1">今回の内容の説明</a></li>
+                    <li><a href="#2">具体的な計算例</a></li>
+                    <li><a href="#ex">演習問題</a></li>
+                </ol>
+            </div>
+            <h2><a id="1">今回の内容の説明</a></h2>
+            <div class="article">
+                多項式 \(P(k)\) と階乗 \(k!\) の積の和
+                \[
+                \sum_{k=1}^nP(k)\cdot k!
+                \]
+                を考える。これは直接、総和の公式を用いることができないため、
+                \[
+                \sum_{k=1}^n\{f(k+1)-f(k)\}=f(n+1)-f(1)
+                \]
+                を利用する。では、
+                \[
+                P(k)\cdot k!=f(k+1)-f(k)
+                \]
+                となるような \(f(k)\) はどのように見つければよいのだろうか。
+            </div>
+            <p class="space"></p>
+            <h2><a id="2">具体的な計算例</a></h2>
+            <div class="article">
+                \[
+                \sum_{k=1}^n(3k^2+4k+3)k!
+                \]
+                を考える。
+                \[
+                (3k^2+4k+3)k!=f(k+1)-f(k)
+                \]
+                となるような \(f(k)\) を見つければよい。前回の多項式×指数の和
+                \[
+                \sum_{k=1}^nP(k)r^k
+                \]
+                では、\(P(k)\) の次数から \(f(k)\) を仮定し、恒等式を用いて計算した。今回も同様に考えて
+                \[
+                f(k)=(ak^2+bk+c)k!
+                \]
+                と置いてみる。このとき
+                \[
+                \begin{align}
+                f(k+1)&=\{a(k+1)^2+b(k+1)+c\}(k+1)!\\
+                &=\{ak^2+(2a+b)k+a+b+c\}(k+1)\cdot k!\\
+                &=\{ak^3+(3a+b)k^2+(3a+2b+c)k+a+b+c\}k!
+                \end{align}
+                \]
+                となる。このまま進めてもいいのだが、\(k^3\) の項は不要である。
+                \[
+                f(k)=(ak^2+bk+c)k!
+                \]
+                とおくと、\((k+1)!=(k+1)\cdot k!\) であることから \(f(k+1)\) に \(k^3\) が出現している。したがって
+                \[
+                f(k)=(ak+b)k!
+                \]
+                とおいた方が、より楽に計算できることがわかる。このとき
+                \[
+                \begin{align}
+                f(k+1)&=\{a(k+1)+b\}(k+1)!\\
+                &=(ak+a+b)(k+1)\cdot k!\\
+                &=\{ak^2+(2a+b)k+a+b\}k!
+                \end{align}
+                \]
+                となり
+                \[
+                \begin{align}
+                &f(k+1)-f(k)\\
+                &=\{ak^2+(2a+b)k+a+b\}k!-(ak+b)k!\\
+                &=\{ak^2+(a+b)k+a\}k!
+                \end{align}
+                \]
+                である。
+                <p></p>
+                係数比較を行う前に、注目してほしい箇所がある。この方法には注意が必要であることに気づくだろうか。
+                \[
+                \{ak^2+(a+b)k+a\}k!
+                \]
+                より、\(k^2\) の係数 \(a\) を定めると、定数項も自動的に決まってしまう。すなわち
+                \[
+                \sum_{k=1}^n(3k^2+4k+1)k!
+                \]
+                のような問題であれば、満たす \(a\) が存在しない。本問は
+                \[
+                \sum_{k=1}^n(3k^2+4k+3)k!
+                \]
+                で、２次の係数と定数項が等しいから、この手法が使えることになる。
+                <p></p>
+                多項式×階乗の和は、多項式×指数の和のときのように、必ずしも恒等式を用いて \(f(k)\) を作り出すことができない。
+                <p></p>
+                これが \((3k^2+4k+3)k!\) と等しくなればよいから、係数を比較して
+                \[
+                a=3,~~~~~a+b=4,~~~~~a=3
+                \]
+                これを解くと
+                \[
+                a=3,~~~~~b=1
+                \]
+                となり
+                \[
+                f(k)=(3k+1)k!
+                \]
+                とすればよいことがわかる。
+                <p></p>
+                したがって
+                \[
+                \begin{align}
+                &\sum_{k=1}^n(3k^2+4k+3)k!\\
+                &=\sum_{k=1}^n\{f(k+1)-f(k)\}\\
+                &=f(n+1)-f(1)\\
+                &=\{3(n+1)^2+4(n+1)+3\}(n+1)!-(3\cdot 1^2+4\cdot 1+3)1!\\
+                &=(3k^2+10k+10)(k+1)!-10
+                \end{align}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2><a id="ex">演習問題</a></h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
