@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>数列の極限</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>数列の極限</h1>
+            <div id="table-of-contents">
+                <div>目次</div>
+                <ol>
+                    <li><a href="#1">数列の極限の定義</a></li>
+                    <li><a href="#2">数列の極限の性質</a></li>
+                    <li><a href="#ex">演習問題</a></li>
+                </ol>
+            </div>
+            <h2><a id="1">数列の極限の定義</a></h2>
+            <div class="def">
+                <div>定義（数列の収束）</div>
+                数列 \(\{a_n\}\) と \(\alpha\in\mathbb{R}\) に対して
+                \[
+                \forall\varepsilon\gt0,~\exists N\in\mathbb{N},~\forall n\in\mathbb{N}:(n\ge N\Longrightarrow |a_n-\alpha|\lt\varepsilon)
+                \]
+                が成り立つとき、\(\{a_n\}\) は \(\alpha\) に収束するといい
+                \[
+                \lim_{n\to\infty}a_n=\alpha
+                \]
+                と表す。また、\(\alpha\) を \(\{a_n\}\) の極限という。
+            </div>
+            <p class="space"></p>
+            <h2><a id="2">数列の極限の性質</a></h2>
+            <div class="th">
+                <div>定理（数列の極限の性質）</div>
+                \(\displaystyle\lim_{n\to\infty}a_n=\alpha,~\lim_{n\to\infty}b_n=\beta\) のとき、次が成り立つ。
+                <ol>
+                    <li>\(\displaystyle\lim_{n\to\infty}(a_n+b_n)=\alpha+\beta\)</li>
+                    <li>\(\displaystyle\lim_{n\to\infty}a_nb_n=\alpha\beta\)</li>
+                    <li>\(\displaystyle\lim_{n\to\infty}\frac{a_n}{b_n}=\frac{\alpha}{\beta}~~~(\beta\neq0)\)</li>
+                </ol>
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    <ol>
+                        <li>
+                            仮定より、任意の \(\varepsilon\gt0\) に対し、ある \(N_1,N_2\in\mathbb{N}\) が存在して
+                            \[
+                            n\ge N_1\Longrightarrow |a_n-\alpha|\lt\frac{\varepsilon}{2},~~~~~n\ge N_2\Longrightarrow |b_n-\beta|\lt\frac{\varepsilon}{2}
+                            \]
+                            となる。ここで、\(N=\max\{N_1,N_2\}\) とすると、\(n\ge N\) に対し
+                            \[
+                            |(a_n+b_n)-(\alpha+\beta)|=|(a_n-\alpha)+(b_n-\beta)|\le|a_n-\alpha|+|b_n-\beta|\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+                            \]
+                            が成り立つ。よって、\(\displaystyle\lim_{n\to\infty}(a_n+b_n)=\alpha+\beta\) である。
+                        </li>
+                        <li>
+                            仮定より、任意の \(\varepsilon\gt0\) に対し、ある \(N_1,N_2\in\mathbb{N}\) が存在して
+                            \[
+                            n\ge N_1\Longrightarrow |a_n-\alpha|\lt\varepsilon,~~~~~n\ge N_2\Longrightarrow |b_n-\beta|\lt\varepsilon
+                            \]
+                            となる。ここで、\(N=\max\{N_1,N_2\}\) とすると、\(n\ge N\) に対し
+                            \[
+                            \begin{align}
+                            |a_nb_n-\alpha\beta|&=|(a_n-\alpha)b_n+\alpha(b_n-\beta)|\\
+                            &\le|a_n-\alpha||b_n|+|\alpha||b_n-\beta|\\
+                            &=|a_n-\alpha||(b_n-\beta)+\beta|+|\alpha||b_n-\beta|\\
+                            &\le|a_n-\alpha|(|b_n-\beta|+|\beta|)+|\alpha||b_n-\beta|\\
+                            &=|a_n-\alpha||b_n-\beta|+|\beta||a_n-\alpha|+|\alpha||b_n-\beta|
+                            \end{align}
+                            \]
+                        </li>
+                    </ol>
+                </div>
+            </details>
+            <p class="space"></p>
+            <h2><a id="ex">演習問題</a></h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
