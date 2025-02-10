@@ -17,11 +17,7 @@
                 <div>定理（はさみうちの原理）</div>
                 数列 \(\{a_n\},~\{b_n\},~\{c_n\}\) に対して
                 \[
-                a_n\le c_n\le b_n
-                \]
-                かつ
-                \[
-                \lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha
+                a_n\le c_n\le b_n\land\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha
                 \]
                 であるとき
                 \[
@@ -62,6 +58,34 @@
                     より
                     \[
                     \lim_{n\to\infty}c_n=\alpha
+                    \]
+                </div>
+            </details>
+            <p class="space"></p>
+            <h2 id="2">追い出しの原理</h2>
+            <div class="th">
+                <div>定理（追い出しの原理）</div>
+                数列 \(\{a_n\},~\{b_n\}\) に対して
+                \[
+                \left(\forall n\in\mathbb{N},~a_n\le b_n\land\lim_{n\to\infty}a_n=\infty\right)\Longrightarrow\lim_{n\to\infty}b_n=\infty
+                \]
+                が成り立つ。
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \(\displaystyle\lim_{n\to\infty}a_n=\infty\) であるから、
+                    任意の \(R\gt0\) に対し、ある \(N\in\mathbb{N}\) が存在して
+                    \[
+                    n\ge N\Longrightarrow a_n\gt R
+                    \]
+                    となる。ここで、\(a_n\le b_n\) であるから
+                    \[
+                    n\ge N\Longrightarrow b_n\gt R
+                    \]
+                    も成り立つ。したがって
+                    \[
+                    \lim_{n\to\infty}a_n=\infty
                     \]
                 </div>
             </details>
