@@ -234,7 +234,7 @@ footer {
     background-color: aliceblue;
     #table-of-contents {
         width: 90%;
-        margin: 3vw auto;
+        margin: 0 auto 30px auto;
         background-color: whitesmoke;
         border: 0.1vw solid #aaa;
         div {
@@ -247,13 +247,17 @@ footer {
             list-style-type: disc;
             margin: 0;
         }
+        li {
+            padding: 5px 0;
+            font-weight: bold;
+        }
         ol ol {
             margin-top: 5px;
             padding-left: 1.1em;
         }
-        li {
+        ol ol li {
             padding: 5px 0;
-            font-weight: 600;
+            font-weight: normal;
         }
         a {
             color: black;
@@ -268,6 +272,12 @@ footer {
         margin: 5px 0;
         font-family: sans-serif;
         border-left: solid 5px black;
+        padding-left: 10px;
+    }
+    h3 {
+        margin: 5px 0;
+        font-family: sans-serif;
+        border-bottom: solid 1px black;
         padding-left: 10px;
     }
 }

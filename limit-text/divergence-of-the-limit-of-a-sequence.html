@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>数列の極限の発散</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>数列の極限の発散</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">数列の正の無限大への発散</h2>
+            <div class="def">
+                <div>定義（数列の正の無限大への発散）</div>
+                数列 \(\{a_n\}\) に対して
+                \[
+                \forall R\gt0,~\exists N\in\mathbb{N},~\forall n\in\mathbb{N}:(n\ge N\Longrightarrow a_n\gt R)
+                \]
+                が成り立つとき、\(\{a_n\}\) は正の無限大に発散するといい
+                \[
+                \lim_{n\to\infty}a_n=\infty
+                \]
+                と表す。
+            </div>
+            <p class="space"></p>
+            <h3>例題を通して理解する</h3>
+            <div class="ex">
+                <div>例題</div>
+                \(\displaystyle\lim_{n\to\infty}\frac{(-1)^n}{n}=0\) を証明せよ。
+            </div>
+            <p></p>
+            <div class="article">
+                まず、任意の正の実数として、\(\varepsilon\) を定める。
+                <p></p>
+                この \(\varepsilon\) に対して、ある自然数 \(N\) を考えるので、\(N\) は \(\varepsilon\) の式になる。
+                <p></p>
+                \[
+                |a_n-\alpha|=\left|\frac{(-1)^n}{n}-0\right|=\left|\frac{(-1)^n}{n}\right|=\frac{1}{n}
+                \]
+                より、示したい式は
+                \[
+                n\ge N\Longrightarrow\frac{1}{n}\lt\varepsilon
+                \]
+                である。つまり \(n\ge N\) のとき
+                \[
+                |a_n-\alpha|=\frac{1}{n}\le\frac{1}{N}\cdots\cdots\cdots\lt\varepsilon
+                \]
+                と言えるように、\(N\) を決めればよい。
+                \(\displaystyle\frac{1}{N}\lt\varepsilon\Longleftrightarrow N\gt\frac{1}{\varepsilon}\) となるような \(N\) として
+                \[
+                N=\left[\frac{1}{\varepsilon}\right]+1
+                \]
+                が考えられる。
+                <p></p>
+                〈解答〉<br>
+                任意の \(\varepsilon\gt0\) に対して、自然数
+                \[
+                N=\left[\frac{1}{\varepsilon}\right]+1
+                \]
+                を取ると、\(n\ge N\) について
+                \[
+                \left|\frac{(-1)^n}{n}-0\right|=\left|\frac{(-1)^n}{n}\right|=\frac{1}{n}\le\frac{1}{N}\lt\varepsilon
+                \]
+                が成り立つ。したがって
+                \[
+                \lim_{n\to\infty}\frac{(-1)^n}{n}=0
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="2">数列の負の無限大への発散</h2>
+            <div class="def">
+                <div>定義（数列の負の無限大への発散）</div>
+                数列 \(\{a_n\}\) に対して
+                \[
+                \forall R\gt0,~\exists N\in\mathbb{N},~\forall n\in\mathbb{N}:(n\ge N\Longrightarrow a_n\lt -R)
+                \]
+                が成り立つとき、\(\{a_n\}\) は負の無限大に発散するといい
+                \[
+                \lim_{n\to\infty}a_n=-\infty
+                \]
+                と表す。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">数列の振動</h2>
+            
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
