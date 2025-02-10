@@ -342,7 +342,7 @@ details.pf {
         background-color: lightgray;
     }
     div {
-        padding: 5px;
+        padding: 10px;
         background-color: lightgray;
         border-top: 2px solid black;
         overflow-x: scroll;

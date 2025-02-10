@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>はさみうちの原理と追い出しの原理（数列）</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>はさみうちの原理と追い出しの原理（数列）</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">はさみうちの原理</h2>
+            <div class="th">
+                <div>定理（はさみうちの原理）</div>
+                数列 \(\{a_n\},~\{b_n\},~\{c_n\}\) に対して
+                \[
+                a_n\le c_n\le b_n
+                \]
+                かつ
+                \[
+                \lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha
+                \]
+                であるとき
+                \[
+                \lim_{n\to\infty}c_n=\alpha
+                \]
+                が成り立つ。
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \(a_n\le c_n\le b_n\) であるから
+                    \[
+                    a_n-\alpha\le c_n-\alpha\le b_n-\alpha~\cdots~\text{①}
+                    \]
+                    である。
+                    <p></p>
+                    \(\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha\) であるから、
+                    任意の \(\varepsilon\gt0\) に対し、それぞれある \(N_1,N_2\in\mathbb{N}\) が存在して
+                    \[
+                    n\ge N_1\Longrightarrow |a_n-\alpha|\lt\varepsilon,~~~~~n\ge N_2\Longrightarrow |b_n-\alpha|\lt\varepsilon
+                    \]
+                    となる。ここで、\(N=\max\{N_1,N_2\}\) とすると、\(n\ge N\) のとき
+                    \[
+                    |a_n-\alpha|\lt\varepsilon,~~~~~|b_n-\alpha|\lt\varepsilon
+                    \]
+                    がともに成り立つ。すなわち
+                    \[
+                    -\varepsilon\lt a_n-\alpha\lt\varepsilon~\cdots~\text{②},~~~~~-\varepsilon\lt b_n-\alpha\lt\varepsilon~\cdots~\text{③}
+                    \]
+                    ①、②、③より
+                    \[
+                    -\varepsilon\lt c_n-\alpha\lt\varepsilon
+                    \]
+                    となる。したがって
+                    \[
+                    n\ge N\Longrightarrow |c_n-\alpha|\lt\varepsilon
+                    \]
+                    より
+                    \[
+                    \lim_{n\to\infty}c_n=\alpha
+                    \]
+                </div>
+            </details>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
