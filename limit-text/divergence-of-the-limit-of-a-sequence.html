@@ -29,44 +29,41 @@
             <h3>例題を通して理解する</h3>
             <div class="ex">
                 <div>例題</div>
-                \(\displaystyle\lim_{n\to\infty}\frac{(-1)^n}{n}=0\) を証明せよ。
+                \(\displaystyle\lim_{n\to\infty}\sqrt{n}=\infty\) を証明せよ。
             </div>
             <p></p>
             <div class="article">
-                まず、任意の正の実数として、\(\varepsilon\) を定める。
+                まず、\(R\) を任意の正の実数とする。
                 <p></p>
-                この \(\varepsilon\) に対して、ある自然数 \(N\) を考えるので、\(N\) は \(\varepsilon\) の式になる。
+                この \(R\) に対して、ある自然数 \(N\) を考えるので、\(N\) は \(R\) の式になる。
                 <p></p>
+                示したい式は
                 \[
-                |a_n-\alpha|=\left|\frac{(-1)^n}{n}-0\right|=\left|\frac{(-1)^n}{n}\right|=\frac{1}{n}
-                \]
-                より、示したい式は
-                \[
-                n\ge N\Longrightarrow\frac{1}{n}\lt\varepsilon
+                n\ge N\Longrightarrow\sqrt{n}\gt R
                 \]
                 である。つまり \(n\ge N\) のとき
                 \[
-                |a_n-\alpha|=\frac{1}{n}\le\frac{1}{N}\cdots\cdots\cdots\lt\varepsilon
+                a_n=\sqrt{n}\ge\sqrt{N}\cdots\cdots\cdots\gt R
                 \]
                 と言えるように、\(N\) を決めればよい。
-                \(\displaystyle\frac{1}{N}\lt\varepsilon\Longleftrightarrow N\gt\frac{1}{\varepsilon}\) となるような \(N\) として
+                \(N\gt R^2\) となる自然数 \(N\) として
                 \[
-                N=\left[\frac{1}{\varepsilon}\right]+1
+                N=[R^2]+1
                 \]
                 が考えられる。
                 <p></p>
                 〈解答〉<br>
-                任意の \(\varepsilon\gt0\) に対して、自然数
+                任意の \(R\gt0\) に対して、自然数
                 \[
-                N=\left[\frac{1}{\varepsilon}\right]+1
+                N=[R^2]+1
                 \]
                 を取ると、\(n\ge N\) について
                 \[
-                \left|\frac{(-1)^n}{n}-0\right|=\left|\frac{(-1)^n}{n}\right|=\frac{1}{n}\le\frac{1}{N}\lt\varepsilon
+                \sqrt{n}\ge\sqrt{N}=\sqrt{[R^2]+1}\gt R
                 \]
                 が成り立つ。したがって
                 \[
-                \lim_{n\to\infty}\frac{(-1)^n}{n}=0
+                \lim_{n\to\infty}\sqrt{n}=\infty
                 \]
             </div>
             <p class="space"></p>
@@ -84,8 +81,66 @@
                 と表す。
             </div>
             <p class="space"></p>
+            <h3>例題を通して理解する</h3>
+            <div class="ex">
+                <div>例題</div>
+                \(\displaystyle\lim_{n\to\infty}(-n^3)=-\infty\) を証明せよ。
+            </div>
+            <p></p>
+            <div class="article">
+                まず、\(R\) を任意の正の実数とする。
+                <p></p>
+                この \(R\) に対して、ある自然数 \(N\) を考えるので、\(N\) は \(R\) の式になる。
+                <p></p>
+                示したい式は
+                \[
+                n\ge N\Longrightarrow -n^3\lt -R
+                \]
+                である。つまり \(n\ge N\) のとき
+                \[
+                a_n=-n^3\le -N^3\cdots\cdots\cdots\lt -R
+                \]
+                と言えるように、\(N\) を決めればよい。
+                \(N\gt \sqrt[3]{R}\) となる自然数 \(N\) として
+                \[
+                N=\left[\sqrt[3]{R}\right]+1
+                \]
+                が考えられる。
+                <p></p>
+                〈解答〉<br>
+                任意の \(R\gt0\) に対して、自然数
+                \[
+                N=\left[\sqrt[3]{R}\right]+1
+                \]
+                を取ると、\(n\ge N\) について
+                \[
+                -n^3\le -N^3=-\left(\left[\sqrt[3]{R}\right]+1\right)^3\lt-\left(\sqrt[3]{R}\right)^3=-R
+                \]
+                が成り立つ。したがって
+                \[
+                \lim_{n\to\infty}(-n^3)=-\infty
+                \]
+            </div>
+            <p class="space"></p>
             <h2 id="3">数列の振動</h2>
-            
+            <div class="def">
+                <div>定義（数列の振動）</div>
+                数列 \(\{a_n\}\) が収束せず、正の無限大のも負の無限大にも発散しないとき、\(\{a_n\}\) は振動するという。
+            </div>
+            <p class="space"></p>
+            <h3>例題を通して理解する</h3>
+            <div class="ex">
+                <div>例題</div>
+                数列 \(a_n=(-2)^n\) は振動することを証明せよ。
+            </div>
+            <p></p>
+            <div class="article">
+                数列が振動することを示すには、
+                <p></p>
+                収束しない、正の無限大に発散しない、負の無限大に発散しない
+                <p></p>
+                この３つを示せばよい。
+            </div>
             <p class="space"></p>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
