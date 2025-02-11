@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>離散型確率分布</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>     
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>離散型確率分布</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">離散型確率変数の定義</h2>
+            <div class="def">
+                確率変数 \(X:\Omega\to\mathbb{R}\) が取り得る値が可算個である、すなわち \(X\) の値域
+                \[
+                X(\Omega)=\{X(\omega)\in\mathbb{R}~|~\omega\in\Omega\}
+                \]
+                が可算集合であるとき、\(X\) を離散型確率変数という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">確率質量関数</h2>
+            <div class="def">
+                <div>定義（確率質量関数）</div>
+                離散型確率変数 \(X\) に対して
+                \[
+                f(x)=P(X=x)
+                \]
+                を値として定める関数 \(f\) を \(X\) の確率質量関数という。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">累積分布関数</h2>
+            <div class="th">
+                <div>定義（離散型確率変数の累積分布関数）</div>
+                離散型確率変数 \(X\) の確率密度関数を \(f\) とするとき
+                \[
+                F(x)=P(X\le x)=\sum_{i\le x}P(X=i)
+                \]
+                で定義される関数 \(F:\mathbb{R}\to\mathbb{R}\) を \(X\) の累積分布関数という。
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
