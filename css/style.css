@@ -366,6 +366,17 @@ details.pf {
         font-weight: bold;
         margin-bottom: 5px;
     }
+    ol {
+        padding-left: 0;
+        li {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+        li:before {
+            content: "(" counter(list-item) ")";
+            padding-right: 10px;
+        }
+    }
 }
         
 details.ans {
@@ -380,6 +391,24 @@ details.ans {
         border-top: 2px solid black;
         overflow-x: scroll;
         overflow-y: hidden;
+        ol {
+            padding-left: 0;
+            li {
+                list-style-type: none;
+                margin-bottom: 15px;
+                position: relative; /* 番号を絶対配置するための基準 */
+                padding-left: 30px; /* 番号分のスペースを確保 */
+            }
+            li:before {
+                content: "(" counter(list-item) ")";
+                padding-right: 10px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 25px; /* 番号の幅を固定 */
+                text-align: right; /* 番号を右寄せ */
+            }
+        }
     }
 }
 
@@ -429,19 +458,6 @@ table {
     padding-left: 2vw;
     li {
         margin: 2vw 0 0 0;
-    }
-}
-
-.problem-number {
-    li {
-        position: relative;
-        list-style-type: none;
-        margin: 1vw 0;
-    }
-    li:before {
-        position: absolute;
-        right: calc(100% + 0.5rem);
-        content: "(" counter(list-item) ")"
     }
 }
 

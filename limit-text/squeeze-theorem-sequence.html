@@ -17,7 +17,7 @@
                 <div>定理（はさみうちの原理）</div>
                 数列 \(\{a_n\},~\{b_n\},~\{c_n\}\) に対して
                 \[
-                a_n\le c_n\le b_n\land\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha
+                (\forall n\in\mathbb{N}:a_n\le c_n\le b_n)\land\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha
                 \]
                 であるとき
                 \[
@@ -67,7 +67,11 @@
                 <div>定理（追い出しの原理）</div>
                 数列 \(\{a_n\},~\{b_n\}\) に対して
                 \[
-                \left(\forall n\in\mathbb{N},~a_n\le b_n\land\lim_{n\to\infty}a_n=\infty\right)\Longrightarrow\lim_{n\to\infty}b_n=\infty
+                (\forall n\in\mathbb{N}:a_n\le b_n)\land\lim_{n\to\infty}a_n=\infty
+                \]
+                であるとき
+                \[
+                \lim_{n\to\infty}b_n=\infty
                 \]
                 が成り立つ。
             </div>
@@ -93,12 +97,49 @@
             <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>問題</div>
-                
+                <ol>
+                    <li>\(\displaystyle\lim_{n\to\infty}\frac{\sin(n\pi)}{n^2+1}\)</li>
+                    <li>\(\displaystyle\lim_{n\to\infty}\frac{[2^n]}{2^n}\)</li>
+                    <li>\(\displaystyle\lim_{n\to\infty}\frac{2^n}{n^2}\)</li>
+                </ol>
             </div>
             <details class="ans">
                 <summary>解答</summary>
                 <div>
-
+                    <ol>
+                        <li>
+                            \(-1\le\sin(n\pi)\le1\) より
+                            <p></p>
+                            \[
+                            -\frac{1}{n^2+1}\le\frac{\sin(n\pi)}{n^2+1}\le\frac{1}{n^2+1}
+                            \]
+                            ここで
+                            \[
+                            \lim_{n\to\infty}\left(-\frac{1}{n^2+1}\right)=0,~~~~~\lim_{n\to\infty}\frac{1}{n^2+1}=0
+                            \]
+                            であるから
+                            \[
+                            \lim_{n\to\infty}\frac{\sin(n\pi)}{n^2+1}=0
+                            \]
+                        </li>
+                        <li>
+                            \([2^n]\le2^n\lt[2^n]+1\Longleftrightarrow2^n-1\lt[2^n]\le2^n\) より
+                            \[
+                            1-\frac{1}{2^n}\lt\frac{[2^n]}{2^n}\le1
+                            \]
+                            ここで
+                            \[
+                            \lim_{n\to\infty}\left(1-\frac{1}{2^n}\right)=1
+                            \]
+                            であるから
+                            \[
+                            \lim_{n\to\infty}\frac{[2^n]}{2^n}=1
+                            \]
+                        </li>
+                        <li>
+                            
+                        </li>
+                    </ol>
                 </div>
             </details>
         </main>
