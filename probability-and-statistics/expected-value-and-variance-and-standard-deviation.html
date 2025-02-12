@@ -12,7 +12,7 @@
         <main id="contents">
             <h1>期待値・分散・標準偏差</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">期待値の定義と性質</h2>
+            <h2 id="1">期待値</h2>
             <div class="article">
                 今回は確率変数がおおよそどのくらいの値をとるのかを示す指標、期待値について見ていく。
             </div>
@@ -47,6 +47,38 @@
                 \]
                 と定める。
             </div>
+            <p></p>
+            <div class="th">
+                <div>定理（期待値の性質）</div>
+                確率変数 \(X\) と \(a,b\in\mathbb{R}\) について
+                \[
+                E[aX+b]=aE[X]+b
+                \]
+                が成り立つ。
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \(X\) が離散型確率変数のとき、\(X\) の確率質量関数を \(f\) とすると
+                    \[
+                    \begin{align}
+                    E[aX+b]&=\sum_{x\in X(\Omega)}(ax+b)f(x)\\
+                    &=\sum_{x\in X(\Omega)}(axf(x)+bf(x))\\
+                    &=a\sum_{x\in X(\Omega)}xf(x)+b\sum_{x\in X(\Omega)}f(x)\\
+                    &=aE[X]+b
+                    \end{align}
+                    \]
+                    \(X\) が連続型確率変数のとき、\(X\) の確率密度関数を \(f\) とすると
+                    \[
+                    \begin{align}
+                    E[aX+b]&=\int_{-\infty}^\infty(ax+b)f(x)dx\\
+                    &=\int_{-\infty}^\infty(axf(x)+bf(x))dx\\
+                    &=a\int_{-\infty}^\infty xf(x)dx+b\int_{-\infty}^\infty f(x)dx\\
+                    &=aE[X]+b
+                    \end{align}
+                    \]
+                </div>
+            </details>
             <p class="space"></p>
             <h2 id="2">分散と標準偏差</h2>
             <div class="def">
