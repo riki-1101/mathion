@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>同時確率分布</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>同時確率分布</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">同時確率変数</h2>
+            <div class="def">
+                <div>定義（同時確率変数）</div>
+                ２つの確率変数
+                \(X:\Omega\to\mathbb{R},~~Y:\Omega\to\mathbb{R}\) に対して
+                \[
+                (X,Y):\Omega\to\mathbb{R}^2
+                \]
+                を \(X,Y\) の同時確率変数という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">離散型同時確率分布</h2>
+            <div class="def">
+                <div>定義（離散型確率変数の同時確率質量関数）</div>
+                離散型確率変数 \(X,Y\) に対して
+                \[
+                f(x,y)=
+                \begin{cases}
+                P(X=x,~Y=y) & (\mathrm{if}~(x,y)\in(X,Y)(\Omega))\\
+                0 & (\mathrm{otherwise})
+                \end{cases}
+                \]
+                を値として定める関数 \(f:\mathbb{R}^2\to\mathbb{R}\) を \(X,Y\) の同時確率質量関数という。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">連続型同時確率分布</h2>
+            <div class="def">
+                <div>定義（連続型確率変数の同時確率密度関数）</div>
+                関数 \(f:\mathbb{R}^2\to\mathbb{R}\) が
+                <ol>
+                    <li>\(\forall (x,y)\in\mathbb{R}^2:f(x,y)\ge0\)</li>
+                    <li>\(\displaystyle\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy=1\)</li>
+                </ol>
+                を満たすとする。この \(f\) が連続型確率変数 \(X,Y\) に対して
+                \[
+                \forall D\in\mathbb{R}^2:P((X,Y)\in D)=\iint_D f(x,y)dxdy
+                \]
+                が成り立つとき、\(f\) を \(X,Y\) の同時確率密度関数という。
+            </div>
+            <p></p>
+            <div class="article">
+                すなわち、\(a\le X\le b,~c\le Y\le d\) となる確率は同時確率密度関数 \(f\) によって
+                \[
+                P(a\le X\le b,~c\le Y\le d)=\int_c^d\int_a^b f(x,y)dxdy
+                \]
+                と求められる。
+            </div>
+            <p class="space"></p>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

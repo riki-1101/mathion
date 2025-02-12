@@ -309,9 +309,14 @@ footer {
         margin-bottom: 5px;
     }
     ol {
-        padding-left: 25px;
+        padding-left: 0;
         li {
-            margin: 10px 0;
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+        li:before {
+            content: "(" counter(list-item) ")";
+            padding-right: 10px;
         }
     }
 }

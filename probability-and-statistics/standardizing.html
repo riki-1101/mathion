@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>確率変数の標準化</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>確率変数の標準化</h1>
+            <div class="def">
+                <div>定義（確率変数の標準化）</div>
+                <p></p>
+                確率変数 \(X\) に対して
+                \[
+                Z=\frac{X-\mu}{\sigma}
+                \]
+                とする。\(X\) から \(Z\) への変形を標準化といい、\(Z\) を基準化変量という。
+            </div>
+            <p></p>
+            \[
+            E[Z]=E\left[\frac{X-\mu}{\sigma}\right]=\frac{1}{\sigma}E[X]-\frac{\mu}{\sigma}=\frac{1}{\sigma}\cdot\mu-\frac{\mu}{\sigma}=0
+            \]
+            \[
+            V[Z]=V\left[\frac{X-\mu}{\sigma}\right]=\frac{1}{\sigma^2}V[X]=\frac{1}{\sigma^2}\cdot\sigma^2=1
+            \]
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
