@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>周辺確率分布と確率変数の独立性</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>周辺確率分布と確率変数の独立性</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">離散型同時確率変数の周辺分布</h2>
+            <div class="def">
+                <div>定義（離散型確率変数の周辺確率質量関数）</div>
+                離散型同時確率変数 \((X,Y)\) に対して
+                \[
+                f_X(x)=\sum_{j=1}^\infty f(x,y_j)
+                \]
+                を値として定める関数 \(f_X:\mathbb{R}\to\mathbb{R}\) を \(X\) の周辺確率質量関数という。同様にして
+                \[
+                f_Y(y)=\sum_{i=1}^\infty f(x_i,y)
+                \]
+                を値として定める関数 \(f_Y:\mathbb{R}\to\mathbb{R}\) を \(Y\) の周辺確率質量関数という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">連続型同時確率変数の周辺分布</h2>
+            <div class="def">
+                <div>定義（連続型確率変数の周辺確率密度関数）</div>
+                連続型同時確率変数 \((X,Y)\) に対して
+                \[
+                f_X(x)=\int_{-\infty}^\infty f(x,y)dy
+                \]
+                を値として定める関数 \(f_X:\mathbb{R}\to\mathbb{R}\) を \(X\) の周辺確率密度関数という。同様にして
+                \[
+                f_Y(y)=\int_{-\infty}^\infty f(x,y)dx
+                \]
+                を値として定める関数 \(f_Y:\mathbb{R}\to\mathbb{R}\) を \(Y\) の周辺確率密度関数という。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">確率変数の独立性</h2>
+            <div class="def">
+                <div>定義（確率変数の独立性）</div>
+                \(X,Y\) の同時確率質量（密度）関数 \(f\) と \(X,Y\) 周辺確率質量（密度）関数 \(f_X,f_Y\) が
+                \[
+                f(x,y)=f_X(x)f_Y(y)
+                \]
+                を満たすとき、確率変数 \(X,Y\) は独立であるという。
+            </div>
+            <p class="space"></p>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
