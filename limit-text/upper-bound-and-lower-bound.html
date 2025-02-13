@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>上界・下界</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>上界・下界</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">上界と下界</h2>
+            <div class="def">
+                <div>定義（上に有界・下に有界・上界・下界）</div>
+                \(A\subset\mathbb{R}\) を空でない集合とする。
+                <p></p>
+                \(A\) が上に有界であるとは
+                \[
+                \exists M\in\mathbb{R}, \forall x\in A:x\le M
+                \]
+                が成り立つことをいう。このとき \(M\) を \(A\) の上界という。
+                <p></p>
+                \(A\) が下に有界であるとは
+                \[
+                \exists m\in\mathbb{R}, \forall x\in A:m\le x
+                \]
+                が成り立つことをいう。このとき \(m\) を \(A\) の下界という。
+                <p></p>
+                また、\(A\) が上に有界かつ下に有界である、すなわち
+                \[
+                \exists m,M\in\mathbb{R}, \forall x\in A:m\le x\le M
+                \]
+                が成り立つとき、\(A\) は有界であるという。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                次の集合は上に有界または下に有界かを答えよ。有界である場合は有界と答えよ。
+                <ol>
+                    <li>\(A=(-\infty,5]\)</li>
+                    <li>\(B=[-2,8]\)</li>
+                    <li>\(C=[7,\infty)\)</li>
+                    <li>\(\mathbb{Z}\)</li>
+                </ol>
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    <ol>
+                        <li>\(A\) は上に有界である。</li>
+                        <li>\(B\) は有界である。</li>
+                        <li>\(C\) は下に有界である。</li>
+                        <li>\(\mathbb{Z}\) は上にも下にも有界でない。</li>
+                    </ol>
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
