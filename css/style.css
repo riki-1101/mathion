@@ -492,3 +492,33 @@ table {
 .answer {
     padding-top: 5px;
 }
+
+
+
+
+.btn-read-more {
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #666;
+    width: 300px;
+    max-width: 90%;
+    margin: 30px auto;
+    a {
+        color: black;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+}
+.btn-read-more::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 0.5px;
+    background: #666;
+    rotate: 40deg;
+    position: absolute;
+    right: -3px;
+    bottom: 9px;
+}

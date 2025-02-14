@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>二項分布</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>二項分布</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">ベルヌーイ試行</h2>
+            <div class="article">
+                試行の結果が成功または失敗の２通りしかなく、各試行は独立であり、
+                成功の確率を \(p~(0\lt p\lt 1)\) とすると、失敗の確率は \(1-p\) で、これらの確率が一定であるような試行を
+                ベルヌーイ試行という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">反復試行の確率</h2>
+            <div class="article">
+                表が出る確率が \(p\) であるコインを３回投げる。
+                <p></p>
+                これは「成功確率が \(p\) のベルヌーイ試行を３回繰り返す」といえる。
+                <p></p>
+                １回目に表、２回目に表、３回目に裏が出る確率は
+                \[
+                p\times p\times(1-p)=p^2(1-p)
+                \]
+                である。では
+                <p></p>
+                表が２回、裏が１回出る確率はいくつであるか。これは \(p^2(1-p)\) ではない。なぜなら
+                <p></p>
+                ・１回目に表、２回目に表、３回目に裏が出る
+                <p></p>
+                ・１回目に表、２回目に裏、３回目に表が出る
+                <p></p>
+                ・１回目に裏、２回目に表、３回目に表が出る
+                <p></p>
+                これらの３通りが存在するからである。つまり求める確率は
+                \[
+                p^2(1-p)\times3
+                \]
+                となる。
+                <p></p>
+                次に、試行回数を \(n\) 回とし、表が \(k\) 回出る確率を考える。
+                <p></p>
+                表が \(k\) 回出る場合は \(_{n}\mathrm{C}_k\) 通り存在する。
+                <p></p>
+                \[
+                _{n}\mathrm{C}_kp^k(1-p)^{n-k}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="3">二項分布の定義と性質</h2>
+            <div class="def">
+                <div>定義（二項分布）</div>
+                成功確率が \(p\) のベルヌーイ試行を \(n\) 回行い、その成功回数を \(X\) とする。
+                このとき、\(X\) の確率質量関数 \(f\) は
+                \[
+                f(x)=
+                \begin{cases}
+                \displaystyle{_{n}\mathrm{C}_x}p^x(1-p)^{n-x} & (\mathrm{if}~ x=0,1,2,\cdots,n)\\
+                0 & (\mathrm{otherwise})
+                \end{cases}
+                \]
+                と表され、\(X\) は試行パラメータ \(n\) と成功パラメータ \(p\) の二項分布に従うといい、
+                \[
+                X\sim B(n,p)
+                \]
+                と表す。
+            </div>
+            <p></p>
+            <div class="th">
+                <div>定理（二項分布の期待値と分散）</div>
+                \(X\sim B(n,p)\) のとき
+                \[
+                E[X]=np,~~~V[X]=np(1-p)
+                \]
+            </div>
+            <p></p>
+            <div class="pf">
+                証明
+                \[
+                E[X]=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>例題</div>
+                A,B,C,Dの文字が書かれた4枚のカードの中から無作為に1枚のカードを取り出し、元に戻す操作を128回繰り返したとき、Aのカードを引く回数を \(X\) とする。
+                このときの \(X\) の期待値と分散を求めよ。
+            </div>
+            <p></p>
+            <div class="ans">
+                <div>解答</div>
+                1回の試行の成功確率（A,B,C,Dの文字が書かれた4枚のカードの中からAのカードを引く確率）は \(\displaystyle\frac{1}{4}\) であるから、
+                \(X=k\) となる確率は
+                \[
+                P(X=k)=\binom{128}{k}\left(\frac{1}{4}\right)^k\left(\frac{3}{4}\right)^{128-k}~~~(k=0,1,\cdots,128)
+                \]
+                したがって、\(\displaystyle X\sim Bin\left(128,\frac{1}{4}\right)\) であるから
+                \[
+                E[X]=128\cdot\frac{1}{4}=32
+                \]
+                \[
+                V[X]=128\cdot\frac{1}{4}\cdot\frac{3}{4}=24
+                \]
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
