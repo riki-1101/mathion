@@ -4,45 +4,67 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
-        <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
             <h1>有理関数の積分</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">有理関数の積分の基本公式</h2>
+            <div class="th">
+                <div>定理（有理関数の積分の基本公式）</div>
+                <ol>
+                    <li>\(\displaystyle\int x^ndx=\frac{1}{n+1}x^{n+1}+C~~~(n\in\mathbb{Z}_{\ge0})\)</li>
+                    <li>\(\displaystyle\int\frac{1}{x}dx=\log|x|+C\)</li>
+                    <li>\(\displaystyle\int\frac{1}{1+x^2}dx=\arctan x+C\)</li>
+                </ol>
+            </div>
+            <p class="space"></p>
+            <h2 id="2">有理関数の積分の計算手順</h2>
             有理関数の積分は以下の手順で求めることができる。
+            <p></p>
             <h3>１．真分数化</h3>
-            \(A(x),~B(x)\) を多項式とし、\(\deg A(x)\ge \deg B(x)\) とする。
+            <div class="article">
+                \(A(x),~B(x)\) を多項式とし、\(\deg A(x)\ge \deg B(x)\) とする。
+                <p></p>
+                \(A(x)\) を \(B(x)\) で割った商を \(Q(x)\) 、余りを \(R(x)\) とすると
+                \[
+                \begin{align}
+                \int\frac{A(x)}{B(x)}dx
+                &=\int\frac{B(x)Q(x)+R(x)}{B(x)}dx\\
+                &=\int Q(x)dx+\int\frac{R(x)}{B(x)}dx
+                \end{align}
+                \]
+                このとき、\(Q(x)\) は多項式であるから \(\displaystyle\int Q(x)dx\) は計算できる。
+            </div>
             <p></p>
-            \(A(x)\) を \(B(x)\) で割った商を \(Q(x)\) 、余りを \(R(x)\) とすると
-            \[
-            \begin{align}
-            \int\frac{A(x)}{B(x)}dx
-            &=\int\frac{B(x)Q(x)+R(x)}{B(x)}dx\\
-            &=\int Q(x)dx+\int\frac{R(x)}{B(x)}dx
-            \end{align}
-            \]
-            このとき、\(Q(x)\) は多項式であるから \(\displaystyle\int Q(x)dx\) は計算できる。
             <h3>２．微分形接触</h3>
-            \(R(x)=kB'(x)+C(x)~~(k\in\mathbb{R})\) と表せるとき
-            \[
-            \begin{align}
-            \int\frac{R(x)}{B(x)}dx
-            &=k\int\frac{B'(x)}{B(x)}dx+\int\frac{C(x)}{B(x)}dx\\
-            &=k\log|B(x)|+\int\frac{C(x)}{B(x)}dx
-            \end{align}
-            \]
+            <div class="article">
+                \(R(x)=kB'(x)+C(x)~~(k\in\mathbb{R})\) と表せるとき
+                \[
+                \begin{align}
+                \int\frac{R(x)}{B(x)}dx
+                &=k\int\frac{B'(x)}{B(x)}dx+\int\frac{C(x)}{B(x)}dx\\
+                &=k\log|B(x)|+\int\frac{C(x)}{B(x)}dx
+                \end{align}
+                \]
+            </div>
+            <p></p>
             <h3>３．部分分数分解</h3>
-            \(\displaystyle\frac{C(x)}{B(x)}\) は真分数式である。
+            <div class="article">
+                \(\displaystyle\frac{C(x)}{B(x)}\) は真分数式である。
+                <p></p>
+                任意の真分数式は \(a,p,q,l,m,\alpha,\beta,\gamma\in\mathbb{R}\) として
+                \[
+                \frac{\alpha}{(x-a)^l},~~\frac{\beta x+\gamma}{(x^2+px+q)^m}~~(p^2-4q\lt0)
+                \]
+                の和で表せることが知られている。
+                <p></p>
+                \(\displaystyle\int\frac{C(x)}{B(x)}dx\) は \(\displaystyle\frac{C(x)}{B(x)}\) を部分分数分解することで計算できる。
+                </div>
             <p></p>
-            任意の真分数式は \(a,p,q,l,m,\alpha,\beta,\gamma\in\mathbb{R}\) として
-            \[
-            \frac{\alpha}{(x-a)^l},~~\frac{\beta x+\gamma}{(x^2+px+q)^m}~~(p^2-4q\lt0)
-            \]
-            の和で表せることが知られている。
-            <p></p>
-            \(\displaystyle\int\frac{C(x)}{B(x)}dx\) は \(\displaystyle\frac{C(x)}{B(x)}\) を部分分数分解することで計算できる。
+            <div></div>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>

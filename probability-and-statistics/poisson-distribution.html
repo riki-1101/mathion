@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ポアソン分布</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ポアソン分布</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">二項分布の近似</h2>
+            <div class="article">
+                \(X\sim B(n,p)\) のとき
+                \[
+                P(X=k)={_n\mathrm{C}_k}p^k(1-p)^{n-k}
+                \]
+                である。
+            </div>
+            <div class="ex">
+                <div>問題</div>
+                ある工場では、1日あたり10万個の製品を生産しており、1つの製品が不良品となる確率は0.001%である。1日に不良品がちょうど10個発生する確率を求めよ。
+            </div>
+            <div class="article">
+                1日に発生する不良品の個数を \(X\) とすると、求める確率は
+                \[
+                P(X=10)={_{100000}\mathrm{C}_{10}}\left(\frac{1}{100000}\right)^{10}\left(\frac{99990}{100000}\right)^{99990}
+                \]
+                となる。しかし、これを直接計算するのは現実的ではない。
+            </div>
+            <div class="article">
+                ここで \(n\) が非常に大きく、\(p\) が非常に小さい場合、二項分布を近似することを考える。
+                <p></p>
+                \(np=\lambda\) として \(n\to\infty\) とする極限を考えると
+                \[
+                \begin{align}
+                \lim_{n\to\infty}P(X=k)
+                &=\lim_{n\to\infty}\binom{n}{k}p^x(1-p)^{n-k}\\
+                &=\lim_{n\to\infty}\frac{n!}{(n-k)!k!}\left(\frac{\lambda}{n}\right)^x\left(1-\frac{\lambda}{n}\right)^{n-k}\\
+                &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\cdot\frac{n(n-1)\cdots(n-k+1)}{n^k}\left(1-\frac{\lambda}{n}\right)^n\left(1-\frac{\lambda}{n}\right)^{n-k}\\
+                &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{k-1}{n}\right)\left\{\left(1-\frac{\lambda}{n}\right)^{-\frac{n}{\lambda}}\right\}^{-\lambda}\left(1-\frac{\lambda}{n}\right)^{n-k}\\
+                &=\frac{\lambda^k}{k!}e^{-\lambda}
+                \end{align}
+                \]
+                このことから、二項分布の近似として次のような分布を定義する。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（ポアソン分布）</div>
+                    離散型確率変数 \(X\) の確率質量関数 \(f(x)\) が \(\lambda\gt0\) として
+                    \[
+                    f(x)=
+                    \begin{cases}
+                    \displaystyle\frac{\lambda^x}{x!}e^{-\lambda} & (\mathrm{if}~x\in\mathbb{Z}_{\ge0})\\
+                    0 & (\mathrm{otherwise})
+                    \end{cases}
+                    \]
+                    と表されるとき、\(X\) はパラメータ \(\lambda\) のポアソン分布に従うといい
+                    \[
+                    X\sim Po(\lambda)
+                    \]
+                    と表す。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">ポアソン分布の期待値と分散</h2>
+            <div class="th">
+                <div>定理（ポアソン分布の期待値と分散）</div>
+                \(X\sim Po(\lambda)\) のとき
+                \[
+                E[X]=\lambda,~~~V[X]=\lambda
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題１</div>
+                1%の確率で当たりが出るくじがある。このくじに100回挑戦するとき、当たりが少なくとも1回出る確率を求めよ。また、ポアソン分布での近似を使った確率を求めよ。ただし、引いたくじはもとに戻すものとする。
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    当たりが出る回数を \(X\) とすると、\(X\sim Bin(100,0.01)\) であるから、求める確率は
+                    \[
+                    \begin{align}
+                    P(X\ge1)&=1-P(X\lt1)\\
+                    &=1-P(X=0)\\
+                    &=1-{_{100}\mathrm{C}_0}\cdot0.01^0\cdot(1-0.01)^{100}\\
+                    &=1-0.99^{100}\\
+                    &=1-0.366\\
+                    &=0.634
+                    \end{align}
+                    \]
+                    <p></p>
+                    ポアソン分布での近似を使うとき、\(\lambda=100\cdot0.01=1\) より、\(X\sim Po(1)\) であるから
+                    \[
+                    P(X\ge1)=1-\frac{1^0}{0!}e^{-1}=1-\frac{1}{e}=1-0.369=0.631
+                    \]
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
