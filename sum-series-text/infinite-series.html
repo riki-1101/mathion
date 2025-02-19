@@ -1,0 +1,43 @@
+<html lang="ja">
+    <head>
+        <title>無限級数の定義</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>無限級数の定義</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">無限級数の定義</h2>
+            <div class="def">
+                <div>定義（無限級数）</div>
+                数列 \(\{a_n\}\) について、極限
+                \[
+                \lim_{N\to\infty}\sum_{n=1}^Na_n
+                \]
+                が存在するとき、これを
+                \[
+                \sum_{n=1}^\infty a_n
+                \]
+                と書き、\(\{a_n\}\) の項の無限級数という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2"></h2>
+            <div class="th">
+                <div>定理（無限級数の性質）</div>
+                級数 \(\displaystyle\sum_{n=1}^\infty a_n,~\sum_{n=1}^\infty b_n\) がともに収束するとき、\(p,q\in\mathbb{R}\) とすると
+                \[
+                \sum_{n=1}^\infty (pa_n+qb_n)=p\sum_{n=1}^\infty a_n+q\sum_{n=1}^\infty b_n
+                \]
+                が成り立つ。
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

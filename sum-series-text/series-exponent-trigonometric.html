@@ -1,0 +1,48 @@
+<html lang="ja">
+    <head>
+        <title>指数×三角関数の級数</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>指数×三角関数の級数</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">今回の内容の説明</h2>
+            <div class="article">
+                \[
+                \sum_{n=0}^\infty r^n\cos n\theta,~~~~~\sum_{n=0}^\infty r^n\sin n\theta
+                \]
+            </div>
+            <h2 id="2">計算方法</h2>
+            <div class="article">
+                三角関数はオイラーの公式により、指数関数に変換できることを利用する。
+                \[
+                \sum_{n=0}^\infty r^ne^{in\theta}=\sum_{n=0}^\infty \left(re^{i\theta}\right)^n
+                \]
+                ここで
+                \[
+                \left|re^{i\theta}\right|=|r|
+                \]
+                より、\(|r|\lt1\) のとき収束し
+                \[
+                \sum_{n=0}^\infty r^ne^{in\theta}=\sum_{n=0}^\infty \left(re^{i\theta}\right)^n=\frac{1}{1-re^{i\theta}}=\frac{1-re^{-i\theta}}{1-2r\cos\theta+r^2}
+                \]
+                したがって
+                \[
+                \sum_{n=0}^\infty r^n\cos n\theta=\frac{1-r\cos\theta}{1-2r\cos\theta+r^2}
+                \]
+                \[
+                \sum_{n=0}^\infty r^n\sin n\theta=\frac{1+r\sin\theta}{1-2r\cos\theta+r^2}
+                \]
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
