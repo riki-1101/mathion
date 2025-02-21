@@ -4,23 +4,15 @@
         <title>定積分</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
             <h1>定積分</h1>
-            <div id="table-of-contents">
-                <div>目次</div>
-                <ol>
-                    <li><a href="#1">リーマン積分の定義</a></li>
-                    <li><a href="#2">リーマン積分可能性</a></li>
-                    <li><a href="#ex">演習問題</a></li>
-                </ol>
-            </div>
-            <h2><a id="1">リーマン積分の定義</a></h2>
+            <div id="table-of-contents"></div>
+            <h2 id="1">リーマン積分の定義</h2>
             <div class="def">
                 <div>定義（リーマン積分）</div>
                 \(f:[a,b]\to\mathbb{R}\) を有界な関数とする。次のように区間 \([a,b]\) を \(n\) 個の区間に分割する。
@@ -46,7 +38,7 @@
                 と書き、これを \(f\) の \([a,b]\) 間の定積分という。
             </div>
             <p class="space"></p>
-            <h2><a id="2">リーマン積分可能性</a></h2>
+            <h2 id="2">リーマン積分可能性</h2>
             <div class="th">
                 <div>定理（単調関数のリーマン積分可能性）</div>
                 \(f:[a,b]\to\mathbb{R}\) が \([a,b]\) 上で単調であるとき、\(f\) は \([a,b]\) 上でリーマン積分可能である。
@@ -69,7 +61,7 @@
                 </div>
             </details>
             <p class="space"></p>
-            <h2><a id="ex">演習問題</a></h2>
+            <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>問題</div>
                 \(\displaystyle\int_{0}^{1}x^2dx\) を求めよ。
@@ -112,8 +104,8 @@
             </details>
         </main>
         <footer id="footer"></footer>
-        <script src="js/header.js"></script>
-        <script src="js/footer.js"></script>
-        <script src="js/script.js"></script>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
     </body>
 </html>
