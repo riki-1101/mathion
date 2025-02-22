@@ -5,47 +5,50 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
             <h1>ポアソン分布</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">二項分布の近似</h2>
+            <h2 id="1">ポアソン分布の定義</h2>
             <div class="article">
-                \(X\sim B(n,p)\) のとき
+                まず、次の問題を考える。
+            </div>
+            <p></p>
+            <div class="ex">
+                <div>問題</div>
+                ある工場では、1日に1万個の製品を生産しており、1つの製品が不良品となる確率は0.001%である。1日に不良品が10個発生する確率を求めよ。
+            </div>
+            <p></p>
+            <div class="article">
+                1日に発生する不良品の個数を \(X\) とすると
+                \[
+                X\sim B\left(10000,\frac{1}{1000}\right)
+                \]
+                であり、求める確率は
+                \[
+                P(X=10)={_{10000}\mathrm{C}_{10}}\left(\frac{1}{10000}\right)^{10}\left(\frac{9990}{10000}\right)^{9990}
+                \]
+                となる。しかし、これを直接計算するのは現実的ではない。このように \(n\) が大きく、\(p\) が小さい場合、二項分布は扱いにくい。
+                <p></p>
+                二項分布の確率関数
                 \[
                 P(X=k)={_n\mathrm{C}_k}p^k(1-p)^{n-k}
                 \]
-                である。
-            </div>
-            <div class="ex">
-                <div>問題</div>
-                ある工場では、1日あたり10万個の製品を生産しており、1つの製品が不良品となる確率は0.001%である。1日に不良品がちょうど10個発生する確率を求めよ。
-            </div>
-            <div class="article">
-                1日に発生する不良品の個数を \(X\) とすると、求める確率は
-                \[
-                P(X=10)={_{100000}\mathrm{C}_{10}}\left(\frac{1}{100000}\right)^{10}\left(\frac{99990}{100000}\right)^{99990}
-                \]
-                となる。しかし、これを直接計算するのは現実的ではない。
-            </div>
-            <div class="article">
-                ここで \(n\) が非常に大きく、\(p\) が非常に小さい場合、二項分布を近似することを考える。
-                <p></p>
-                \(np=\lambda\) として \(n\to\infty\) とする極限を考えると
+                において \(np=\lambda\) として \(n\to\infty\) とする極限を考えると
                 \[
                 \begin{align}
-                \lim_{n\to\infty}P(X=k)
-                &=\lim_{n\to\infty}\binom{n}{k}p^x(1-p)^{n-k}\\
-                &=\lim_{n\to\infty}\frac{n!}{(n-k)!k!}\left(\frac{\lambda}{n}\right)^x\left(1-\frac{\lambda}{n}\right)^{n-k}\\
-                &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\cdot\frac{n(n-1)\cdots(n-k+1)}{n^k}\left(1-\frac{\lambda}{n}\right)^n\left(1-\frac{\lambda}{n}\right)^{n-k}\\
-                &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{k-1}{n}\right)\left\{\left(1-\frac{\lambda}{n}\right)^{-\frac{n}{\lambda}}\right\}^{-\lambda}\left(1-\frac{\lambda}{n}\right)^{n-k}\\
+                &\lim_{n\to\infty}P(X=k)\\
+                &=\lim_{n\to\infty}\binom{n}{k}p^k(1-p)^{n-k}\\
+                &=\lim_{n\to\infty}\frac{n!}{(n-k)!k!}\left(\frac{\lambda}{n}\right)^k\left(1-\frac{\lambda}{n}\right)^{n-k}\\
+                &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\cdot\frac{n(n-1)\cdots(n-k+1)}{n^k}\left(1-\frac{\lambda}{n}\right)^n\left(1-\frac{\lambda}{n}\right)^{-k}\\
+                &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{k-1}{n}\right)\left\{\left(1-\frac{\lambda}{n}\right)^{-\frac{n}{\lambda}}\right\}^{-\lambda}\left(1-\frac{\lambda}{n}\right)^{-k}\\
                 &=\frac{\lambda^k}{k!}e^{-\lambda}
                 \end{align}
                 \]
-                このことから、二項分布の近似として次のような分布を定義する。
+                このことから、次のような分布を定義する。
             </div>
             <p></p>
             <div class="def">

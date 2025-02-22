@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>正規分布</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>正規分布</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">正規分布の定義</h2>
+            <div class="def">
+                <div>定義（正規分布）</div>
+                連続型確率変数 \(X\) の確率密度関数 \(f(x)\) が \(\mu\in\mathbb{R},~\sigma\gt 0\) として
+                \[
+                f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}
+                \]
+                と表されるとき、\(X\) は平均 \(\mu\) 、分散 \(\sigma^2\) の正規分布に従うといい
+                \[
+                X\sim N(\mu,\sigma^2)
+                \]
+                と表す。
+                <p></p>
+                特に、\(\mu=0,~\sigma^2=1\) となる \(N(0,1)\) を標準正規分布という。
+            </div>
+            <p></p>
+            標準正規分布 \(N(0,1)\) において、確率 \(P(0\le Z\le z)\) を \(\Phi(z)\) と表す。すなわち
+            \[
+            \Phi(z)=\int_0^z\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{t^2}{2}\right)dt
+            \]
+            各 \(z\) に対する \(\Phi(z)\) の値の近似値を表にまとめたものが正規分布表である。
+            <p class="space"></p>
+            <h2 id="2">二項分布の正規近似</h2>
+            <div class="th">
+                <div>定理（ド・モアブル-ラプラスの定理）</div>
+                確率変数 \(X\) が二項分布 \(B(n,p)\) に従うとき、\(n\) が十分大きいならば、\(X\) の分布は正規分布 \(N(np,np(1-p))\) で近似される。
+            </div>
+            <p></p>
+            <h2 id="3">半整数補正</h2>
+            <div class="article">
+                半整数補正
+                <p></p>
+                離散型の確率分布を連続型の確率分布に近似するとき、補正する必要がある。
+                <p></p>
+                離散型確率変数 \(X\) が \(m\le X\le n~~~(m,n\in\mathbb{Z})\) となる確率を求めるとき
+                \[
+                P(m\le X\le n)=\sum_{x=m}^nP(X=x)=\sum_{x=m}^nP(X=x)\cdot1\fallingdotseq\int_{m+0.5}^{n+0.5}f(x)dx
+                \]
+                であるから、\(X\) を連続型と近似する場合は \(P(m+0.5\le X\le n+0.5)\) を考えなければならない。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題１</div>
+                ある大学の男子の身長を調査したところ、平均170cm、標準偏差5cmの正規分布に従うことが分かった。
+                <ol>
+                    <li>身長180cm以上の人は約何%いるか。</li>
+                    <li>身長165cm以上175cm以下の人は約何%いるか。</li>
+                    <li>身長の高い方から3%の中に入るのは、約何cm以上の人か。</li>
+                </ol>
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    身長の確率変数を \(X\) とすると、\(X\sim N(170,~5)\) であり
+                    <p></p>
+                    \(Z=\displaystyle\frac{X-170}{5}\) とおくと、\(Z\sim N(0,~1)\) となる。
+                    <ol>
+                        <li>
+                            \(\begin{align}
+                            P(X\ge 180)&=P\left(Z\ge \displaystyle\frac{180-170}{5}\right)=P(Z\ge 2)\\
+                            &=0.5-\Phi(2)=0.5-0.4772=0.0228
+                            \end{align}\)
+                            <p></p>
+                            よって、約 \(2.3\) %いる。
+                        </li>
+                        <li>
+                            
+                        </li>
+                        <li>
+
+                        </li>
+                    </ol>
+                </div>
+            </details>
+            <p></p>
+            <div class="ex">
+                <div>問題２</div>
+                表の出る確率が \(0.5\) であるコインを \(1000\) 回投げるとき、
+                <p></p>
+                表が \(460\) 回以上 \(520\) 回以下である確率を正規近似を用いて求めよ。
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    表が出る回数を \(X\) とすると、\(X\sim B(1000,~0.5)\) である。
+                    <p></p>
+                    正規近似により \(X\sim N(500,250)\) が成り立つ。
+                    <p></p>
+                    \(Z=\displaystyle\frac{X-500}{\sqrt{250}}\) とおくと、\(Z\sim N(0,1)\) となる。
+                    <p></p>
+                    求める確率は半整数補正を施して
+                    \[
+                    \begin{align}
+                    P(460.5\le X\le520.5)&=P\left(\frac{460.5-500}{\sqrt{250}}\le Z\le\frac{520.5-500}{\sqrt{250}}\right)\\
+                    &=P(-2.50\le Z\le1.30)=\Phi(2.50)+\Phi(1.30)\\
+                    &=0.4938+0.4032=0.8977
+                    \end{align}
+                    \]
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
