@@ -37,8 +37,36 @@
                 \[
                 E[X]=\frac{a+b}{2},~~~~~V[X]=\frac{(b-a)^2}{12}
                 \]
-                である。
             </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \[
+                    \begin{align}
+                    E[X]
+                    &=\int_{-\infty}^\infty xf(x)dx\\
+                    &=\int_{-\infty}^a x\cdot0dx+\int_a^bx\cdot\frac{1}{b-a}dx+\int_b^\infty x\cdot0dx\\
+                    &=\frac{1}{b-a}\int_a^bxdx\\
+                    &=\frac{1}{b-a}\left[\frac{1}{2}x^2\right]_a^b\\
+                    &=\frac{1}{b-a}\cdot\frac{b^2-a^2}{2}\\
+                    &=\frac{a+b}{2}
+                    \end{align}
+                    \]
+                    <p></p>
+                    \[
+                    \begin{align}
+                    V[X]
+                    &=E[X^2]-E[X]^2\\
+                    &=\int_{-\infty}^\infty x^2f(x)dx-\left(\frac{a+b}{2}\right)^2\\
+                    &=\int_a^bx^2\cdot\frac{1}{b-a}dx-\frac{(a+b)^2}{4}\\
+                    &=\frac{1}{b-a}\left[\frac{1}{3}x^3\right]_a^b-\frac{(a+b)^2}{4}\\
+                    &=\frac{1}{b-a}\cdot\frac{b^3-a^3}{3}-\frac{(a+b)^2}{4}\\
+                    &=\frac{a^2+ab+b^2}{3}-\frac{a^2+2ab+b^2}{4}\\
+                    &=\frac{(b-a)^2}{12}
+                    \end{align}
+                    \]
+                </div>
+            </details>
             <p class="space"></p>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
