@@ -66,8 +66,80 @@
                 E[X]=\frac{1}{\lambda},~~~~~V[X]=\frac{1}{\lambda^2}
                 \]
             </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \[
+                    \begin{align}
+                    E[X]
+                    &=\int_{-\infty}^\infty xf(x)dx\\
+                    &=\int_0^\infty x\cdot\lambda e^{-\lambda x}dx\\
+                    &=\int_0^\infty x\left(-e^{-\lambda x}\right)'dx\\
+                    &=\left[-xe^{-\lambda x}\right]_0^\infty+\int_0^\infty e^{-\lambda x}dx\\
+                    &=\left[-\frac{1}{\lambda}e^{-\lambda x}\right]_0^\infty\\
+                    &=\frac{1}{\lambda}
+                    \end{align}
+                    \]
+                    <p></p>
+                    \[
+                    \begin{align}
+                    V[X]
+                    &=E[X^2]-E[X]^2\\
+                    &=\int_{-\infty}^\infty x^2f(x)dx-\frac{1}{\lambda^2}\\
+                    &=\int_0^\infty x^2\cdot\lambda e^{-\lambda x}dx-\frac{1}{\lambda^2}\\
+                    &=\int_0^\infty x^2\left(-e^{-\lambda x}\right)'dx-\frac{1}{\lambda^2}\\
+                    &=\left[-x^2e^{-\lambda x}\right]_0^\infty+\int_0^\infty 2xe^{-\lambda x}dx-\frac{1}{\lambda^2}\\
+                    &=\int_0^\infty2x\left(-\frac{1}{\lambda}e^{-\lambda x}\right)'dx-\frac{1}{\lambda^2}\\
+                    &=\left[-\frac{2}{\lambda}xe^{-\lambda x}\right]_0^\infty+\int_0^\infty\frac{2}{\lambda}e^{-\lambda x}dx-\frac{1}{\lambda^2}\\
+                    &=\left[-\frac{2}{\lambda^2}e^{-\lambda x}\right]_0^\infty-\frac{1}{\lambda^2}\\
+                    &=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}\\
+                    &=\frac{1}{\lambda^2}
+                    \end{align}
+                    \]
+                </div>
+            </details>
             <p class="space"></p>
             <h2 id="3">指数分布の無記憶性</h2>
+            <div class="th">
+                <div>定理（指数分布の無記憶性）</div>
+                \(X\sim Ex(\lambda)\) とし、\(s,t\in\mathbb{R}_{\ge0}\) とすると
+                \[
+                P(X\gt s+t~|~X\gt s)=P(X\gt t)
+                \]
+                が成り立つ。
+            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \[
+                    \begin{align}
+                    P(X\gt s+t~|~X\gt s)
+                    &=\frac{P(X\gt s+t\land X\gt s)}{P(X\gt s)}\\
+                    &=\frac{P(X\gt s+t)}{P(X\gt s)}\\
+                    &=\frac{\int_{s+t}^\infty\lambda e^{-\lambda x}dx}{\int_{s}^\infty\lambda e^{-\lambda x}dx}\\
+                    &=\frac{\left[-e^{-\lambda x}\right]_{s+t}^\infty}{\left[-e^{-\lambda x}\right]_{s}^\infty}\\
+                    &=\frac{e^{-\lambda(s+t)}}{e^{-\lambda s}}\\
+                    &=e^{-\lambda t}
+                    \end{align}
+                    \]
+                    \[
+                    \begin{align}
+                    P(X\gt t)
+                    &=\int_{t}^\infty\lambda e^{-\lambda x}dx\\
+                    &=\left[-e^{-\lambda x}\right]_t^\infty\\
+                    &=e^{-\lambda t}
+                    \end{align}
+                    \]
+                    したがって
+                    \[
+                    P(X\gt s+t~|~X\gt s)=P(X\gt t)
+                    \]
+                </div>
+            </details>
+            <p></p>
+            <div class="article">
+                無記憶性を持つ確率分布は指数分布のみである。
+            </div>
             <p class="space"></p>
             <h2><a id="ex">演習問題</a></h2>
             <div class="ex">
