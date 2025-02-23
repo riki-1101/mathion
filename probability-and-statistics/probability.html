@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>確率の定義</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>確率の定義</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">確率空間</h2>
+            <div class="article">
+                確率論の理論的な土台を与える数学的な枠組みを確率空間という。確率空間は「標本空間 \(\Omega\)」、「事象の集合族 \(\mathcal{F}\)」、「確率測度 \(P\)」の3要素で構成され、\((\Omega,\mathcal{F},P)\) と書かれる。
+            </div>
+            <p></p>
+            <h3>標本空間</h3>
+            <div class="article">
+                ある試行で起こり得るすべての結果の集合を標本空間という。通常、標本空間は \(\Omega\) と書かれる。
+                <p></p>
+                以下に標本空間 \(\Omega\) の具体例を示す。
+                <p></p>
+                ・サイコロを1回振る場合
+                \[
+                \Omega=\{1,2,3,4,5,6\}
+                \]
+                ・2つのサイコロを振る場合
+                \[
+                \Omega=\{(1,1),(1,2),\cdots,(6,6)\}
+                \]
+                ・コインを1回投げる場合
+                \[
+                \Omega=\{\text{表},\text{裏}\}
+                \]
+            </div>
+            <p></p>
+            <h3>事象</h3>
+            <div class="article">
+                標本空間 \(\Omega\) の部分集合を事象という。
+                <p></p>
+                以下に事象の具体例を示す。
+                <p></p>
+                サイコロを1回振る場合 \((\Omega=\{1,2,3,4,5,6\})\)
+                <p></p>
+                ・「偶数の目が出る」事象 \(A\)
+                \[
+                A=\{2,4,6\}
+                \]
+                <p></p>
+                ・「5以上の目が出る」事象 \(B\)
+                \[
+                B=\{5,6\}
+                \]
+                <p></p>
+                ・「2の目が出る」事象 \(C\)
+                \[
+                C=\{2\}
+                \]
+                事象 \(C\) のように、これ以上分割できない事象を根元事象という。
+                <p></p>
+                事象の集まりのことを事象の集合族という。つまり、事象 \(A_1,A_2,\cdots\) に対して、その集合族 \(\mathcal{F}\) は
+                \[
+                \mathcal{F}=\{A_1,A_2,\cdots\}
+                \]
+                である。
+            </div>
+            <p></p>
+            <h3>確率測度</h3>
+            <div class="article">
+                事象に対して確率を割り当てる関数を確率測度という。通常、\(P\) で表され
+                \[
+                P:\mathcal{F}\to[0,1]
+                \]
+                のように、事象の集合族 \(\mathcal{F}\) から 0以上1以下の実数を返す関数である。ただし、確率測度であるためには次の公理を満たす必要がある。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定理（確率測度の公理；コルモゴロフの公理）</div>
+                確率測度 \(P\) は以下の条件を満たさなければならない。
+                <ol>
+                    <li>任意の事象 \(A\in\mathcal{F}\) に対して、\(0\le P(A)\le 1\)</li>
+                    <li>標本空間 \(\Omega\) に対して、\(P(\Omega)=1\)</li>
+                    <li>
+                        互いに排反な事象 \(A_1,A_2,\cdots\) に対して、
+                        \[
+                        P\left(\bigcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty P(A_i)
+                        \]
+                    </li>
+                </ol>
+            </div>
+            <p class="space"></p>
+            <h2 id="2">確率の性質</h2>
+            <div class="th">
+                <div>定理（確率の性質）</div>
+                <ol>
+                    <li>\(P(\emptyset)=0\)</li>
+                    <li>\(P(A^c)=1-P(A)\)</li>
+                    <li>\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</li>
+                    <li>\(A\subset B\Longrightarrow P(A)\le P(B)\)</li>
+                </ol>
+            </div>        
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
