@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>平均変化率と微分係数</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>平均変化率と微分係数</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">平均変化率</h2>
+            <div class="article">
+                \(f(x)\) を区間 \(I\) 上の関数とし、\(a,b\in I\) とする。
+                関数 \(f(x)\) において \(x\) の値が \(a\) から \(b\) まで変化するとき、
+                \(x\) の増分 \(\varDelta x=b-a\) と \(y\) の増分 \(\varDelta y=f(b)-f(a)\) の比
+                \[
+                \frac{\varDelta y}{\varDelta x}=\frac{f(b)-f(a)}{b-a}
+                \]
+                を変数 \(x\) が \(a\) から \(b\) まで変化するときの平均変化率という。<br>
+                また、\(b=a+\varDelta x\) より平均変化率は
+                \[
+                \frac{f(a+\varDelta x)-f(a)}{\varDelta x}
+                \]
+                とも書ける。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">微分係数</h2>
+            <div class="def">
+                <div>定義（微分係数）</div>
+                関数 \(f:I\to\mathbb{R}\) に対して、極限
+                \[
+                f'(a):=\lim_{\varDelta x\to0}\frac{f(a+\varDelta x)-f(a)}{\varDelta x}
+                \]
+                が存在するとき、\(f\) は \(x=a\) で微分可能であるといい、この極限を \(f\) の点 \(a\) における微分係数という。
+            </div>
+            <p></p>
+            <div class="article">
+                微分係数 \(f'(a)\) は
+                \[
+                \frac{df}{dx}(a),~~~\left.\frac{df}{dx}\right|_{x=a}
+                \]
+                などとも書かれる。
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
