@@ -43,23 +43,30 @@
             <h2 id="3">カイ二乗分布に従う確率変数の期待値と分散</h2>
             <div class="th">
                 <div>定理（カイ二乗分布に従う確率変数の期待値と分散）</div>
-                \(X\sim\chi^2(n)\) のとき
+                確率変数 \(X\sim\chi^2(n)\) に対して
                 \[
                 E[X]=n,~~~~~V[X]=2n
                 \]
             </div>
-            <p class="space"></p>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>問題１</div>
-                
-            </div>
-            <details class="ans">
-                <summary>解答</summary>
+            <details class="pf">
+                <summary>証明</summary>
                 <div>
-                    
+                    \(
+                    \begin{align}
+                    E[X]
+                    &=\int_{-\infty}^\infty xf(x)dx\\
+                    &=\int_0^\infty x\cdot\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\\
+                    &=\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty x^{\frac{n}{2}}e^{-\frac{x}{2}}dx\\
+                    &=\frac{2}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty (2t)^{\frac{n}{2}}e^{-t}dt~~~(x=2t)\\
+                    &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\int_0^\infty t^{\frac{n}{2}}e^{-t}dt\\
+                    &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\Gamma\left(\frac{n}{2}+1\right)\\
+                    &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\cdot\frac{n}{2}\Gamma\left(\frac{n}{2}\right)\\
+                    &=n
+                    \end{align}
+                    \)
                 </div>
             </details>
+            <p></p>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
