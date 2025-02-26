@@ -337,10 +337,17 @@ footer {
         li {
             list-style-type: none;
             margin-bottom: 15px;
+            position: relative; /* 番号を絶対配置するための基準 */
+            padding-left: 30px; /* 番号分のスペースを確保 */
         }
         li:before {
             content: "(" counter(list-item) ")";
             padding-right: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px; /* 番号の幅を固定 */
+            text-align: right; /* 番号を右寄せ */
         }
     }
 }
