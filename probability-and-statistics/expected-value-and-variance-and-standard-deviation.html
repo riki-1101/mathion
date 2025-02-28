@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>  
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -61,23 +61,26 @@
                 <summary>証明</summary>
                 <div>
                     \(X\) が離散型確率変数のとき、\(X\) の確率質量関数を \(f\) とすると
-                    \[
+                    <p></p>
+                    \(
                     \begin{align}
                     E[aX+b]&=\sum_{x\in X(\Omega)}(ax+b)f(x)\\
                     &=\sum_{x\in X(\Omega)}(axf(x)+bf(x))\\
                     &=a\sum_{x\in X(\Omega)}xf(x)+b\sum_{x\in X(\Omega)}f(x)\\
                     &=aE[X]+b
                     \end{align}
-                    \]
+                    \)
+                    <p></p>
                     \(X\) が連続型確率変数のとき、\(X\) の確率密度関数を \(f\) とすると
-                    \[
+                    <p></p>
+                    \(
                     \begin{align}
                     E[aX+b]&=\int_{-\infty}^\infty(ax+b)f(x)dx\\
                     &=\int_{-\infty}^\infty(axf(x)+bf(x))dx\\
                     &=a\int_{-\infty}^\infty xf(x)dx+b\int_{-\infty}^\infty f(x)dx\\
                     &=aE[X]+b
                     \end{align}
-                    \]
+                    \)
                 </div>
             </details>
             <p class="space"></p>
@@ -110,17 +113,17 @@
                 <div>
                     <ol>
                         <li>
-                            \[
+                            \(
                             \begin{align}
                             V[X]&=E\left[(X-E[X])^2\right]\\
                             &=E[X^2-2E[X]X+E[X]^2]\\
                             &=E[X^2]-2E[X]\cdot E[X]+E[X]^2\\
                             &=E[X^2]-E[X]^2
                             \end{align}
-                            \]
+                            \)
                         </li>
                         <li>
-                            \[
+                            \(
                             \begin{align}
                             V[aX+b]&=E[(aX+b)^2]-E[aX+b]^2\\
                             &=E[a^2X^2+2abX+b^2]-(aE[X]+b)^2\\
@@ -129,7 +132,7 @@
                             &=a^2(E[X^2]-E[X]^2)\\
                             &=a^2V[X]
                             \end{align}
-                            \]
+                            \)
                         </li>
                     </ol>
                 </div>
