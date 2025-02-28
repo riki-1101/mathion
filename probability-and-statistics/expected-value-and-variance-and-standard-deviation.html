@@ -14,16 +14,15 @@
             <div id="table-of-contents"></div>
             <h2 id="1">期待値</h2>
             <div class="article">
-                今回は確率変数がおおよそどのくらいの値をとるのかを示す指標、期待値について見ていく。
+                期待値とは、確率変数がどのくらいの値をとるのかを示す指標であり、離散型、連続型の各場合に対して以下のように定義される。
             </div>
             <div class="def">
                 <div>定義（離散型確率変数の期待値）</div>
-                確率空間 \((\Omega,\mathcal{F},P)\) において、
                 離散型確率変数 \(X\) の確率質量関数を \(f\) とするとき
                 \[
                 E[X]=\sum_{x\in X(\Omega)}xf(x)
                 \]
-                を \(X\) の期待値（平均値）という。\(E[X]\) は \(\mu\) とも書かれる。
+                を \(X\) の期待値という。
                 <p></p>
                 一般に、関数 \(g\) に対して \(g(X)\) の期待値を
                 \[
@@ -34,12 +33,11 @@
             <p></p>
             <div class="def">
                 <div>定義（連続型確率変数の期待値）</div>
-                確率空間 \((\Omega,\mathcal{F},P)\) において、
                 連続型確率変数 \(X\) の確率密度関数を \(f\) とするとき
                 \[
                 E[X]=\int_{-\infty}^\infty xf(x)dx
                 \]
-                を \(X\) の期待値（平均値）という。\(E[X]\) は \(\mu\) とも書かれる。
+                を \(X\) の期待値という。
                 <p></p>
                 一般に、関数 \(g\) に対して \(g(X)\) の期待値を
                 \[
@@ -48,13 +46,16 @@
                 と定める。
             </div>
             <p></p>
+            <div class="article">
+                期待値は平均値とも呼ばれる。\(E[X]\) は \(\mu\) とも書かれる。
+            </div>
+            <p></p>
             <div class="th">
                 <div>定理（期待値の性質）</div>
                 確率変数 \(X\) と \(a,b\in\mathbb{R}\) について
                 \[
                 E[aX+b]=aE[X]+b
                 \]
-                が成り立つ。
             </div>
             <details class="pf">
                 <summary>証明</summary>
@@ -83,13 +84,17 @@
             <h2 id="2">分散と標準偏差</h2>
             <div class="def">
                 <div>定義（分散・標準偏差）</div>
-                確率空間 \((\Omega,\mathcal{F},P)\) において、確率変数 \(X\) に対して
+                確率変数 \(X\) に対して
                 \[
                 V[X]=E[(X-E[X])^2]
                 \]
-                を \(X\) の分散という。\(V[X]\) は \({\sigma}^2\) とも書かれる。
+                を \(X\) の分散という。
                 <p></p>
-                分散の正の平方根 \(\sqrt{V[X]}\) を標準偏差という。\(\sigma\) とも書かれる。
+                分散の正の平方根 \(\sqrt{V[X]}\) を標準偏差という。
+            </div>
+            <p></p>
+            <div class="article">
+                \(V[X]\) は \({\sigma}^2\) 、標準偏差は \(\sigma\) とも書かれる。
             </div>
             <p></p>
             <div class="th">
@@ -127,6 +132,18 @@
                             \]
                         </li>
                     </ol>
+                </div>
+            </details>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    
                 </div>
             </details>
         </main>
