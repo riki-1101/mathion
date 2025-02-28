@@ -370,7 +370,7 @@ details.pf {
                 list-style-type: none;
                 margin-bottom: 15px;
                 position: relative; /* 番号を絶対配置するための基準 */
-                padding-left: 30px; /* 番号分のスペースを確保 */
+                padding-left: 35px; /* 番号分のスペースを確保 */
             }
             li:before {
                 content: "(" counter(list-item) ")";
