@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ランダウの記号</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/math/css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div id="container">
+                <div id="contents">
+                    <h1>ランダウの記号</h1>
+                    <div id="table-of-contents">
+                        <div>目次</div>
+                        <ol>
+                            <li><a href="#1">ランダウの記号の定義</a></li>
+                            <li><a href="#2">ランダウの記号の性質</a></li>
+                            <li><a href="#ex">演習問題</a></li>
+                        </ol>
+                    </div>
+                    <h2><a id="1">ランダウの記号の定義</a></h2>
+                    <div class="def">
+                        <div>定義（ランダウの記号）</div>
+                        \(f,g\) を \(a\) の近くで定義されている関数とし、\(g(x)\neq0\) とする。
+                        \[
+                        \limsup_{x\to a}\left|\frac{f(x)}{g(x)}\right|\lt\infty
+                        \]
+                        が成り立つとき、\(x\to a\) において、\(f(x)\) は \(g(x)\) によって押さえられるといい、
+                        \[
+                        f(x)=O(g(x))~~~(x\to a)
+                        \]
+                        と表す。
+                        \[
+                        \lim_{x\to a}\left|\frac{f(x)}{g(x)}\right|=0
+                        \]
+                        が成り立つとき、\(x\to a\) において、\(f(x)\) は \(g(x)\) に比べて無視できるほど小さいといい、
+                        \[
+                        f(x)=o(g(x))~~~(x\to a)
+                        \]
+                        と表す。
+                    </div>
+                    <p></p>
+                    <div class="article">
+                        例
+                        <p></p>
+                        \[
+                        \lim_{x\to0}\frac{\sin x}{x}=1
+                        \]
+                        より
+                        \[
+                        \sin x=O(x)~~~(x\to0)
+                        \]
+                        となる。これは \(x\to0\) において \(\sin x\) は \(x\) によって押さえられることを表している。
+                    </div>
+                    <p class="space"></p>
+                    <h2><a id="2">ランダウの記号の性質</a></h2>
+                    <div class="th">
+                        <div>定理（ランダウの記号の性質）</div>
+                        
+                    </div>
+                    <details class="pf">
+                        <summary>証明</summary>
+                        <div>
+                            unknown
+                        </div>
+                    </details>
+                    <p class="space"></p>
+                    <h2><a id="3"></a></h2>
+                    <div class="th">
+                        <div>定理（）</div>
+                        
+                    </div>
+                    <p class="space"></p>
+                    <h2><a id="ex">演習問題</a></h2>
+                    <div class="ex">
+                        <div>問題</div>
+                        
+                    </div>
+                    <details class="ans">
+                        <summary>解答</summary>
+                        <div>
+
+                        </div>
+                    </details>
+                    <p></p>
+                </div>
+                <div id="side-menu"></div>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="/math/js/header.js"></script>
+        <script src="/math/js/footer.js"></script>
+        <script src="/math/js/side-menu.js"></script>
+    </body>
+</html>

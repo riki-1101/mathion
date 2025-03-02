@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>総和の不等式評価</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>総和の不等式評価</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">今回の内容の説明</h2>
+            <div class="article">
+                具体的に求められない総和を
+                \[
+                A(n)\lt\sum_{k=1}^na_k\lt B(n)
+                \]
+                のように不等式で評価したい。
+            </div>
+            <h2 id="2">具体例を通して</h2>
+            <div class="article">
+                \[
+                \sum_{k=1}^n\frac{1}{k}
+                \]
+                を考える。これは簡単な式で表すことができないため、不等式で評価したい。
+                上図より、面積を比較することで
+                \[
+                \int_0^n\frac{1}{x+1}dx\lt\sum_{k=1}^n\frac{1}{k}\lt1+\int_1^n\frac{1}{x}dx
+                \]
+                が成り立つ。
+                \[
+                \int_0^n\frac{1}{x+1}dx=\left[\log|x+1|\right]_0^n=\log(n+1)
+                \]
+                \[
+                \int_1^n\frac{1}{x}dx=\left[\log|x|\right]_1^n=\log n
+                \]
+                より
+                \[
+                \log(n+1)\lt\sum_{k=1}^n\frac{1}{k}\lt1+\log n
+                \]
+            </div>
+            <h3>より厳しく評価する</h3>
+            <div class="article">
+                \[
+                \int_0^n\frac{1}{x+1}dx\lt\sum_{k=1}^n\frac{1}{k}\lt1+\frac{1}{2}+\int_2^n\frac{1}{x}dx
+                \]
+                短冊の面積を計算する個数を増やし、積分する区間を短くすることで、より厳しく評価できる。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                次の不等式を証明せよ。
+                <ol>
+                    <li>\(\displaystyle\frac{1}{2}-\frac{1}{2(n+1)^2}\lt\sum_{k=1}^n\frac{1}{k^3}\lt\frac{3}{2}-\frac{1}{2n^2}\)</li>
+                    <li></li>
+                </ol>
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

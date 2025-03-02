@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>区間推定</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/math/css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div id="container">
+                <div id="contents">
+                    <h1>区間推定</h1>
+                    <div class="def">
+                        <div>定義（区間推定）</div>
+                        未知母数 \(\theta\) に対して
+                        \[
+                        P(Q_1\le\theta\le Q_2)=1-\alpha
+                        \]
+                        が成り立ち、\(Q_1,Q_2\) の実現値がそれぞれ \(q_1,q_2\) であるとき、区間 \([q_1,q_2]\) を母数 \(\theta\) に対する \(100(1-\alpha)\) %信頼区間といい、\(1-\alpha\) を信頼水準（信頼係数）という。
+                    </div>
+                    <p></p>
+                    <div class="article">
+                        母平均 \(\mu\) を推定する。
+                        <p></p>
+                        母分散が既知で \(\sigma^2\) である。
+                        <p></p>
+                        大きさ \(n\) の標本に対して標本平均を \(\overline{X}\) とする。このとき
+                        \[
+                        \overline{X}\sim N\left(\mu,\frac{\sigma^2}{n}\right)
+                        \]
+                        である。\(Z=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\) とおくと
+                        \(Z\sim N(0,1)\) である。
+                        <p></p>
+                        \(N(0,1)\) の両側 \(100\alpha\) %点を \(z_0\) とすると、
+                        \[
+                        P(-z_0\le Z\le z_0)=1-\alpha
+                        \]
+                        が成り立つ。
+                        \[
+                        \overline{X}-z_0\cdot\frac{\sigma}{\sqrt{n}}\le\mu\le\overline{X}+z_0\cdot\frac{\sigma}{\sqrt{n}}
+                        \]
+                    </div>
+                    <p></p>
+                    <a href="javascript:history.back();" class="back">戻る</a>
+                </div>
+                <div id="side-menu"></div>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="/math/js/header.js"></script>
+        <script src="/math/js/footer.js"></script>
+        <script src="/math/js/side-menu.js"></script>
+    </body>
+</html>

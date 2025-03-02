@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>不偏推定量</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/math/css/style.css">
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main>
+            <div id="container">
+                <div id="contents">
+                    <h1>不偏推定量</h1>
+                    <div id="contents">
+                        <div class="article">
+                            パラメータ推定に用いる統計量は推定量と呼ばれる。
+                            <p></p>
+                            推定量には様々な種類があり、パラメータによって適した推定量は異なる。
+                            <p></p>
+                            今回は適切な推定量の選択について見ていく。
+                        </div>
+                        <div id="table-of-contents">
+                            <div>
+                                目次
+                            </div>
+                            <ol>
+                                <li><a href="#1">推定量</a></li>
+                                <li><a href="#2">不偏性</a></li>
+                                <li><a href="#3">有効性</a></li>
+                                <li><a href="#ex">演習問題</a></li>
+                            </ol>
+                        </div>
+                        <h2><a id="1">推定量</a></h2>
+                        <div class="article">
+                            母集団分布のパラメータを推定するために用いる統計量を推定量といい、実現値によって求められた値を推定値という。
+                            <p></p>
+                            推定量に望ましい性質として、不偏性と有効性がある。
+                        </div>
+                        <p class="space"></p>
+                        <h2><a id="2">不偏性</a></h2>
+                        <div class="def">
+                            <div>定義（不偏性）</div>
+                            パラメータ \(\theta\) の推定量 \(T\) が
+                            \[
+                            E[T]=\theta
+                            \]
+                            を満たすとき、\(T\) を \(\theta\) の不偏推定量といい、その実現値を不偏推定値という。
+                        </div>
+                        <p></p>
+                        <div class="article">
+                            母平均 \(\mu\) の推定量として、標本平均 \(\displaystyle\overline{X}=\frac{1}{n}\sum_{i=1}^nX_i\) を用いるとき
+                            \[
+                            E[\overline{X}]=\frac{1}{n}\sum_{i=1}^nE[X_i]=\frac{1}{n}\sum_{i=1}^n\mu=\frac{1}{n}\cdot n\mu=\mu
+                            \]
+                            であるから、\(\overline{X}\) は \(\mu\) の不偏推定量である。
+                        </div>
+                        <p class="space"></p>
+                        <h2><a id="3">有効性</a></h2>
+                        <div class="def">
+                            <div>定義（有効性）</div>
+                            パラメータ \(\theta\) の不偏推定量 \(T_1,T_2\) に対して
+                            \[
+                            V[T_1]\gt V[T_2]
+                            \]
+                            であるとき、\(T_2\) は \(T_1\) より有効であるという。
+                        </div>
+                        <p class="space"></p>
+                        <h2><a id="ex">演習問題</a></h2>
+                        <div class="ex">
+                            <div>問題１</div>
+                            平均 \(\mu\) 、分散 \(\sigma^2\) の母集団から取り出した無作為標本を \(X_1,X_2,X_3\) とする。
+                            <p></p>
+                            このとき、\(\mu\) の推定量として次の \(T_1,T_2,T_3\) を考える。
+                            \[
+                            T_1=X_1+X_2-X_3,~~~T_2=\frac{1}{4}(X_1+2X_2+X_3),~~~T_3=\frac{1}{3}(X_1+X_2+X_3)
+                            \]
+                            <ul class="problem-number">
+                                <li>\(T_1,T_2,T_3\) はいずれも \(\mu\) の不偏推定量であることを示せ。</li>
+                                <li>\(T_1,T_2,T_3\) の中で最も有効な推定量はどれか。</li>
+                            </ul>
+                        </div>
+                        <details class="ans">
+                            <summary>解答</summary>
+                            <div>
+                                \(X_1,X_2,X_3\) は無作為標本であるから
+                                \[
+                                E[X_i]=\mu,~~~V[X_i]=\sigma^2~~~(i=1,2,3)
+                                \]
+                                が成り立つ。
+                                <ul class="problem-number">
+                                    <li>
+                                        \(E[T_1]=E[X_1]+E[X_2]-E[X_3]=\mu+\mu-\mu=\mu\)
+                                        <p></p>
+                                        \(\displaystyle E[T_2]=\frac{1}{4}E[X_1]+\frac{1}{2}E[X_2]+\frac{1}{4}E[X_3]=\frac{1}{4}\mu+\frac{1}{2}\mu+\frac{1}{4}\mu=\mu\)
+                                        <p></p>
+                                        \(\displaystyle E[T_3]=\frac{1}{3}E[X_1]+\frac{1}{3}E[X_2]+\frac{1}{3}E[X_3]=\frac{1}{3}\mu+\frac{1}{3}\mu+\frac{1}{3}\mu=\mu\)
+                                        <p></p>
+                                        よって、\(T_1,T_2,T_3\) はいずれも \(\mu\) の不偏推定量である。
+                                    </li>
+                                    <li>
+                                        \(X_1,X_2,X_3\) は互いに独立であるから
+                                        <p></p>
+                                        \(V[T_1]=V[X_1]+V[X_2]+V[X_3]=\sigma^2+\sigma^2+\sigma^2=3\sigma^2\)
+                                        <p></p>
+                                        \(\displaystyle V[T_2]=\frac{1}{4^2}V[X_1]+\frac{1}{2^2}V[X_2]+\frac{1}{4^2}V[X_3]=\frac{1}{16}\sigma^2+\frac{1}{4}\sigma^2+\frac{1}{16}\sigma^2=\frac{3}{8}\sigma^2\)
+                                        <p></p>
+                                        \(\displaystyle V[T_3]=\frac{1}{3^2}V[X_1]+\frac{1}{3^2}V[X_2]+\frac{1}{3^2}V[X_3]=\frac{1}{9}\sigma^2+\frac{1}{9}\sigma^2+\frac{1}{9}\sigma^2=\frac{1}{3}\sigma^2\)
+                                        <p></p>
+                                        よって \(V[T_1]\gt V[T_2]\gt V[T_3]\) が成り立つので、\(T_3\) が最も有効な推定量である。
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div id="side-menu"></div>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="/math/js/header.js"></script>
+        <script src="/math/js/footer.js"></script>
+        <script src="/math/js/side-menu.js"></script>
+    </body>
+</html>

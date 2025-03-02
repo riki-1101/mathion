@@ -1,9 +1,4 @@
 
-window.MathJax = {
-    options: {
-        enableMenu: false
-    }
-};
 
 // ハンバーガーメニュー
 document.addEventListener("DOMContentLoaded", function () {
