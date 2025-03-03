@@ -13,16 +13,26 @@
         <main id="contents">
             <h1>推定量とその性質</h1>
             <div id="table-of-contents"></div>
-            <h2><a id="1">推定量</a></h2>
+            <h2 id="1">推定量</h2>
             <div class="article">
                 母集団分布のパラメータ推定に用いる統計量を推定量といい、推定量の実現値を推定値という。推定量には様々な種類があり、パラメータによって適した推定量は異なる。
                 <p></p>
                 では、どのように適切な推定量を選択すればよいのだろうか。推定量に望ましい性質として、不偏性と有効性がある。
             </div>
             <p class="space"></p>
-            <h2 id="2">不偏性</h2>
+            <h2 id="2">一致性</h2>
             <div class="def">
-                <div>定義（不偏性）</div>
+                <div>定義（一致推定量）</div>
+                パラメータ \(\theta\) の推定量 \(T\) が、任意の \(\varepsilon\lt0\) に対して
+                \[
+                \lim_{n\to\infty}P(|T-\theta|\gt\varepsilon)=0
+                \]
+                となるとき、\(T\) を \(\theta\) に対する一致推定量という。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">不偏性</h2>
+            <div class="def">
+                <div>定義（不偏推定量）</div>
                 パラメータ \(\theta\) の推定量 \(T\) が
                 \[
                 E[T]=\theta
@@ -38,17 +48,17 @@
                 であるから、\(\overline{X}\) は \(\mu\) の不偏推定量である。
             </div>
             <p class="space"></p>
-            <h2><a id="3">有効性</a></h2>
+            <h2 id="4">有効性</h2>
             <div class="def">
-                <div>定義（有効性）</div>
+                <div>定義（有効な推定量）</div>
                 パラメータ \(\theta\) の不偏推定量 \(T_1,T_2\) に対して
                 \[
                 V[T_1]\gt V[T_2]
                 \]
-                であるとき、\(T_2\) は \(T_1\) より有効であるという。
+                であるとき、\(T_2\) は \(T_1\) より有効な推定量であるという。
             </div>
             <p class="space"></p>
-            <h2><a id="ex">演習問題</a></h2>
+            <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>問題１</div>
                 平均 \(\mu\) 、分散 \(\sigma^2\) の母集団から取り出した無作為標本を \(X_1,X_2,X_3\) とする。
