@@ -38,12 +38,13 @@
             <p class="space"></p>
             <h2 id="2">総和の計算方法</h2>
             <div class="article">
-                総和は差の形（差分）を作ることで計算できる。差分とは
+                総和は項がずれた差の形
                 \[
                 f(k+1)-f(k)
                 \]
-                のように、項がずれた差の形のことをいう。この形の総和は次のように計算できる。
+                を作ることで次のように計算できる。
             </div>
+            <p></p>
             <div class="th">
                 <div>定理（差分の総和）</div>
                 \[
@@ -63,8 +64,9 @@
                     \)
                 </div>
             </details>
+            <p></p>
             <div class="article">
-                2項ずれた差の形 \(f(k+2)-f(k)\) であっても同様にして
+                2項ずれた差の形 \(f(k+2)-f(k)\) でも同様に
                 \[
                 \begin{align}
                 &\sum_{k=1}^n\{f(k+2)-f(k)\}\\
@@ -72,6 +74,84 @@
                 \end{align}
                 \]
                 のように計算できる。
+            </div>
+            <p></p>
+            <h3>具体例から理解する</h3>
+            <div class="ex">
+                <div>例題</div>
+                \(\displaystyle\sum_{k=1}^n k\) を計算せよ。
+            </div>
+            <p></p>
+            <div class="article">
+                適切な関数 \(f(k)\) を見つけて
+                \[
+                \sum_{k=1}^n k=\sum_{k=1}^n\{f(k+1)-f(k)\}
+                \]
+                と変形することができれば、この総和は計算できる。
+                <p></p>
+                どのように \(f(k)\) を見つけるかだが、とりあえず
+                \[
+                f(k)=ak^2+bk
+                \]
+                とおいてみる。
+            </div>
+            <details class="annotation">
+                <summary>この発想の理由</summary>
+                <div>
+                    ・なぜ二次式なのか<br>
+                    一次式 \(f(k)=ak+b\) では、\(f(k+1)-f(k)=a\) となり、\(k\) の項が消えてしまう。
+                    <p></p>
+                    ・定数項を考えない理由<br>
+                    \(f(k)=ak^2+bk+c\) としても、\(f(k+1)\) と \(f(k)\) の差をとると、定数項 \(c\) は消えるため、不要である。
+                </div>
+            </details>
+            <div class="article">
+                このとき
+                \[
+                \begin{align}
+                f(k+1)&=a(k+1)^2+b(k+1)\\
+                &=ak^2+(2a+b)k+a+b
+                \end{align}
+                \]
+                であり
+                \[
+                f(k+1)-f(k)=2ak+a+b
+                \]
+                となる。すなわち、すべての \(k\) に対して
+                \[
+                2ak+a+b=k
+                \]
+                が成り立てばよいから、両辺の係数を比較して
+                \[
+                2a=1,~~~a+b=0
+                \]
+                ゆえに
+                \[
+                a=\frac{1}{2},~~~b=-\frac{1}{2}
+                \]
+                したがって
+                \[
+                f(k)=\frac{1}{2}k^2-\frac{1}{2}k
+                \]
+                とすればよいことがわかる。
+                <p></p>
+                ＜解答＞<br>
+                \[
+                f(k)=\frac{1}{2}k^2-\frac{1}{2}k
+                \]
+                とおくと
+                \[
+                f(k+1)-f(k)=k
+                \]
+                であるから
+                \[
+                \begin{align}
+                \sum_{k=1}^nk&=\sum_{k=1}^n\{f(k+1)-f(k)\}\\
+                &=f(n+1)-f(1)\\
+                &=\frac{1}{2}(n+1)^2-\frac{1}{2}(n+1)\\
+                &=\frac{1}{2}n(n+1)
+                \end{align}
+                \]
             </div>
             <p class="space"></p>
             <h2 id="3">総和の公式</h2>
@@ -94,7 +174,11 @@
             <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>問題</div>
-                
+                <ol>
+                    <li><span>\(f(k+1)-f(k)=2k^2-3k+1\) が成り立つような、\(f(k)\) を１つ求めよ。</span></li>
+                    <li><span>\(\displaystyle\sum_{k=1}^n(2k^2-3k+1)\) を計算せよ。（総和の公式は用いない）</span></li>
+                    <li><span>(2)の総和を、総和の公式を用いて計算せよ。</span></li>
+                </ol>
             </div>
             <details class="ans">
                 <summary>解答</summary>

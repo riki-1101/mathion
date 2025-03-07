@@ -353,7 +353,7 @@ footer {
     }
 }
         
-details.pf {
+details.pf, details.annotation {
     padding: 5px 0;
     summary {
         padding: 5px;
@@ -399,15 +399,28 @@ details.pf {
     }
     ol {
         padding-left: 0;
-        li {
-            list-style-type: none;
-            margin-bottom: 15px;
-        }
-        li:before {
-            content: "(" counter(list-item) ")";
-            padding-right: 10px;
-        }
+        counter-reset: list-counter; /* 番号のカウンターをリセット */
     }
+    
+    li {
+        list-style-type: none;
+        margin-bottom: 15px;
+        position: relative; /* 番号を絶対配置するための基準 */
+        padding-left: 35px; /* 番号分のスペースを確保 */
+        display: flex;
+        align-items: flex-start; /* 数式の1行目に番号を揃える */
+    }
+    
+    li:before {
+        content: "(" counter(list-counter) ")";
+        counter-increment: list-counter; /* カウンターを増やす */
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: right;
+        width: 25px; /* 番号の幅を統一 */
+    }
+    
 }
         
 details.ans {
