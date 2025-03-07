@@ -345,7 +345,8 @@ footer {
             padding-right: 10px;
             position: absolute;
             left: 0;
-            top: 0;
+            top: 50%;
+            transform: translateY(-50%); /* 垂直方向の中央揃え */
             width: 20px; /* 番号の幅を固定 */
             text-align: right; /* 番号を右寄せ */
         }
