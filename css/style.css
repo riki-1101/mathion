@@ -127,7 +127,7 @@ footer {
 
 #homeimg {
     padding: 2vw;
-    font-size: 4vw;
+    font-size: 5vw;
 }
 
 .page {
@@ -187,7 +187,7 @@ footer {
                 height: 100%;  /* 高さを100%にして中央揃えを確実にする */
                 .img {
                     margin: 0 20px 0 5px;
-                    width: 80px;
+                    width: 100px;
                     display: flex;
                     justify-content: center;  /* 横方向に中央揃え */
                     align-items: center;  /* 縦方向に中央揃え */
