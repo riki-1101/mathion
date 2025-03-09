@@ -211,6 +211,7 @@ footer {
         font-family: serif;
         position: relative;
         padding: 5px;
+        text-align: center;
     }
     h2 {
         font-family: serif;
@@ -278,10 +279,11 @@ footer {
         padding: 5px;
     }
     h2 {
-        margin: 5px 0;
+        margin: 15px 0;
         font-family: sans-serif;
-        border-left: solid 5px black;
-        padding-left: 10px;
+        border-left: solid 5px darkblue;
+        padding: 3px 0 3px 10px;
+        background-color: lightsteelblue;
     }
     h3 {
         margin: 5px 0;
