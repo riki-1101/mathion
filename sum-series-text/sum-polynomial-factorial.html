@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>多項式×階乗の和</title>
+        <title>整式×階乗の和</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
-        <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>多項式×階乗の和</h1>
+            <h1>整式×階乗の和</h1>
             <div id="table-of-contents"></div>
             <h2 id="1">今回の内容の説明</h2>
             <div class="article">
-                多項式 \(P(k)\) と階乗 \(k!\) の積の和
+                整式 \(P(k)\) と階乗 \(k!\) の積の和
                 \[
                 \sum_{k=1}^nP(k)\cdot k!
                 \]
-                を考える。これは直接、総和の公式を用いることができないため、
+                を考える。これは直接、総和の公式を用いることができないため、適切な関数 \(f(k)\) を見つけて
                 \[
-                \sum_{k=1}^n\{f(k+1)-f(k)\}=f(n+1)-f(1)
+                \sum_{k=1}^nP(k)\cdot k!=\sum_{k=1}^n\{f(k+1)-f(k)\}
                 \]
-                を利用する。では、
-                \[
-                P(k)\cdot k!=f(k+1)-f(k)
-                \]
-                となるような \(f(k)\) はどのように見つければよいのだろうか。
+                と変形することを試みる。
             </div>
             <p class="space"></p>
             <h2 id="2">具体的な計算例</h2>
