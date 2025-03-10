@@ -7,8 +7,5 @@ window.MathJax = {
     },
     tex: {
       packages: { '[+]': ['ams'] }  // amsパッケージ追加
-    },
-    svg: {
-      fontCache: 'global'
     }
 };
