@@ -12,10 +12,6 @@ body {
     background-color: aliceblue;
 }
 
-mjx-container {
-    font-family: "Latin Modern Math", "STIX Math", "Cambria Math", serif !important;
-}
-
 a {
     text-decoration: none;
 }

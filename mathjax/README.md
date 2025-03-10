@@ -82,7 +82,7 @@ need to install anything.  Simply use a `script` tag that loads
 MathJax from the CDN.  E.g.,
 
 ``` html
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
 ```
 
 See the [MathJax
@@ -174,7 +174,7 @@ Since the `es5` directory contains *all* the component files, so if
 you are only planning one use one configuration, you can reduce the
 size of the MathJax directory by removing unused components. For
 example, if you are using the `tex-chtml.js` component, then you can
-remove the `tex-mml-chtml.js`, `tex-svg.js`, `tex-mml-svg.js`,
+remove the `tex-mml-svg.js`, `tex-svg.js`, `tex-mml-svg.js`,
 `tex-chtml-full.js`, and `tex-svg-full.js` configurations, which will
 save considerable space.  Indeed, you should be able to remove
 everything other than `tex-chtml.js`, and the `input/tex/extensions`,
