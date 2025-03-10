@@ -245,13 +245,12 @@ footer {
     #table-of-contents {
         width: 90%;
         margin: 0 auto 30px auto;
+        padding: 10px;
         background-color: whitesmoke;
-        border: 0.1vw solid #aaa;
+        border: 1px solid #aaa;
         div {
-            display: flex;
-            padding: 0.7vw 2vw;
             color: black;
-            font-weight: 600;
+            font-weight: bold;
         }
         ol {
             list-style-type: disc;
@@ -260,14 +259,6 @@ footer {
         li {
             padding: 5px 0;
             font-weight: bold;
-        }
-        ol ol {
-            margin-top: 5px;
-            padding-left: 1.1em;
-        }
-        ol ol li {
-            padding: 5px 0;
-            font-weight: normal;
         }
         a {
             color: black;
@@ -282,7 +273,7 @@ footer {
         margin: 15px 0;
         font-family: sans-serif;
         border-left: solid 5px darkblue;
-        padding: 3px 0 3px 10px;
+        padding: 5px 0 5px 10px;
         background-color: lightsteelblue;
     }
     h3 {

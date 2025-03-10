@@ -1,11 +1,14 @@
 window.MathJax = {
     options: {
-        enableMenu: false
-    }
-};
-
-window.MathJax = {
+      enableMenu: false,
+      renderActions: {
+        addMenu: []
+      }
+    },
     tex: {
-      packages: {'[+]': ['ams']}  // ← ここで `ams` を追加
+      packages: { '[+]': ['ams'] }  // amsパッケージ追加
+    },
+    svg: {
+      fontCache: 'global'
     }
 };
