@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>変数分離形</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>変数分離形</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">変数分離形の解法</h2>
+            <div class="article">
+                \[
+                \frac{dy}{dx}=f(x)g(y)
+                \]
+                のように、\(y'=\) (\(x\) の式)×(\(y\) の式)と表せる微分方程式を変数分離形という。
+                <p></p>
+                \(g(y)\neq0\) のとき、両辺を \(g(y)\) で割ると
+                \[
+                \frac{1}{g(y)}\cdot\frac{dy}{dx}=f(x)
+                \]
+                両辺を \(x\) で積分すると
+                \[
+                \int\frac{1}{g(y)}dy=\int f(x)dx
+                \]
+            </div>
+            <p></p>
+            <h3>形式的な解釈</h3>
+            <div class="article">
+                形式的に、次のように理解することもできる。
+                <p></p>
+                ①左辺を \(y\) のみ、右辺を \(x\) のみにする
+                \[
+                \frac{1}{g(y)}dy=f(x)dx
+                \]
+                ②両辺に積分記号をつける
+                \[
+                \int\frac{1}{g(y)}dy=\int f(x)dx
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="2">例題を解く</h2>
+            <div class="ex">
+                <div>例題</div>
+                次の微分方程式を解け。
+                \[
+                \displaystyle\frac{dy}{dx}=\frac{xy}{x^2+1}
+                \]
+            </div>
+            <p></p>
+            <div class="article">
+                これは、
+                \(y\neq0\) のとき
+                \[
+                \frac{1}{y}\cdot\frac{dy}{dx}=\frac{x}{x^2+1}
+                \]
+                両辺を \(x\) で積分すると
+                \[
+                \begin{align}
+                \int\frac{1}{y}dy&=\int\frac{x}{x^2+1}dx\\
+                \log |y|&=\frac{1}{2}\log(x^2+1)+C_1\\
+                \log |y|&=\log\sqrt{x^2+1}+C_1\\
+                |y|&=e^{\log\sqrt{x^2+1}+C_1}\\
+                y&=\pm e^{C_1}\sqrt{x^2+1}\\
+                y&=C\sqrt{x^2+1}
+                \end{align}
+                \]
+                また、\(y=0\) という定数関数は与えられた微分方程式を満たすが、これは \(C=0\) の場合に相当する。<br>
+                したがって
+                \[
+                y=C\sqrt{x^2+1}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
