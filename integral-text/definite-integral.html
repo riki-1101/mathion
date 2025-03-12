@@ -16,19 +16,19 @@
             <h2 id="1">リーマン積分の定義</h2>
             <div class="def">
                 <div>定義（リーマン積分）</div>
-                \(f:[a,b]\to\mathbb{R}\) を有界な関数とする。次のように区間 \([a,b]\) を \(n\) 個の区間に分割する。
+                \(f:[a,b]\to\mathbb{R}\) を有界な関数とする。区間 \([a,b]\) を
                 \[
                 [a,b] = [x_0,x_1] \cup [x_1,x_2] \cup \cdots \cup [x_{n-1},x_n]
                 \]
-                \(\varDelta x_k = x_k - x_{k-1}\) とし、代表点 \(t_k \in [x_{k-1},x_k]\) を任意にとる。このとき
+                のように \(n\) 個の区間に分割し、\(\varDelta x_k = x_k - x_{k-1}\) とする。
+                <p></p>
+                任意の点 \(t_k \in [x_{k-1},x_k]\) に対して
                 \[
                 \sum_{k=1}^n f(t_k)\varDelta x_k
                 \]
                 を \(f\) のリーマン和という。
                 <p></p>
-                \(|\varDelta| = \max\limits_{1 \le k \le n} \varDelta x_k\) と定め、\(|\varDelta| \to 0\) となるように分割を変える。
-                <p></p>
-                このとき、分割および \(\{t_k\}\) のとり方によらず
+                \(|\varDelta| = \max\limits_{1 \le k \le n} \varDelta x_k\) として、\(\{t_k\}\) のとり方によらず
                 \[
                 \lim_{|\varDelta| \to 0} \sum_{k=1}^n f(t_k)\varDelta x_k
                 \]
@@ -42,23 +42,23 @@
             <h2 id="2">リーマン積分可能性</h2>
             <div class="th">
                 <div>定理（単調関数のリーマン積分可能性）</div>
-                \(f:[a,b]\to\mathbb{R}\) が \([a,b]\) 上で単調であるとき、\(f\) は \([a,b]\) 上でリーマン積分可能である。
+                閉区間 \(I\) 上で単調な関数は、\(I\) 上でリーマン積分可能である。
             </div>
             <details class="pf">
                 <summary>証明</summary>
                 <div>
-                    unknown
+                    
                 </div>
             </details>
             <p></p>
             <div class="th">
                 <div>定理（連続関数のリーマン積分可能性）</div>
-                \(f:[a,b]\to\mathbb{R}\) が \([a,b]\) 上で連続であるとき、\(f\) は \([a,b]\) 上でリーマン積分可能である。
+                閉区間 \(I\) 上で連続な関数は、\(I\) 上でリーマン積分可能である。
             </div>
             <details class="pf">
                 <summary>証明</summary>
                 <div>
-                    unknown
+                    
                 </div>
             </details>
             <p class="space"></p>
@@ -82,7 +82,7 @@
                 \[
                 \sum_{k=1}^n {\left(\frac{k}{n}\right)}^2\frac{1}{n}
                 \]
-                となる。区間の幅は
+                となる。
                 \[
                 |\varDelta| = \max_{1 \le k \le n} \varDelta x_k=\frac{1}{n}
                 \]
