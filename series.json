@@ -53,5 +53,12 @@
         "type": "sum",
         "formula": "\\displaystyle\\sum_{k=1}^n\\frac{1}{\\sqrt{k}+\\sqrt{k+1}}",
         "category": ["irrational"]
+    },
+    {
+        "url": "series/basic/[1,n] arctan{frac{1}{k^2+k+1}}.html",
+        "level": "Basic",
+        "type": "sum",
+        "formula": "\\displaystyle\\sum_{k=1}^n\\arctan\\frac{1}{k^2+k+1}",
+        "category": [""]
     }
 ]
