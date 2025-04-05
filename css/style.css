@@ -294,6 +294,24 @@ footer {
     padding: 5px 10px;
     overflow-x: scroll;
     overflow-y: hidden;
+    ol {
+        padding-left: 0;
+        li {
+            list-style-type: none;
+            margin-bottom: 15px;
+            position: relative; /* 番号を絶対配置するための基準 */
+            padding-left: 30px; /* 番号分のスペースを確保 */
+        }
+        li:before {
+            content: "(" counter(list-item) ")";
+            padding-right: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px; /* 番号の幅を固定 */
+            text-align: right; /* 番号を右寄せ */
+        }
+    }
 }
         
 .def {
@@ -491,13 +509,6 @@ table {
     }
 }
 
-.enumerate {
-    margin: 0;
-    padding-left: 2vw;
-    li {
-        margin: 2vw 0 0 0;
-    }
-}
 
 .problem {
     font-size: 17px;
@@ -536,4 +547,26 @@ table {
     position: absolute;
     right: -3px;
     bottom: 9px;
+}
+
+
+
+
+#xxx {
+    width: 100%;
+    text-align: center;
+    #x_problem {
+        #x {
+            margin: 30px auto;
+            padding: 30px;
+            width: 80%;
+            font-size: 50px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+    }
+    #x_answer {
+        margin: auto;
+    }
 }
