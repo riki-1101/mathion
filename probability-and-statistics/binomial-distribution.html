@@ -76,7 +76,10 @@
                 \]
                 と表す。
             </div>
-            成功確率が \(p\) のベルヌーイ試行を \(n\) 回行い、その成功回数を \(X\) とする。
+            <p></p>
+            <div class="article">
+                成功確率が \(p\) のベルヌーイ試行を \(n\) 回行い、その成功回数を \(X\) とする。
+            </div>
             <p></p>
             <div class="th">
                 <div>定理（二項分布の期待値と分散）</div>
@@ -85,13 +88,14 @@
                 E[X]=np,~~~V[X]=np(1-p)
                 \]
             </div>
-            <p></p>
-            <div class="pf">
-                証明
-                \[
-                E[X]=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}
-                \]
-            </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \[
+                    E[X]=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}
+                    \]
+                </div>
+            </details>
             <p class="space"></p>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
@@ -99,22 +103,23 @@
                 A,B,C,Dの文字が書かれた4枚のカードの中から無作為に1枚のカードを取り出し、元に戻す操作を128回繰り返したとき、Aのカードを引く回数を \(X\) とする。
                 このときの \(X\) の期待値と分散を求めよ。
             </div>
-            <p></p>
-            <div class="ans">
-                <div>解答</div>
-                1回の試行の成功確率（A,B,C,Dの文字が書かれた4枚のカードの中からAのカードを引く確率）は \(\displaystyle\frac{1}{4}\) であるから、
-                \(X=k\) となる確率は
-                \[
-                P(X=k)=\binom{128}{k}\left(\frac{1}{4}\right)^k\left(\frac{3}{4}\right)^{128-k}~~~(k=0,1,\cdots,128)
-                \]
-                したがって、\(\displaystyle X\sim Bin\left(128,\frac{1}{4}\right)\) であるから
-                \[
-                E[X]=128\cdot\frac{1}{4}=32
-                \]
-                \[
-                V[X]=128\cdot\frac{1}{4}\cdot\frac{3}{4}=24
-                \]
-            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    1回の試行の成功確率（A,B,C,Dの文字が書かれた4枚のカードの中からAのカードを引く確率）は \(\displaystyle\frac{1}{4}\) であるから、
+                    \(X=k\) となる確率は
+                    \[
+                    P(X=k)=\binom{128}{k}\left(\frac{1}{4}\right)^k\left(\frac{3}{4}\right)^{128-k}~~~(k=0,1,\cdots,128)
+                    \]
+                    したがって、\(\displaystyle X\sim Bin\left(128,\frac{1}{4}\right)\) であるから
+                    \[
+                    E[X]=128\cdot\frac{1}{4}=32
+                    \]
+                    \[
+                    V[X]=128\cdot\frac{1}{4}\cdot\frac{3}{4}=24
+                    \]
+                </div>
+            </details>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
