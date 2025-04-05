@@ -308,7 +308,7 @@ footer {
             position: absolute;
             left: 0;
             top: 0;
-            width: 25px; /* 番号の幅を固定 */
+            width: 15px; /* 番号の幅を固定 */
             text-align: right; /* 番号を右寄せ */
         }
     }
