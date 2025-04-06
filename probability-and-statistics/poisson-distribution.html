@@ -54,15 +54,11 @@
             <p></p>
             <div class="def">
                 <div>定義（ポアソン分布）</div>
-                    離散型確率変数 \(X\) の確率質量関数 \(f(x)\) が \(\lambda\gt0\) として
+                    離散型確率変数 \(X\) の確率質量関数 \(f\) が \(\lambda\gt0\) として
                     \[
-                    f(x)=
-                    \begin{cases}
-                    \displaystyle\frac{\lambda^x}{x!}e^{-\lambda} & (\mathrm{if}~x\in\mathbb{Z}_{\ge0})\\
-                    0 & (\mathrm{otherwise})
-                    \end{cases}
+                    f(x)=\frac{\lambda^x}{x!}e^{-\lambda}~~~(x\in\mathbb{Z}_{\ge0})\\
                     \]
-                    と表されるとき、\(X\) はパラメータ \(\lambda\) のポアソン分布に従うといい
+                    であるとき、\(X\) は母数 \(\lambda\) のポアソン分布に従うといい
                     \[
                     X\sim Po(\lambda)
                     \]
