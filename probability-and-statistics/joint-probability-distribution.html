@@ -16,8 +16,7 @@
             <h2 id="1">同時確率変数</h2>
             <div class="def">
                 <div>定義（同時確率変数）</div>
-                ２つの確率変数
-                \(X:\Omega\to\mathbb{R},~~Y:\Omega\to\mathbb{R}\) に対して
+                ２つの確率変数 \(X,Y\) に対して
                 \[
                 (X,Y):\Omega\to\mathbb{R}^2
                 \]
@@ -35,7 +34,7 @@
                 0 & (\mathrm{otherwise})
                 \end{cases}
                 \]
-                を値として定める関数 \(f:\mathbb{R}^2\to\mathbb{R}\) を \(X,Y\) の同時確率質量関数という。
+                で定まる関数 \(f\) を \(X,Y\) の同時確率質量関数という。
             </div>
             <p class="space"></p>
             <h2 id="3">連続型同時確率分布</h2>
@@ -46,15 +45,21 @@
                     <li>\(\forall (x,y)\in\mathbb{R}^2:f(x,y)\ge0\)</li>
                     <li>\(\displaystyle\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy=1\)</li>
                 </ol>
-                を満たすとする。この \(f\) が連続型確率変数 \(X,Y\) に対して
+                を満たすとする。
+                <p></p>
+                この \(f\) が連続型確率変数 \(X,Y\) に対して、\(D\subset\mathbb{R}^2\) として
                 \[
-                \forall D\in\mathbb{R}^2:P((X,Y)\in D)=\iint_D f(x,y)dxdy
+                P((X,Y)\in D)=\iint_D f(x,y)dxdy
                 \]
                 が成り立つとき、\(f\) を \(X,Y\) の同時確率密度関数という。
             </div>
             <p></p>
             <div class="article">
-                すなわち、\(a\le X\le b,~c\le Y\le d\) となる確率は同時確率密度関数 \(f\) によって
+                すなわち、\(a,b,c,d\in\mathbb{R}\) として
+                \[
+                a\le X\le b,~~c\le Y\le d
+                \]
+                となる確率は、同時確率密度関数 \(f\) によって
                 \[
                 P(a\le X\le b,~c\le Y\le d)=\int_c^d\int_a^b f(x,y)dxdy
                 \]
