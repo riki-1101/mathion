@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>二項関係</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>二項関係</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">二項関係の定義</h2>
+            <div class="def">
+                <div>定義（二項関係）</div>
+                集合 \(A,B\) に対して、これらの直積の部分集合
+                \[
+                R\subset A\times B
+                \]
+                を \(A\) から \(B\) への二項関係という。
+                <p></p>
+                任意の \(a\in A,~b\in B\) に対して
+                \[
+                (a,b)\in R
+                \]
+                が成り立つとき、\(R\) のもとで \(a\) と \(b\) は関係を持つといい
+                \[
+                aRb
+                \]
+                と書く。
+            </div>
+            <p class="space"></p>
+            <h2>二項関係の性質</h2>
+            <div class="def">
+                <div>定義（反射律・対称律・推移律）</div>
+                集合 \(X\) 上の二項関係 \(R\) に対して
+                \[
+                \forall x\in X,~xRx
+                \]
+                が成り立つとき、\(R\) は反射律を満たす（反射的）という。
+                \[
+                \forall x,y\in X,~xRy\Longrightarrow yRx
+                \]
+                が成り立つとき、\(R\) は対称律を満たす（対称的）という。
+                \[
+                \forall x,y,z\in X,~xRy,~yRz\Longrightarrow xRz
+                \]
+                が成り立つとき、\(R\) は推移律を満たす（推移的）という。
+            </div>
+            <p></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>例題</div>
+
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
