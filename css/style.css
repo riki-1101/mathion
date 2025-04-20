@@ -240,7 +240,7 @@ footer {
 
 #contents {
     width: 100%;
-    padding: 1px 10px 10px 10px;
+    padding: 1px 10px 50px 10px;
     background-color: aliceblue;
     #table-of-contents {
         width: 90%;
@@ -468,6 +468,19 @@ details.ans {
     }
 }
 
+.code {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    div {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+}
+
 
 #problem-list {
     list-style: none;
@@ -493,7 +506,7 @@ details.ans {
 
 
 table {
-    width: 80%;
+    width: 90%;
     margin: auto;
     text-align: center;
     border-collapse: collapse;

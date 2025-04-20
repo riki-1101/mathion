@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>データ型</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>データ型</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">データ型の種類</h2>
+            <div class="article">
+                <table border="1">
+                    <tr><th>データ型</th><th>名称</th><th>例</th></tr>
+                    <tr><td>bool</td><td>真偽</td><td>True, False</td></tr>
+                    <tr><td>str</td><td>文字列</td><td>"abc"</td></tr>
+                    <tr><td>int</td><td>整数</td><td>1</td></tr>
+                    <tr><td>float</td><td>浮動小数点</td><td>1.2, 1.23e2</td></tr>
+                    <tr><td>list</td><td>配列</td><td>["a", 1, 0.1]</td></tr>
+                    <tr><td>dict</td><td>辞書</td><td>{key1:value1, key2:value2}</td></tr>
+                    <tr><td>tuple</td><td>タプル</td><td>(1, 2, 3)</td></tr>
+                    <tr><td>set</td><td>集合</td><td>{1, 2, 3}</td></tr>
+                </table>
+            </div>
+            <p class="space"></p>
+            <h2 id="2">データ型の確認方法</h2>
+            <div class="article">
+                データ型を確認するにはtype()関数を用いる。
+            </div>
+            <p></p>
+            <div class="code">
+                a = 1<br>
+                t = type(a)<br>
+                print(t)
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
