@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>多次元配列（ndarray型）</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>多次元配列（ndarray型）</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">配列型のndarray化</h2>
+            <div class="article">
+                配列は、numpy.array()関数で生成できる。
+            </div>
+            <p></p>
+            <h3>1次元配列を生成する例</h3>
+            <div class="article">
+                1次元配列とはベクトルである。
+            </div>
+            <div class="code">
+                import numpy as np<br>
+                a = np.array([1,2,3,4,5])<br>
+                print(a)<br>
+                type(a)
+            </div>
+            <p></p>
+            <div class="code-result">
+                <div>出力結果</div>
+                [1 2 3 4 5]<br>
+                numpy.ndarray
+            </div>
+            <p></p>
+            <h3>2次元配列を生成する例</h3>
+            <div class="code">
+                import numpy as np<br>
+                a = np.array([[1,2,3], [4,5,6]])<br>
+                print(a)<br>
+                type(a)
+            </div>
+            <p></p>
+            <div class="code-result">
+                <div>出力結果</div>
+                [[1 2 3]<br>
+                &nbsp;[4 5 6]]<br>
+                numpy.ndarray
+            </div>
+            <p class="space"></p>
+            <h2 id="2">配列のデータ属性</h2>
+            <div class="article">
+                aのデータ型はndarrayとする。
+                <p></p>
+                <table border="1">
+                    <tr><th>属性</th><th>意味</th></tr>
+                    <tr><td>a.dtype</td><td>aの要素のデータ型</td></tr>
+                    <tr><td>a.shape</td><td>aの形</td></tr>
+                    <tr><td>a.ndim</td><td>aの次元数</td></tr>
+                    <tr><td>a.size</td><td>aの要素数</td></tr>
+                    <tr><td>a.flat</td><td>aの1次元表現</td></tr>
+                    <tr><td>a.T</td><td>aを転置した配列</td></tr>
+                </table>
+            </div>
+            <p></p>
+            <div class="code">
+                
+            </div>
+            <p class="space"></p>
+            <h2 id="3">配列に関する関数</h2>
+            <div class="article">
+                <table border="1">
+                    <tr><th>関数</th><th>意味</th></tr>
+                    <tr><td>np.zeros(shape)</td><td>形shapeの要素が全て0の配列を生成</td></tr>
+                    <tr><td>np.ones(shape)</td><td>形shapeの要素が全て1の配列を生成</td></tr>
+                    <tr><td>np.linspase(m,n,d)</td><td>mからnの値をd分割した値を要素に持つ配列を生成</td></tr>
+                </table>
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
