@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>平均情報量（エントロピー）</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>平均情報量（エントロピー）</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">平均情報量とは</h2>
+            <div class="article">
+                
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（平均情報量）</div>
+                ある完全事象系 \(A\) に対して
+                \[
+                H(A)=\sum_{a\in A}P(a)I(a)=-\sum_{a\in A}P(a)\log_2P(a)~~~[\mathrm{bit}]
+                \]
+                を事象系 \(A\) の平均情報量（エントロピー）という。
+            </div>
+            <p></p>
+            <div class="article">
+                
+            </div>
+            <p class="space"></p>
+            <h2 id="2">最大エントロピー</h2>
+            <div class="article">
+                平均情報量（エントロピー）の最大値を最大エントロピーという。
+            </div>
+            <p></p>
+            <h3>2元事象系の最大エントロピー</h3>
+            <div class="article">
+                表が出る確率が \(p\) であるコインを1回投げるときの、最大エントロピーを考えてみる。このとき、事象系は次のようになる。
+                <p></p>
+                \[
+                A=
+                \begin{bmatrix}
+                \text{表} & \text{裏}\\
+                p & 1-p
+                \end{bmatrix}
+                \]
+                エントロピーは
+                \[
+                \begin{align}
+                H(A)&=-\sum_{a\in A}P(a)\log_2P(a)\\
+                &=-p\log_2p-(1-p)\log_2(1-p)
+                \end{align}
+                \]
+                この最大値を求めたい。
+                <p></p>
+                \[
+                \begin{align}
+                \frac{dH}{dp}&=-\log_2p-p\cdot\frac{1}{p\log2}+\log_2(1-p)+(1-p)\cdot\frac{1}{(1-p)\log2}\\
+                &=-\log_2p-\frac{1}{\log2}+\log_2(1-p)+\frac{1}{\log2}\\
+                &=-\log_2p+\log_2(1-p)
+                \end{align}
+                \]
+                よって
+                \[
+                \begin{align}
+                \frac{dH}{dp}=0&\Longleftrightarrow\log_2p=\log_2(1-p)\\
+                &\Longleftrightarrow p=1-p\\
+                &\Longleftrightarrow p=\frac{1}{2}
+                \end{align}
+                \]
+                増減表は次のようになる。
+                <p></p>
+                <table border="1">
+                    <tr><td>\(p\)</td><td>\(0\)</td><td>\(\cdots\)</td><td>\(\displaystyle\frac{1}{2}\)</td><td>\(\cdots\)</td><td>\(1\)</td></tr>
+                    <tr><td>\(\displaystyle\frac{dH}{dp}\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+                    <tr><td>\(H\)</td><td>\(0\)</td><td>↗</td><td>\(1\)</td><td>↘</td><td>\(0\)</td></tr>
+                </table>
+                <p></p>
+                したがって、\(H\) は \(p=\displaystyle\frac{1}{2}\) で最大値 \(1\) をとる。
+                <p></p>
+                つまり、エントロピーが最大になるのは表、裏が出る確率が等確率であるときとわかる。
+            </div>
+            <p></p>
+            <h3>\(n\) 元事象系の最大エントロピー</h3>
+            <div class="article">
+                一般に、\(n\) 元事象系のエントロピーが最大となるのは、\(n\) 個の事象の生起確率が等確率で、\(\displaystyle\frac{1}{n}\) であるときである。
+            </div>
+            <p></p>
+            <div class="th">
+                <div>定理（最大エントロピー）</div>
+                \(n\) 元事象系の最大エントロピー \(H_{\mathrm{max}}\) は
+                \[
+                H_{\mathrm{max}}=-\log_2\frac{1}{n}=\log_2n
+                \]
+                で与えられる。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>例題</div>
+
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
