@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>自己情報量</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>自己情報量</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">自己情報量の定義</h2>
+            <div class="article">
+                情報量とは、ある情報がどれだけ「驚き」を持っているかを表す指標である。では、具体的にどう定義するか。
+                <p></p>
+                情報量が満たすべき性質として、次が挙げられる。
+                <p></p>
+                ・独立した情報の合計は、各情報量の合計になる
+                <p></p>
+                ・起きる確率が高い事象ほど、情報量は小さい
+                <p></p>
+                これを数学的に書くと次のようになる。
+                <p></p>
+                \(a,b\) を事象とする。
+                \[
+                I(ab)=I(a)+I(b)
+                \]
+                \[
+                P(a)\lt P(b)\Longleftrightarrow I(a)\gt I(b)
+                \]
+                これらを満たす関数は
+                \[
+                I(x)=-\log(x)
+                \]
+                である。以上より、次のように情報量を定義する。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（自己情報量）</div>
+                事象 \(a\) に対して
+                \[
+                I(a)=\log_2\frac{1}{P(a)}=-\log_2P(a)~~~[\mathrm{bit}]
+                \]
+                を事象 \(a\) の自己情報量という。
+            </div>
+            <div class="article">
+                底は \(2\) の他に \(e,3,10\) なども考えられるが、情報理論では \(2\) を底とする。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>例題</div>
+
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
