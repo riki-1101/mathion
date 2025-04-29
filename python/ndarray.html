@@ -69,14 +69,68 @@
                 
             </div>
             <p class="space"></p>
-            <h2 id="3">配列に関する関数</h2>
+            <h2 id="3">配列を生成する関数</h2>
             <div class="article">
                 <table border="1">
-                    <tr><th>関数</th><th>意味</th></tr>
-                    <tr><td>np.zeros(shape)</td><td>形shapeの要素が全て0の配列を生成</td></tr>
-                    <tr><td>np.ones(shape)</td><td>形shapeの要素が全て1の配列を生成</td></tr>
-                    <tr><td>np.linspase(m,n,d)</td><td>mからnの値をd分割した値を要素に持つ配列を生成</td></tr>
+                    <tr><th>関数</th><th>処理内容</th></tr>
+                    <tr><td>np.zeros(shape, dtype)</td><td>形shapeの要素が全て0の配列を生成</td></tr>
+                    <tr><td>np.ones(shape, dtype)</td><td>形shapeの要素が全て1の配列を生成</td></tr>
+                    <tr><td>np.arange(start,stop,step)</td><td>startからstop未満の公差stepの等差数列の配列を生成</td></tr>
+                    <tr><td>np.linspase(start,stop,num)</td><td>startからstopの値をnum分割した値を要素に持つ配列を生成</td></tr>
                 </table>
+            </div>
+            <p></p>
+            <div class="article">
+                それぞれの関数の実行例を以下に示す。
+            </div>
+            <p></p>
+            <h3>zeros()関数</h3>
+            <div class="code">
+                import numpy as np<br>
+                a = np.zeros((2,3))<br>
+                b = np.zeros((2,3), np.int8)<br>
+                print(a)<br>
+                print()<br>
+                print(b)<br>
+            </div>
+            <p></p>
+            <div class="code-result">
+                <div>実行結果</div>
+                [[0. 0. 0.]<br>
+                &nbsp;[0. 0. 0.]]
+                <p></p>
+                [[0 0 0]<br>
+                &nbsp;[0 0 0]]
+            </div>
+            <p></p>
+            <h3>ones()関数</h3>
+            <div class="code">
+                import numpy as np<br>
+                print(np.ones((2,3)))<br>
+                print(np.ones((2,3), np.int8))
+            </div>
+            <p></p>
+            <div class="code-result">
+                <div>実行結果</div>
+                [[1. 1. 1.]<br>
+                &nbsp;[1. 1. 1.]]<br>
+                [[1 1 1]<br>
+                &nbsp;[1 1 1]]
+            </div>
+            <p></p>
+            <h3>arange()関数</h3>
+            <div class="code">
+                import numpy as np<br>
+                print(np.arange(5))<br>
+                print(np.arange(2,8))<br>
+                print(np.arange(2, 10, 2))
+            </div>
+            <p></p>
+            <div class="code-result">
+                <div>実行結果</div>
+                [0 1 2 3 4]<br>
+                [2 3 4 5 6 7]<br>
+                [2 4 6 8]
             </div>
         </main>
         <footer id="footer"></footer>
