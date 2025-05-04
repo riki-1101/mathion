@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>完全微分方程式</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>完全微分方程式</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">完全微分方程式とは</h2>
+            <div class="article">
+                2変数関数の1階微分方程式
+                \[
+                P(x,y)+Q(x,y)\frac{dy}{dx}=0
+                \]
+                \[
+                \frac{dy}{dx}=-\frac{P(x,y)}{Q(x,y)}
+                \]
+                この式を微分形式で書き直すと
+                \[
+                P(x,y)dx+Q(x,y)dy=0
+                \]
+                となる。ここで全微分を思い出そう。
+                <p></p>
+                ある2変数関数 \(f(x,y)\) の全微分は
+                \[
+                df=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy
+                \]
+                と定義されるのであった。この式と比較すると
+                \[
+                P(x,y)=\frac{\partial f}{\partial x},~~~Q(x,y)=\frac{\partial f}{\partial y}
+                \]
+                となれば
+                \[
+                df=0
+                \]
+                となり、微分方程式が解けそうである。つまり
+                \[
+                P(x,y)=\frac{\partial f}{\partial x},~~~Q(x,y)=\frac{\partial f}{\partial y}
+                \]
+                となる関数 \(f\) が存在すれば
+                \[
+                P(x,y)dx+Q(x,y)dy=0
+                \]
+                が解くことができ、このときこれは完全微分方程式と呼ばれる。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">完全微分方程式であるための条件</h2>
+            <div class="article">
+                前項で
+                \[
+                P(x,y)=\frac{\partial f}{\partial x},~~~Q(x,y)=\frac{\partial f}{\partial y}
+                \]
+                となる関数 \(f\) が存在すれば
+                \[
+                P(x,y)dx+Q(x,y)dy=0
+                \]
+                は完全微分方程式となることを述べたが、関数 \(f\) が存在するかどうかをどのように判定するか。ここで、次の定理を利用する。
+            </div>
+            <p></p>
+            <div class="th">
+                <div>定理（完全微分方程式となる必要十分条件）</div>
+                \(P(x,y)dx+Q(x,y)dy=0\) が完全微分方程式となる必要十分条件は
+                \[
+                \frac{\partial P(x,y)}{\partial y}=\frac{\partial Q(x,y)}{\partial x}
+                \]
+                が成り立つことである。
+            </div>
+            <p></p>
+            <div class="article">
+                この式を満たせば
+                \[
+                P(x,y)=\frac{\partial f}{\partial x},~~~Q(x,y)=\frac{\partial f}{\partial y}
+                \]
+                となる関数 \(f\) が存在する。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">例題</h2>
+            <div class="ex">
+                <div>例題</div>
+                次の微分方程式を解け。
+                \[
+                (2xy+3)dx+(x^2+4y)dy=0
+                \]
+            </div>
+            <p></p>
+            <div class="article">
+                まず、微分方程式の形を確認する。
+                \[
+                \frac{\partial}{\partial y}(2xy+3)=2x,~~~\frac{\partial}{\partial x}(x^2+4y)=2x
+                \]
+                より
+                \[
+                \frac{\partial}{\partial y}(2xy+3)=\frac{\partial}{\partial x}(x^2+4y)
+                \]
+                であるから完全微分方程式である。
+                <p></p>
+                よって
+                \[
+                \frac{\partial f}{\partial x}=2xy+3\cdots\text{①},~~~\frac{\partial f}{\partial y}=x^2+4y\cdots\text{②}
+                \]
+                となる関数 \(f(x,y)\) が存在する。
+                <p></p>
+                ①の両辺を \(x\) で積分すると
+                \[
+                f(x,y)=\int(2xy+3)dx=x^2y+3x+C(y)
+                \]
+                これと②より
+                \[
+                \frac{\partial}{\partial y}\{x^2y+3x+C(y)\}=x^2+4y
+                \]
+                \[
+                \begin{align}
+                &\Longleftrightarrow x^2+C'(y)=x^2+4y\\
+                &\Longleftrightarrow C'(y)=4y
+                \end{align}
+                \]
+                よって
+                \[
+                C(y)=\int 4ydy=2y^2+C_1
+                \]
+                したがって
+                \[
+                f(x,y)=x^2y+3x+2y^2+C_1
+                \]
+                よって
+                \[
+                df=0
+                \]
+                より、求める解は
+                \[
+                x^2y+3x+2y^2=C
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                次の微分方程式を解け。
+                <ol>
+                    <li>\((3x^2y+2y)dx+(x^3+2x+\cos y)dy=0\)</li>
+                    <li>\(\displaystyle\left(\frac{y}{x}+1\right)dx+(\log x)dy=0\)</li>
+                </ol>
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    <ol>
+                        <li>
+                            \[
+                            \frac{\partial}{\partial y}(3x^2y+2y)=3x^2+2,~~~\frac{\partial}{\partial x}(x^3+2x+\cos y)=3x^2+2
+                            \]
+                            より
+                            \[
+                            \frac{\partial}{\partial y}(3x^2y+2y)=\frac{\partial}{\partial x}(x^3+2x+\cos y)
+                            \]
+                            であるから完全微分方程式である。
+                            <p></p>
+                            よって
+                            \[
+                            \frac{\partial f}{\partial x}=3x^2y+2y\cdots\text{①},~~~\frac{\partial f}{\partial y}=x^3+2x+\cos y\cdots\text{②}
+                            \]
+                            となる関数 \(f(x,y)\) が存在する。
+                            <p></p>
+                            ①の両辺を \(x\) で積分すると
+                            \[
+                            f(x,y)=\int(3x^2y+2y)dx=x^3y+2xy+C(y)
+                            \]
+                            これと②より
+                            \[
+                            \frac{\partial}{\partial y}\{x^3y+2xy+C(y)\}=x^3+2x+\cos y
+                            \]
+                            \[
+                            \begin{align}
+                            &\Longleftrightarrow x^3+2x+C'(y)=x^3+2x+\cos y\\
+                            &\Longleftrightarrow C'(y)=\cos y
+                            \end{align}
+                            \]
+                            よって
+                            \[
+                            C(y)=\int\cos ydy=\sin y+C_1
+                            \]
+                            したがって
+                            \[
+                            f(x,y)=x^3y+2xy+\sin y+C_1
+                            \]
+                            よって
+                            \[
+                            df=0
+                            \]
+                            より、求める解は
+                            \[
+                            x^3y+2xy+\sin y=C
+                            \]
+                        </li>
+                        <li>
+                            真数条件より \(x\gt0\) である。
+                            \[
+                            \frac{\partial}{\partial y}\left(\frac{y}{x}+1\right)=\frac{1}{x},~~~\frac{\partial}{\partial x}(\log x)=\frac{1}{x}
+                            \]
+                            より
+                            \[
+                            \frac{\partial}{\partial y}\left(\frac{y}{x}+1\right)=\frac{\partial}{\partial x}(\log x)
+                            \]
+                            であるから完全微分方程式である。
+                            <p></p>
+                            よって
+                            \[
+                            \frac{\partial f}{\partial x}=\frac{y}{x}+1\cdots\text{①},~~~\frac{\partial f}{\partial y}=\log x\cdots\text{②}
+                            \]
+                            となる関数 \(f(x,y)\) が存在する。
+                            <p></p>
+                            ①の両辺を \(x\) で積分すると、\(x\gt0\) より
+                            \[
+                            f(x,y)=\int\left(\frac{y}{x}+1\right)dx=y\log x+x+C(y)
+                            \]
+                            これと②より
+                            \[
+                            \frac{\partial}{\partial y}\{y\log x+x+C(y)\}=\log x
+                            \]
+                            \[
+                            \begin{align}
+                            &\Longleftrightarrow \log x+C'(y)=\log x\\
+                            &\Longleftrightarrow C'(y)=0
+                            \end{align}
+                            \]
+                            よって
+                            \[
+                            C(y)=\int0dy=C_1
+                            \]
+                            したがって
+                            \[
+                            f(x,y)=y\log x+x+C_1
+                            \]
+                            よって
+                            \[
+                            df=0
+                            \]
+                            より、求める解は
+                            \[
+                            y\log x+x=C
+                            \]
+                        </li>
+                    </ol>
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
