@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>1階線形微分方程式</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>1階線形微分方程式</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">1階線形微分方程式とは</h2>
+            <div class="article">
+                \[
+                \frac{dy}{dx}+P(x)y=Q(x)
+                \]
+                のように、\(y\) と \(\displaystyle\frac{dy}{dx}\) の1次式で表される微分方程式を、1階線形微分方程式という。
+                <p></p>
+                また \(Q(x)=0\) のとき、1階線形同次微分方程式といい、\(Q(x)\neq0\) のとき、1階線形非同次微分方程式という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">1階線形同次微分方程式の解法</h2>
+            <div class="article">
+                同次微分方程式
+                \[
+                \frac{dy}{dx}+P(x)y=0
+                \]
+                を考える。
+                \[
+                \frac{dy}{dx}=-P(x)y
+                \]
+                より、これは変数分離形である。
+                \(y\neq0\) のとき
+                \[
+                \frac{1}{y}\frac{dy}{dx}=-P(x)
+                \]
+                両辺を \(x\) について積分すると
+                \[
+                \begin{align}
+                \int\frac{1}{y}dy&=-\int P(x)dx\\
+                \log|y|&=-\int P(x)dx+C_1\\
+                y&=Ce^{-\int P(x)dx}\\
+                \end{align}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="3">1階線形非同次微分方程式の解法</h2>
+            <div class="article">
+                1階線形同次微分方程式
+                \[
+                \frac{dy}{dx}+P(x)y=0
+                \]
+                の一般解は前項より
+                \[
+                y=Ce^{-\int P(x)dx}
+                \]
+                であった。
+                <p></p>
+                1階線形非同次微分方程式
+                \[
+                \frac{dy}{dx}+P(x)y=Q(x)\cdots\text{①}
+                \]
+                においても似たような解を持つと考える。
+                <p></p>
+                ①の一般解として、\(C\) が \(x\) の関数であると仮定し
+                \[
+                y=C(x)e^{-\int P(x)dx}
+                \]
+                とおく。このとき
+                \[
+                \frac{dy}{dx}=C'(x)e^{-\int P(x)dx}-C(x)P(x)e^{-\int P(x)dx}
+                \]
+                となるので、①に代入すると
+                \[
+                C'(x)e^{-\int P(x)dx}-C(x)P(x)e^{-\int P(x)dx}+P(x)C(x)e^{-\int P(x)dx}=Q(x)
+                \]
+                よって
+                \[
+                C'(x)e^{-\int P(x)dx}=Q(x)
+                \]
+                \[
+                C'(x)=Q(x)e^{\int P(x)dx}
+                \]
+                \[
+                C(x)=\int Q(x)e^{\int P(x)dx}dx+C
+                \]
+                したがって
+                \[
+                y=\left(\int Q(x)e^{\int P(x)dx}dx+C\right)e^{-\int P(x)dx}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="4">積分因子法</h2>
+            <div class="article">
+                1階線形微分方程式は両辺に \(e^{\int P(x)dx}\) を掛けても解くことができる。
+                \[
+                \frac{dy}{dx}+P(x)y=Q(x)
+                \]
+                の両辺に \(\displaystyle e^{\int P(x)dx}\) を掛けると
+                \[
+                \frac{dy}{dx}e^{\int P(x)dx}+P(x)ye^{\int P(x)dx}=Q(x)e^{\int P(x)dx}
+                \]
+                \[
+                \frac{dy}{dx}e^{\int P(x)dx}+y\frac{d}{dx}\left(e^{\int P(x)dx}\right)=Q(x)e^{\int P(x)dx}
+                \]
+                積の導関数の公式より
+                \[
+                \frac{d}{dx}\left(ye^{\int P(x)dx}\right)=Q(x)e^{\int P(x)dx}
+                \]
+                両辺を \(x\) で積分すると
+                \[
+                ye^{\int P(x)dx}=\int Q(x)e^{\int P(x)dx}dx+C
+                \]
+                よって
+                \[
+                y=\left(\int Q(x)e^{\int P(x)dx}dx+C\right)e^{-\int P(x)dx}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
