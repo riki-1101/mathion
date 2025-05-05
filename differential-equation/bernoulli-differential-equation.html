@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ベルヌーイの微分方程式</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ベルヌーイの微分方程式</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">ベルヌーイの微分方程式とは</h2>
+            <div class="article">
+                \[
+                \frac{dy}{dx}+P(x)y=Q(x)y^n~~~(n\neq0,1)
+                \]
+                のように、1階線形微分方程式の右辺に \(y^n\) が掛けられたものをベルヌーイの微分方程式という。
+            </div>
+            <p class="space"></p>
+            <h2 id="1">ベルヌーイの微分方程式の解法</h2>
+            <div class="article">
+                両辺に \(y^{-n}\) を掛けると
+                \[
+                y^{-n}\frac{dy}{dx}+P(x)y^{1-n}=Q(x)
+                \]
+                \(z=y^{1-n}\) とおくと \(\displaystyle\frac{dz}{dx}=(1-n)y^{-n}\frac{dy}{dx}\) であるから
+                \[
+                \frac{1}{1-n}\frac{dz}{dx}+P(x)z=Q(x)
+                \]
+                \[
+                \frac{dz}{dx}+(1-n)P(x)z=(1-n)Q(x)
+                \]
+                これは1階線形微分方程式である。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
