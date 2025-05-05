@@ -124,8 +124,65 @@
             <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>問題</div>
-                
+                次の微分方程式を解け。
+                <ol>
+                    <li>\(\displaystyle\frac{dy}{dx}+\frac{2}{x}y=x^2\)</li>
+                    <li>\(\displaystyle\frac{dy}{dx}+y\tan x=\sin x\)</li>
+                </ol>
             </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    <ol>
+                        <li>
+                            \[
+                            e^{\int\frac{2}{x}dx}=e^{2\log x}=x^2
+                            \]
+                            を両辺に掛けると
+                            \[
+                            \frac{dy}{dx}\cdot x^2+2xy=x^4
+                            \]
+                            \[
+                            \frac{d}{dx}(yx^2)=x^4
+                            \]
+                            両辺を \(x\) で積分すると
+                            \[
+                            \int\frac{d}{dx}(yx^2)dx=\int x^4dx
+                            \]
+                            \[
+                            yx^2=\frac{1}{5}x^5+C
+                            \]
+                            よって
+                            \[
+                            y=\frac{1}{5}x^3+\frac{C}{x^2}
+                            \]
+                        </li>
+                        <li>
+                            \[
+                            e^{\int\tan xdx}=e^{-\log(\cos x)}=\frac{1}{\cos x}
+                            \]
+                            を両辺に掛けると
+                            \[
+                            \frac{dy}{dx}\cdot\frac{1}{\cos x}+y\cdot\frac{\tan x}{\cos x}=\tan x
+                            \]
+                            \[
+                            \frac{d}{dx}\left(\frac{y}{\cos x}\right)=\tan x
+                            \]
+                            両辺を \(x\) で積分すると
+                            \[
+                            \int\frac{d}{dx}\left(\frac{y}{\cos x}\right)dx=\int\tan xdx
+                            \]
+                            \[
+                            \frac{y}{\cos x}=-\log|\cos x|+C
+                            \]
+                            よって
+                            \[
+                            y=\cos x(-\log|\cos x|+C)
+                            \]
+                        </li>
+                    </ol>
+                </div>
+            </details>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
