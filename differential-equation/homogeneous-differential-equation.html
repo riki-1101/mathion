@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>同次形</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>同次形</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">同次形とは</h2>
+            <div class="article">
+                \[
+                \frac{dy}{dx}=f\left(\frac{y}{x}\right)
+                \]
+                の形をした微分方程式を同次形という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">同次形の解法</h2>
+            <div class="article">
+                \[
+                \frac{dy}{dx}=f\left(\frac{y}{x}\right)
+                \]
+                において \(\displaystyle\frac{y}{x}=u\) とおくと、\(y=ux\) であり
+                \[
+                \frac{dy}{dx}=x\frac{du}{dx}+u
+                \]
+                であるから
+                \[
+                x\frac{du}{dx}+u=f(u)
+                \]
+                よって
+                \[
+                \frac{du}{dx}=\frac{f(u)-u}{x}
+                \]
+                これは変数分離形である。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                次の微分方程式を解け。
+                <ol>
+                    <li>\(\displaystyle\frac{dy}{dx}=\frac{x+y}{x-y}\)</li>
+                    <li>\(\displaystyle\frac{dy}{dx}=\frac{y+xe^{\frac{y}{x}}}{x}\)</li>
+                </ol>
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    <ol>
+                        <li>
+                            \[
+                            \frac{dy}{dx}=\frac{x+y}{x-y}
+                            \]
+                            \[
+                            \frac{dy}{dx}=\frac{1+\frac{y}{x}}{1-\frac{y}{x}}
+                            \]
+                            \(y=ux\) とおくと、\(\displaystyle\frac{dy}{dx}=x\frac{du}{dx}+u\) であり
+                            \[
+                            x\frac{du}{dx}+u=\frac{1+u}{1-u}
+                            \]
+                            \[
+                            x\frac{du}{dx}=\frac{1+u}{1-u}-u
+                            \]
+                            \[
+                            x\frac{du}{dx}=\frac{1+u^2}{1-u}
+                            \]
+                            \[
+                            \frac{1-u}{1+u^2}\frac{du}{dx}=\frac{1}{x}
+                            \]
+                            両辺を \(x\) で積分すると
+                            \[
+                            \int\frac{1-u}{1+u^2}du=\int\frac{1}{x}dx
+                            \]
+                            \[
+                            \begin{align}
+                            (\text{左辺})&=\int\frac{1}{1+u^2}du-\int\frac{u}{1+u^2}du\\
+                            &=\arctan u-\frac{1}{2}\int\frac{(1+u^2)'}{1+u^2}du\\
+                            &=\arctan u-\frac{1}{2}\log(1+u^2)+C_1
+                            \end{align}
+                            \]
+                            \[
+                            (\text{右辺})=\log|x|+C_2
+                            \]
+                            よって
+                            \[
+                            \arctan u-\frac{1}{2}\log(1+u^2)+C_1=\log|x|+C_2
+                            \]
+                            \[
+                            \arctan\left(\frac{y}{x}\right)-\frac{1}{2}\log\left\{1+\left(\frac{y}{x}\right)^2\right\}=\log|x|+C
+                            \]
+                        </li>
+                        <li>
+                            \[
+                            \frac{dy}{dx}=\frac{y+xe^{\frac{y}{x}}}{x}
+                            \]
+                            \[
+                            \frac{dy}{dx}=\frac{y}{x}+e^{\frac{y}{x}}
+                            \]
+                            \(y=ux\) とおくと、\(\displaystyle\frac{dy}{dx}=x\frac{du}{dx}+u\) であり
+                            \[
+                            x\frac{du}{dx}+u=u+e^{u}
+                            \]
+                            \[
+                            x\frac{du}{dx}=e^u
+                            \]
+                            \[
+                            e^{-u}\frac{du}{dx}=\frac{1}{x}
+                            \]
+                            両辺を \(x\) で積分すると
+                            \[
+                            \int e^{-u}du=\int\frac{1}{x}dx
+                            \]
+                            \[
+                            -e^{-u}=\log|x|+C_1
+                            \]
+                            \[
+                            e^{-u}=-\log|x|+C
+                            \]
+                            \[
+                            -u=\log(-\log|x|+C)
+                            \]
+                            \[
+                            \frac{y}{x}=-\log(-\log|x|+C)
+                            \]
+                            \[
+                            y=-x\log(-\log|x|+C)
+                            \]
+                        </li>
+                    </ol>
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
