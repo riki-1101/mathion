@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>逆行列と正則行列</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>逆行列と正則行列</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">逆行列と正則行列の定義</h2>
+            <div class="def">
+                <div>定義（逆行列）</div>
+                \(A\) を \(n\) 次正方行列とし、\(E\) を \(n\) 次単位行列とするとき
+                \[
+                AX=XA=E
+                \]
+                を満たす正方行列 \(X\) が存在するとき、これを \(A\) の逆行列といい
+                \[
+                A^{-1}
+                \]
+                と表す。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（正則行列）</div>
+                正方行列 \(A\) が逆行列 \(A^{-1}\) をもつとき、\(A\) は正則であるといい、そのような行列を正則行列という。
+            </div>
+            <p></p>
+            <div class="th">
+                <div>定理（正則の判定法）</div>
+                \(n\) 次正方行列 \(A\) に対して、次の3つは同値である。
+                <ol>
+                    <li>\(A\) が正則</li>
+                    <li>\(\operatorname{rank}A=n\)</li>
+                    <li>\(\det A\neq0\)</li>
+                </ol>
+            </div>
+            <p class="space"></p>
+            <h2 id="2"></h2>
+            <div class="th">
+                <div>定理（逆行列の性質）</div>
+                \(A,B\) は正則行列とするとき、次が成り立つ。
+                <ol>
+                    <li>\((A^{-1})^{-1}=A\)</li>
+                    <li>\((AB)^{-1}=B^{-1}A^{-1}\)</li>
+                    <li>\((A^\top)^{-1}=(A^{-1})^\top\)</li>
+                </ol>
+            </div>
+            <p class="space"></p>
+            <h2 id="3">2次正方行列の逆行列</h2>
+            <div class="article">
+                2次正方行列 \(A=\begin{bmatrix} a & b \\ c & d \end{bmatrix}\) は \(ad-bc\neq0\) のとき逆行列が存在し
+                \[
+                A^{-1}=\frac{1}{ad-bc}\begin{bmatrix} d & -b \\ -c & a \end{bmatrix}
+                \]
+                である。
+            </div>
+            <p class="space"></p>
+            <h2 id="4">逆行列の計算方法</h2>
+            <div class="th">
+                <div>定理（掃き出し法）</div>
+                \(A\) を正則行列とし、\(E\) を \(n\) 次単位行列とする。
+                行列 \(\begin{bmatrix} A|E\end{bmatrix}\) を行基本変形を用いて \(\begin{bmatrix} E|X\end{bmatrix}\) の形にすると、
+                \(X\) は \(A\) の逆行列 \(A^{-1}\) となる。
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
