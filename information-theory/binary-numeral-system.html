@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>2進法</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>2進法</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">2進法</h2>
+            <div class="article">
+                ある10進数が
+                \[
+                \sum_{k}d_k2^k=\cdots+d_12^1+d_02^0+d_{-1}2^{-1}+\cdots
+                \]
+                と書けるとき、この10進数は2進数で
+                \[
+                \cdots d_2d_1d_0.d_{-1}d_{-2}\cdots_{(2)}
+                \]
+                と表される。
+                <p></p>
+                例えば10進数の25であれば
+                \[
+                25=1\cdot2^4+1\cdot2^3+0\cdot2^2+0\cdot2^1+1\cdot2^0
+                \]
+                であるから
+                \[
+                25=11001_{(2)}
+                \]
+                となる。
+                <p></p>
+                また、10進数の6.75であれば
+                \[
+                6.75=1\cdot2^2+1\cdot2^1+0\cdot2^0+1\cdot2^{-1}+1\cdot2^{-2}
+                \]
+                であるから
+                \[
+                6.75=110.11_{(2)}
+                \]
+                となる。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>例題</div>
+
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
