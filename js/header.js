@@ -1,7 +1,7 @@
 const header = document.getElementById('header');
 if( header != null) {
     header.innerHTML = `
-    <div><a href="/calculus/index.html" id="title">Calculus</a></div>
+    <div><a href="/calculus/index.html" id="title">MathIon</a></div>
     <nav>
         <div class="hamburger">
             <span></span>
