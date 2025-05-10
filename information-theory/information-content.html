@@ -38,6 +38,45 @@
                 \]
                 である。以上より、次のように情報量を定義する。
             </div>
+            <details class="pf">
+                <summary>証明</summary>
+                <div>
+                    \[
+                    f(xy)=f(x)+f(y)
+                    \]
+                    において、\(y=1\) とすると
+                    \[
+                    f(x)=f(x)+f(1)
+                    \]
+                    よって
+                    \[
+                    f(1)=0~\cdots~\text{①}
+                    \]
+                    である。
+                    <p></p>
+                    \(f(x)\) は微分可能であるから
+                    \[
+                    \begin{align}
+                    f'(x)&=\lim_{\varDelta x\to0}\frac{f(x+\varDelta x)-f(x)}{\varDelta x}\\
+                    &=\lim_{\varDelta x\to0}\frac{f(x(1+\frac{\varDelta x}{x}))-f(x)}{\varDelta x}\\
+                    &=\lim_{\varDelta x\to0}\frac{f(x)+f(1+\frac{\varDelta x}{x})-f(x)}{\varDelta x}\\
+                    &=\lim_{\varDelta x\to0}\frac{f(1+\frac{\varDelta x}{x})}{\varDelta x}\\
+                    \end{align}
+                    \]
+                    ここで、\(\displaystyle t=\frac{\varDelta x}{x}\) とおくと \(t\to0\) であり
+                    \[
+                    f'(x)=\lim_{t\to0}\frac{f(1+t)}{xt}=\frac{1}{x}\cdot\lim_{t\to0}\frac{f(1+t)}{t}
+                    \]
+                    ここで、\(\displaystyle\lim_{t\to0}\frac{f(1+t)}{t}=A\) とおき、両辺を \(x\) で積分すると
+                    \[
+                    \int f'(x)dx=\int\frac{A}{x}dx
+                    \]
+                    \[
+                    f(x)=A\log x+C
+                    \]
+                    ① より \(C=0\) であるから、\(f(x)=A\log x\)
+                </div>
+            </details>
             <p></p>
             <div class="def">
                 <div>定義（自己情報量）</div>

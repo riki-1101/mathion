@@ -20,11 +20,11 @@
             <p></p>
             <div class="def">
                 <div>定義（平均情報量）</div>
-                ある完全事象系 \(A\) に対して
+                完全事象系 \(X\) に対して
                 \[
-                H(A)=\sum_{a\in A}P(a)I(a)=-\sum_{a\in A}P(a)\log_2P(a)~~~[\mathrm{bit}]
+                H(X)=\sum_{x\in X}P(x)I(x)=-\sum_{x\in X}P(x)\log_2P(x)~~~[\mathrm{bit}]
                 \]
-                を事象系 \(A\) の平均情報量（エントロピー）という。
+                を \(X\) の平均情報量（エントロピー）という。
             </div>
             <p></p>
             <div class="article">
@@ -41,7 +41,7 @@
                 表が出る確率が \(p\) であるコインを1回投げるときの、最大エントロピーを考えてみる。このとき、事象系は次のようになる。
                 <p></p>
                 \[
-                A=
+                X=
                 \begin{bmatrix}
                 \text{表} & \text{裏}\\
                 p & 1-p
@@ -50,7 +50,7 @@
                 エントロピーは
                 \[
                 \begin{align}
-                H(A)&=-\sum_{a\in A}P(a)\log_2P(a)\\
+                H(X)&=-\sum_{x\in X}P(x)\log_2P(x)\\
                 &=-p\log_2p-(1-p)\log_2(1-p)
                 \end{align}
                 \]

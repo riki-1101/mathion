@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>結合エントロピーと条件付きエントロピー</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>結合エントロピーと条件付きエントロピー</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">結合エントロピー</h2>
+            <div class="article">
+                
+            </div>
+            <div class="def">
+                <div>定義（結合エントロピー）</div>
+                2つの完全事象系 \(X,Y\) に対して
+                \[
+                H(XY):=-\sum_{x\in X}\sum_{y\in Y}P(x,y)\log_2P(x,y)
+                \]
+                を \(X\) と \(Y\) の結合エントロピーという。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">条件付きエントロピー</h2>
+            <div class="def">
+                <div>定義（条件付きエントロピー）</div>
+                2つの完全事象系 \(X,Y\) に対して
+                \[
+                H(Y|X):=-\sum_{x\in X}P(x)\sum_{y\in Y}P(y|x)\log_2P(y|x)
+                \]
+                を \(X\) の元での \(Y\) の条件付きエントロピーという。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>例題</div>
+
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
