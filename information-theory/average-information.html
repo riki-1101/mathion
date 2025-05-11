@@ -56,9 +56,10 @@
                 \]
                 この最大値を求めたい。
                 <p></p>
+                \(H\) を \(p\) で微分すると
                 \[
                 \begin{align}
-                \frac{dH}{dp}&=-\log_2p-p\cdot\frac{1}{p\log2}+\log_2(1-p)+(1-p)\cdot\frac{1}{(1-p)\log2}\\
+                \frac{dH}{dp}
                 &=-\log_2p-\frac{1}{\log2}+\log_2(1-p)+\frac{1}{\log2}\\
                 &=-\log_2p+\log_2(1-p)
                 \end{align}
@@ -98,11 +99,65 @@
                 で与えられる。
             </div>
             <p class="space"></p>
+            <h2 id="3">エントロピー関数</h2>
+            <div class="article">
+                2元事象系
+                \[
+                X=
+                \begin{bmatrix}
+                x_1 & x_2\\
+                p & 1-p
+                \end{bmatrix}
+                \]
+                のエントロピー
+                \[
+                H(X)=-p\log_2p-(1-p)\log_2(1-p)
+                \]
+                は確率 \(p\) の1変数関数と見ることができる。
+                <p></p>
+                これをエントロピー関数といい、次のように定義される。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（エントロピー関数）</div>
+                確率 \(p\in[0,1]\) に対して
+                \[
+                \mathcal{H}(p):=-p\log_2p-(1-p)\log_2(1-p)
+                \]
+                をエントロピー関数という。
+            </div>
+            <p class="space"></p>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
-                <div>例題</div>
-
+                <div>問題</div>
+                表が出る確率が \(\displaystyle\frac{1}{4}\) であるコインがある。このコインを投げたときの結果を \(X\) とし、表が出る事象を \(H\) 、裏が出る事象を \(T\) とする。次の問いに答えよ。
+                <ol>
+                    <li>事象系 \(X\) を表せ。</li>
+                    <li>エントロピー \(H(X)\) を求めよ。\(\log_23=1.585\) とする。</li>
+                </ol>
             </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    <ol>
+                        <li>
+                            \(\displaystyle X=\begin{bmatrix} H & T \\ \frac{1}{4} & \frac{3}{4} \end{bmatrix}\)
+                        </li>
+                        <li>
+                            \(
+                            \begin{align}
+                            H(X)&=-\sum_{x\in X}P(x)\log_2P(x)\\
+                            &=-P(H)\log_2P(H)-P(T)\log_2P(T)\\
+                            &=-\frac{1}{4}\log_2\frac{1}{4}-\frac{3}{4}\log_2\frac{3}{4}\\
+                            &=\frac{1}{4}\log_24+\frac{3}{4}\log_24-\frac{3}{4}\log_23\\
+                            &=\frac{1}{2}+\frac{3}{2}-\frac{3}{4}\cdot1.585\\
+                            &=0.81125
+                            \end{align}
+                            \)
+                        </li>
+                    </ol>
+                </div>
+            </details>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
