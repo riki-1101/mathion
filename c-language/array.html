@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>配列</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>配列</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">1次元配列</h2>
+            <div class="article">
+                1次元配列は次のように宣言する。
+            </div>
+            <p></p>
+            <div class="code">
+                データ型 配列名[確保したいメモリ領域数n];
+            </div>
+            <p></p>
+            <div class="article">
+                メモリ上に、連続したn個の指定したデータ型のデータ領域を確保する。
+            </div>
+            <p></p>
+            <h3>具体例</h3>
+            <div class="code">
+                int a[3];<br>
+                int b[5]={100, 200};<br>
+                int c[]={10, 20, 30};
+            </div>
+            <p></p>
+            <div class="article">
+                1行目：<br>
+                メモリ上に連続した3個の整数型のデータ領域を確保する。<br>
+                ただし、a[0]～a[2]には何も格納されない。
+                <p></p>
+                2行目：<br>
+                メモリ上に連続した5個の整数型のデータ領域を確保する。<br>
+                また、b[0]に100、b[1]に200を格納する。<br>
+                ただし、b[2]～b[4]には何も格納されない。
+                <p></p>
+                3行目：<br>
+                c[0]に10、c[1]に20、c[2]に30を格納する。<br>
+                c[]のように[]内を指定しない場合は、{}で定義した要素の数の分だけメモリ領域を確保する。
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

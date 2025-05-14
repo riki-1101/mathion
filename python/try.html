@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>例外処理（try文・raise文）</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>例外処理（try文）</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">例外の例</h2>
+            <div class="article">
+                例外には次のようなものがある。
+                <p></p>
+                <table border="1">
+                    <tr><th>例外名</th><th>内容</th></tr>
+                    <tr><td>NameError</td><td>変数などの名前を定義する前に使用した</td></tr>
+                    <tr><td>TypeError</td><td>期待した型と異なり、演算ができない</td></tr>
+                    <tr><td>ValueError</td><td>演算子や関数が適切でない引数を受け取った</td></tr>
+                    <tr><td>ZeroDivisionError</td><td>数値を0で除算した</td></tr>
+                </table>
+            </div>
+            <p class="space"></p>
+            <h2 id="2">try文の記述方法</h2>
+            <div class="article">
+                try文は次のように記述する。
+            </div>
+            <p></p>
+            <div class="code">
+                try:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;例外が発生するかもしれない処理<br>
+                except 例外名:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;指定した例外を検出したときに実行したい処理<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;例外が発生しなかったときに実行したい処理<br>
+                finally:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;どのような場合も実行したい処理
+            </div>
+            <p></p>
+            <div class="article">
+                exceptの例外名をExceptionとすれば、すべての例外を検出できる。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">例外を起こす（raise文）</h2>
+            <div class="article">
+                例外を起こすにはraise文を使う。raise文は次のように記述する。
+            </div>
+            <p></p>
+            <div class="code">
+                raise 例外名("メッセージ")
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
