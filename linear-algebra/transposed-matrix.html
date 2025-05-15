@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>転置行列と対称行列</title>
+        <title>転置行列</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
@@ -11,9 +11,9 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>転置行列と対称行列</h1>
+            <h1>転置行列と対称行列・交代行列・直交行列</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">転置行列の定義</h2>
+            <h2 id="1">転置行列の定義と性質</h2>
             <div class="def">
                 <div>定義（転置行列）</div>
                 \(m\times n\) 行列 \(A\) が
@@ -44,14 +44,34 @@
                 </ol>
             </div>
             <p class="space"></p>
-            <h2 id="2">対称行列の定義</h2>
+            <h2 id="2">対称行列</h2>
             <div class="def">
                 <div>定義（対称行列）</div>
-                \(n\) 次正方行列 \(A\) について
+                正方行列 \(A\) について
                 \[
                 A^\top=A
                 \]
                 が成り立つとき、\(A\) を対称行列という。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">交代行列</h2>
+            <div class="def">
+                <div>定義（交代行列）</div>
+                正方行列 \(A\) について
+                \[
+                A^\top=-A
+                \]
+                が成り立つとき、\(A\) を交代行列という。
+            </div>
+            <p class="space"></p>
+            <h2 id="4">直交行列</h2>
+            <div class="def">
+                <div>定義（直交行列）</div>
+                正方行列 \(A\) について
+                \[
+                A^\top=A^{-1}
+                \]
+                が成り立つとき、\(A\) を直交行列という。
             </div>
         </main>
         <footer id="footer"></footer>
