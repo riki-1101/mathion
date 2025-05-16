@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>平均変化率と微分係数</title>
+        <title>微分係数</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
@@ -11,30 +11,34 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>平均変化率と微分係数</h1>
+            <h1>微分係数</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">平均変化率</h2>
+            <h2 id="1">微分係数の定義</h2>
             <div class="article">
-                \(f(x)\) を区間 \(I\) 上の関数とし、\(a,b\in I\) とする。
-                関数 \(f(x)\) において \(x\) の値が \(a\) から \(b\) まで変化するとき、
-                \(x\) の増分 \(\varDelta x=b-a\) と \(y\) の増分 \(\varDelta y=f(b)-f(a)\) の比
+                まず、微分とは、ある点 \(x=a\) における傾きを求める操作である。
+                <p></p>
+                \(f\) を区間 \(I\) 上の関数とし、\(a\in I\) とする。
+                <p></p>
+                関数 \(f(x)\) において \(x\) の値が \(a\) から \(\varDelta x\) だけ変化した。
+                <p></p>
+                このとき、\(y\) の値の変化 \(\varDelta y\) は
                 \[
-                \frac{\varDelta y}{\varDelta x}=\frac{f(b)-f(a)}{b-a}
+                \varDelta y=f(a+\varDelta x)-f(a)
                 \]
-                を変数 \(x\) が \(a\) から \(b\) まで変化するときの平均変化率という。<br>
-                また、\(b=a+\varDelta x\) より平均変化率は
+                である。
                 \[
-                \frac{f(a+\varDelta x)-f(a)}{\varDelta x}
+                \frac{\varDelta y}{\varDelta x}=\frac{f(a+\varDelta x)-f(a)}{\varDelta x}
                 \]
-                とも書ける。
+                ここで、\(\varDelta x\) の大きさを \(0\) に近づけていけば、\(\displaystyle\frac{\varDelta y}{\varDelta x}\) は限りなく \(x=a\) における接線の傾きに近づいていく。
+                <p></p>
+                この接線の傾きを微分係数といい、次のように定義する。
             </div>
-            <p class="space"></p>
-            <h2 id="2">微分係数</h2>
+            <p></p>
             <div class="def">
                 <div>定義（微分係数）</div>
                 関数 \(f(x)\) に対して、極限
                 \[
-                f'(a):=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}
+                f'(a):=\lim_{\varDelta x\to0}\frac{f(a+\varDelta x)-f(a)}{\varDelta x}
                 \]
                 が存在するとき、\(f\) は \(x=a\) で微分可能であるという。
                 <p></p>
@@ -49,7 +53,7 @@
                 などとも書かれる。
             </div>
             <p></p>
-            <h3>微分可能性の判定の例題</h3>
+            <h3>微分可能性の判定</h3>
             <div class="ex">
                 <div>例題</div>
                 次の関数は \(x=1\) で微分可能かどうか判定せよ。
@@ -61,7 +65,7 @@
             <div class="article">
                 微分係数 \(f'(1)\) が存在するか問われている。すなわち、極限
                 \[
-                \lim_{h\to0}\frac{f(1+h)-f(1)}{h}
+                \lim_{\varDelta x\to0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
                 \]
                 の存在を調べる。
                 関数の極限が存在するのは、右側極限と左側極限が存在して一致するときであった。
@@ -69,21 +73,21 @@
                 ＜解答＞<br>
                 \[
                 \begin{align}
-                \lim_{h\to+0}\frac{f(1+h)-f(1)}{h}
-                &=\lim_{h\to+0}\frac{|h|-0}{h}\\
-                &=\lim_{h\to+0}\frac{h}{h}\\
+                \lim_{\varDelta x\to+0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
+                &=\lim_{\varDelta x\to+0}\frac{|\varDelta x|-0}{\varDelta x}\\
+                &=\lim_{\varDelta x\to+0}\frac{\varDelta x}{\varDelta x}\\
                 &=1
                 \end{align}
                 \]
                 \[
                 \begin{align}
-                \lim_{h\to-0}\frac{f(1+h)-f(1)}{h}
-                &=\lim_{h\to-0}\frac{|h|-0}{h}\\
-                &=\lim_{h\to+0}\frac{-h}{h}\\
+                \lim_{\varDelta x\to-0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
+                &=\lim_{\varDelta x\to-0}\frac{|\varDelta x|-0}{\varDelta x}\\
+                &=\lim_{\varDelta x\to+0}\frac{-\varDelta x}{\varDelta x}\\
                 &=-1
                 \end{align}
                 \]
-                よって、\(h\to+0\) と \(h\to-0\) の極限が一致しないので、\(f'(1)\) は存在しない。したがって、\(f(x)\) は \(x=1\) で微分可能ではない。
+                よって、\(\varDelta x\to+0\) と \(\varDelta x\to-0\) の極限が一致しないので、\(f'(1)\) は存在しない。したがって、\(f(x)\) は \(x=1\) で微分可能ではない。
             </div>
             <p class="space"></p>
             <h2 id="ex">演習問題</h2>
