@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>写像</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>写像</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">写像の定義</h2>
+            <div class="def">
+                <div>定義（写像）</div>
+                \(X,Y\) を集合とする。
+                <p></p>
+                \(X\) の各元に対して、\(Y\) の１つの元を対応させる規則を \(X\) から \(Y\) への写像という。
+                <p></p>
+                \(f\) が \(X\) から \(Y\) への写像であることを
+                \[
+                f:X\to Y
+                \]
+                と表す。このとき、\(X\) を \(f\) の定義域、\(Y\) を \(f\) の終域という。
+                <p></p>
+                また、\(f\) によって \(x\in X\) が \(y\in Y\) に対応することを
+                \[
+                f(x)=y,~~~~~f:x\mapsto y,~~~~~x\stackrel{f}{\mapsto}y
+                \]
+                のように表す。
+            </div>
+            <p></p>
+            <h3>例</h3>
+            <div class="article">
+              \(A=\{1,2,3\},~B=\{a,b,c,d\}\) とする。
+              <p></p>
+              \(1\) に \(a\) を、\(2\) に \(b\) を、\(3\) に \(d\) を対応させるとき、これは写像である。
+              \[
+              f(1)=a,~~~f(2)=b,~~~f(3)=d
+              \]
+            </div>
+            <p class="space"></p>
+            <h2 id="2">写像の値域</h2>
+            <div class="def">
+                <div>定義（値域）</div>
+                写像 \(f:X\to Y\) に対して
+                \[
+                f(X):=\{f(x)~|~x\in X\}
+                \]
+                を \(f\) の値域という。
+            </div>
+            <p></p>
+            <div class="article">
+                値域とは、\(x\in X\) に対して \(f(x)\) が取り得る値の集合である。
+            </div>
+            <p></p>
+            <div class="ex">
+                <div>例題</div>
+                \(f:[0,1]\to\mathbb{R}\) は
+                \[
+                f(x)=2x^2+1
+                \]
+                を値として定める写像とする。\(f\) の値域を求めよ。
+            </div>
+            <div class="article">
+                \(x\) が区間 \([0,1]\) を動くとき、\(2x^2+1\) は \(1\) 以上 \(3\) 以下の値を取り得るから
+                \(f\) の値域は
+                \[
+                \begin{align}
+                f([0,1])&=\{2x^2+1~|~x\in[0,1]\}\\
+                &=[1,3]
+                \end{align}
+                \]
+                である。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">写像のグラフ</h2>
+            <div class="def">
+                <div>定義（写像のグラフ）</div>
+                写像 \(f:X\to Y\) に対して
+                \[
+                G(f):=\{(x,f(x))~|~x\in X\}
+                \]
+                を \(f\) のグラフという。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
