@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>合成関数の偏微分</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>合成関数の偏微分</h1>
+            <div class="th">
+                <div>定理（合成関数の偏微分１）</div>
+                関数 \(z=f(x,y)\) は全微分可能であるとする。
+                <p></p>
+                \(x=\varphi(t),~y=\psi(t)\) が \(t\) について微分可能ならば、合成関数
+                \[
+                z=f(\varphi(t),\psi(t))
+                \]
+                は \(t\) について微分可能で、次式が成り立つ。
+                \[
+                \frac{dz}{dt}=\frac{\partial z}{\partial x}\cdot\frac{dx}{dt}+\frac{\partial z}{\partial y}\cdot\frac{dy}{dt}
+                \]
+            </div>
+            <p></p>
+            <div class="th">
+                <div>定理（合成関数の偏微分２）</div>
+                関数 \(z=f(x,y)\) は全微分可能であるとする。
+                <p></p>
+                \(x=\varphi(u,v),~y=\psi(u,v)\) が偏微分可能ならば、合成関数
+                \[
+                z=f(\varphi(u,v),\psi(u,v))
+                \]
+                は偏微分可能で、次式が成り立つ。
+                \[
+                \frac{\partial z}{\partial u}=\frac{\partial z}{\partial x}\cdot\frac{\partial x}{\partial u}+\frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial u}
+                \]
+                \[
+                \frac{\partial z}{\partial v}=\frac{\partial z}{\partial x}\cdot\frac{\partial x}{\partial v}+\frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial v}
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                \(z=e^{2xy}\) として、\(x=u\cos v,~y=u\sin v\) とする。\(z_u,z_v\) を求めよ。
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    \[
+                    \begin{align}
+                    z_u&=\frac{\partial z}{\partial x}\cdot\frac{\partial x}{\partial u}+\frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial u}\\
+                    &=2ye^{2xy}\cdot\cos v+2xe^{2xy}\cdot\sin v\\
+                    &=2(y\cos v+x\sin v)e^{2xy}\\
+                    &=2(u\sin v\cos v+u\cos v\sin v)e^{2u\cos v\cdot u\sin v}\\
+                    &=2ue^{u^2\sin{2v}}\sin{2v}
+                    \end{align}
+                    \]
+                    \[
+                    \begin{align}
+                    z_v&=\frac{\partial z}{\partial x}\cdot\frac{\partial x}{\partial v}+\frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial v}\\
+                    &=2ye^{2xy}\cdot(-u\sin v)+2xe^{2xy}\cdot u\cos v\\
+                    &=2ue^{2xy}(x\cos v-y\sin v)\\
+                    &=2ue^{2u\cos v\cdot u\sin v}(u\cos v\cdot\cos v-u\sin v\cdot\sin v)\\
+                    &=2u^2e^{u^2\sin{2v}}\cos{2v}
+                    \end{align}
+                    \]
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
