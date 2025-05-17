@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>偏微分係数と偏導関数</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>偏微分係数と偏導関数</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">偏微分係数の定義</h2>
+            <div class="def">
+                <div>定義（偏微分係数）</div>
+                2変数関数 \(f(x,y)\) に対して、極限
+                \[
+                f_x(a,b):=\lim_{\varDelta x\to0}\frac{f(a+\varDelta x,b)-f(a,b)}{\varDelta x}
+                \]
+                が存在すれば、\(f\) は点 \((a,b)\) において \(x\) について偏微分可能であるといい、この極限値を \(f\) の点 \((a,b)\) における \(x\) についての偏微分係数という。
+                <p></p>
+                同様に、極限
+                \[
+                f_y(a,b):=\lim_{\varDelta y\to0}\frac{f(a,b+\varDelta y)-f(a,b)}{\varDelta y}
+                \]
+                が存在すれば、\(f\) は点 \((a,b)\) において \(y\) について偏微分可能であるといい、この極限値を \(f\) の点 \((a,b)\) における \(y\) についての偏微分係数という。
+            </div>
+            <p></p>
+            <div class="article">
+                \(f_x(a,b)\) は曲面 \(z=f(x,y)\) を、平面 \(y=b\) で切ったときの切り口の曲線上の点 \((a,b,f(a,b))\) における接線の傾きを表す。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">偏導関数の定義</h2>
+            <div class="def">
+                <div>定義（偏導関数）</div>
+                領域 \(D\) 上の関数 \(f(x,y)\) が \(D\) 上の各点 \((x,y)\) で \(x\) について偏微分可能であるとき
+                \[
+                f_x(x,y)=\lim_{\varDelta x\to0}\frac{f(x+\varDelta x,y)-f(x,y)}{\varDelta x}
+                \]
+                で定まる関数 \(f_x\) を \(f\) の \(x\) についての偏導関数という。
+                <p></p>
+                また、\(y\) についての偏導関数 \(f_y\) も同様に定義する。
+            </div>
+            <p></p>
+            <div class="article">
+                偏導関数 \(f_x(x,y)\) は \(z=f(x,y)\) のとき
+                \[
+                \frac{\partial z}{\partial x},~~~\frac{\partial}{\partial x}f(x,y),~~~\frac{\partial f}{\partial x}(x,y)
+                \]
+                などとも書かれる。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                次の関数を偏微分せよ。
+                <ol>
+                    <li>\(f(x,y)=x^3+xy^2+y\)</li>
+                    <li>\(f(x,y)=\displaystyle\frac{2xy^2+3x^2y}{x^2-y^2}\)</li>
+                    <li>\(f(x,y)=\log(\sin x+\cos y)\)</li>
+                    <li>\(f(x,y)=\arctan(xy)\)</li>
+                    <li>\(f(x,y)=\sqrt{\arcsin{x}\arccos y}\)</li>
+                    <li>\(f(x,y)=e^{xy}\log(x^2+y^2)\)</li>
+                </ol>
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    <ol>
+                        <li>\(f_x(x,y)=-\frac{\sin y}{\sin x+\cos y},~~f_y(x,y)=\frac{\cos x}{\sin x+\cos y}\)</li>
+                    </ol>
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
