@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>全微分</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>全微分</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">全微分可能性</h2>
+            <div class="article">
+                関数 \(f(x,y)\) が \((a,b)\) で全微分可能であるとは、ある \(A,B\in\mathbb{R}\) が存在して
+                \[
+                \begin{align}
+                &f(a+\varDelta x,b+\varDelta y)-f(a,b)\\
+                &=A\varDelta x+B\varDelta y+o\left(\sqrt{{\varDelta x}^2+{\varDelta y}^2}\right)~~((h,k)\to0)
+                \end{align}
+                \]
+                とできることをいう。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（全微分）</div>
+                2変数関数 \(f(x,y)\) に対して
+                \[
+                df:=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy
+                \]
+                を \(f\) の全微分という。
+            </div>
+            <p></p>
+            <div class="th">
+                <div>定理（全微分可能な点において連続）</div>
+                \(f(x,y)\) が点 \((a,b)\) で全微分可能であれば、この点で連続である。
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
