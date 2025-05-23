@@ -313,7 +313,26 @@ footer {
         }
     }
 }
-        
+
+.box {
+    padding: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background-color: white;
+    border: 2.5px solid #aaa;
+    border-radius: 5px;
+    div {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    li {
+        padding: 5px 0;
+    }
+}
+
 .def {
     padding: 10px;
     background-color: blanchedalmond;
@@ -406,7 +425,7 @@ details.pf, details.annotation {
 .ex {
     padding: 10px;
     border: 1px solid #aaa;
-    background-color: blanchedalmond;
+    background-color: gainsboro;
     border-radius: 5px;
     overflow-x: scroll;
     overflow-y: hidden;
