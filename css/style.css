@@ -421,7 +421,72 @@ details.pf, details.annotation {
         }
     }
 }
+
+.ex-problem {
+    padding: 10px;
+    border: 1px solid #aaa;
+    background-color: white;
+    border-radius: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    div {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    ol {
+        padding-left: 0;
+        li {
+            list-style-type: none;
+            margin-bottom: 15px;
+            position: relative; /* 番号を絶対配置するための基準 */
+            padding-left: 30px; /* 番号分のスペースを確保 */
+        }
+        li:before {
+            content: "(" counter(list-item) ")";
+            padding-right: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px; /* 番号の幅を固定 */
+            text-align: right; /* 番号を右寄せ */
+        }
+    }
+}
         
+details.ex-answer {
+    padding: 5px 0;
+    summary {
+        padding: 5px;
+        background-color: lightgray;
+    }
+    div {
+        padding: 5px;
+        background-color: white;
+        border: 2px solid #aaa;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        ol {
+            padding-left: 0;
+            li {
+                list-style-type: none;
+                margin-bottom: 40px;
+                position: relative; /* 番号を絶対配置するための基準 */
+                padding-left: 30px; /* 番号分のスペースを確保 */
+            }
+            li:before {
+                content: "(" counter(list-item) ")";
+                padding-right: 10px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 25px; /* 番号の幅を固定 */
+                text-align: right; /* 番号を右寄せ */
+            }
+        }
+    }
+}
+
+
 .ex {
     padding: 10px;
     border: 1px solid #aaa;
