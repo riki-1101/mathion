@@ -24,7 +24,23 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;データ型2 メンバ名2;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;データ型n メンバ名n;<br>
-                }<br>
+                };<br>
+            </div>
+            <p></p>
+            <div class="code">
+                #include &lt;stdio.h&gt;<br>
+                struct Person{<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;char name[20];<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int age;<br>
+                };<br>
+                <p></p>
+                int main(void){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;struct Person p = {"Alice", 20};<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;struct Person *ptr = &p;<br>
+                <p></p>
+                &nbsp;&nbsp;&nbsp;&nbsp;printf("%s is %d years old.\n", ptr->name, ptr->age);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+                }
             </div>
         </main>
         <footer id="footer"></footer>
