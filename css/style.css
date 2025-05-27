@@ -424,7 +424,7 @@ details.pf, details.annotation {
 
 .ex-problem {
     padding: 10px;
-    border: 1px solid #aaa;
+    border: 2px solid #aaa;
     background-color: white;
     border-radius: 5px;
     overflow-x: scroll;
