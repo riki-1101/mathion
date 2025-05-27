@@ -20,16 +20,26 @@
             <p></p>
             <div class="def">
                 <div>定義（平均情報量）</div>
-                完全事象系 \(X\) に対して
+                完全事象系 \(A\) に対して
                 \[
-                H(X)=-\sum_{x\in X}P(x)\log_2P(x)~~~[\mathrm{bit}]
+                H(A)=-\sum_{a\in A}P(a)\log_2P(a)~~~[\mathrm{bit}]
                 \]
-                を \(X\) の平均情報量（エントロピー）という。
+                を \(A\) の平均情報量（エントロピー）という。
             </div>
             <p></p>
-            <div class="article">
-                
+            <div class="ex">
+                <div>例題</div>
+                ある地域では、年間、晴れの日は200日、雨の日は60日、雪の日は5日である。<br>
+                この天気の平均情報量を求めよ。（小数第2位まで）
             </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+                    \[
+                    H=P(A)I(A)+P(B)I(B)+P(C)I(C)
+                    \]
+                </div>
+            </details>
             <p class="space"></p>
             <h2 id="2">最大エントロピー</h2>
             <div class="article">

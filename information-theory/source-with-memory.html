@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>記憶のある情報源</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>記憶のある情報源</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">m重マルコフ情報源</h2>
+            <div class="article">
+                過去の \(m\) 個の記号に依存して、記号を生起する情報源を \(m\) 重マルコフ情報源という。
+                <p></p>
+                特に、\(m=1\) のとき（直前の1個にのみ依存する場合）単純マルコフ情報源という。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（遷移確率・遷移確率行列）</div>
+                状態 \(s_i\) から状態 \(s_j\) に遷移する確率を 状態 \(s_i,s_j\) 間の遷移確率といい
+                \[
+                p_{ij}:=P(s_j~|~s_i)
+                \]
+                と表す。
+                <p></p>
+                遷移確率 \(p_{ij}\) を要素とする行列
+                \[
+                P=
+                \begin{bmatrix}
+                p_{11} & p_{12} & \cdots & p_{1n}\\
+                p_{21} & p_{22} & \cdots & p_{2n}\\
+                \vdots & \vdots & \ddots & \vdots\\
+                p_{n1} & p_{n2} & \cdots & p_{nn}\\
+                \end{bmatrix}
+                \]
+                を遷移確率行列という。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">エルゴード的マルコフ情報源</h2>
+            <div class="article">
+                次のいずれかが満たされる場合は情報源のモデルとして適さない。
+                <p></p>
+                ・吸収的である：ある特定の状態になるとそこから抜けることができない
+                <p></p>
+                ・周期性を持つ：同じパターンの遷移を繰り返す
+                <p></p>
+                吸収的でなく、周期性を持たない性質をエルゴード性という。
+                エルゴード性を持ったマルコフ情報源をエルゴード的マルコフ情報源（エルゴード情報源）という。
+            </div>
+            <p></p>
+            <div class="def">
+                <div>定義（定常確率）</div>
+                エルゴード情報源において、ある状態が発生する確率を定常確率という。
+                \(n\) 個の状態を持つエルゴード情報源において、状態 \(s_j\) の定常確率を \(P(s_j)\) とすると
+                \[
+                \sum_jP(s_j)=1
+                \]
+                が成り立つ。
+                <p></p>
+                また、状態 \(s_i\) から状態 \(s_j\) に遷移するとき、遷移確率を \(p_{ij}\) として
+                \[
+                \sum_{i=1}^np_{ij}P(s_i)=P(s_j)
+                \]
+                が成り立つ。
+            </div>
+            <p class="space"></p>
+            <h2 id="3">マルコフ情報源のエントロピー</h2>
+            <div class="article">
+                マルコフ情報源のエントロピーは、時間が進むにつれて生成される1記号あたりのエントロピーとして定義される。
+                <p></p>
+                情報源アルファベット \(A\) が
+                \[
+                A=\{a_1,~a_2,~\cdots,~a_M\}
+                \]
+                であるとき、状態 \(s_j\) の下でのエントロピーは
+                \[
+                H(A|s_j)=-\sum_{i=1}^MP(a_i|s_j)\log_2{P(a_i|s_j)}~~~[\mathrm{bit}]
+                \]
+                \(m\) 重マルコフ情報源における状態の種類の数は \(M^m\) 個である。
+                <p></p>
+                したがって、1記号あたりのエントロピー（エントロピー率）は
+                \[
+                H(A)=\sum_{j=1}^{M^m}P(s_j)H(A|s_j)~~~[\mathrm{bit}/\text{記号}]]
+                \]
+            </div>
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+
+            </div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

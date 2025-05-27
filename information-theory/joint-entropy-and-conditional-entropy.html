@@ -15,27 +15,100 @@
             <div id="table-of-contents"></div>
             <h2 id="1">結合エントロピー</h2>
             <div class="article">
-                
+                2つの事象系 \(A,B\) を
+                \[
+                A=
+                \begin{bmatrix}
+                a_1 & a_2\\
+                P(a_1) & P(a_2)\\
+                \end{bmatrix},~~~~~
+                B=
+                \begin{bmatrix}
+                b_1 & b_2\\
+                P(b_1) & P(b_2)\\
+                \end{bmatrix}
+                \]
+                とするとき、\(A\) と \(B\) が同時に起こる事象を結合事象系といい
+                \[
+                AB=
+                \begin{bmatrix}
+                (a_1,~b_1) & (a_1,~b_2) & (a_2,~b_1) & (a_2,~b_2)\\
+                P(a_1,~b_1) & P(a_1,~b_2) & P(a_2,~b_1) & P(a_2,~b_2)\\
+                \end{bmatrix}
+                \]
+                と表す。
             </div>
+            <p></p>
             <div class="def">
                 <div>定義（結合エントロピー）</div>
-                2つの完全事象系 \(X,Y\) に対して
+                2つの完全事象系 \(A,B\) に対して
                 \[
-                H(XY):=-\sum_{x\in X}\sum_{y\in Y}P(x,y)\log_2P(x,y)
+                H(AB)=-\sum_{a\in A,~b\in B}P(a,b)\log_2P(a,b)
                 \]
-                を \(X\) と \(Y\) の結合エントロピーという。
+                を \(A\) と \(B\) の結合エントロピーという。
             </div>
             <p class="space"></p>
             <h2 id="2">条件付きエントロピー</h2>
+            <div class="article">
+                \(A=a\) とわかっているときの \(B\) のエントロピーは
+                \[
+                H(B|A=a)=-\sum_{b\in B}p(b|a)\log_2p(b|a)
+                \]
+            </div>
+            <p></p>
             <div class="def">
                 <div>定義（条件付きエントロピー）</div>
-                2つの完全事象系 \(X,Y\) に対して
+                2つの完全事象系 \(A,B\) に対して
                 \[
-                H(Y|X):=-\sum_{x\in X}P(x)\sum_{y\in Y}P(y|x)\log_2P(y|x)
+                H(B|A)=-\sum_{a\in A}p(a)H(B|A=a)
                 \]
-                を \(X\) の元での \(Y\) の条件付きエントロピーという。
+                を \(A\) の元での \(B\) の条件付きエントロピーという。
             </div>
             <p class="space"></p>
+            <div class="ex-problem">
+                <div>例題</div>
+                曜日に関する事象系を \(A\) 、外食の有無に関する事象系を \(B\) とし
+                \[
+                A=\{\text{平日},~\text{休日}\},~~~B=\{\text{外食},~\text{内食}\}
+                \]
+                とする。
+                <p></p>
+                ある人の外食習慣を調べたところ、次のことがわかった。
+                <p></p>
+                ・平日に外食する確率は \(0.1\)<br>
+                ・平日に外食しない確率は \(0.6\)<br>
+                ・休日に外食する確率は \(0.2\)<br>
+                ・休日に外食しない確率は \(0.1\)
+                <p></p>
+                <ol>
+                    <li>結合エントロピー \(H(AB)\) を求めよ。</li>
+                    <li>条件付きエントロピー \(H(B|A)\) を求めよ。</li>
+                    <li>条件付きエントロピー \(H(A|B)\) を求めよ。</li>
+                </ol>
+            </div>
+            <p></p>
+            <div class="article">
+                <ol>
+                    <li>
+                        まず、結合事象系は次のようになります。
+                        \[
+                        AB=
+                        \begin{bmatrix}
+                        (\text{平日},~\text{外食}) & (\text{平日},~\text{内食}) & (\text{休日},~\text{外食}) & (\text{休日},~\text{内食})\\
+                        0.1 & 0.6 & 0.2 & 0.1\\
+                        \end{bmatrix}
+                        \]
+                        よって
+                        \[
+                        \begin{align}
+                        H(AB)&=-0.1\log_2{0.1}-0.6\log_2{0.6}-0.2\log_2{0.2}-0.1\log_2{0.1}\\
+                        &=1.57~\mathrm{bit}
+                        \end{align}
+                        \]
+                    </li>
+                </ol>
+
+            </div>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>例題</div>
