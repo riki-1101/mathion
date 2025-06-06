@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>数学</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MathIon</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="js/mathjax-config.js"></script>
         <script src="mathjax/es5/tex-mml-chtml.js"></script>
@@ -12,82 +12,118 @@
         <header id="header"></header>
         <main id="home">
             <div id="homeimg">\[\int f(x)dx\]</div>
-            <h2>TEXT</h2>
-            <ul>
-                <li><a href="sets-and-logic.html">
-                    <div class="img">\(\{x~|~P(x)\}\)</div>
-                    <div class="name">集合と論理</div>
-                </a></li>
-                <li><a href="function-text.html">
-                    <div class="img">\(f(x)\)</div>
-                    <div class="name">関数</div>
-                </a></li>
-                <li><a href="sequence-of-number.html">
-                    <div class="img">\(a_n\)</div>
-                    <div class="name">数列</div>
-                </a></li>
-                <li><a href="sum-series-text.html">
-                    <div class="img">\(\displaystyle\sum_{k=1}^na_k\)</div>
-                    <div class="name">総和・級数</div>
-                </a></li>
-                <li><a href="product-text.html">
-                    <div class="img">\(\displaystyle\prod_{k=1}^na_k\)</div>
-                    <div class="name">総乗・無限乗積</div>
-                </a></li>
-                <li><a href="differential-calculus.html">
-                    <div class="img">\(\displaystyle\frac{d}{dx}f(x)\)</div>
-                    <div class="name">微分法</div>
-                </a></li>
-                <li><a href="integral-calculus.html">
-                    <div class="img">\(\displaystyle\int f(x)dx\)</div>
-                    <div class="name">積分法</div>
-                </a></li>
-                <li><a href="differential-equation.html">
-                    <div class="img">\(\displaystyle\frac{dy}{dx}+y=0\)</div>
-                    <div class="name">微分方程式</div>
-                </a></li>
-                <li><a href="fourier-analysis.html">
-                    <div class="img">\(\displaystyle\mathcal{F}[f(t)]\)</div>
-                    <div class="name">フーリエ解析</div>
-                </a></li>
-                <li><a href="complex-analysis.html">
-                    <div class="img">\(a+bi\)</div>
-                    <div class="name">複素解析</div>
-                </a></li>
-                <li><a href="linear-algebra.html">
-                    <div class="img">\(\begin{bmatrix}a&b\\c&d\end{bmatrix}\)</div>
-                    <div class="name">線形代数学</div>
-                </a></li>
-                <li><a href="probability-and-statistics.html">
-                    <div class="img">\(P(X=x)\)</div>
-                    <div class="name">統計学</div>
-                </a></li>
-                <li><a href="information-theory.html">
-                    <div class="img">\(\displaystyle H(A)\)</div>
-                    <div class="name">情報理論</div>
-                </a></li>
-                <li><a href="python.html">
-                    <div class="img">\(\)</div>
-                    <div class="name">Python</div>
-                </a></li>
-                <li><a href="c-language.html">
-                    <div class="img">\(\)</div>
-                    <div class="name">C言語</div>
-                </a></li>
-            </ul>
-            <p class="space"></p>
-            <h2>PROBLEMS</h2>
-            <ul>
-                <li><a href="series-problem.html">
-                    <div class="img">\(\displaystyle\sum_{k=1}^na_k\)</div>
-                    <div class="name">総和・級数の問題</div>
-                </a></li>
-                <li><a href="integral-problem.html">
-                    <div class="img">\(\displaystyle\int f(x)dx\)</div>
-                    <div class="name">積分の問題</div>
-                </a></li>
-            </ul>
-            <p class="space"></p>
+            <section>
+                <h2>TEXT</h2>
+                <ul>
+                    <li><a href="sets-and-logic.html">
+                        <figure>
+                            <div class="img">\(\{x~|~P(x)\}\)</div>
+                            <figcaption>集合と論理</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="function-text.html">
+                        <figure>
+                            <div class="img">\(f(x)\)</div>
+                            <figcaption>関数</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="sequence-of-number.html">
+                        <figure>
+                            <div class="img">\(a_n\)</div>
+                            <figcaption>数列</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="sum-series-text.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\sum_{k=1}^na_k\)</div>
+                            <figcaption>総和・級数</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="product-text.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\prod_{k=1}^na_k\)</div>
+                            <figcaption>総乗・無限乗積</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="differential-calculus.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\frac{d}{dx}f(x)\)</div>
+                            <figcaption>微分法</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="integral-calculus.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\int f(x)dx\)</div>
+                            <figcaption>積分法</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="differential-equation.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\frac{dy}{dx}+y=0\)</div>
+                            <figcaption>微分方程式</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="fourier-analysis.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\mathcal{F}[f(t)]\)</div>
+                            <figcaption>フーリエ解析</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="complex-analysis.html">
+                        <figure>
+                            <div class="img">\(a+bi\)</div>
+                            <figcaption>複素解析</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="linear-algebra.html">
+                        <figure>
+                            <div class="img">\(\begin{bmatrix}a&b\\c&d\end{bmatrix}\)</div>
+                            <figcaption>線形代数学</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="probability-and-statistics.html">
+                        <figure>
+                            <div class="img">\(P(X=x)\)</div>
+                            <figcaption>確率論・統計学</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="information-theory.html">
+                        <figure>
+                            <div class="img">\(\displaystyle H(A)\)</div>
+                            <figcaption>情報理論</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="python.html">
+                        <figure>
+                            <div class="img">\(\mathrm{Py}\)</div>
+                            <figcaption>Python</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="c-language.html">
+                        <figure>
+                            <div class="img">\(\mathrm{C}\)</div>
+                            <figcaption>C言語</figcaption>
+                        </figure>
+                    </a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>PROBLEMS</h2>
+                <ul>
+                    <li><a href="series-problem.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\sum_{k=1}^na_k\)</div>
+                            <figcaption>総和・級数の問題</figcaption>
+                        </figure>
+                    </a></li>
+                    <li><a href="integral-problem.html">
+                        <figure>
+                            <div class="img">\(\displaystyle\int f(x)dx\)</div>
+                            <figcaption>積分の問題</figcaption>
+                        </figure>
+                    </a></li>
+                </ul>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="js/header.js"></script>
