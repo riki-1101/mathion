@@ -409,33 +409,16 @@ details.pf, details.annotation {
 }
 
 .ex-problem {
-    padding: 10px;
+    margin: 0;
+    padding: 1em;
     border: 2px solid #aaa;
     background-color: white;
     border-radius: 5px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    div {
+    overflow-x: auto;
+    overflow-y: visible;
+    figcaption {
         font-weight: bold;
         margin-bottom: 5px;
-    }
-    ol {
-        padding-left: 0;
-        li {
-            list-style-type: none;
-            margin-bottom: 15px;
-            position: relative; /* 番号を絶対配置するための基準 */
-            padding-left: 30px; /* 番号分のスペースを確保 */
-        }
-        li:before {
-            content: "(" counter(list-item) ")";
-            padding-right: 10px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 20px; /* 番号の幅を固定 */
-            text-align: right; /* 番号を右寄せ */
-        }
     }
 }
         
