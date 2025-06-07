@@ -27,12 +27,13 @@ section {
 p {
     padding: 0px 1em;
     line-height: 2;
+}
 
-    .scrollable {
-        overflow-x: auto;
-        white-space: nowrap;
-        max-width: 100%;
-    }
+div.scrollable {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    max-width: 100%;
 }
 
 ol {
