@@ -379,16 +379,13 @@ footer {
         
 details.pf, details.annotation {
     padding: 5px 0;
+    background-color: lightgray;
     summary {
         padding: 5px;
         background-color: lightgray;
+        border-bottom: 2px solid black;
     }
-    div {
-        padding: 10px;
-        background-color: lightgray;
-        border-top: 2px solid black;
-        overflow-x: scroll;
-        overflow-y: hidden;
+   
         ol {
             padding-left: 0;
             li {
@@ -407,7 +404,7 @@ details.pf, details.annotation {
                 text-align: right; /* 番号を右寄せ */
             }
         }
-    }
+
 }
 
 .ex-problem {
@@ -459,71 +456,27 @@ details.ex-answer {
 
 
 .ex {
-    padding: 10px;
+    margin: 0;
+    padding: 1em;
     border: 1px solid #aaa;
     background-color: gainsboro;
     border-radius: 5px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    div {
+    figcaption {
         font-weight: bold;
         margin-bottom: 5px;
-    }
-    ol {
-        padding-left: 0;
-        li {
-            list-style-type: none;
-            margin-bottom: 15px;
-            position: relative; /* 番号を絶対配置するための基準 */
-            padding-left: 30px; /* 番号分のスペースを確保 */
-        }
-        li:before {
-            content: "(" counter(list-item) ")";
-            padding-right: 10px;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%); /* 垂直方向の中央揃え */
-            width: 20px; /* 番号の幅を固定 */
-            text-align: right; /* 番号を右寄せ */
-        }
     }
 }
         
 details.ans {
-    padding: 5px 0;
+    margin-top: 10px;
+    padding: 1em;
+    background-color: lightgray;
     summary {
-        padding: 5px;
+        padding: 0;
         background-color: lightgray;
-    }
-    div {
-        padding: 5px;
-        background-color: lightgray;
-        border-top: 2px solid black;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        ol {
-            padding-left: 0;
-            li {
-                list-style-type: none;
-                margin-bottom: 15px;
-                position: relative; /* 番号を絶対配置するための基準 */
-                padding-left: 30px; /* 番号分のスペースを確保 */
-            }
-            li:before {
-                content: "(" counter(list-item) ")";
-                padding-right: 10px;
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 25px; /* 番号の幅を固定 */
-                text-align: right; /* 番号を右寄せ */
-            }
-        }
+        border-bottom: solid 2px black;
     }
 }
-
-
 
 
 pre code {
