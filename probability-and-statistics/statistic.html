@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>統計量</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>標本調査と統計量</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -11,66 +11,97 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>統計量</h1>
+            <h1>標本調査と統計量</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">統計量の定義</h2>
-            <div class="article">
-                標本調査では、無作為標本 \(X_1,~X_2,~\cdots,~X_n\) の何らかの関数
-                \[
-                T(X_1,~X_2,~\cdots,~X_n)
-                \]
-                から、母平均・母分散を推測する。この関数 \(T\) を統計量という。
+            <section id="1">
+                <h2>統計調査の手法</h2>
+                <p>
+                    調査対象全体の集合を母集団といい、母集団が従う確率分布を母集団分布といいます。母集団の状況を調べるには、次の2通りの方法があります。
+                </p>
+                <div class="box">
+                    <p>
+                        全数調査 … 母集団に属するすべての個体を対象として調査する<br>
+                        標本調査 … 母集団に属する一部の個体から全体の状況を推測する
+                    </p>
+                </div>
+                <p>
+                    全数調査を行えば母集団分布を正確に特定できますが、母集団全体を調査することは困難であることが多いです。
+                </p>
+            </div>
+            </section>
+            <section id="2">
+                <h2>母集団と標本</h2>
+                <p>
+                    母集団分布の特徴を表す量を母数（パラメータ）といいます。特に、母集団分布の平均を母平均、分散を母分散と呼びます。
+                </p>
+                <p>
+                    母集団から取り出された要素の集合を標本といい、母集団から標本を取り出すことを標本抽出といいます。
+                </p>
+                <p>
+                    無作為標本
+                    \[
+                    \boldsymbol{X}=\begin{bmatrix} X_1 & X_2 & \cdots & X_n \end{bmatrix}
+                    \]
+                    に対して、実際の調査で得られるデータ
+                    \[
+                    \boldsymbol{x}=\begin{bmatrix} x_1 & x_2 & \cdots & x_n \end{bmatrix}
+                    \]
+                    を実現値（観測値）といいます。
+                </p>
+            </section>
+            <section id="3">
+                <h2>統計量の定義</h2>
+                <p>
+                    標本調査では、無作為標本 \(X_1,~X_2,~\cdots,~X_n\) の何らかの関数
+                    \[
+                    T(X_1,~X_2,~\cdots,~X_n)
+                    \]
+                    から、ある母数を推測します。この関数 \(T\) を統計量といいます。
+                </p>
+                <p>
+                    無作為標本 \(X_1,~X_2,~\cdots,~X_n\) の実現値がそれぞれ
+                    \[
+                    x_1,~x_2,~\cdots,~x_n
+                    \]
+                    であるとき、統計量 \(T\) が定める値
+                    \[
+                    T(x_1,~x_2,~\cdots,~x_n)
+                    \]
+                    を統計量 \(T\) の実現値といいます。
+                </p>
+            </section>
+            <section id="4">
+                <h2>代表的な統計量</h2>
+                <p>代表的な統計量として、標本平均と不偏分散があります。</p>
+                <h3>標本平均</h3>
+                <figure class="def">
+                    <figcaption>定義（標本平均）</figcaption>
+                    無作為標本 \(X_1,~X_2,~\cdots,~X_n\) に対して
+                    \[
+                    \overline{X}:=\frac{1}{n}\sum_{i=1}^nX_i
+                    \]
+                    を標本平均という。
+                </figure>
                 <p></p>
-                無作為標本 \(X_1,~X_2,~\cdots,~X_n\) の実現値がそれぞれ
-                \[
-                x_1,~x_2,~\cdots,~x_n
-                \]
-                であるとき、統計量 \(T\) が定める値
-                \[
-                T(x_1,~x_2,~\cdots,~x_n)
-                \]
-                を統計量 \(T\) の実現値という。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">標本平均</h2>
-            <div class="def">
-                <div>定義（標本平均）</div>
-                \[
-                \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
-                \]
-                を標本平均という。
-            </div>
-            <p></p>
-            <div class="th">
-                <div>定理（標本平均の期待値と分散）</div>
-                平均 \(\mu\) 、分散 \(\sigma^2\) の母集団からの無作為標本の標本平均 \(\overline{X}\) に対して
-                \[
-                E[\overline{X}]=\mu,~~~~~V[\overline{X}]=\frac{\sigma^2}{n}
-                \]
-                が成り立つ。
-            </div>
-            <p class="space"></p>
-            <h2 id="3">標本分散</h2>
-            <div class="def">
-                <div>定義（標本分散）</div>
-                \[
-                S^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2
-                \]
-                を標本分散という。
-            </div>
-            <p class="space"></p>
-            <h2 id="4">不偏分散</h2>
-            <div class="def">
-                <div>定義（不偏分散）</div>
-                \[
-                U^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2
-                \]
-                を不偏分散という。
-            </div>
-            <div class="article">
-                「不偏」の意味、なぜ分母が \(n-1\) なのかは次回説明する。
-            </div>
-            <p class="space"></p>
+                <figure class="th">
+                    <figcaption>定理（標本平均の期待値と分散）</figcaption>
+                    平均 \(\mu\) 、分散 \(\sigma^2\) の母集団からの無作為標本の標本平均 \(\overline{X}\) に対して
+                    \[
+                    E[\overline{X}]=\mu,~~~~~V[\overline{X}]=\frac{\sigma^2}{n}
+                    \]
+                    が成り立つ。
+                </figure>
+                <h3>不偏分散</h3>
+                <figure class="def">
+                    <figcaption>定義（不偏分散）</figcaption>
+                    無作為標本 \(X_1,~X_2,~\cdots,~X_n\) とその標本平均 \(\overline{X}\) に対して
+                    \[
+                    S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2
+                    \]
+                    を不偏分散という。
+                </figure>
+                <p>「不偏」の意味、なぜ分母が \(n-1\) なのかは次回説明する。</p>
+            </section>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>問題</div>
