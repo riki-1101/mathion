@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>カイ二乗分布</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>カイ二乗分布</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
@@ -13,61 +13,71 @@
         <main id="contents">
             <h1>カイ二乗分布</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">カイ二乗分布の定義</h2>
-            <div class="def">
-                <div>定義（カイ二乗分布）</div>
-                互いに独立な確率変数 \(Z_1,Z_2,\cdots, Z_n\sim N(0,1)\) に対して、確率変数
-                \[
-                X=Z_1^2+Z_2^2+\cdots+Z_n^2
-                \]
-                を定めると、\(X\) は自由度 \(n\) のカイ二乗分布に従うといい
-                \[
-                X\sim \chi^2(n)
-                \]
-                と表す。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">カイ二乗分布の確率密度関数</h2>
-            <div class="th">
-                <div>定理（カイ二乗分布の確率密度関数）</div>
-                カイ二乗分布に従う確率変数の確率密度関数 \(f:\mathbb{R}\to\mathbb{R}\) は
-                \[
-                f(x)=
-                \begin{cases}
-                \displaystyle\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}} & (\mathrm{if}~x\gt0)\\
-                0 & (\mathrm{otherwise})
-                \end{cases}
-                \]
-                と表される。
-            </div>
-            <p class="space"></p>
-            <h2 id="3">カイ二乗分布に従う確率変数の期待値と分散</h2>
-            <div class="th">
-                <div>定理（カイ二乗分布に従う確率変数の期待値と分散）</div>
-                確率変数 \(X\sim\chi^2(n)\) に対して
-                \[
-                E[X]=n,~~~~~V[X]=2n
-                \]
-            </div>
-            <details class="pf">
-                <summary>証明</summary>
-                <div>
-                    \(
-                    \begin{align}
-                    E[X]
-                    &=\int_{-\infty}^\infty xf(x)dx\\
-                    &=\int_0^\infty x\cdot\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\\
-                    &=\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty x^{\frac{n}{2}}e^{-\frac{x}{2}}dx\\
-                    &=\frac{2}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty (2t)^{\frac{n}{2}}e^{-t}dt~~~(x=2t)\\
-                    &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\int_0^\infty t^{\frac{n}{2}}e^{-t}dt\\
-                    &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\Gamma\left(\frac{n}{2}+1\right)\\
-                    &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\cdot\frac{n}{2}\Gamma\left(\frac{n}{2}\right)\\
-                    &=n
-                    \end{align}
-                    \)
-                </div>
-            </details>
-            <p></p>
+            <section id="1">
+                <h2>カイ二乗分布の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（カイ二乗分布）</figcaption>
+                    <p>
+                        互いに独立な確率変数 \(Z_1,Z_2,\cdots, Z_n\sim N(0,1)\) に対して
+                        \[
+                        X=Z_1^2+Z_2^2+\cdots+Z_n^2
+                        \]
+                        で定まる \(X\) が従う確率分布を自由度 \(n\) のカイ二乗分布といい
+                        \[
+                        X\sim \chi^2(n)
+                        \]
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>カイ二乗分布の確率密度関数</h2>
+                <figure class="th">
+                    <figcaption>定理（カイ二乗分布の確率密度関数）</figcaption>
+                    <p>
+                        カイ二乗分布に従う確率変数の確率密度関数 \(f\) は
+                        \[
+                        f(x)=
+                        \begin{cases}
+                        \displaystyle\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}} & (\mathrm{if}~x\gt0)\\
+                        0 & (\mathrm{otherwise})
+                        \end{cases}
+                        \]
+                        と表される。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>カイ二乗分布に従う確率変数の期待値と分散</h2>
+                <figure class="th">
+                    <figcaption>定理（カイ二乗分布に従う確率変数の期待値と分散）</figcaption>
+                    <p>
+                        確率変数 \(X\sim\chi^2(n)\) に対して
+                        \[
+                        E[X]=n,~~~~~V[X]=2n
+                        \]
+                    </p>
+                </figure>
+                <p></p>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div class="scrollable">
+                        \(
+                        \begin{align}
+                        E[X]
+                        &=\int_{-\infty}^\infty xf(x)dx\\
+                        &=\int_0^\infty x\cdot\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}\\
+                        &=\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty x^{\frac{n}{2}}e^{-\frac{x}{2}}dx\\
+                        &=\frac{2}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty (2t)^{\frac{n}{2}}e^{-t}dt~~~(x=2t)\\
+                        &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\int_0^\infty t^{\frac{n}{2}}e^{-t}dt\\
+                        &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\Gamma\left(\frac{n}{2}+1\right)\\
+                        &=\frac{2}{\Gamma\left(\frac{n}{2}\right)}\cdot\frac{n}{2}\Gamma\left(\frac{n}{2}\right)\\
+                        &=n
+                        \end{align}
+                        \)
+                    </div>
+                </details>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
