@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>共分散・相関係数</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>共分散・相関係数</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
@@ -13,74 +13,60 @@
         <main id="contents">
             <h1>共分散・相関係数</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">共分散</h2>
-            <div class="def">
-                <div>定義（共分散）</div>
-                確率変数 \(X,Y\) に対して
-                \[
-                \mathrm{Cov}[X,Y]=E[(X-E[X])(Y-E[Y])]
-                \]
-                を \(X,Y\) の共分散という。
-            </div>
-            <p></p>
-            <div class="article">
-                \(\mathrm{Cov}[X,Y]\) は \(\sigma_{XY}\) とも書かれる。
-            </div>
-            <p></p>
-            <div class="th">
-                <div>定理（共分散の性質）</div>
-                <ol>
-                    <li>\(\mathrm{Cov}[aX,bY]=ab\mathrm{Cov}[X,Y]\)</li>
-                    <li>\(\mathrm{Cov}[X+Z,Y]=\mathrm{Cov}[X,Y]+\mathrm{Cov}[Z,Y]\)</li>
-                    <li>\(\mathrm{Cov}[X,Y]=E[XY]-E[X]E[Y]\)</li>
-                </ol>
-            </div>
-            <p class="space"></p>
-            <h2 id="2">独立な確率変数の共分散</h2>
-            <div class="th">
-                <div>定理（独立な確率変数の共分散）</div>
-                確率変数 \(X,Y\) が独立であるとき
-                \[
-                \mathrm{Cov}[X,Y]=0
-                \]
-                が成り立つ。
-            </div>
-            <p class="space"></p>
-            <h2 id="3">相関係数</h2>
-            <div class="def">
-                <div>定義（相関係数）</div>
-                確率変数 \(X,Y\) に対して
-                \[
-                r[X,Y]=\frac{\mathrm{Cov}[X,Y]}{\sqrt{V[X]V[Y]}}
-                \]
-                を \(X,Y\) の相関係数という。
-            </div>
-            <p></p>
-            <div class="th">
-                <div>定理（相関係数の値域）</div>
-                相関係数 \(r[X,Y]\) に対して
-                \[
-                -1\le r[X,Y]\le1
-                \]
-                が成り立つ。
-            </div>
-            <details class="pf">
-                <summary>証明</summary>
-                <div>
+            <section id="1">
+                <h2>共分散</h2>
+                <figure class="def">
+                    <figcaption>定義（共分散）</figcaption>
+                    <p>
+                        確率変数 \(X,Y\) に対して
+                        \[
+                        \mathrm{Cov}[X,Y]=E[(X-E[X])(Y-E[Y])]
+                        \]
+                        を \(X,Y\) の共分散という。
+                    </p>
+                </figure>
+                <p>\(\mathrm{Cov}[X,Y]\) は \(\sigma_{XY}\) とも書かれる。</p>
+                <figcaption class="th">
+                    <figcaption>定理（共分散の性質）</figcaption>
+                    \(X,Y\) を確率変数、\(a,b\in\mathbb{R}\) とする。
+                    <ol>
+                        <li>\(\mathrm{Cov}[aX,bY]=ab\mathrm{Cov}[X,Y]\)</li>
+                        <li>\(\mathrm{Cov}[X+Z,Y]=\mathrm{Cov}[X,Y]+\mathrm{Cov}[Z,Y]\)</li>
+                        <li>\(\mathrm{Cov}[X,Y]=E[XY]-E[X]E[Y]\)</li>
+                        <li>\(X\) と \(Y\) が互いに独立ならば、\(\mathrm{Cov}[X,Y]=0\)</li>
+                    </ol>
+                </figcaption>
+            </section>
+            <section id="2">
+                <h2>相関係数</h2>
+                <figure class="def">
+                    <figcaption>定義（相関係数）</figcaption>
+                    <p>
+                        確率変数 \(X,Y\) に対して
+                        \[
+                        \rho[X,Y]=\frac{\mathrm{Cov}[X,Y]}{\sqrt{V[X]V[Y]}}
+                        \]
+                        を \(X,Y\) の相関係数という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（相関係数の値域）</figcaption>
+                    <p>
+                        相関係数 \(\rho[X,Y]\) に対して
+                        \[
+                        -1\le \rho[X,Y]\le1
+                        \]
+                        が成り立つ。
+                    </p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
                     
-                </div>
-            </details>
-            <p class="space"></p>
-            <h2><a id="2">独立な確率変数の相関係数</a></h2>
-            <div class="th">
-                <div>定理（独立な確率変数の相関係数）</div>
-                確率変数 \(X,Y\) が独立であるとき
-                \[
-                r[X,Y]=0
-                \]
-                が成り立つ。
-            </div>
-            <p class="space"></p>
+                    </div>
+                </details>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
