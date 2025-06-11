@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>離散型同時確率分布</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>離散型同時確率分布</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>同時確率変数</h2>
+                <div class="def">
+                    <div>定義（同時確率変数）</div>
+                    ２つの確率変数 \(X,Y\) に対して
+                    \[
+                    (X,Y):\Omega\to\mathbb{R}^2
+                    \]
+                    を \(X,Y\) の同時確率変数という。
+                </div>
+            </section>
+            <section id="2">
+                <h2>離散型同時確率分布</h2>
+                <p>
+                    \(X,Y\) を離散型確率変数とするとき
+                </p>
+                <span class="center"><p>\(X=x~~\) かつ \(~~Y=y\)</p></span>
+                <p>
+                    となる確率を
+                    \[
+                    P(X=x,~Y=y)
+                    \]
+                    のように表します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（離散型確率変数の同時確率質量関数）</figcaption>
+                    <p>
+                        離散型確率変数 \(X,Y\) に対して
+                        \[
+                        f(x,y)=P(X=x,~Y=y)
+                        \]
+                        で定まる関数 \(f\) を \(X,Y\) の同時確率質量関数という。
+                    </p>
+                </figure>
+                <p>
+                    ３つの離散型変数 \(X,Y,Z\) でも同様に
+                    \[
+                    f(x,y,z)=P(X=x,~Y=y,~Z=z)
+                    \]
+                    とします。
+                </p>
+            </section>
+            <section id="3">
+                <h2>離散型同時確率変数の周辺分布</h2>
+                <p>
+                    同時確率分布において、ある確率変数を固定して、その他の確率変数に関する確率の総和を周辺確率といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（離散型確率変数の周辺確率質量関数）</figcaption>
+                    <p>
+                        離散型同時確率変数 \((X,Y)\) の同時確率質量関数を \(f(x,y)\) とするとき
+                        \[
+                        f_X(x)=P(X=x)=\sum_{y}f(x,y)
+                        \]
+                        で定まる関数 \(f_X\) を \(X\) の周辺確率質量関数という。<br>
+                        同様に
+                        \[
+                        f_Y(y)=P(Y=y)=\sum_{x}f(x,y)
+                        \]
+                        で定まる関数 \(f_Y\) を \(Y\) の周辺確率質量関数という。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>離散型確率変数の独立性</h2>
+                <figure class="def">
+                    <figcaption>定義（離散型確率変数の独立性）</figcaption>
+                    <p>
+                        \(X,Y\) を離散型確率変数とし、同時確率質量関数を \(f\) 、各周辺確率質量関数を \(f_X,f_Y\) とするとき
+                        \[
+                        \forall x,y,~~f(x,y)=f_X(x)f_Y(y)
+                        \]
+                        が成り立つならば、確率変数 \(X\) と \(Y\) は互いに独立であるという。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
