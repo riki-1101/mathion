@@ -13,98 +13,117 @@
         <main id="contents">
             <h1>微分係数</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">微分係数の定義</h2>
-            <div class="article">
-                まず、微分とは、ある点における傾きを求める操作である。
-                <p></p>
-                \(f(x)\) を区間 \(I\) 上の関数とし、\(a\in I\) とする。
-                <p></p>
-                関数 \(f(x)\) において \(x\) の値が \(a\) から \(\varDelta x\) だけ変化した。
-                <p></p>
-                このとき、\(y\) の値の変化 \(\varDelta y\) は
-                \[
-                \varDelta y=f(a+\varDelta x)-f(a)
-                \]
-                である。
-                \[
-                \frac{\varDelta y}{\varDelta x}=\frac{f(a+\varDelta x)-f(a)}{\varDelta x}
-                \]
-                ここで、\(\varDelta x\) の大きさを \(0\) に近づけていけば、\(\displaystyle\frac{\varDelta y}{\varDelta x}\) は限りなく \(x=a\) における接線の傾きに近づいていく。
-                <p></p>
-                この接線の傾きを微分係数といい、次のように定義する。
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（微分係数）</div>
-                関数 \(f(x)\) に対して、極限
-                \[
-                f'(a):=\lim_{\varDelta x\to0}\frac{f(a+\varDelta x)-f(a)}{\varDelta x}
-                \]
-                が存在するとき、\(f\) は \(x=a\) で微分可能であるという。
-                <p></p>
-                この \(f'(a)\) を \(f\) の点 \(a\) における微分係数という。
-            </div>
-            <p></p>
-            <div class="article">
-                微分係数 \(f'(a)\) は
-                \[
-                \frac{df}{dx}(a),~~~\left.\frac{df}{dx}\right|_{x=a}
-                \]
-                などとも書かれる。
-            </div>
-            <p></p>
-            <h3>微分可能性の判定</h3>
-            <div class="ex">
-                <div>例題</div>
-                次の関数は \(x=1\) で微分可能かどうか判定せよ。
-                \[
-                f(x)=|x-1|
-                \]
-            </div>
-            <p></p>
-            <div class="article">
-                微分係数 \(f'(1)\) が存在するか問われている。すなわち、極限
-                \[
-                \lim_{\varDelta x\to0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
-                \]
-                の存在を調べる。
-                関数の極限が存在するのは、右側極限と左側極限が存在して一致するときであった。
-                <p></p>
-                ＜解答＞<br>
-                \[
-                \begin{align}
-                \lim_{\varDelta x\to+0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
-                &=\lim_{\varDelta x\to+0}\frac{|\varDelta x|-0}{\varDelta x}\\
-                &=\lim_{\varDelta x\to+0}\frac{\varDelta x}{\varDelta x}\\
-                &=1
-                \end{align}
-                \]
-                \[
-                \begin{align}
-                \lim_{\varDelta x\to-0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
-                &=\lim_{\varDelta x\to-0}\frac{|\varDelta x|-0}{\varDelta x}\\
-                &=\lim_{\varDelta x\to+0}\frac{-\varDelta x}{\varDelta x}\\
-                &=-1
-                \end{align}
-                \]
-                よって、\(\varDelta x\to+0\) と \(\varDelta x\to-0\) の極限が一致しないので、\(f'(1)\) は存在しない。したがって、\(f(x)\) は \(x=1\) で微分可能ではない。
-            </div>
-            <p class="space"></p>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>問題</div>
-                次の関数は \(x=0\) で微分可能かどうか判定せよ。
-                <ol>
-                    <li>\(\displaystyle f(x)=\begin{cases} \displaystyle\frac{\sin x}{x} & (x\neq0) \\ 1 & (x=0) \end{cases}\)</li>
-                    <li>\(\displaystyle f(x)=\begin{cases} x\log|x| & (x\neq0) \\ 0 & (x=0) \end{cases}\)</li>
-                </ol>
-            </div>
-            <details class="ans">
-                <summary>解答</summary>
-                <div>
-                    
-                </div>
-            </details>
+            <section id="1">
+                <h2>微分係数の定義</h2>
+                <p>
+                    まず、微分とは、ある点における傾きを求める操作です。
+                </p>
+                <p>
+                    \(f(x)\) を区間 \(I\) 上の関数とし、ある点 \(a\in I\) を考えます。<br>
+                    このとき、\(x\) の値が \(a\) から \(\varDelta x\) だけ変化すると<br>
+                    \(y=f(x)\) の値の変化 \(\varDelta y\) は
+                    \[
+                    \varDelta y=f(a+\varDelta x)-f(a)
+                    \]
+                    となります。<br>
+                    このときの平均変化率（平均の傾き）は次式で表されます。
+                    \[
+                    \frac{\varDelta y}{\varDelta x}=\frac{f(a+\varDelta x)-f(a)}{\varDelta x}
+                    \]
+                    ここで、\(\varDelta x\) を限りなく \(0\) に近づけていくと、\(\displaystyle\frac{\varDelta y}{\varDelta x}\) は \(x=a\) における接線の傾きに近づいていきます。<br>
+                    この接線の傾きを微分係数といい、次のように定義します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（微分係数）</figcaption>
+                    <p>
+                        関数 \(f(x)\) が \(a\) を含む開区間 \(I\) 上で定義されており、極限
+                        \[
+                        f'(a):=\lim_{\varDelta x\to0}\frac{f(a+\varDelta x)-f(a)}{\varDelta x}
+                        \]
+                        が存在するとき、関数 \(f\) は点 \(x=a\) で微分可能であるといい、この極限値 \(f'(a)\) を \(f\) の点 \(a\) における微分係数という。
+                    </p>
+                </figure>
+                <p>
+                    微分係数 \(f'(a)\) は
+                    \[
+                    \frac{df}{dx}(a),~~~\left.\frac{df}{dx}\right|_{x=a}
+                    \]
+                    などとも書かます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>微分可能性</h2>
+                <figure class="ex">
+                    <figcaption>例題</figcaption>
+                    <p>
+                        次の関数は \(x=1\) で微分可能かどうか判定せよ。
+                        \[
+                        f(x)=|x-1|
+                        \]
+                    </p>
+                </figure>
+                <p>
+                    微分係数 \(f'(1)\) が存在するか問われています。すなわち、極限
+                    \[
+                    \lim_{\varDelta x\to0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
+                    \]
+                    の存在を調べます。<br>
+                    関数の極限が存在するのは、右側極限と左側極限が存在して一致するときでした。
+                </p>
+                <p>
+                    ＜解答＞<br>
+                    \[
+                    \begin{align}
+                    \lim_{\varDelta x\to+0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
+                    &=\lim_{\varDelta x\to+0}\frac{|\varDelta x|-0}{\varDelta x}\\
+                    &=\lim_{\varDelta x\to+0}\frac{\varDelta x}{\varDelta x}\\
+                    &=1
+                    \end{align}
+                    \]
+                    \[
+                    \begin{align}
+                    \lim_{\varDelta x\to-0}\frac{f(1+\varDelta x)-f(1)}{\varDelta x}
+                    &=\lim_{\varDelta x\to-0}\frac{|\varDelta x|-0}{\varDelta x}\\
+                    &=\lim_{\varDelta x\to+0}\frac{-\varDelta x}{\varDelta x}\\
+                    &=-1
+                    \end{align}
+                    \]
+                    よって、\(\varDelta x\to+0\) と \(\varDelta x\to-0\) の極限が一致しないので、\(f'(1)\) は存在しない。したがって、\(f(x)\) は \(x=1\) で微分可能ではない。
+                </p>
+                <p>
+                    微分可能であるための必要十分条件は以下のようになります。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（微分可能であるための必要十分条件）</figcaption>
+                    <p>
+                        関数 \(f(x)\) が点 \(x=a\) で微分可能であるための必要十分条件は<br>
+                        ある定数 \(A\) が存在して
+                        \[
+                        f(a+\varDelta x)-f(a)=A\varDelta x+o(\varDelta x)~~~(\varDelta x\to0)
+                        \]
+                        が成り立つことである。このとき
+                        \[
+                        A=f'(a)
+                        \]
+                        となる。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p>次の関数は点 \(x=0\) で微分可能かどうか判定せよ。</p>
+                    <ol>
+                        <li>\(\displaystyle f(x)=\begin{cases} \displaystyle\frac{\sin x}{x} & (x\neq0) \\ 1 & (x=0) \end{cases}\)</li>
+                        <li>\(\displaystyle f(x)=\begin{cases} x\log|x| & (x\neq0) \\ 0 & (x=0) \end{cases}\)</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <p></p>
+                </details>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
