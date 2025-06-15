@@ -30,6 +30,7 @@ p {
 }
 
 div.scrollable {
+    padding: 0 1em;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
