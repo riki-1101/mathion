@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>フルラー二積分</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>フルラー二積分</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>フルラー二積分</h2>
+                <figure class="def">
+                    <figcaption>定理（フルラー二積分）</figcaption>
+                    <p>
+                        関数 \(f(x)\) を \(C^1\) 級関数とし
+                        \[
+                        f(\infty):=\lim_{x\to\infty}f(x)
+                        \]
+                        が収束するとする。<br>
+                        このとき、\(0\lt a\lt b\) として次式が成り立つ。
+                        \[
+                        \int_0^\infty\frac{f(bx)-f(ax)}{x}dx=\left\{f(\infty)-f(0)\right\}\log\frac{b}{a}
+                        \]
+                    </p>
+                </figure>
+                <h3>証明</h3>
+                <p>\(M\gt0\) とする。</p>
+                <div class="scrollable">
+                    \[
+                    \begin{align}
+                    \int_0^M\frac{f(bx)-f(ax)}{x}dx
+                    &=\int_0^M\int_a^bf'(tx)dtdx
+                    \end{align}
+                    \]
+                </div>
+                <p>フビニの定理より、積分の順序が交換できるので</p>
+                <div class="scrollable">
+                    \[
+                    \begin{align}
+                    \int_0^M\int_a^bf'(tx)dtdx
+                    &=\int_a^b\int_0^Mf'(tx)dxdt\\
+                    &=\int_a^b\left[\frac{f(tx)}{t}\right]_0^Mdt\\ 
+                    &=\int_a^b\frac{f(Mt)-f(0)}{t}dt\\              
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、任意の \(t \in [a, b]\) に対して
+                    \[
+                    \frac{f(Mt) - f(0)}{t} \to \frac{f(\infty) - f(0)}{t} \quad (M \to \infty)
+                    \]
+                    が成立する。<br>
+                    また、\(f\) は \([0,\infty)\) 上で有界より、ある定数 \(C > 0\) が存在して
+                    \[
+                    \left|\frac{f(Mt) - f(0)}{t}\right| \le \frac{C}{t} \quad (t \in [a, b])
+                    \]
+                    が成り立ち、\(\displaystyle\frac{C}{t}\) は \([a, b]\) 上で可積分である。<br>
+                    よって、ルベーグの優収束定理より、極限と積分の順序を交換できる。
+                </p>
+                <div class="scrollable">
+                    \[
+                    \begin{align}
+                    \lim_{M\to\infty}\int_a^b\frac{f(Mt)-f(0)}{t}dt
+                    &=\int_a^b\lim_{M\to\infty}\frac{f(Mt)-f(0)}{t}dt\\
+                    &=\int_a^b\frac{f(\infty)-f(0)}{t}dt\\
+                    &=\{f(\infty)-f(0)\}\int_a^b\frac{1}{t}dt\\
+                    &=\{f(\infty)-f(0)\}[\log t]_a^b\\
+                    &=\{f(\infty)-f(0)\}\log\frac{b}{a}
+                    \end{align}
+                    \]
+                </div>
+                <p>したがって</p>
+                <div class="scrollable">
+                    \[
+                    \int_0^\infty\frac{f(bx)-f(ax)}{x}dx=\{f(\infty)-f(0)\}\log\frac{b}{a}
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>例題</h2>
+                <p>フルラー二積分を用いて、次の積分を計算してみましょう。</p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p>次の定積分を計算せよ。</p>
+                    \[
+                    \int_0^\infty\frac{\arctan 2x-\arctan x}{x}dx
+                    \]
+                </figure>
+                <p>
+                    \(\arctan x\) は \(C^1\) 級関数であり
+                    \[
+                    \arctan0=0,~\lim_{x\to\infty}\arctan x=\frac{\pi}{2}
+                    \]
+                    であるから、フルラー二積分より
+                    \[
+                    \begin{align}
+                    \int_0^\infty\frac{\arctan 2x-\arctan x}{x}dx
+                    =&\left(\frac{\pi}{2}-0\right)\log\frac{2}{1}\\
+                    =&\frac{\pi}{2}\log 2
+                    \end{align}
+                    \]
+                </p>
+            </section>  
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div class="scrollable">
+                        
+                    </div>
+                </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
