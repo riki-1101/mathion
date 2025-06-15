@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>不定積分と原始関数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>不定積分と原始関数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>不定積分</h2>
+                <figure class="def">
+                    <figcaption>定義（不定積分）</figcaption>
+                    <p>
+                        関数 \(f(x)\) は区間 \(I\) 上でリーマン可積分とする。\(a,x\in I\) とすると、\(f\) は区間 \([a,x]\) 上でリーマン可積分であり、関数
+                        \[
+                        F(x):=\int_a^x f(t)dt
+                        \]
+                        が定義できる。これを点 \(a\) を基点とする \(f\) の不定積分という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>原始関数</h2>
+                <figure class="def">
+                    <figcaption>定義（原始関数）</figcaption>
+                    <p>
+                        関数 \(f\) に対して、微分可能な関数 \(F\) が存在し
+                        \[
+                        F'(x)=f(x)
+                        \]
+                        となるとき、\(F\) を \(f\) の原始関数という。
+                    </p>
+                </figure>
+                <p>
+                    例えば
+                    \[
+                    \left(\frac{1}{2}x^2+x\right)'=x+1
+                    \]
+                    より、\(\displaystyle\frac{1}{2}x^2+x\) は \(x+1\) の原始関数である。しかし
+                    \[
+                    \left(\frac{1}{2}x^2+x+1\right)'=x+1
+                    \]
+                    のように、定数を加えたものでも成り立つことがわかる。すなわち、原始関数が存在するとき、それは一意に定まるとは限らない。一般に、次のことが成り立つ。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（原始関数の非一意性）</figcaption>
+                    <p>
+                        \(F\) が \(f\) の原始関数であるとき、\(C\in\mathbb{R}\) とすると
+                        \[
+                        F(x)+C
+                        \]
+                        もまた、\(f\) の原始関数である。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
