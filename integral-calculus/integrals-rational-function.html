@@ -1,0 +1,70 @@
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>有理関数の積分</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>有理関数の積分</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>有理関数の積分の基本公式</h2>
+                <figure class="th">
+                    <figcaption>定理（有理関数の積分の基本公式）</figcaption>
+                    <ol>
+                        <li>\(\displaystyle\int x^ndx=\frac{1}{n+1}x^{n+1}+C~~~(n\in\mathbb{Z}\setminus\{-1\})\)</li>
+                        <li>\(\displaystyle\int\frac{1}{x}dx=\log|x|+C\)</li>
+                        <li>\(\displaystyle\int\frac{1}{1+x^2}dx=\arctan x+C\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>有理関数の積分の計算手順</h2>
+                <p>有理関数の積分は以下の手順で求めることができます。</p>
+                <h3>１．真分数化</h3>
+                <p>
+                    \(A(x),~B(x)\) を多項式とし、\(\deg A(x)\ge \deg B(x)\) とします。<br>
+                    \(A(x)\) を \(B(x)\) で割った商を \(Q(x)\) 、余りを \(R(x)\) とすると
+                    \[
+                    \begin{align}
+                    \int\frac{A(x)}{B(x)}dx
+                    &=\int\frac{B(x)Q(x)+R(x)}{B(x)}dx\\
+                    &=\int Q(x)dx+\int\frac{R(x)}{B(x)}dx
+                    \end{align}
+                    \]
+                    \(Q(x)\) は多項式なので \(\displaystyle\int Q(x)dx\) は計算できます。
+                </p>
+                <h3>２．微分形接触</h3>
+                <p>
+                    \(R(x)=kB'(x)+C(x)~~(k\in\mathbb{R})\) と表せるとき
+                    \[
+                    \begin{align}
+                    \int\frac{R(x)}{B(x)}dx
+                    &=k\int\frac{B'(x)}{B(x)}dx+\int\frac{C(x)}{B(x)}dx\\
+                    &=k\log|B(x)|+\int\frac{C(x)}{B(x)}dx
+                    \end{align}
+                    \]
+                </p>
+                <h3>３．部分分数分解</h3>
+                <p>
+                    \(\displaystyle\frac{C(x)}{B(x)}\) は真分数式です。<br>
+                    任意の真分数式は \(a,p,q,l,m,\alpha,\beta,\gamma\in\mathbb{R}\) として
+                    \[
+                    \frac{\alpha}{(x-a)^l},~~\frac{\beta x+\gamma}{(x^2+px+q)^m}~~(p^2-4q\lt0)
+                    \]
+                    の和で表せることが知られています。<br>
+                    \(\displaystyle\int\frac{C(x)}{B(x)}dx\) は \(\displaystyle\frac{C(x)}{B(x)}\) を部分分数分解することで計算できます。
+                </p>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
