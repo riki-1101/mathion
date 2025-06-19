@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>過剰和・不足和とダルブーの定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>過剰和・不足和とダルブーの定理</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>過剰和と不足和</h2>
+                <p>
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（過剰和・不足和）</figcaption>
+                    <p>
+                        関数 \(f(x)\) は閉区間 \([a,b]\) 上で有界であるとする。<br>
+                        区間 \([a,b]\) の分割
+                        \[
+                        \varDelta:a=x_0\lt x_1\lt x_2\lt\cdots\lt x_n=b
+                        \]
+                        に対して、各小区間 \([x_{i-1},x_i]\) における関数 \(f(x)\) の上限、下限を
+                        \[
+                        M_i=\sup_{x\in[x_{i-1},x_i]}f(x),~~~m_i=\inf_{x\in[x_{i-1},x_i]}f(x)
+                        \]
+                        とする。このとき
+                        \[
+                        U(f,\varDelta):=\sum_{i=1}^nM_i(x_i-x_{i-1})
+                        \]
+                        を過剰和といい
+                        \[
+                        L(f,\varDelta):=\sum_{i=1}^nm_i(x_i-x_{i-1})
+                        \]
+                        を不足和という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>ダルブーの定理</h2>
+                <figure class="def">
+                    <figcaption>定理（ダルブーの定理）</figcaption>
+                    <p>
+                        \[
+                        \lim_{|\varDelta|\to0}U(f,\varDelta)=\inf_{\varDelta}U(f,\varDelta)
+                        \]
+                        \[
+                        \lim_{|\varDelta|\to0}L(f,\varDelta)=\sup_{\varDelta}L(f,\varDelta)
+                        \]
+                        が成り立つ。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>リーマン積分可能性</h2>
+                <figure class="def">
+                    <figcaption>定理（リーマン積分可能なための必要十分条件）</figcaption>
+                    <p>
+                        閉区間 \([a,b]\) の分割を
+                        \[
+                        \varDelta:a=x_0\lt x_1\lt x_2\lt\cdots\lt x_n=b
+                        \]
+                        とする。<br>
+                        関数 \(f(x)\) が区間 \([a,b]\) 上でリーマン積分可能であるための必要十分条件は<br>
+                        \[
+                        \inf_{\varDelta}U(f,\varDelta)=\sup_{\varDelta}L(f,\varDelta)
+                        \]
+                        となることである。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（単調関数のリーマン積分可能性）</figcaption>
+                    <p>閉区間 \(I\) 上の単調関数は、\(I\) 上でリーマン積分可能である。</p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                    
+                    </div>
+                </details>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（連続関数のリーマン積分可能性）</figcaption>
+                    <p>閉区間 \(I\) 上の連続関数は、\(I\) 上でリーマン積分可能である。</p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                        
+                    </div>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <p>
+                        
+                    </p>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
