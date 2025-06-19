@@ -45,7 +45,7 @@
                 <figure class="th">
                     <figcaption>定理（期待値の性質）</figcaption>
                     <p>
-                        確率変数 \(X\) と \(a,b\in\mathbb{R}\) について、次式が成り立つ。
+                        確率変数 \(X\) 、 \(a,b\in\mathbb{R}\) に対して、次式が成り立つ。
                         \[
                         E[aX+b]=aE[X]+b
                         \]
@@ -98,7 +98,7 @@
                 <figure class="th">
                     <figcaption>定理（分散の性質）</figcaption>
                     <p>
-                        \(X\) を確率変数、\(a,b\in\mathbb{R}\) とするとき、以下が成り立つ。
+                        確率変数 \(X\) 、\(a,b\in\mathbb{R}\) に対して、以下が成り立つ。
                     </p>
                     <ol>
                         <li>\(V[X]=E[X^2]-E[X]^2\)</li>
@@ -109,26 +109,30 @@
                     <summary>証明</summary>
                     <ol>
                         <li>
-                            \(
-                            \begin{align}
-                            V[X]&=E\left[(X-E[X])^2\right]\\
-                            &=E[X^2-2E[X]X+E[X]^2]\\
-                            &=E[X^2]-2E[X]\cdot E[X]+E[X]^2\\
-                            &=E[X^2]-E[X]^2
-                            \end{align}
-                            \)
+                            <div class="scrollable">
+                                \(
+                                \begin{align}
+                                V[X]&=E\left[(X-E[X])^2\right]\\
+                                &=E[X^2-2E[X]X+E[X]^2]\\
+                                &=E[X^2]-2E[X]\cdot E[X]+E[X]^2\\
+                                &=E[X^2]-E[X]^2
+                                \end{align}
+                                \)
+                            </div>
                         </li>
                         <li>
-                            \(
-                            \begin{align}
-                            V[aX+b]&=E[(aX+b)^2]-E[aX+b]^2\\
-                            &=E[a^2X^2+2abX+b^2]-(aE[X]+b)^2\\
-                            &=a^2E[X^2]+2abE[X]+b^2-a^2E[X]^2-2abE[X]-b^2\\
-                            &=a^2E[X^2]-a^2E[X]^2\\
-                            &=a^2(E[X^2]-E[X]^2)\\
-                            &=a^2V[X]
-                            \end{align}
-                            \)
+                            <div class="scrollable">
+                                \(
+                                \begin{align}
+                                V[aX+b]&=E[(aX+b)^2]-E[aX+b]^2\\
+                                &=E[a^2X^2+2abX+b^2]-(aE[X]+b)^2\\
+                                &=a^2E[X^2]+2abE[X]+b^2-a^2E[X]^2-2abE[X]-b^2\\
+                                &=a^2E[X^2]-a^2E[X]^2\\
+                                &=a^2(E[X^2]-E[X]^2)\\
+                                &=a^2V[X]
+                                \end{align}
+                                \)
+                            </div>
                         </li>
                     </ol>
                 </details>
