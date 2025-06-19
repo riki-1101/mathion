@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>期待値と分散</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>期待値と分散</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>期待値</h2>
+                <p>期待値とは、確率変数がどのくらいの値をとるのかを示す指標です。</p>
+                <figure class="def">
+                    <figcaption>定義（離散型確率変数の期待値）</figcaption>
+                    <p>
+                        離散型確率変数 \(X\) の確率質量関数を \(f(x)\) とする。<br>
+                        関数 \(g\) に対して
+                        \[
+                        E[g(X)]=\sum_xg(x)f(x)
+                        \]
+                        を \(g(X)\) の期待値という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（連続型確率変数の期待値）</figcaption>
+                    <p>
+                        連続型確率変数 \(X\) の確率密度関数を \(f(x)\) とする。<br>
+                        関数 \(g\) に対して \(g(X)\) の期待値を
+                        \[
+                        E[g(X)]=\int_{-\infty}^\infty g(x)f(x)dx
+                        \]
+                        と定める。
+                    </p>
+                </figure>
+                <p>
+                    特に \(E[X]\) は \(\mu\) とも書き、平均値といいます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（期待値の性質）</figcaption>
+                    <p>
+                        確率変数 \(X\) と \(a,b\in\mathbb{R}\) について、次式が成り立つ。
+                        \[
+                        E[aX+b]=aE[X]+b
+                        \]
+                    </p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        ・\(X\) が離散型確率変数の場合<br>
+                        \(X\) の確率質量関数を \(f(x)\) とすると<br>
+                        \(
+                        \begin{align}
+                        E[aX+b]&=\sum_{x}(ax+b)f(x)\\
+                        &=\sum_{x}(axf(x)+bf(x))\\
+                        &=a\sum_{x}xf(x)+b\sum_{x}f(x)\\
+                        &=aE[X]+b
+                        \end{align}
+                        \)
+                    </p>
+                    <p>
+                        ・\(X\) が連続型確率変数の場合<br>
+                        \(X\) の確率密度関数を \(f(x)\) とすると<br>
+                        \(
+                        \begin{align}
+                        E[aX+b]&=\int_{-\infty}^\infty(ax+b)f(x)dx\\
+                        &=\int_{-\infty}^\infty(axf(x)+bf(x))dx\\
+                        &=a\int_{-\infty}^\infty xf(x)dx+b\int_{-\infty}^\infty f(x)dx\\
+                        &=aE[X]+b
+                        \end{align}
+                        \)
+                    </p>
+                </details>
+            </section>
+            <section id="2">
+                <h2>分散と標準偏差</h2>
+                <figure class="def">
+                    <figcaption>定義（分散・標準偏差）</figcaption>
+                    <p>
+                        確率変数 \(X\) に対して
+                        \[
+                        V[X]=E[(X-E[X])^2]
+                        \]
+                        を \(X\) の分散という。<br>
+                        また、分散の正の平方根 \(\sqrt{V[X]}\) を標準偏差という。
+                    </p>
+                </figure>
+                <p>
+                    \(V[X]\) は \({\sigma}^2\) 、標準偏差は \(\sigma\) とも書かれます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（分散の性質）</figcaption>
+                    <p>
+                        \(X\) を確率変数、\(a,b\in\mathbb{R}\) とするとき、以下が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(V[X]=E[X^2]-E[X]^2\)</li>
+                        <li>\(V[aX+b]=a^2V[X]\)</li>
+                    </ol>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <ol>
+                        <li>
+                            \(
+                            \begin{align}
+                            V[X]&=E\left[(X-E[X])^2\right]\\
+                            &=E[X^2-2E[X]X+E[X]^2]\\
+                            &=E[X^2]-2E[X]\cdot E[X]+E[X]^2\\
+                            &=E[X^2]-E[X]^2
+                            \end{align}
+                            \)
+                        </li>
+                        <li>
+                            \(
+                            \begin{align}
+                            V[aX+b]&=E[(aX+b)^2]-E[aX+b]^2\\
+                            &=E[a^2X^2+2abX+b^2]-(aE[X]+b)^2\\
+                            &=a^2E[X^2]+2abE[X]+b^2-a^2E[X]^2-2abE[X]-b^2\\
+                            &=a^2E[X^2]-a^2E[X]^2\\
+                            &=a^2(E[X^2]-E[X]^2)\\
+                            &=a^2V[X]
+                            \end{align}
+                            \)
+                        </li>
+                    </ol>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <div class="ex">
+                    <div>問題</div>
+                    
+                </div>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div>
+                        
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
