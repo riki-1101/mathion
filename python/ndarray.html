@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>多次元配列（ndarray型）</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>多次元配列（ndarray型）</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,47 +13,39 @@
         <main id="contents">
             <h1>多次元配列（ndarray型）</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">配列型のndarray化</h2>
-            <div class="article">
-                配列は、numpy.array()関数で生成できる。
-            </div>
-            <p></p>
-            <h3>1次元配列を生成する例</h3>
-            <div class="article">
-                1次元配列とはベクトルである。
-            </div>
-            <div class="code">
-                import numpy as np<br>
-                a = np.array([1,2,3,4,5])<br>
-                print(a)<br>
-                type(a)
-            </div>
-            <p></p>
-            <div class="code-result">
-                <div>出力結果</div>
-                [1 2 3 4 5]<br>
-                numpy.ndarray
-            </div>
-            <p></p>
-            <h3>2次元配列を生成する例</h3>
-            <div class="code">
-                import numpy as np<br>
-                a = np.array([[1,2,3], [4,5,6]])<br>
-                print(a)<br>
-                type(a)
-            </div>
-            <p></p>
-            <div class="code-result">
-                <div>出力結果</div>
-                [[1 2 3]<br>
-                &nbsp;[4 5 6]]<br>
-                numpy.ndarray
-            </div>
-            <p class="space"></p>
-            <h2 id="2">配列のデータ属性</h2>
-            <div class="article">
-                aのデータ型はndarrayとする。
-                <p></p>
+            <section id="1">
+                <h2>配列型のndarray化</h2>
+                <p>
+                    配列は、numpy.array()関数で生成できます。
+                </p>
+                <h3>1次元配列を生成する例</h3>
+<pre><code>import numpy as np
+a = np.array([1,2,3,4,5])
+print(a)
+type(a)
+</code></pre>
+<pre class="output">
+[1 2 3 4 5]
+numpy.ndarray
+</pre>
+                <h3>2次元配列を生成する例</h3>
+<pre><code>import numpy as np
+a = np.array([[1,2,3], [4,5,6]])
+print(a)
+type(a)
+</code></pre>
+<pre class="output">
+[[1 2 3]
+ [4 5 6]]
+numpy.ndarray
+</pre>
+                
+            </section>
+            <section id="2">
+                <h2>配列のデータ属性</h2>
+                <p>
+                    aのデータ型はndarrayとします。
+                </p>
                 <table border="1">
                     <tr><th>属性</th><th>意味</th></tr>
                     <tr><td>a.dtype</td><td>aの要素のデータ型</td></tr>
@@ -63,14 +55,9 @@
                     <tr><td>a.flat</td><td>aの1次元表現</td></tr>
                     <tr><td>a.T</td><td>aを転置した配列</td></tr>
                 </table>
-            </div>
-            <p></p>
-            <div class="code">
-                
-            </div>
-            <p class="space"></p>
-            <h2 id="3">配列を生成する関数</h2>
-            <div class="article">
+            </section>
+            <section id="3">
+                <h2>配列を生成する関数</h2>
                 <table border="1">
                     <tr><th>関数</th><th>処理内容</th></tr>
                     <tr><td>np.zeros(shape, dtype)</td><td>形shapeの要素が全て0の配列を生成</td></tr>
@@ -78,60 +65,49 @@
                     <tr><td>np.arange(start,stop,step)</td><td>startからstop未満の公差stepの等差数列の配列を生成</td></tr>
                     <tr><td>np.linspase(start,stop,num)</td><td>startからstopの値をnum分割した値を要素に持つ配列を生成</td></tr>
                 </table>
-            </div>
-            <p></p>
-            <div class="article">
-                それぞれの関数の実行例を以下に示す。
-            </div>
-            <p></p>
-            <h3>zeros()関数</h3>
-            <div class="code">
-                import numpy as np<br>
-                a = np.zeros((2,3))<br>
-                b = np.zeros((2,3), np.int8)<br>
-                print(a)<br>
-                print()<br>
-                print(b)<br>
-            </div>
-            <p></p>
-            <div class="code-result">
-                <div>実行結果</div>
-                [[0. 0. 0.]<br>
-                &nbsp;[0. 0. 0.]]
-                <p></p>
-                [[0 0 0]<br>
-                &nbsp;[0 0 0]]
-            </div>
-            <p></p>
-            <h3>ones()関数</h3>
-            <div class="code">
-                import numpy as np<br>
-                print(np.ones((2,3)))<br>
-                print(np.ones((2,3), np.int8))
-            </div>
-            <p></p>
-            <div class="code-result">
-                <div>実行結果</div>
-                [[1. 1. 1.]<br>
-                &nbsp;[1. 1. 1.]]<br>
-                [[1 1 1]<br>
-                &nbsp;[1 1 1]]
-            </div>
-            <p></p>
-            <h3>arange()関数</h3>
-            <div class="code">
-                import numpy as np<br>
-                print(np.arange(5))<br>
-                print(np.arange(2,8))<br>
-                print(np.arange(2, 10, 2))
-            </div>
-            <p></p>
-            <div class="code-result">
-                <div>実行結果</div>
-                [0 1 2 3 4]<br>
-                [2 3 4 5 6 7]<br>
-                [2 4 6 8]
-            </div>
+                <p>
+                    それぞれの関数の実行例を以下に示します。
+                </p>
+                <h3>zeros()関数</h3>
+<pre><code>import numpy as np
+a = np.zeros((2,3))
+b = np.zeros((2,3), np.int8)
+print(a)
+print()
+print(b)
+</code></pre>
+<pre class="output">
+[[0. 0. 0.]
+ [0. 0. 0.]]
+
+[[0 0 0]
+ [0 0 0]]
+</pre>
+                <h3>ones()関数</h3>
+<pre><code>import numpy as np
+print(np.ones((2,3)))
+print()
+print(np.ones((2,3), np.int8))
+</code></pre>
+<pre class="output">
+[[1. 1. 1.]
+ [1. 1. 1.]]
+
+[[1 1 1]
+ [1 1 1]]
+</pre>
+                <h3>arange()関数</h3>
+<pre><code>import numpy as np
+print(np.arange(5))
+print(np.arange(2,8))
+print(np.arange(2, 10, 2))
+</code></pre>
+<pre class="output">
+[0 1 2 3 4]
+[2 3 4 5 6 7]
+[2 4 6 8]
+</pre>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
