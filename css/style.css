@@ -29,7 +29,7 @@ p {
     line-height: 2;
 }
 
-div.scrollable {
+div.math {
     padding: 0 1em;
     overflow-x: auto;
     overflow-y: hidden;
