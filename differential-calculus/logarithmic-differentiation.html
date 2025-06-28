@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>対数微分法</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>対数微分法</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,64 +13,74 @@
         <main id="contents">
             <h1>対数微分法</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">対数微分法の目的</h2>
-            <div class="article">
-                次のような関数を微分したい。
-                \[
-                y=\sqrt[3]{\frac{(x-2)^2}{(x-1)^4(x^2+1)}}
-                \]
-                これは複雑な合成関数であり、このまま計算するのは大変である。
-                <p></p>
-                そこで、対数を利用する。対数には
-                \[
-                \log_aMN=\log_aM+\log_aN
-                \]
-                \[
-                \log_a\frac{M}{N}=\log_aM-\log_aN
-                \]
-                \[
-                \log_aM^k=k\log_aM
-                \]
-                のように、積を和、商を差、\(k\) 乗を \(k\) 倍できる性質がある。
-            </div>
-            <h2 id="2">対数微分法の手順</h2>
-            <div class="article">
-                関数 \(y=f(x)\) に対して、両辺の絶対値の自然対数をとると
-                \[
-                \log|y|=\log|f(x)|
-                \]
-                両辺を \(x\) について微分すると
-                \[
-                \frac{1}{y}\frac{dy}{dx}=\frac{f'(x)}{f(x)}
-                \]
-                したがって
-                \[
-                \frac{dy}{dx}=\frac{f'(x)}{f(x)}\times y
-                \]
-                となる。
-                <p></p>
-                実際にこの方法を用いて、先ほどの関数
-                \[
-                y=\sqrt[3]{\frac{(x-2)^2}{(x^3+1)^4(x^2+1)}}
-                \]
-                を微分してみる。
-                <p></p>
-                両辺の絶対値の自然対数をとると
-                \[
-                \begin{align}
-                \log|y|&=\log\left|\sqrt[3]{\frac{(x-2)^2}{(x-1)^4(x^2+1)}}\right|\\
-                &=\frac{1}{3}\left\{2\log|x-2|-4\log|x-1|-\log|x^2+1|\right\}
-                \end{align}
-                \]
-                両辺を \(x\) について微分すると
-                \[
-                \begin{align}
-                \frac{y'}{y}&=\frac{1}{3}\left(\frac{2}{x-2}-\frac{4}{x-1}-\frac{2x}{x^2+1}\right)\\
-                &=\frac{1}{3}\cdot\frac{2(x-1)(x^2+1)-4(x-2)(x^2+1)-2x(x-2)(x-1)}{(x-2)(x-1)(x^2+1)}\\
-                &=\frac{1}{3}\cdot\frac{}{(x-2)(x-1)(x^2+1)}
-                \end{align}
-                \]
-            </div>
+            <section id="1">
+                <h2>対数微分法の目的</h2>
+                <p>
+                    次のような関数を微分を考えます。
+                    \[
+                    y=\sqrt[3]{\frac{(x-2)^2}{(x-1)^4(x^2+1)}}
+                    \]
+                    これは複雑な合成関数で、このまま計算するのは大変です。<br>
+                    そこで、対数を利用します。対数には
+                    \[
+                    \log_aMN=\log_aM+\log_aN
+                    \]
+                    \[
+                    \log_a\frac{M}{N}=\log_aM-\log_aN
+                    \]
+                    \[
+                    \log_aM^k=k\log_aM
+                    \]
+                    のように、複雑な積の形を和に分解できる性質があります。
+                </p>
+            </section>
+            <section id="2">
+                <h2>対数微分法の手順</h2>
+                <p>
+                    関数 \(y=f(x)\) に対して、両辺の絶対値の自然対数をとります。
+                    \[
+                    \log|y|=\log|f(x)|
+                    \]
+                    この両辺を \(x\) について微分すると
+                    \[
+                    \frac{1}{y}\frac{dy}{dx}=\frac{f'(x)}{f(x)}
+                    \]
+                    したがって
+                    \[
+                    \frac{dy}{dx}=\frac{f'(x)}{f(x)}\times y
+                    \]
+                    となります。
+                </p>
+                <p>
+                    実際にこの方法を用いて、先ほどの関数
+                    \[
+                    y=\sqrt[3]{\frac{(x-2)^2}{(x^3+1)^4(x^2+1)}}
+                    \]
+                    を微分してみます。
+                </p>
+                <p>
+                    両辺の絶対値の自然対数をとると
+                    \[
+                    \begin{align}
+                    \log|y|&=\log\left|\sqrt[3]{\frac{(x-2)^2}{(x-1)^4(x^2+1)}}\right|\\
+                    &=\frac{1}{3}\left\{2\log|x-2|-4\log|x-1|-\log|x^2+1|\right\}
+                    \end{align}
+                    \]
+                    両辺を \(x\) について微分すると
+                    \[
+                    \begin{align}
+                    \frac{y'}{y}&=\frac{1}{3}\left(\frac{2}{x-2}-\frac{4}{x-1}-\frac{2x}{x^2+1}\right)\\
+                    &=\frac{1}{3}\cdot\frac{2(x-1)(x^2+1)-4(x-2)(x^2+1)-2x(x-2)(x-1)}{(x-2)(x-1)(x^2+1)}\\
+                    &=\frac{1}{3}\cdot\frac{-4x^3+12x^2-6x+6}{(x-2)(x-1)(x^2+1)}
+                    \end{align}
+                    \]
+                    したがって
+                    \[
+                    =\frac{1}{3}\cdot\frac{-4x^3+12x^2-6x+6}{(x-2)(x-1)(x^2+1)}
+                    \]
+                    このように計算できます。
+                </p>
+            </section>
             <p class="space"></p>
             <h2 id="ex">演習問題</h2>
             <div class="ex">

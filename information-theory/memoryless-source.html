@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>記憶のない情報源</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>記憶のない情報源</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,12 +13,27 @@
         <main id="contents">
             <h1>記憶のない情報源</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">記憶のない情報源</h2>
-            <div class="article">
-                情報源記号が互いに独立に発生する情報源を記憶のない情報源という。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">記憶のない情報源のエントロピー</h2>
+            <section id="1">
+                <h2>情報源の表現</h2>
+                <p>
+
+                    情報源アルファベットといいます。
+                    \[
+                    P(X_0=x_0,~X_1=x_1,~\cdots,~X_n=x_n)
+                    \]
+                </p>
+                
+            </section>
+            <section id="2">
+                <h2>記憶のない情報源のエントロピー</h2>
+                <p>
+                    情報源記号が互いに独立に発生する情報源を記憶のない情報源といいます。
+                </p>
+                <p>
+                    \[
+                    P(X_n=x_n~|~X_{n-1}=x_{n-1},~\cdots,~X_1=x_1)=P(X_n=x_n)
+                    \]
+                </p>
             <div class="article">
                 情報源アルファベット \(A\) が
                 \[
@@ -33,6 +48,8 @@
                 H'(A)=kH(A)~~~[\mathrm{bit/sec}]
                 \]
             </div>
+            </section>
+            
             <p class="space"></p>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
