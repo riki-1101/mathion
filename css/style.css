@@ -29,6 +29,10 @@ p {
     line-height: 2;
 }
 
+p.indent {
+    text-indent: 1em;
+}
+
 div.math {
     padding: 0 1em;
     overflow-x: auto;
