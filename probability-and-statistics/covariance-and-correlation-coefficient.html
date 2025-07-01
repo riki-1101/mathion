@@ -15,33 +15,138 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>共分散</h2>
+                <p class="indent">
+                    共分散は、2つの変数がどのように共に変化するかを表す統計量です。
+                    「2つの変数が同じ方向に動く傾向があるか？」、「逆の方向に動く傾向があるか？」を測る指標です。
+                </p>
                 <figure class="def">
                     <figcaption>定義（共分散）</figcaption>
-                    <p>
+                    <p class="indent">
                         確率変数 \(X,Y\) に対して
+                    </p>
+                    <div class="math">
                         \[
                         \mathrm{Cov}[X,Y]=E[(X-E[X])(Y-E[Y])]
                         \]
-                        を \(X,Y\) の共分散という。
+                    </div>
+                    <p>
+                        を<strong> \(X,Y\) の共分散</strong>という。
                     </p>
                 </figure>
-                <p>\(\mathrm{Cov}[X,Y]\) は \(\sigma_{XY}\) とも書かれる。</p>
-                <figcaption class="th">
+                <p class="indent">
+                    つまり、「 \(X\) と \(Y\) が平均からどれだけずれているか」を掛け合わせた期待値です。
+                    \(\mathrm{Cov}[X,Y]\) は \(\sigma_{XY}\) とも書かれます。
+                </p>
+                <figure class="th">
                     <figcaption>定理（共分散の性質）</figcaption>
-                    \(X,Y\) を確率変数、\(a,b\in\mathbb{R}\) とする。
+                    \(X,Y\) を確率変数、\(a,b\in\mathbb{R}\) とすると、以下が成り立つ。
                     <ol>
                         <li>\(\mathrm{Cov}[aX,bY]=ab\mathrm{Cov}[X,Y]\)</li>
                         <li>\(\mathrm{Cov}[X+Z,Y]=\mathrm{Cov}[X,Y]+\mathrm{Cov}[Z,Y]\)</li>
                         <li>\(\mathrm{Cov}[X,Y]=E[XY]-E[X]E[Y]\)</li>
                         <li>\(X\) と \(Y\) が互いに独立ならば、\(\mathrm{Cov}[X,Y]=0\)</li>
                     </ol>
-                </figcaption>
+                </figure>
+                <p>
+                    (3) の性質は特に重要です。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        あるお店で、ある５日間の気温（℃）とアイスの売上（本）のデータが以下のように記録されている。
+                    </p>
+                    <table>
+                        <tr><th>日にち</th><td>１日目</td><td>２日目</td><td>３日目</td><td>４日目</td><td>５日目</td></tr>
+                        <tr><th>気温（℃）</th><td>20</td><td>22</td><td>25</td><td>23</td><td>21</td></tr>
+                        <tr><th>アイスの売上（本）</th><td>30</td><td>35</td><td>45</td><td>40</td><td>33</td></tr>
+                    </table>
+                    <p class="indent">
+                        気温 \(X\) とアイスの売上 \(Y\) の共分散 \(\mathrm{Cov}[X,Y]\) を求めよ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    気温を \(X\) 、アイスの売上を \(Y\) とします。共分散は
+                </p>
+                <div class="math">
+                    \[
+                    \mathrm{Cov}[X,Y]=E[(X-E[X])(Y-E[Y])]
+                    \]
+                </div>
+                <p>
+                    なので、まず、期待値（平均） \(E[X],E[Y]\) を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    E[X]=\frac{20+22+25+23+21}{5}=\frac{111}{5}=22.2
+                    \]
+                    \[
+                    E[Y]=\frac{30+35+45+40+33}{5}=\frac{183}{5}=36.6
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \mathrm{Cov}[X,Y]&=E[(X-E[X])(Y-E[Y])]\\
+                    &=E[(X-22.2)(Y-36.6)]\\
+                    &=\frac{1}{5}\{(20-22.2)(30-36.6)+(22-22.2)(35-36.6)+(25-22.2)(45-36.6)+(23-22.2)(40-36.6)+(21-22.2)(33-36.6)\}\\
+                    &=\frac{1}{5}\{(-2.2)(-6.6)+(-0.2)(-1.6)+(2.8)(8.4)+(0.8)(3.4)+(-1.2)(-3.6)\}\\
+                    &=\frac{1}{5}(14.52+0.32+23.52+2.72+4.32)\\
+                    &=\frac{45.4}{5}\\
+                    &=9.08
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    と求まります。
+                </p>
+                <p class="indent">
+                    あるいは公式
+                </p>
+                <div class="math">
+                    \[
+                    \mathrm{Cov}[X,Y]=E[XY]-E[X]E[Y]
+                    \]
+                </div>
+                <p>
+                    を使う方法もあります。この場合 \(E[XY]\) も求めます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    E[XY]&=\frac{(20\cdot30)+(22\cdot35)+(25\cdot45)+(23\cdot40)+(21\cdot33)}{5}\\
+                    &=\frac{600+770+1125+920+693}{5}\\
+                    &=\frac{4108}{5}\\
+                    &=821.6
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \mathrm{Cov}[X,Y]&=E[XY]-E[X]E[Y]\\
+                    &=821.6-22.2\cdot36.6\\
+                    &=9.08
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    と同じ結果が得られます。こちらの方が簡単な場合が多く、おすすめです。
+                </p>
             </section>
             <section id="2">
                 <h2>相関係数</h2>
+                <p class="indent">
+                    共分散は単位がついたままの値なので、値そのものの大きさは比較しにくいです。そこで、共分散を標準化したもの、相関係数を定義します。
+                </p>
                 <figure class="def">
                     <figcaption>定義（相関係数）</figcaption>
-                    <p>
+                    <p class="indent">
                         確率変数 \(X,Y\) に対して
                         \[
                         \rho[X,Y]=\frac{\mathrm{Cov}[X,Y]}{\sqrt{V[X]V[Y]}}
