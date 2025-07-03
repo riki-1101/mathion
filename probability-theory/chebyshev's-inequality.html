@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>チェビシェフの不等式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>チェビシェフの不等式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>マルコフの不等式</h2>
+                <p class="indent">
+                    チェビシェフの不等式の前に、まず、マルコフの不等式を説明します。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（マルコフの不等式）</figcaption>
+                    <p class="indent">
+                        \(X\) を非負の値を取る確率変数とする。このとき、任意の \(a\gt0\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        P(X\ge a)\le\frac{E[X]}{a}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        \(X\) は連続型確率変数とし、その確率密度関数を \(f(x)\) とする。
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        E[X]&=\int_0^\infty xf(x)dx\\
+                        &=\int_0^a xf(x)dx+\int_a^\infty xf(x)dx\\
+                        &\ge\int_a^\infty xf(x)dx \quad \left(\because \int_0^a xf(x)dx\ge0\right)\\
+                        &\ge\int_a^\infty af(x)dx \quad (\because x\ge a)\\
+                        &=a\int_a^\infty f(x)dx\\
+                        &=aP(X\ge a)
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        したがって
+                    </p>
+                    <div class="math">
+                        \[
+                        E[X]\ge aP(X\ge a)
+                        \]
+                    </div>
+                    <p>
+                        \(a\gt0\) であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        P(X\ge a)\le\frac{E[X]}{a}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                    </ol>
+                </details>
+                <p class="indent">
+                    例えば、ある非負の確率変数 \(X\) に対して、\(P(X\ge20)\) が知りたいとします。<br>
+                    しかし、\(X\) が従う確率分布がわかりません。<br>
+                    一方で、期待値 が \(E[X]=5\) とわかっていれば、マルコフの不等式より
+                </p>
+                <div class="math">
+                    \[
+                    P(X\ge20)\le\frac{E[X]}{20}=\frac{5}{20}=\frac{1}{4}=0.25
+                    \]
+                </div>
+                <p>
+                    のように、\(X\) が \(20\) 以上の値を取る確率は \(25\%\) 以下であると評価できます。
+                </p>
+                <p>
+                    このように、マルコフの不等式は、分布はわからないが期待値がわかっているとき、確率をざっくり上から見積もることができます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>チェビシェフの不等式</h2>
+                <figure class="th">
+                    <figcaption>定理（チェビシェフの不等式）</figcaption>
+                    <p class="indent">
+                        \(X\) を \(\mu=E[X]\) と \(\sigma^2=V[X]\) がいずれも有限な確率変数とする。このとき、任意の \(k\gt0\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        P(|X-\mu|\ge k\sigma)\le\frac{1}{k^2}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    また、\(\varepsilon=k\sigma\) とおいたもの
+                </p>
+                <div class="math">
+                    \[
+                    P(|X-\mu|\ge \varepsilon)\le\frac{\sigma^2}{\varepsilon^2}
+                    \]
+                </div>
+                <p>
+                    の形もよく用いられます。
+                </p>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

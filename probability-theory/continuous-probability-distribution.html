@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>連続型確率分布</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>     
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>連続型確率分布</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>連続型確率変数</h2>
+                <p>
+                    確率変数 \(X\) が連続した値を取るとき、\(X\) を連続型確率変数といいます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>確率密度関数</h2>
+                <figure class="def">
+                    <figcaption>定義（確率密度関数）</figcaption>
+                    <p>
+                        連続型確率変数 \(X\) に対して、次の性質を満たす関数 \(f(x)\) を \(X\) の<strong>確率密度関数</strong>という。
+                    </p>
+                    <ol>
+                        <li>\(\forall x \in \mathbb{R},~f(x) \ge 0\)</li>
+                        <li>\(\displaystyle\int_{-\infty}^{\infty} f(x) \, dx = 1\)</li>
+                        <li>
+                            任意の区間 \([a,b] \subset \mathbb{R}\) に対して、次が成り立つ：<br>
+                            \[
+                            P(a \le X \le b) = \int_a^b f(x)\,dx
+                            \]
+                        </li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>連続型確率変数の累積分布関数</h2>
+                <p>
+                    連続型確率変数 \(X\) の累積分布関数は次式で表されます。
+                </p>
+                <div class="math">
+                    \[
+                    F(x)=P(X\le x)=\int_{-\infty}^xf(t)dt
+                    \]
+                </div>
+                <h3>確率密度関数と累積分布関数の関係</h2>
+                <p>
+                    連続型確率変数 \(X\) の累積分布関数
+                </p>
+                <div class="math">
+                    \[
+                    F(x)=\int_{-\infty}^xf(t)dt
+                    \]
+                </div>
+                <p>
+                    を微分してみます。<br>
+                    微分積分学の基本定理より
+                </p>
+                <div class="math">
+                    \[
+                    \frac{d}{dx}F(x)=\frac{d}{dx}\int_{-\infty}^xf(t)dt=f(x)
+                    \]
+                </div>
+                <P>
+                    が得られ、累積分布関数 \(F\) は確率密度関数 \(f\) の原始関数であるとわかります。<br>
+                    この関係を用いると、次のように確率を累積分布関数で表すことができます。
+                </p>
+                <div class="math">
+                    \[
+                    P(a\le X\le b)=\int_a^bf(x)dx=F(b)-F(a)
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        連続型確率変数 \(X\) の確率密度関数 \(f\) が \(a\in\mathbb{R}\) として次のように与えられている。以下の問いに答えよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(x)=
+                        \begin{cases}
+                        ax(4-x) & (0\le x\le 4)\\
+                        0 & (x\lt 0,~4\lt x)
+                        \end{cases}
+                        \]
+                    </div>
+                    <ol>
+                        <li>\(a\) の値を求めよ。</li>
+                        <li>\(P(1\le X\le 2)\) を求めよ。</li>
+                        <li>\(X\) の累積分布関数 \(F(x)\) を求めよ。</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>
+                            <p>
+                                \(f\) が確率密度関数であるとき、\(\displaystyle\int_{-\infty}^\infty f(x)dx=1\) であるから
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \int_{-\infty}^\infty f(x)dx
+                                &=\int_0^4ax(4-x)dx\\
+                                &=a\int_0^4(4x-x^2)dx\\
+                                &=a\left[2x^2-\frac{1}{3}x^3\right]_0^4\\
+                                &=\frac{32}{3}a
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                よって \(\displaystyle\frac{32}{3}a=1\) より \(a=\displaystyle\frac{3}{32}\)
+                            </p>
+                        </li>
+                        <li>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                P(1\le X\le 2)
+                                &=\int_1^2f(x)dx\\
+                                &=\int_1^2\frac{3}{32}x(4-x)dx\\
+                                &=\frac{3}{32}\left[2x^2-\frac{1}{3}x^3\right]_1^2\\
+                                &=\frac{11}{32}
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <p>
+                                \(x\lt 0\) のとき
+                            </p>
+                            <div class="math">
+                                \[
+                                F(x)=\int_{-\infty}^x f(t)dt=0
+                                \]
+                            </div>
+                            <p>
+                                \(0\le x\le4\) のとき
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                F(x)&=\int_{-\infty}^x f(t)dt\\
+                                &=\int_{-\infty}^0 0dt+\int_0^x \frac{3}{32}t(4-t)dt\\
+                                &=0+\frac{3}{32}\left[2t^2-\frac{1}{3}t^3\right]_0^x\\
+                                &=-\frac{1}{32}x^3+\frac{3}{16}x^2
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                \(4\lt x\) のとき
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                F(x)&=\int_{-\infty}^x f(t)dt\\
+                                &=\int_{-\infty}^0 0dt+\int_0^4 \frac{3}{32}t(4-t)dt+\int_4^\infty 0dt\\
+                                &=0+\frac{3}{32}\left[2t^2-\frac{1}{3}t^3\right]_0^4+0\\
+                                &=-\frac{1}{32}x^3+\frac{3}{16}x^2\\
+                                &=1
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                したがって
+                            </p>
+                            <div class="math">
+                                \[
+                                F(x)=
+                                \begin{cases}
+                                0 & (x\lt 0)\\
+                                \displaystyle -\frac{1}{32}x^3+\frac{3}{16}x^2 & (0\le x\le4)\\
+                                1 & (4\lt x)\\
+                                \end{cases}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

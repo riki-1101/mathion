@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>t分布</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>t分布</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>t分布の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（t分布）</figcaption>
+                    <p>
+                        確率変数 \(Z\sim N(0,1),~X\sim\chi^2(n)\) に対して、確率変数
+                        \[
+                        T=\frac{Z}{\sqrt{\frac{X}{n}}}
+                        \]
+                        を定めると、\(T\) は自由度 \(n\) のt分布に従うといい
+                        \[
+                        T\sim t(n)
+                        \]
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>t分布の確率密度関数</h2>
+                <p>
+                    t分布の確率密度関数 \(f_T(t)\) を求めます。
+                </p>
+                <p>
+                    確率変数 \(Z\sim N(0,1),~X\sim\chi^2(n)\) は互いに独立なので、\(Z,X\) の同時確率密度関数は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f_{Z,X}(z,x)&=f_Z(z)f_X(x)\\
+                    &=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\cdot\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    次に以下の変数変換を考えます。
+                    \[
+                    t=\frac{z}{\sqrt{\frac{x}{n}}},~~~u=x
+                    \]
+                    このとき
+                    \[
+                    z=t\sqrt{\frac{u}{n}},~~~x=u
+                    \]
+                    であり、ヤコビアンは
+                </p>
+                <div class="math">
+                    \[
+                    J=\begin{vmatrix} \frac{\partial z}{\partial t} & \frac{\partial z}{\partial u} \\ \frac{\partial x}{\partial t} & \frac{\partial x}{\partial u} \end{vmatrix}
+                    =\begin{vmatrix} \sqrt{\frac{u}{n}} & \frac{t}{2\sqrt{nu}} \\ 0 & 1 \end{vmatrix}
+                    =\sqrt{\frac{u}{n}}
+                    \]
+                </div>
+                <p>
+                    したがって、新しい同時確率密度関数 \(f_{T,U}(t,u)\) は
+                <p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f_{T,U}(t,u)&=f_{Z,X}\left(t\sqrt{\frac{u}{n}},u\right)|J|\\
+                    &=\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2u}{2n}}\cdot\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}u^{\frac{n}{2}-1}e^{-\frac{u}{2}}\cdot\sqrt{\frac{u}{n}}\\
+                    &=\frac{1}{2^\frac{n}{2}\sqrt{2n\pi}\Gamma\left(\frac{n}{2}\right)}u^{\frac{n+1}{2}-1}e^{-u\left(\frac{1}{2}+\frac{t^2}{2n}\right)}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    これを周辺化して、\(T\) の周辺確率密度関数を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f_T(t)&=\int_{-\infty}^\infty f_{T,U}(t,u)du\\
+                    &=\int_0^\infty \frac{1}{2^\frac{n}{2}\sqrt{2n\pi}\Gamma\left(\frac{n}{2}\right)}u^{\frac{n+1}{2}-1}e^{-u\left(\frac{1}{2}+\frac{t^2}{2n}\right)}du\\
+                    &=\frac{1}{2^\frac{n}{2}\sqrt{2n\pi}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty u^{\frac{n+1}{2}-1}e^{-u\left(\frac{1}{2}+\frac{t^2}{2n}\right)}du\\
+                    \end{align}
+                    \]
+                </div>
+                <p> 
+                    ここで
+                    \[
+                    v=u\left(\frac{1}{2}+\frac{t^2}{2n}\right)
+                    \]
+                    とおくと
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f_T(t)
+                    &=\frac{1}{2^\frac{n}{2}\sqrt{2n\pi}\Gamma\left(\frac{n}{2}\right)}\int_0^\infty v^{\frac{n+1}{2}-1}e^{-v}\left(\frac{1}{2}+\frac{t^2}{2n}\right)^{-\frac{n+1}{2}}dv\\
+                    &=\frac{1}{2^\frac{n}{2}\sqrt{2n\pi}\Gamma\left(\frac{n}{2}\right)}\left(\frac{1}{2}+\frac{t^2}{2n}\right)^{-\frac{n+1}{2}}\int_0^\infty v^{\frac{n+1}{2}-1}e^{-v}dv\\
+                    &=\frac{1}{\sqrt{n\pi}\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{t^2}{n}\right)^{-\frac{n+1}{2}}\Gamma\left(\frac{n+1}{2}\right)\\
+                    &=\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{t^2}{n}\right)^{-\frac{n+1}{2}}
+                    \end{align}
+                    \]
+                </div>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（t分布の確率密度関数）</figcaption>
+                    <p>
+                        t分布に従う確率変数の確率密度関数 \(f\) は
+                        \[
+                        f(x)=\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{x^2}{n}\right)^{-\frac{n+1}{2}}
+                        \]
+                        と表される。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>t分布に従う確率変数の期待値と分散</h2>
+                <figure class="th">
+                    <figcaption>定理（t分布に従う確率変数の期待値と分散）</figcaption>
+                    <p>
+                        確率変数 \(X\sim t(n)\) に対して
+                        \[
+                        E[X]=0,~~~~~V[X]=\begin{cases}\end{cases}
+                        \]
+                    </p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                        \(
+                        \begin{align}
+                        
+                        \end{align}
+                        \)
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

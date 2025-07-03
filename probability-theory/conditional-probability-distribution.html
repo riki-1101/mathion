@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>条件付き確率分布</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>条件付き確率分布</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>条件付き確率関数</h2>
+                <figure class="def">
+                    <figcaption>定義（条件付き確率関数）</figcaption>
+                    <p>
+                        連続型確率変数 \(X,Y\) に対して
+                        \[
+                        f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}
+                        \]
+                        を \(X=x\) のもとでの \(Y\) の条件付き確率密度関数という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>条件付き期待値</h2>
+                <p>
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（条件付き期待値）</figcaption>
+                    <p>
+                        確率変数 \(X\) の
+                        \[
+                        E[Y|X=x]=\sum_{y}yf_{Y|X}(y|x)
+                        \]
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <div class="ex">
+                    <div>問題</div>
+                    
+                </div>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div>
+                        
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

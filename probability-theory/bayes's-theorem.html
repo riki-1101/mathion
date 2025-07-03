@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>ベイズの定理</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ベイズの定理</h1>
+            <div id="table-of-contents"></div>
+            <h2 id="1">ベイズの定理</h2>
+            <div class="th">
+                <div>定理（ベイズの定理）</div>
+                \(A_1,A_2,\cdots,A_n\) を互いに排反な事象で、\(\displaystyle\bigcup_{i=1}^nA_i=\Omega\) とする。
+                <p></p>
+                \(P(A_i)\gt0~(i=1,2,\cdots,n)\) のとき、任意の事象 \(B\) に対して
+                \[
+                P(A_i~|~B)=\frac{P(A_i)P(B~|~A_i)}{\displaystyle\sum_{j=1}^nP(A_j)P(B~|~A_j)}
+                \]
+                が成り立つ。
+            </div>
+            <p class="space"></p>
+            <h2 id="2">ベイズの定理が有効な例</h2>
+            <div class="article"></div>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

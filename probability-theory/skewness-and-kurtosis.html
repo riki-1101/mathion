@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>歪度と尖度</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>歪度と尖度</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>歪度</h2>
+                <p>
+                    歪度とは、分布の非対称性を表す指標です。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（歪度）</figcaption>
+                    <p>
+                        確率変数 \(X\) の平均を \(\mu\) 、分散を \(\sigma^2\) とするとき
+                        \[
+                        \beta_1=\frac{E[(X-\mu)^3]}{\sigma^3}
+                        \]
+                        を確率分布の歪度という。
+                    </p>
+                </figure>
+                <p>
+                    この歪度 \(\beta_1\) について、次のことがいえます。
+                </p>
+                <div class="box">
+                    <ul>
+                        <li><p>\(\beta_1\gt0\) ならば、右に裾が長い</p></li>
+                        <li><p>\(\beta_1\lt0\) ならば、左に裾が長い</p></li>
+                    </ul>
+                </div>
+            </section>
+            <section id="2">
+                <h2>尖度</h2>
+                <p>
+                    尖度とは、分布のピークの鋭さを表す指標です。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（尖度）</figcaption>
+                    <p>
+                        確率変数 \(X\) の平均を \(\mu\) 、分散を \(\sigma^2\) とするとき
+                        \[
+                        \beta_2=\frac{E[(X-\mu)^4]}{\sigma^4}
+                        \]
+                        を確率分布の尖度という。
+                    </p>
+                </figure>
+                <p>
+                    定義より、\(\beta_2\ge0\) です。
+                </p>
+                <p>
+                    この尖度 \(\beta_2\) について、次のことがいえます。
+                </p>
+                <div class="box">
+                    <p>
+                        \(\beta_2\) が大きいと、分布のピークは鋭くなる
+                    </p>
+                </div>
+                <p>
+                    また、正規分布の尖度は \(3\) であることから、これを基準として
+                    \[
+                    \tilde{\beta_2}=\beta_2-3=\frac{E[(X-\mu)^4]}{\sigma^4}-3
+                    \]
+                    を尖度として用いることもあります。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <div class="ex">
+                    <div>問題</div>
+                    
+                </div>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div>
+                        
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
