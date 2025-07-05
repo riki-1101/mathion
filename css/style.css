@@ -327,7 +327,7 @@ h1:after {
 }
 
 
-figure {
+#contents figure {
     margin: 0;
     padding: 1em;
     border: 1px solid #aaa;
@@ -336,7 +336,7 @@ figure {
     overflow-y: visible;
 }
 
-figcaption {
+#contents figcaption {
     font-weight: bold;
     margin-bottom: 0.5em;
 }
