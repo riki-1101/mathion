@@ -294,14 +294,6 @@ h1:after {
     color: black;
     font-weight: bold;
 }
-#contents ul {
-    list-style-type: disc;
-    margin: 0;
-}
-#contents ul li {
-    padding: 5px 0;
-    font-weight: bold;
-}
 #contents a {
     color: black;
 }
