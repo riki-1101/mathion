@@ -17,23 +17,33 @@
                 <h2>正規分布の定義</h2>
                 <figure class="def">
                     <figcaption>定義（正規分布）</figcaption>
-                    <p>
+                    <p class="indent">
                         連続型確率変数 \(X\) の確率密度関数 \(f\) が \(\mu\in\mathbb{R},~\sigma\gt 0\) として
+                    </p>
+                    <div class="math">
                         \[
                         f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}
                         \]
-                        であるとき、\(X\) は平均 \(\mu\) 、分散 \(\sigma^2\) の正規分布に従うといい
+                    </div>
+                    <p>
+                        であるとき、\(X\) は平均 \(\mu\) 、分散 \(\sigma^2\) の<strong>正規分布</strong>に従うといい
+                    </p>
+                    <div class="math">
                         \[
                         X\sim N(\mu,\sigma^2)
                         \]
-                        と表す。<br>
-                        特に、\(\mu=0,~\sigma^2=1\) となる \(N(0,1)\) を標準正規分布という。
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                    <p>
+                        特に、\(N(0,1)\) を<strong>標準正規分布</strong>という。
                     </p>
                 </figure>
             </section>
             <section id="2">
                 <h2>正規分布における確率の計算方法</h2>
-                <p>
+                <p class="indent">
                     確率変数 \(X\sim N(\mu,\sigma^2)\) が \(a\) 以上 \(b\) 以下となる確率は
                 </p>
                 <div class="math">
@@ -44,7 +54,7 @@
                 <p>
                     で与えられます。このままでは複雑なので
                     \[
-                    z=\frac{x-\mu}{\sigma}
+                    Z=\frac{X-\mu}{\sigma},\quad z=\frac{x-\mu}{\sigma}
                     \]
                     と変数変換すると
                 </p>
@@ -62,13 +72,13 @@
                     \[
                     \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{z^2}{2}\right)
                     \]
-                    は標準正規分布の確率密度関数なので、確率変数 \(X\) を
+                    は標準正規分布の確率密度関数なので
                     \[
-                    Z=\frac{X-\mu}{\sigma}
+                    Z\sim N(0,1)
                     \]
-                    と変換すれば \(Z\) は標準正規分布 \(N(0,1)\) に従うことがわかります。
+                    であることがわかります。
                 </p>
-                <p>
+                <p class="indent">
                     つまり、標準正規分布の上側確率
                     \[
                     Q(z)=\int_z^\infty\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{t^2}{2}\right)dt
@@ -78,14 +88,14 @@
                     \Phi(z)=\int_0^z\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{t^2}{2}\right)dt
                     \]
                     の値がわかれば、正規分布の確率が簡単に計算できます。
-                    この \(Q(z)\) や \(\Phi(z)\) の値の近似値を表にまとめたものが正規分布表です。
+                    この \(Q(z)\) または \(\Phi(z)\) の値の近似値を表にまとめたものが<strong>正規分布表</strong>です。
                 </p>
             </section>
             <section id="3">
                 <h2>二項分布の正規近似</h2>
                 <figure class="th">
                     <figcaption>定理（ド・モアブル-ラプラスの定理）</figcaption>
-                    <p>
+                    <p class="indent">
                         確率変数 \(X\) が二項分布 \(B(n,p)\) に従うとき、\(n\) が十分大きいならば、\(X\) の分布は正規分布 \(N(np,np(1-p))\) で近似される。
                     </p>
                 </figure>
@@ -105,27 +115,32 @@
                 <h2>演習問題</h2>
                 <figure class="ex">
                     <figcaption>問題１</figcaption>
-                    <p>ある大学の男子の身長を調査したところ、平均170cm、標準偏差5cmの正規分布に従うことが分かった。</p>
+                    <p class="indent">
+                        ある大学の男子の身長を調査したところ、平均 \(170\mathrm{cm}\)、標準偏差 \(5\mathrm{cm}\) の正規分布に従うことが分かった。以下の問いに答えよ。
+                    </p>
                     <ol>
-                        <li>身長180cm以上の人は約何%いるか。</li>
-                        <li>身長165cm以上175cm以下の人は約何%いるか。</li>
-                        <li>身長の高い方から3%の中に入るのは、約何cm以上の人か。</li>
+                        <li>身長 \(180\mathrm{cm}\) 以上の人は約何 \(\%\) いるか。</li>
+                        <li>身長 \(165\mathrm{cm}\) 以上 \(175\mathrm{cm}\) 以下の人は約何 \(\%\) いるか。</li>
+                        <li>身長の高い方から \(3\%\) の中に入るのは、約何 \(\mathrm{cm}\) 以上の人か。</li>
                     </ol>
                 </figure>
                 <details class="ans">
                     <summary>解答</summary>
                     <p>
-                        身長の確率変数を \(X\) とすると、\(X\sim N(170,~5)\) であり<br>
+                        身長の確率変数を \(X\) とすると、\(X\sim N(170,~5)\) である。<br>
                         \(Z=\displaystyle\frac{X-170}{5}\) とおくと、\(Z\sim N(0,~1)\) となる。
                     </p>
                     <ol>
                         <li>
-                            \(\begin{align}
-                            P(X\ge 180)&=P\left(Z\ge \displaystyle\frac{180-170}{5}\right)=P(Z\ge 2)\\
-                            &=0.5-\Phi(2)=0.5-0.4772=0.0228
-                            \end{align}\)
-                            <p></p>
-                            よって、約 \(2.3\) %いる。
+                            <div class="math">
+                                \(\begin{align}
+                                P(X\ge 180)&=P\left(Z\ge \displaystyle\frac{180-170}{5}\right)=P(Z\ge 2)\\
+                                &=0.5-\Phi(2)=0.5-0.4772=0.0228
+                                \end{align}\)
+                            </div>
+                            <p>
+                                よって、約 \(2.3\%\) いる。
+                            </p>
                         </li>
                         <li>
                             
@@ -138,7 +153,7 @@
                 <p></p>
                 <figure class="ex">
                     <figcaption>問題２</figcaption>
-                    <p>
+                    <p class="indent">
                         表の出る確率が \(0.5\) であるコインを \(1000\) 回投げるとき、
                         表が \(460\) 回以上 \(520\) 回以下である確率を正規近似を用いて求めよ。
                     </p>
