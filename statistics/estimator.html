@@ -102,38 +102,36 @@
                 </figure>
                 <details class="ans">
                     <summary>解答</summary>
-                    <div>
-                        <p>
-                            \(X_1,X_2,X_3\) は無作為標本であるから
-                            \[
-                            E[X_i]=\mu,~~~V[X_i]=\sigma^2~~~(i=1,2,3)
-                            \]
-                            が成り立つ。
-                        </p>
-                        <ol>
-                            <li>
-                                <div class="math">
-                                    \(E[T_1]=E[X_1]+E[X_2]-E[X_3]=\mu+\mu-\mu=\mu\)
-                                    <p></p>
-                                    \(\displaystyle E[T_2]=\frac{1}{4}E[X_1]+\frac{1}{2}E[X_2]+\frac{1}{4}E[X_3]=\frac{1}{4}\mu+\frac{1}{2}\mu+\frac{1}{4}\mu=\mu\)
-                                    <p></p>
-                                    \(\displaystyle E[T_3]=\frac{1}{3}E[X_1]+\frac{1}{3}E[X_2]+\frac{1}{3}E[X_3]=\frac{1}{3}\mu+\frac{1}{3}\mu+\frac{1}{3}\mu=\mu\)
-                                </div>
-                                <p>よって、\(T_1,T_2,T_3\) はいずれも \(\mu\) の不偏推定量である。</p>
-                            </li>
-                            <li>
-                                <p>\(X_1,X_2,X_3\) は互いに独立であるから</p>
-                                <div class="math">
-                                    \(V[T_1]=V[X_1]+V[X_2]+V[X_3]=\sigma^2+\sigma^2+\sigma^2=3\sigma^2\)
-                                    <p></p>
-                                    \(\displaystyle V[T_2]=\frac{1}{4^2}V[X_1]+\frac{1}{2^2}V[X_2]+\frac{1}{4^2}V[X_3]=\frac{1}{16}\sigma^2+\frac{1}{4}\sigma^2+\frac{1}{16}\sigma^2=\frac{3}{8}\sigma^2\)
-                                    <p></p>
-                                    \(\displaystyle V[T_3]=\frac{1}{3^2}V[X_1]+\frac{1}{3^2}V[X_2]+\frac{1}{3^2}V[X_3]=\frac{1}{9}\sigma^2+\frac{1}{9}\sigma^2+\frac{1}{9}\sigma^2=\frac{1}{3}\sigma^2\)
-                                </div>
-                                <p>よって \(V[T_1]\gt V[T_2]\gt V[T_3]\) が成り立つので、\(T_3\) が最も有効な推定量である。</p>
-                            </li>
-                        </ol>
-                    </div>
+                    <p>
+                        \(X_1,X_2,X_3\) は無作為標本であるから
+                        \[
+                        E[X_i]=\mu,~~~V[X_i]=\sigma^2~~~(i=1,2,3)
+                        \]
+                        が成り立つ。
+                    </p>
+                    <ol>
+                        <li>
+                            <div class="math">
+                                \(E[T_1]=E[X_1]+E[X_2]-E[X_3]=\mu+\mu-\mu=\mu\)
+                                <p></p>
+                                \(\displaystyle E[T_2]=\frac{1}{4}E[X_1]+\frac{1}{2}E[X_2]+\frac{1}{4}E[X_3]=\frac{1}{4}\mu+\frac{1}{2}\mu+\frac{1}{4}\mu=\mu\)
+                                <p></p>
+                                \(\displaystyle E[T_3]=\frac{1}{3}E[X_1]+\frac{1}{3}E[X_2]+\frac{1}{3}E[X_3]=\frac{1}{3}\mu+\frac{1}{3}\mu+\frac{1}{3}\mu=\mu\)
+                            </div>
+                            <p>よって、\(T_1,T_2,T_3\) はいずれも \(\mu\) の不偏推定量である。</p>
+                        </li>
+                        <li>
+                            <p>\(X_1,X_2,X_3\) は互いに独立であるから</p>
+                            <div class="math">
+                                \(V[T_1]=V[X_1]+V[X_2]+V[X_3]=\sigma^2+\sigma^2+\sigma^2=3\sigma^2\)
+                                <p></p>
+                                \(\displaystyle V[T_2]=\frac{1}{4^2}V[X_1]+\frac{1}{2^2}V[X_2]+\frac{1}{4^2}V[X_3]=\frac{1}{16}\sigma^2+\frac{1}{4}\sigma^2+\frac{1}{16}\sigma^2=\frac{3}{8}\sigma^2\)
+                                <p></p>
+                                \(\displaystyle V[T_3]=\frac{1}{3^2}V[X_1]+\frac{1}{3^2}V[X_2]+\frac{1}{3^2}V[X_3]=\frac{1}{9}\sigma^2+\frac{1}{9}\sigma^2+\frac{1}{9}\sigma^2=\frac{1}{3}\sigma^2\)
+                            </div>
+                            <p>よって \(V[T_1]\gt V[T_2]\gt V[T_3]\) が成り立つので、\(T_3\) が最も有効な推定量である。</p>
+                        </li>
+                    </ol>
                 </details>
             </section>
         </main>

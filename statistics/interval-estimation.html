@@ -31,67 +31,102 @@
                 <p class="indent">
                     信頼水準が \(1 - \alpha\) のとき、ある分布に従う確率変数 \(X\) に対して、\(X\) が従う分布の上側 \(100\alpha\%\) 点を \(x_{U(\alpha)}\)、下側 \(100\alpha\%\) 点を \(x_{L(\alpha)}\) とすると、
                     \[
-                    P\left(x_{L(\frac{\alpha}{2})}\le X\le x_{U(\frac{\alpha}{2})}\right)=1-\alpha
+                    P\left(x_{L\left(\frac{\alpha}{2}\right)}\le X\le x_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
                     \]
                 </p>
             </section>
-            
-            <p class="space"></p>
-            <h2 id="2">母平均の区間推定（母分散が既知）</h2>
-            <div class="article">
-                母集団分布が正規分布である母集団の母平均 \(\mu\) を推定する。
-                <p></p>
-                母分散が既知で \(\sigma^2\) である。
-                <p></p>
-                <h3>標本を抽出する</h3>
-                母集団から大きさ \(n\) の標本
-                \[
-                X_1,~X_2,~\cdots,~X_n
-                \]
-                を無作為に抽出すると
-                \[
-                X_1,~X_2,~\cdots,~X_n\sim N(\mu,\sigma^2)
-                \]
-                である。
-                <p></p>
-                この標本の標本平均を \(\overline{X}\) とすると
-                \[
-                \overline{X}\sim N\left(\mu,\frac{\sigma^2}{n}\right)
-                \]
-                である。
-                <p></p>
-                <h3>標準化する</h3>
-                \(\overline{X}\sim N\left(\mu,\displaystyle\frac{\sigma^2}{n}\right)\) では正規分布表が使えないので、標準化を行う。
-                \[
-                Z=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}
-                \]
-                とおくと
-                \(Z\sim N(0,1)\) である。
-                <p></p>
+            <section id="2">
+                <h2>母平均の区間推定（母分散が既知）</h2>
+                <p class="indent">
+                    母集団分布が正規分布である母集団の母平均 \(\mu\) を推定します。ただし、母分散は既知で \(\sigma^2\) であるとします。
+                </p>
+                <h3>母集団から標本を抽出する</h3>
+                <p>
+                    母集団から大きさ \(n\) の標本 \(X_1,X_2,\cdots,X_n\) を無作為に抽出します。
+                </p>
+                <div class="math">
+                    \[
+                    X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)
+                    \]
+                </div>
+                <h3>未知母数の推定量の分布を調べる</h3>
+                <p>
+                    標本 \(X_1,X_2,\cdots,X_n\) の標本平均 \(\overline{X}\) に対して
+                </p>
+                <div class="math">
+                    \[
+                    E[\overline{X}]=\mu
+                    \]
+                </div>
+                <p>
+                    が成り立つので、標本平均 \(\overline{X}\) は \(\mu\) の不偏推定量です。
+                </p>
+                <p>
+                    このとき
+                </p>
+                <div class="math">
+                    \[
+                    \overline{X}\sim N\left(\mu,\frac{\sigma^2}{n}\right)
+                    \]
+                </div>
+                <p>
+                    しかし、\(\mu\) は推定したい母数なので、\(\displaystyle N\left(\mu,\frac{\sigma^2}{n}\right)\) の分布はわかりません。
+                </p>
+                <p>
+                    そこで、\(\overline{X}\) を標準化します。
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}
+                    \]
+                </div>
+                <p>
+                    とおくと \(Z\sim N(0,1)\) であり、分布がわかる確率変数が得られました。
+                </p>
                 <h3>信頼区間を求める</h3>
-                \(N(0,1)\) の両側 \(100\alpha\) %点を \(z_0\) とする。このとき
-                \[
-                P(-z_0\le Z\le z_0)=1-\alpha
-                \]
-                となればよい。
-                \[
-                P\left(-z_0\le\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\le z_0\right)=1-\alpha
-                \]
-                を変形して
-                \[
-                P\left(\overline{X}-z_0\cdot\frac{\sigma}{\sqrt{n}}\le\mu\le\overline{X}+z_0\cdot\frac{\sigma}{\sqrt{n}}\right)=1-\alpha
-                \]
-                したがって、母平均 \(\mu\) の \(100(1-\alpha)\) ％信頼区間は
-                \[
-                \left[\overline{X}-z_0\cdot\frac{\sigma}{\sqrt{n}},~~~\overline{X}+z_0\cdot\frac{\sigma}{\sqrt{n}}\right]
-                \]
+                <p>
+                    \(N(0,1)\) の上側 \(100\alpha\) %点を \(z_{U(\alpha)}\) 、下側 \(100\alpha\) %点を \(z_{L(\alpha)}\) とするとき
+                </p>
+                <div class="math">
+                    \[
+                    P\left(z_{L\left(\frac{\alpha}{2}\right)}\le Z\le z_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    となるような \(z_{U\left(\frac{\alpha}{2}\right)},~x_{L\left(\frac{\alpha}{2}\right)}\) を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    P\left(z_{L\left(\frac{\alpha}{2}\right)}\le \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\le z_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    これを \(\mu\) について整理して
+                </p>
+                <div class="math">
+                    \[
+                    P\left(\overline{X}-z_{U\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}}\le\mu\le\overline{X}-z_{L\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    したがって、母平均 \(\mu\) の \(100(1-\alpha)\) ％信頼区間は
+                </p>
+                <div class="math">
+                    \[
+                    \left[\overline{X}-z_{U\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}},~~~\overline{X}-z_{L\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}}\right]
+                    \]
+                </div>
             </div>
-            <p class="space"></p>
-            <h2 id="3">母平均の区間推定（母分散が未知）</h2>
-            <div class="article">
-
-            </div>
-            <p class="space"></p>
+            </section>
+            <section id="3">
+                <h2>母平均の区間推定（母分散が未知）</h2>
+            </section>
+            <section id="4">
+                <h2>母分散の区間推定</h2>
+            </section>
+            <section id="5">
+                <h2>母比率の区間推定</h2>
+            </section>
             <h2 id="ex">演習問題</h2>
             <div class="ex">
                 <div>問題</div>
