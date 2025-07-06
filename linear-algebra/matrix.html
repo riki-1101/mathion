@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>行列の定義</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>行列の定義</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>行列の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（行列）</figcaption>
+                    <p class="indent">
+                        実数を長方形に並べたものを<strong>行列</strong>といい、並べたそれぞれの数を<strong>成分</strong>という。
+                        行列において、成分の横の並びを<strong>行</strong>、縦の並びを<strong>列</strong>といい、行数が \(m\) 、列数が \(n\) である行列を <strong>\(m\times n\) 行列</strong>という。
+                    </p>
+                    <p class="indent">
+                        第 \((i,j)\) 成分が \(a_{ij}\) である \(m\times n\) 行列は
+                    </p>
+                    <div class="math">
+                        \[
+                        A=
+                        \begin{bmatrix}
+                        a_{11} & a_{12} & \cdots & a_{1n} \\
+                        a_{21} & a_{22} & \cdots & a_{2n} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        a_{m1} & a_{m2} & \cdots & a_{mn}
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        のように書かれる。また、第 \((i,j)\) 成分だけを取りだして
+                    </p>
+                    <div class="math">
+                        \[
+                        A=[a_{ij}]
+                        \]
+                    </div>
+                    <p>
+                        と略記することもある。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（正方行列・対角行列）</figcaption>
+                    <p class="indent">
+                        行数と列数が等しい行列を<strong>正方行列</strong>という。
+                        正方行列において、行数（列数）を正方行列の<strong>次数</strong>といい、次数が \(n\) である正方行列を <strong>\(n\) 次正方行列</strong>という。
+                    </p>
+                    <p class="indent">
+                        \(n\) 次正方行列 \(A=[a_{ij}]\) の成分 \(a_{11},a_{22},\cdots,a_{nn}\) を<strong>対角成分</strong>といい、対角成分以外がすべて \(0\) である正方行列を<strong>対角行列</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>行ベクトルと列ベクトル</h2>
+                <figure class="def">
+                    <figcaption>定義（行ベクトル・列ベクトル）</figcaption>
+                    <p class="indent">
+                        \(n\times1\) 行列を <strong>\(n\) 次元行ベクトル（横ベクトル）</strong>といい、\(1\times n\) 行列を <strong>\(n\) 次元列ベクトル（縦ベクトル）</strong>という。
+                    </p>
+                    <p>
+                        具体的に、\(a_1,a_2,\cdots,a_n\) を成分とする \(n\) 次元行ベクトルは
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{a}=\begin{bmatrix} a_1 & a_2 & \cdots & a_n \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        であり、\(a_1,a_2,\cdots,a_n\) を成分とする \(n\) 次元列ベクトルは
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{a}=\begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        と表される。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>零行列と単位行列</h2>
+                <figure class="def">
+                    <figcaption>定義（零行列）</figcaption>
+                    <p class="indent">
+                        成分がすべて \(0\) である行列
+                    </p>
+                    <div class="math">
+                        \[
+                        O=
+                        \begin{bmatrix}
+                        0 & \cdots & 0 \\
+                        \vdots & \ddots & \vdots \\
+                        0 & \cdots & 0
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>零行列</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（単位行列）</figcaption>
+                    <p class="indent">
+                        対角成分がすべて \(1\) である対角行列
+                    </p>
+                    <div class="math">
+                        \[
+                        E=
+                        \begin{bmatrix}
+                        1 & 0 & \cdots & 0 \\
+                        0 & 1 & \cdots & 0 \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        0 & 0 & \cdots & 1
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を<strong> \(n\) 次単位行列</strong>という。次数を明記して、\(E_n\) とも書かれる。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>行列の相等</h2>
+                <figure class="def">
+                    <figcaption>定義（行列の相等）</figcaption>
+                    <p class="indent">
+                        ２つの行列 \(A=[a_{ij}],~B=[b_{ij}]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \forall i,j,~~~a_{ij}=b_{ij}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(A\) と \(B\) は<strong>等しい</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        A=B
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
