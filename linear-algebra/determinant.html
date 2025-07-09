@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>行列式</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>行列式</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,23 +13,36 @@
         <main id="contents">
             <h1>行列式</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">行列式の定義</h2>
-            <div class="def">
-                <div>定義（行列式）</div>
-                \(n\) 次正方行列 \(A=[a_{ij}]\) に対して
-                \[
-                \det A:=\sum_{\sigma\in S_n}(\operatorname{sgn}\sigma)a_{1\sigma(1)}a_{2\sigma(2)}\cdots a_{n\sigma(n)}
-                \]
-                を \(A\) の行列式という。\(\det A\) は \(|A|\) とも書く。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">2次正方行列の行列式</h2>
-            <div class="article">
-                \(A=\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}\) の行列式を考える。
+            <section id="1">
+                <h2>行列式の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（行列式）</figcaption>
+                    <p class="indent">
+                        \(n\) 次正方行列 \(A=[a_{ij}]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \det A:=\sum_{\sigma\in S_n}(\operatorname{sgn}\sigma)a_{1\sigma(1)}a_{2\sigma(2)}\cdots a_{n\sigma(n)}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) の行列式という。\(\det A\) は \(|A|\) とも書く。
+                    </p>
+                </figure>
+            </section>
+            <h3>2次正方行列の行列式</h3>
+            <p class="indent">
+                \(A=\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}\) の行列式を考えます。
+            </p>
+            <div class="math">
                 \[
                 S_2=\left\{\begin{pmatrix} 1 & 2 \\ 1 & 2 \end{pmatrix},~\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}\right\}
                 \]
+            </div>
+            <p>
                 であるから
+            </p>
+            <div class="math">
                 \[
                 \begin{align}
                 \det A&=\sum_{\sigma\in S_2}(\operatorname{sgn}\sigma)a_{1\sigma(1)}a_{2\sigma(2)}\\
@@ -39,8 +52,8 @@
                 \end{align}
                 \]
             </div>
-            <p class="space"></p>
-            <h2 id="3">行列式の性質</h2>
+            <section id="2"></section>
+            <h2>行列式の性質</h2>
             <div class="th">
                 <div>定理（多重線形性）</div>
                 \(n\) 次元列ベクトル \(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n\in\mathbb{R}^n\) について、\(\boldsymbol{a}_k=s\boldsymbol{b}_k+t\boldsymbol{c}_k~~(s,t\in\mathbb{R},~1\le k\le n)\) のとき
@@ -72,14 +85,18 @@
                 \]
             </div>
             <p></p>
-            <div class="th">
-                <div>定理（行列式の公式）</div>
+            <figure class="th">
+                <figcaption>定理（行列式の公式）</figcaption>
+                <p class="indent">
+                    正方行列 \(A,B\) に対して、以下が成り立つ。
+                </p>
                 <ol>
                     <li>\(\det A^\top=\det A\)</li>
                     <li>\(\det(AB)=\det A\det B\)</li>
                     <li>\(\det(A^{-1})=(\det A)^{-1}\)</li>
+                    <li>\(\displaystyle \det \begin{pmatrix} A & B \\ B & A \end{pmatrix} = \det(A+B)\det(A-B)\)</li>
                 </ol>
-            </div>
+            </figure>
             <p class="space"></p>
             <h2 id="4">行列式の計算方法</h2>
             <div class="th">
