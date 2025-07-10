@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>最尤推定法</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>最尤推定法</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>最尤推定法</h2>
+                <figure class="def">
+                    <figcaption>定義（最尤法）</figcaption>
+                    <p class="indent">
+                        \(X_1,X_2,\cdots,X_n\) を母数 \(\theta\) をもつ母集団分布からの無作為標本とし、この母集団分布の確率質量（密度）関数を \(f(x;\theta)\) とする。
+                        このとき、\(X_1,X_2,\cdots,X_n\) の同時確率質量（密度）関数
+                    </p>
+                    <div class="math">
+                        \[
+                        L(\theta)=\prod_{i=1}^nf(x_i;\theta)
+                        \]
+                    </div>
+                    <p>
+                        を母数 \(\theta\) の<strong>尤度関数</strong>という。このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        L(\hat{\theta})=\max_{\theta}L(\theta)
+                        \]
+                    </div>
+                    <p>
+                        となる \(\hat{\theta}\) 、すなわち
+                    </p>
+                    <div class="math">
+                        \[
+                        \hat{\theta}=\operatorname*{arg max}_{\theta}L(\theta)
+                        \]
+                    </div>
+                    <p>
+                        を母数 \(\theta\) の<strong>最尤推定値</strong>という。
+                        また、最尤推定値の実現値を確率変数に置き換えたものを<strong>最尤推定量</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

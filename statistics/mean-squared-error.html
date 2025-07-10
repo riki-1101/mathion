@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>平均二乗誤差</title>
+        <title>バイアスと平均二乗誤差</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -11,47 +11,80 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>平均二乗誤差</h1>
+            <h1>バイアスと平均二乗誤差</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">平均二乗誤差の定義</h2>
-            <div class="def">
-                <div>定義（平均二乗誤差）</div>
-                パラメータ \(\theta\) の推定量 \(T\) に対して
-                \[
-                MSE[T]:=E[(T-\theta)^2]
-                \]
-                を平均二乗誤差（MSE）という。
-            </div>
-            <p></p>
-            <h3>バイアス-バリアンス分解</h3>
-            <div class="article">
-                \(MSE\) はバイアスと分散に分解することができる。
-                <p></p>
-                \(T\) は確率変数、\(\theta\) は定数であることに注意して
-                \[
-                \begin{align}
-                MSE[T]
-                &=E[(T-\theta)^2]\\
-                &=E[T^2-2T\theta+\theta^2]\\
-                &=E[T^2]-2\theta E[T]+\theta^2\\
-                &=E[T^2]-E[T]^2+E[T]^2-2\theta E[T]+\theta^2\\
-                &=V[T]+(E[T]-\theta)^2
-                \end{align}
-                \]
-                ※ 分散の性質 \(V[T]=E[T^2]-E[T]^2\) を用いた。
-            </div>
-            <p class="space"></p>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>問題</div>
-                
-            </div>
-            <details class="ans">
-                <summary>解答</summary>
-                <div>
+            <section id="1">
+                <h2>バイアス</h2>
+                <figure class="def">
+                    <figcaption>定義（バイアス）</figcaption>
+                    <p class="indent">
+                        母数 \(\theta\) の推定量 \(T\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        E[T]-\theta
+                        \]
+                    </div>
+                    <p>
+                        を<strong>バイアス</strong>（偏り）という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    バイアスは小さいほうがよく、不偏推定量の場合は \(0\) となります。
+                </p>
+            </section>
+            <section id="2">
+                <h2>平均二乗誤差</h2>
+                <figure class="def">
+                    <figcaption>定義（平均二乗誤差）</figcaption>
+                    <p class="indent">
+                        母数 \(\theta\) の推定量 \(T\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathrm{MSE}[T]:=E[(T-\theta)^2]
+                        \]
+                    </div>
+                    <p>
+                        を<strong>平均二乗誤差</strong>（MSE）という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>バイアス-バリアンス分解</h2>
+                <p class="indent">
+                    平均二乗誤差はバイアスと分散に分解することができます。
+                    \(T\) は確率変数、\(\theta\) は定数であることに注意して
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \mathrm{MSE}[T]
+                    &=E[(T-\theta)^2]\\
+                    &=E[T^2-2T\theta+\theta^2]\\
+                    &=E[T^2]-2\theta E[T]+\theta^2\\
+                    &=E[T^2]-E[T]^2+E[T]^2-2\theta E[T]+\theta^2\\
+                    &=V[T]+(E[T]-\theta)^2
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ※ 分散の性質 \(V[T]=E[T^2]-E[T]^2\) を用いました。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <div class="ex">
+                    <div>問題</div>
                     
                 </div>
-            </details>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div>
+                        
+                    </div>
+                </details>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
