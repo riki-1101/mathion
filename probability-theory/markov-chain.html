@@ -17,46 +17,50 @@
                 <h2>マルコフ連鎖とは</h2>
                 <figure class="def">
                     <figcaption>定義（マルコフ連鎖）</figcaption>
+                    <p class="indent">
+                        状態空間を \(S\) とする。確率変数の列 \(\{X_n\}\) が \(i_0,i_1,\cdots,i_n,j\in S\) に対して
+                    </p>
                     <div class="math">
                         \[
-                        P(X_{t+1}=x_{t+1}~|~X_t=x_t,~X_{t-1}=x_{t-1},~\cdots,~X_0=x_0)=P(X_{t+1}=x_{t+1}~|~X_{t}=x_t)
+                        P(X_{n+1}=j~|~X_0=i_0,X_1=i_1,\cdots,X_n=i_n)=P(X_{n+1}=j~|~X_{n}=i_n)
                         \]
                     </div>
                     <p>
-                        を満たす確率変数の列 \(X_0,X_1,\cdots\) をマルコフ連鎖という。
+                        を満たすとき、\(\{X_n\}\) を \(S\) 上の<strong>マルコフ連鎖</strong>という。
                     </p>
                 </figure>
-                <p>
-                    \(X_{t+1}\) は直前の \(X_t\) にのみ依存し、これ以前の \(X_{t-1},\cdots,X_0\) には依存しないことを表しています。
+                <p class="indent">
+                    \(X_{n+1}=j\) となる確率は直前の \(X_n\) にのみ依存し、これ以前の \(X_{n-1},\cdots,X_0\) には依存しないということです。
                 </p>
             </section>
             <section id="2">
-                <h2>状態遷移</h2>
+                <h2>状態の推移</h2>
                 <figure class="def">
-                    <figcaption>定義（遷移確率・遷移確率行列）</figcaption>
+                    <figcaption>定義（推移確率・推移行列）</figcaption>
                     <p class="indent">
-                        状態 \(i\) から状態 \(j\) に遷移する確率
+                        \(\{X_n\}\) を状態空間 \(S=\{1,2,\cdots,r\}\) 上のマルコフ連鎖とする。
+                        このとき、状態 \(i\) から状態 \(j\) に推移する確率
                         \[
-                        p_{ij}:=P(X_1=j~|~X_0=i)
+                        p_{ij}:=P(X_1=j~|~X_0=i) \quad (i,j\in S)
                         \]
-                        を状態 \(i,j\) 間の<strong>遷移確率</strong>といい、\(p_{ij}\) を成分とする行列
+                        を状態 \(i,j\) 間の<strong>推移確率</strong>といい、この \(p_{ij}\) を成分とする行列
                     </p>
                     <div class="math">
                         \[
                         P=
                         \begin{bmatrix}
-                        p_{11} & p_{12} & \cdots & p_{1m}\\
-                        p_{21} & p_{22} & \cdots & p_{2m}\\
+                        p_{11} & p_{12} & \cdots & p_{1r}\\
+                        p_{21} & p_{22} & \cdots & p_{2r}\\
                         \vdots & \vdots & \ddots & \vdots\\
-                        p_{m1} & p_{m2} & \cdots & p_{mm}\\
+                        p_{r1} & p_{r2} & \cdots & p_{rr}\\
                         \end{bmatrix}
                         \]
                     </div>
                     <p>
-                        を<strong>遷移確率行列</strong>という。
+                        を<strong>推移行列</strong>という。
                     </p>
                     <p class="indent">
-                        また、初期状態 \(i\) から時刻 \(n\) で状態 \(j\) に遷移する確率を
+                        また、初期状態 \(i\) から時刻 \(n\) で状態 \(j\) に推移する確率を
                         \[
                         p_{ij}^{(n)}:=P(X_n=j~|~X_0=i)
                         \]
@@ -66,10 +70,10 @@
                         \[
                         P^{(n)}=
                         \begin{bmatrix}
-                        p_{11}^{(n)} & p_{12}^{(n)} & \cdots & p_{1m}^{(n)}\\
-                        p_{21}^{(n)} & p_{22}^{(n)} & \cdots & p_{2m}^{(n)}\\
+                        p_{11}^{(n)} & p_{12}^{(n)} & \cdots & p_{1r}^{(n)}\\
+                        p_{21}^{(n)} & p_{22}^{(n)} & \cdots & p_{2r}^{(n)}\\
                         \vdots & \vdots & \ddots & \vdots\\
-                        p_{m1}^{(n)} & p_{m2}^{(n)} & \cdots & p_{mm}^{(n)}\\
+                        p_{r1}^{(n)} & p_{r2}^{(n)} & \cdots & p_{rr}^{(n)}\\
                         \end{bmatrix}
                         \]
                     </div>
@@ -77,6 +81,69 @@
                         と定義する。
                     </p>
                 </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（高次の推移行列とべき乗）</figcaption>
+                    <p class="indent">
+                        推移行列 \(P\) 、高次の推移行列 \(P^{(n)}~~(n\in\mathbb{N})\) に対して、次式が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        P^{(n)}=P^n
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        数学的帰納法で証明する。
+                    </p>
+                    <p>
+                        \(n=1\) のとき
+                    </p>
+                    <div class="math">
+                        \[
+                        P^{(1)}=P,~~P^1=P
+                        \]
+                    </div>
+                    <p>
+                        より、\(P^{(1)}=P^1\) が成り立つ。
+                    </p>
+                    <p>
+                        \(n=k~~(k\in\mathbb{N})\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        P^{(k)}=P^k
+                        \]
+                    </div>
+                    <p>
+                        が成り立つと仮定する。このとき、\(n=k+1\) の場合を考えると
+                    </p>
+                    <div class="math">
+                        \[
+                        P^{(k+1)}=P^{(k)}P=P^kP=P^{k+1}
+                        \]
+                    </div>
+                    <p>
+                        よって、\(n=k+1\) のときも成り立つ。
+                    </p>
+                    <p>
+                        したがって
+                    </p>
+                    <div class="math">
+                        \[
+                        \forall n\in\mathbb{N},\quad P^{(n)}=P^n
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </details>
+                <p class="indent">
+                    これは、マルコフ連鎖において、1ステップの推移行列 \(P\) を繰り返し掛け合わせることで、任意のステップにおける推移確率を求められることを示しています。
+                    すなわち、\(P^n\) の \((i,j)\) 成分は「状態 \(i\) から状態 \(j\) に \(n\) ステップで推移する確率」を表します。
+                </p>
                 <p></p>
                 <figure class="th">
                     <figcaption>定理（チャップマン・コルモゴロフの方程式）</figcaption>
@@ -89,11 +156,27 @@
                         \]
                     </div>
                 </figure>
-                <p></p>
+            </section>
+            <section id="3">
+                <h2>再帰的と過渡的</h2>
+                <p class="indent">
+                    状態 \(i\) に一度訪れて、いずれ必ずもう一度戻ってくるとき、状態 \(i\) は<strong>再帰的</strong>であるといいます。
+                    これに対して、状態 \(i\) に一度訪れて、いずれ戻らなくなる可能性があるとき、状態 \(i\) は<strong>過渡的</strong>であるといいます。
+                </p>
+                <figure class="box">
+                    状態 \(i\) が再帰的（状態 \(i\) に何度も戻ってくる）：<br>
+                    \[i \to \cdots \to 他の状態 \to \cdots \to i \to \cdots\]
+                    <p></p>
+                    状態 \(i\) が過渡的（状態 \(i\) に戻らない可能性あり）：<br>
+                    \[i \to \cdots \to 他の状態 \to \cdots \to 他の状態 \to \cdots\]
+                </figure>
+                <p class="indent">
+                    このことを数学的に定義するために、まず次のものを定義します。
+                </p>
                 <figure class="def">
-                    <figcaption>定義（初めて遷移する確率・最終遷移確率）</figcaption>
+                    <figcaption>定義（初めて推移する確率・最終推移確率）</figcaption>
                     <p class="indent">
-                        状態 \(i\) から時刻 \(n\) で状態 \(j\) に初めて遷移する確率を
+                        状態 \(i\) から時刻 \(n\) で状態 \(j\) に初めて推移する確率を
                     </p>
                     <div class="math">
                         \[
@@ -109,7 +192,91 @@
                         \]
                     </div>
                 </figure>
+                <p class="indent">
+                    これを用いて、再帰的、過渡的は次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（再帰的・過渡的）</figcaption>
+                    <p class="indent">
+                        状態 \(i\) が再帰的であるとは
+                    </p>
+                    <div class="math">
+                        \[
+                        f_{ii}=\sum_{n=1}^\infty f_{ii}^{(n)}=1
+                        \]
+                    </div>
+                    <p>
+                        が成り立つことである。
+                    </p>
+                    <p class="indent">
+                        また、状態 \(i\) が過渡的であるとは
+                    </p>
+                    <div class="math">
+                        \[
+                        f_{ii}=\sum_{n=1}^\infty f_{ii}^{(n)}\lt1
+                        \]
+                    </div>
+                    <p>
+                        が成り立つことである。
+                    </p>
+                </figure>
+                <p>
+                    例題を解いてみましょう。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p>
+                        状態空間を \(S=\{0,1\}\) とし、推移行列が以下で与えられている。
+                    </p>
+                    <div class="math">
+                        \[
+                        P=\begin{bmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        このとき、各状態は再帰的か過渡的かを判定せよ。
+                    </p>
+                </figure>
+                <p>
+                    状態 \(0\) について
+                </p>
+                <div class="math">
+                    \(f_{00}^{(1)}=0.8\)<br>
+                    \(f_{00}^{(2)}=0.2\times0.3\)<br>
+                    \(f_{00}^{(3)}=0.2\times0.7\times0.3\)<br>
+                    \(f_{00}^{(4)}=0.2\times0.7^2\times0.3\)
+                </div>
+                <p>
+                    なので
+                </p>
+                <div class="math">
+                    \[
+                    f_{00}^{(1)}=0.8,\quad f_{00}^{(n)}=0.06\cdot0.7^{n-2} \quad (n\ge2)
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f_{00}&=f_{00}^{(1)}+\sum_{n=2}^\infty f_{00}^{(n)}\\
+                    &=0.8+\sum_{n=2}^\infty 0.06\cdot0.7^{n-2}\\
+                    &=0.8+\frac{0.06}{1-0.7}\\
+                    &=0.8+0.2\\
+                    &=1
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    したがって、状態 \(0\) は再帰的である。
+                </p>
+                <p>
+                    状態 \(1\) について
+                </p>
+            </section>
                 <p></p>
+                
                 <figure class="th">
                     <figcaption>定理（極限遷移確率）</figcaption>
                     <p class="indent">
@@ -121,8 +288,8 @@
                         \]
                     </div>
                 </figure>
-            </section>
-            <section id="3">
+            
+            <section id="4">
                 <h2>周期性</h2>
                 <figure class="def">
                     <figcaption>定義（周期）</figcaption>
@@ -146,6 +313,7 @@
                 <h2>演習問題</h2>
                 <figure class="ex">
                     <figcaption>問題</figcaption>
+                    
                 </figure>
                 <details class="ans">
                     <summary>解答</summary>

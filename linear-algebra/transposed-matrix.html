@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>転置行列</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>転置行列</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,66 +13,107 @@
         <main id="contents">
             <h1>転置行列と対称行列・交代行列・直交行列</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">転置行列の定義と性質</h2>
-            <div class="def">
-                <div>定義（転置行列）</div>
-                \(m\times n\) 行列 \(A\) が
-                \[
-                A=\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\
-                                  a_{21} & a_{22} & \cdots & a_{2n} \\
-                                  \vdots & \vdots & \ddots & \vdots \\
-                                  a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix}
-                \]
-                と表されるとき、\(A\) の行と列を入れ替えた \(n\times m\) 行列
-                \[
-                A^\top:=\begin{bmatrix} a_{11} & a_{21} & \cdots & a_{m1} \\
-                                      a_{12} & a_{22} & \cdots & a_{m2} \\
-                                      \vdots & \vdots & \ddots & \vdots \\
-                                      a_{1n} & a_{2n} & \cdots & a_{mn} \end{bmatrix}
-                \]
-                を \(A\) の転置行列という。
-            </div>
-            <p></p>
-            <div class="th">
-                <div>定理（転置行列の性質）</div>
-                \(A,B\) を \(m\times n\) 行列とするとき、次が成り立つ。
-                <ol>
-                    <li>\((A^\top)^\top=A\)</li>
-                    <li>\((A+B)^\top=A^\top+B^\top\)</li>
-                    <li>\((AB)^\top=B^\top A^\top\)</li>
-                    <li>\((kA)^\top=kA^\top\)</li>
-                </ol>
-            </div>
-            <p class="space"></p>
-            <h2 id="2">対称行列</h2>
-            <div class="def">
-                <div>定義（対称行列）</div>
-                正方行列 \(A\) について
-                \[
-                A^\top=A
-                \]
-                が成り立つとき、\(A\) を対称行列という。
-            </div>
-            <p class="space"></p>
-            <h2 id="3">交代行列</h2>
-            <div class="def">
-                <div>定義（交代行列）</div>
-                正方行列 \(A\) について
-                \[
-                A^\top=-A
-                \]
-                が成り立つとき、\(A\) を交代行列という。
-            </div>
-            <p class="space"></p>
-            <h2 id="4">直交行列</h2>
-            <div class="def">
-                <div>定義（直交行列）</div>
-                正方行列 \(A\) について
-                \[
-                A^\top=A^{-1}
-                \]
-                が成り立つとき、\(A\) を直交行列という。
-            </div>
+            <section id="1">
+                <h2>転置行列の定義と性質</h2>
+                <figure class="def">
+                    <figcaption>定義（転置行列）</figcaption>
+                    <p class="indent">
+                        \(m\times n\) 行列 \(A\) が
+                    </p>
+                    <div class="math">
+                        \[
+                        A=
+                        \begin{bmatrix}
+                        a_{11} & a_{12} & \cdots & a_{1n} \\
+                        a_{21} & a_{22} & \cdots & a_{2n} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        a_{m1} & a_{m2} & \cdots & a_{mn}
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        と表されるとき、\(A\) の行と列を入れ替えた \(n\times m\) 行列
+                    </p>
+                    <div class="math">
+                        \[
+                        A^\top:=
+                        \begin{bmatrix}
+                        a_{11} & a_{21} & \cdots & a_{m1} \\
+                        a_{12} & a_{22} & \cdots & a_{m2} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        a_{1n} & a_{2n} & \cdots & a_{mn}
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) の<strong>転置行列</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（転置行列の性質）</figcaption>
+                    <p class="indent">
+                        \(A,B\) を \(m\times n\) 行列とするとき、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\((A^\top)^\top=A\)</li>
+                        <li>\((A+B)^\top=A^\top+B^\top\)</li>
+                        <li>\((AB)^\top=B^\top A^\top\)</li>
+                        <li>\((kA)^\top=kA^\top\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>対称行列</h2>
+                <figure class="def">
+                    <figcaption>定義（対称行列）</figcaption>
+                    <p class="indent">
+                        正方行列 \(A\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A^\top=A
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(A\) を<strong>対称行列</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>交代行列</h2>
+                <figure class="def">
+                    <figcaption>定義（交代行列）</figcaption>
+                    <p class="indent">
+                        正方行列 \(A\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A^\top=-A
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(A\) を<strong>交代行列</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>直交行列</h2>
+                <figure class="def">
+                    <figcaption>定義（直交行列）</figcaption>
+                    <p class="indent">
+                        正方行列 \(A\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A^\top=A^{-1}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(A\) を<strong>直交行列</strong>という。
+                    </p>
+                </figure>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
