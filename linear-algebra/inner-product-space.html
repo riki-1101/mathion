@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>内積空間（計量ベクトル空間）</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>内積空間（計量ベクトル空間）</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>内積の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（内積）</figcaption>
+                    <p class="indent">
+                        \(V\) を \(\mathbb{C}\) 上のベクトル空間とする。
+                        任意の \(\boldsymbol{x},\boldsymbol{y}\in V\) に対して、関数
+                    </p>
+                    <div class="math">
+                        \[
+                        \langle \boldsymbol{x},\boldsymbol{y}\rangle:V\times V\to\mathbb{C}
+                        \]
+                    </div>
+                    <p>
+                        が以下の条件を満たすとき、\(\langle~,~\rangle\) を \(V\) 上の<strong>内積</strong>という。
+                    </p>
+                    <p class="indent">
+                        \(\boldsymbol{x},\boldsymbol{y},\boldsymbol{z}\in V,~k,l\in\mathbb{C}\) とするとき
+                    </p>
+                    <ol>
+                        <li>
+                            <p>
+                                \(\langle \boldsymbol{x},\boldsymbol{y}\rangle=\overline{\langle \boldsymbol{y},\boldsymbol{x}\rangle}\)
+                                （エルミート対称性）
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                \(\langle k\boldsymbol{x}+l\boldsymbol{y},\boldsymbol{z}\rangle=k\langle \boldsymbol{x},\boldsymbol{z}\rangle+l\langle \boldsymbol{y},\boldsymbol{z}\rangle\)
+                                （線形性）
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                \(\langle \boldsymbol{x},\boldsymbol{x}\rangle\ge0\)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                \(\langle \boldsymbol{x},\boldsymbol{x}\rangle=0\Longleftrightarrow \boldsymbol{x}=\boldsymbol{0}\)
+                            </p>
+                        </li>
+                    </ol>
+                    <p class="indent">
+                        また、内積 \(\langle~,~\rangle\) は \((\boldsymbol{x},\boldsymbol{y})\) や \(\boldsymbol{x}\cdot\boldsymbol{y}\) とも書かれる。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>内積空間の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（内積空間）</figcaption>
+                    <p class="indent">
+                        内積が定義されたベクトル空間を<strong>内積空間</strong>（計量ベクトル空間）という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>コーシー・シュワルツの不等式</h2>
+                <figure class="th">
+                    <figcaption>定理（コーシー・シュワルツの不等式）</figcaption>
+                    <p class="indent">
+                        \(V\) を内積空間とするとき、\(\boldsymbol{x},\boldsymbol{y}\in V\) に対して次式が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \langle \boldsymbol{x},\boldsymbol{y} \rangle^2\le \langle \boldsymbol{x},\boldsymbol{x} \rangle\cdot\langle \boldsymbol{y},\boldsymbol{y} \rangle
+                        \]
+                    </div>
+                    <p class="indent">
+                        特に、\(V\) が \(\mathbb{R}^n\) または \(\mathbb{C}^n\) の場合、\(\boldsymbol{x},\boldsymbol{y}\) の成分表示を
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{x}=(x_1,x_2,\cdots,x_n),~\boldsymbol{y}=(y_1,y_2,\cdots,y_n)
+                        \]
+                    </div>
+                    <p>
+                        とすると、次のように書ける。
+                    </p>
+                    <div class="math">
+                        \[
+                        \left(\sum_{i=1}^nx_iy_i\right)^2\le\left(\sum_{i=1}^nx_i^2\right)\left(\sum_{i=1}^ny_i^2\right)
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
