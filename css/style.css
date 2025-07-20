@@ -285,10 +285,33 @@ h1:after {
 }
 #table-of-contents {
     width: 90%;
-    margin: 0 auto 30px auto;
-    padding: 10px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    padding: 20px 25px;
     background-color: whitesmoke;
-    border: 1px solid #aaa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    color: #333;
+}
+#table-of-contents figcaption {
+    margin-top: 0;
+    font-size: 1.3em;
+    color: #2a3d66;
+    border-left: 4px solid darkblue;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+#table-of-contents ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+#table-of-contents li {
+    padding: 6px 0;
+    border-bottom: 1px dashed #ccc;
+}
+#table-of-contents li:last-child {
+    border-bottom: none;
 }
 #contents div {
     color: black;
@@ -296,6 +319,7 @@ h1:after {
 }
 #contents a {
     color: black;
+    display: block;
 }
 #contents h1 {
     font-family: serif;
@@ -303,17 +327,19 @@ h1:after {
     padding: 5px;
 }
 #contents h2 {
-    margin: 15px 0;
+    margin: 20px 0;
     font-family: sans-serif;
-    border-left: solid 5px darkblue;
-    padding: 5px 0 5px 10px;
+    border-left: 6px solid darkblue;
+    padding: 5px 10px;
     background-color: lightsteelblue;
+    border-radius: 5px;
 }
 #contents h3 {
-    margin: 50px 0 10px 0;
+    margin: 10px 0;
     font-family: sans-serif;
-    border-bottom: solid 1px black;
-    padding-left: 10px;
+    border-left: solid 3px steelblue;
+    padding: 4px 0 4px 10px;
+    background-color: #e0efff;
 }
 
 
