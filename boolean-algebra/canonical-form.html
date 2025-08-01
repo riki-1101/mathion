@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>論理関数と標準形</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>論理関数と標準形</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>論理関数とは</h2>
+                <p class="indent">
+                    ブール代数の値（0または1）を入力として、0または1を出力する関数を<strong>論理関数</strong>といいます。
+                    つまり、次のような関数を指します：
+                </p>
+                <div class="math">
+                    \[
+                    f:\{0,1\}^n\to\{0,1\}
+                    \]
+                </div>
+                <p>
+                    ここで、\(n\) は変数の個数です。論理関数は、AND（論理積）、OR（論理和）、NOT（否定）といった基本演算を使って表現されます。
+                </p>
+                <p class="indent">
+                    ３変数の論理関数の例を挙げると
+                </p>
+                <div class="math">
+                    \[
+                    f(a,b,c)=ab+\overline{b}c
+                    \]
+                </div>
+            </section>
+            <section id="">
+                <h2>加法標準形</h2>
+                <p class="indent">
+                    例として、次の論理関数
+                </p>
+                <div class="math">
+                    \[
+                    f(a,b)=a+ab
+                    \]
+                </div>
+                <p>
+                    を加法標準形に変形してみます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(a,b)&=a+ab\\
+                    &=a(b+\overline{b})+ab\\
+                    &=ab+a\overline{b}+ab\\
+                    &=ab+a\overline{b}
+                    \end{align}
+                    \]
+                </div>
+                <h3>真理値表から論理関数を求める</h3>
+                <p>
+                    加法標準形は、真理値表から論理関数を求めるのに用いられます。
+                </p>
+                <table>
+                    <thead>
+                        <tr><th>\(a\)</th><th>\(b\)</th><th>\(f(a, b)\)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>0</td><td>0</td></tr>
+                        <tr><td>0</td><td>1</td><td>1</td></tr>
+                        <tr><td>1</td><td>0</td><td>1</td></tr>
+                        <tr><td>1</td><td>1</td><td>0</td></tr>
+                    </tbody>
+                </table>
+                <p>
+                    出力が 1 となる行に注目します。この真理値表では、行 (0,1) と (1,0) です。
+                    最小項はそれぞれ
+                    \( \overline{a}b \) と \( a\overline{b} \)。これらを論理和して：
+                </p>
+                <p>\( f(x, y) = \overline{x}y + x\overline{y} \)</p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>フーリエ変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>フーリエ変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>フーリエ変換の定義</h2>
+                <div class="math">
+                    \[
+                    f(x)\sim\frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x)&\sim
+                    \frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}\\
+                    &=\frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}\varDelta\left(\frac{2\pi}{T}n\right)\cdot\frac{T}{2\pi}\\
+                    &=\frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}\varDelta\left(\frac{2\pi}{T}n\right)\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(\displaystyle\omega_n=\frac{2\pi}{T}n\) とおくと
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x)&\sim
+                    \frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\omega_nt}dt\right)e^{i\omega_nx}\varDelta\omega_n\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    \(T\to\infty\) とすると、\(\omega_n\to0\) となり
+                </p>
+                    \[
+                    \begin{align}
+                    f(x)&\sim
+                    \frac{1}{2\pi}\int_{-\infty}^\infty\left(\int_{-\infty}^\infty f(t)e^{-i\omega t}dt\right)e^{i\omega x}d\omega\\
+                    \end{align}
+                    \]
+                </div>
+                <figure class="def">
+                    <figcaption>定義（フーリエ変換・逆フーリエ変換）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        F(\omega)=\mathcal{F}[f(t)](\omega)=\int_{-\infty}^\infty f(t)e^{-i\omega t}dt
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>フーリエ変換</strong>という。これに対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=\mathcal{F}^{-1}[F(\omega)](t)=\frac{1}{2\pi}\int_{-\infty}^\infty F(\omega)e^{i\omega t}d\omega
+                        \]
+                    </div>
+                    <p>
+                        を \(F(\omega)\) の<strong>逆フーリエ変換</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

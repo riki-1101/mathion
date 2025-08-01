@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tocContainer = document.getElementById("table-of-contents");
     if (!tocContainer) return;
 
-    const tocTitle = document.createElement("div");
+    const tocTitle = document.createElement("figcaption");
     tocTitle.textContent = "目次";
     tocContainer.appendChild(tocTitle);
 

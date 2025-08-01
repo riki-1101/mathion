@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>フーリエ級数</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>フーリエ級数</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,6 +13,114 @@
         <main id="contents">
             <h1>フーリエ級数</h1>
             <div id="table-of-contents"></div>
+            <section>
+                <h2></h2>
+                <p>
+                    ベクトル \(\boldsymbol{a}=\begin{bmatrix} a_1 & a_2 & \cdots & a_n \end{bmatrix}\) を正規直交基底 \(\boldsymbol{e}_i\) を用いて表現すると
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{a}=\sum_{i=1}^na_i\boldsymbol{e}_i
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    (\boldsymbol{a},\boldsymbol{e}_i)
+                    =\left(\sum_{j=1}^na_j\boldsymbol{e}_j,~\boldsymbol{e}_i\right)
+                    =\sum_{j=1}^na_j(\boldsymbol{e}_j,~\boldsymbol{e}_i)
+                    =a_i
+                    \]
+                    \[
+                    \because (\boldsymbol{e}_j,~\boldsymbol{e}_i)=\begin{cases} 1 & (j=i) \\ 0 & (j\neq i) \end{cases}
+                    \]
+                </div>
+                <p>
+                    であることから
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{a}=\sum_{i=1}^n(\boldsymbol{a},\boldsymbol{e}_i)\boldsymbol{e}_i
+                    \]
+                </div>
+                <p>
+                    \(f(x)\) を周期 \(T\) の関数とし、\(\{e_i(x)~|~i\in\mathbb{N}\}\) を正規直交関数系とします。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x)&\sim\sum_{i=1}^\infty(f(t),e_i(t))e_i(x)\\
+                    &=\sum_{i=1}^\infty\left\{\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e_i(t)dt\right)e_i(x)\right\}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    周期 \(T\) の三角関数系
+                </p>
+                <div class="math">
+                    \[
+                    \left\{1,~\cos\left(\frac{2\pi}{T}nx\right),~\sin\left(\frac{2\pi}{T}nx\right)\right\}_{n\in\mathbb{N}}
+                    \]
+                </div>
+                <p>
+                    は直交関数系です。よってこれを正規化した関数系
+                </p>
+                <div class="math">
+                    \[
+                    \left\{\frac{1}{\sqrt{T}},~\frac{\cos\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}},~\frac{\sin\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}}\right\}_{n\in\mathbb{N}}
+                    \]
+                </div>
+                <p>
+                    は正規直交関数系となります。
+                </p>
+                <p>
+                    先ほどの \(\{e_i(x)~|~i\in\mathbb{N}\}\) をこれにしたもの
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x)\sim&
+                    \int_{-\frac{T}{2}}^\frac{T}{2}f(t)\frac{1}{\sqrt{T}}dt\cdot\frac{1}{\sqrt{T}}\\
+                    &+\sum_{n=1}^\infty\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\frac{\cos\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}}dt\cdot\frac{\cos\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}}\\
+                    &+\sum_{n=1}^\infty\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\frac{\sin\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}}dt\cdot\frac{\sin\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    整理して
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x)\sim&
+                    \frac{1}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(t)dt\\
+                    &+\frac{2}{T}\sum_{n=1}^\infty\left[\left\{\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\cos\left(\frac{2\pi}{T}nt\right)dt\right\}\cos\left(\frac{2\pi}{T}nx\right)\right]\\
+                    &+\frac{2}{T}\sum_{n=1}^\infty\left[\left\{\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\sin\left(\frac{2\pi}{T}nt\right)dt\right\}\sin\left(\frac{2\pi}{T}nx\right)\right]
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    これを \(f(x)\) のフーリエ級数展開といいます。
+                </p>
+                <p class="indent">
+                    特に、\(f(x)\) の周期が \(2\pi\) のときは
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x)\sim&
+                    \frac{1}{2\pi}\int_{-\pi}^\pi f(t)dt\\
+                    &+\frac{1}{\pi}\sum_{n=1}^\infty\left[\left\{\int_{-\pi}^\pi f(t)\cos(nt)dt\right\}\cos(nx)\right]\\
+                    &+\frac{1}{\pi}\sum_{n=1}^\infty\left[\left\{\int_{-\pi}^\pi f(t)\sin(nt)dt\right\}\sin(nx)\right]
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+            </section>
             <h2 id="1">フーリエ級数展開とは</h2>
             <div class="article">
                 フーリエ級数展開とは、ある関数を三角関数の和で表す手法である。

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ガンマ関数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ガンマ関数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ガンマ関数の定義と収束性</h2>
+                <figure class="def">
+                    <figcaption>定義（ガンマ関数）</figcaption>
+                    <p class="indent">
+                        \(\operatorname{Re}z\gt0\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \Gamma(z)=\int_0^\infty t^{z-1}e^{-t}dt
+                        \]
+                    </div>
+                    <p>
+                        で定義される関数を<strong>ガンマ関数</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <h3>ガンマ関数の収束性</h3>
+                <div class="math">
+                    \[
+                    \Gamma(z)=\int_0^1t^{z-1}e^{-t}dt+\int_1^\infty t^{z-1}e^{-t}dt
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>ガンマ関数の性質と特殊値</h2>
+                <figure class="th">
+                    <figcaption>定理（ガンマ関数の性質）</figcaption>
+                    <ol>
+                        <li>\(\Gamma(z+1)=z\Gamma(z)\)</li>
+                        <li>\(\Gamma(z)\Gamma(1-z)=\displaystyle\frac{\pi}{\sin{\pi z}}~~~(z\notin\mathbb{Z})\)（相反公式）</li>
+                        <li>\(\Gamma\left(\frac{z}{2}\right)\Gamma\left(\frac{z+1}{2}\right)\)</li>
+                    </ol>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <ol>
+                        <li>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \Gamma(z+1)
+                                &=\int_0^\infty t^ze^{-t}dt\\
+                                &=\int_0^\infty t^z(-e^{-t})'dt\\
+                                &=\left[-t^ze^{-t}\right]_0^\infty-z\int_0^\infty t^ze^{-t}dt\\
+                                &=z\Gamma(z)
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li><p>証明は下記参照</p></li>
+                        <li><p>証明は下記参照</p></li>
+                    </ol>
+                </details>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（ガンマ関数の特殊値）</figcaption>
+                    <ol>
+                        <li>\(\Gamma(n)=(n-1)!~~~(n\in\mathbb{N})\)</li>
+                        <li>\(\displaystyle\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}\)</li>
+                    </ol>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <ol>
+                        <li>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \Gamma(n)&=(n-1)\Gamma(n-1)\\
+                                &=(n-1)(n-2)\Gamma(n-2)\\
+                                &=(n-1)(n-2)\cdots1\cdot\Gamma(1)\\
+                                &=(n-1)!\int_0^\infty e^{-t}dt\\
+                                &=(n-1)!
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <div class="math">
+                                \[
+                                \Gamma\left(\frac{1}{2}\right)=\int_0^\infty t^{-\frac{1}{2}}e^{-t}dt
+                                \]
+                            </div>
+                            <p>
+                                \(t=u^2\) とおくと
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \int_0^\infty t^{-\frac{1}{2}}e^{-t}dt
+                                &=2\int_0^\infty e^{-u^2}du\\
+                                &=2\cdot\frac{\sqrt{\pi}}{2}\\
+                                &=\sqrt{\pi}
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </details>
+            </section>
+            <section id="3">
+                <h2>ガンマ関数の乗積表示</h2>
+                <section>
+                    <h3>オイラーの無限乗積の公式</h3>
+                    <p class="indent">
+                        次の関数列を考えます。
+                    </p>
+                    <div class="math">
+                        \[
+                        G_n(z)=\int_0^nt^{z-1}\left(1-\frac{t}{n}\right)^ndt
+                        \]
+                    </div>
+                    <p>
+                        \(t=nx\) とおくと \(dt=ndx\) で
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        G_n(z)
+                        &=\int_0^1(nx)^{z-1}(1-x)^nndx\\
+                        &=n^z\int_0^1x^{z-1}(1-x)^ndx\\
+                        &=n^zB(z,n+1)\\
+                        &=n^z\cdot\frac{\Gamma(z)\Gamma(n+1)}{\Gamma(z+n+1)}\\
+                        &=n!n^z\cdot\frac{\Gamma(z)}{\Gamma(z+n+1)}\\
+                        &=n!n^z\cdot\frac{\Gamma(z)}{(z+n)\Gamma(z+n)}\\
+                        &=n!n^z\cdot\frac{\Gamma(z)}{(z+n)(z+n-1)\Gamma(z+n-1)}\\
+                        &=n!n^z\cdot\frac{\Gamma(z)}{(z+n)(z+n-1)\cdots(z+1)z\Gamma(z)}\\
+                        &=n!n^z\cdot\frac{1}{(z+n)(z+n-1)\cdots(z+1)z}\\
+                        &=\frac{n!n^z}{\prod_{k=0}^n(z+k)}
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        ここで
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}G_n(z)=\int_0^\infty t^{z-1}e^{-t}dt=\Gamma(z)
+                        \]
+                    </div>
+                    <p>
+                        であるから、次式が成り立ちます。
+                    </p>
+                    <figure class="th">
+                        <figcaption>定理（オイラーの無限乗積の公式）</figcaption>
+                        <div class="math">
+                            \[
+                            \Gamma(z)=\lim_{n\to\infty}\frac{n!n^z}{\prod_{k=0}^n(z+k)}
+                            \]
+                        </div>
+                    </figure>
+                </section>
+                <section>
+                    <h3>ワイエルシュトラスの無限乗積表示</h3>
+                    <p class="indent">
+                        オイラーの無限乗積の公式の逆数を考えます。
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \frac{1}{\Gamma(z)}
+                        &=\lim_{n\to\infty}\frac{1}{n!n^z}\prod_{k=0}^n(z+k)\\
+                        &=\lim_{n\to\infty}\frac{z}{n!n^z}\prod_{k=1}^n(z+k)\\
+                        &=\lim_{n\to\infty}\frac{z}{n^z}\prod_{k=1}^n\left(1+\frac{z}{k}\right)\\
+                        &=\lim_{n\to\infty}ze^{-z\log n}\prod_{k=1}^n\left(1+\frac{z}{k}\right)\\
+                        &=\lim_{n\to\infty}ze^{z\left(\gamma-\sum_{m=1}^n\frac{1}{m}\right)}\prod_{k=1}^n\left(1+\frac{z}{k}\right)\\
+                        &=\lim_{n\to\infty}ze^{\gamma z}e^{\left(-\sum_{m=1}^n\frac{z}{m}\right)}\prod_{k=1}^n\left(1+\frac{z}{k}\right)\\
+                        &=\lim_{n\to\infty}ze^{\gamma z}\prod_{k=1}^n\left(1+\frac{z}{k}\right)e^{-\frac{z}{k}}\\
+                        &=ze^{\gamma z}\prod_{n=1}^\infty\left(1+\frac{z}{n}\right)e^{-\frac{z}{n}}\\
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        したがって、次式が成り立ちます。
+                    </p>
+                    <figure class="th">
+                        <figcaption>定理（ワイエルシュトラスの無限乗積表示）</figcaption>
+                        \[
+                        \frac{1}{\Gamma(z)}=ze^{\gamma z}\prod_{n=1}^\infty\left(1+\frac{z}{n}\right)e^{-\frac{z}{n}}
+                        \]
+                    </figure>
+                </section>
+            </section>
+            <section id="4">
+                <h2>相反公式</h2>
+                <p class="indent">
+                    ワイエルシュトラスの無限乗積表示より、相反公式が導けます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{1}{\Gamma(z)\Gamma(1-z)}
+                    &=\frac{1}{-z\Gamma(z)\Gamma(-z)}\\
+                    &=-\frac{1}{z}\cdot\frac{1}{\Gamma(z)}\cdot\frac{1}{\Gamma(-z)}\\
+                    &=-\frac{1}{z}\cdot ze^{\gamma z}\prod_{n=1}^\infty\left(1+\frac{z}{n}\right)e^{-\frac{z}{n}}\cdot(-z)e^{-\gamma z}\prod_{n=1}^\infty\left(1-\frac{z}{n}\right)e^{\frac{z}{n}}\\
+                    &=z\prod_{n=1}^\infty\left(1+\frac{z}{n}\right)\cdot\prod_{n=1}^\infty\left(1-\frac{z}{n}\right)\\
+                    &=z\prod_{n=1}^\infty\left(1-\frac{z^2}{n^2}\right)
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、正弦関数のオイラーの無限乗積
+                </p>
+                <div class="math">
+                    \[
+                    \sin{\pi z}=\pi z\prod_{n=1}^\infty\left(1-\frac{z^2}{n^2}\right)
+                    \]
+                </div>
+                <p>
+                    を用いることで
+                </p>
+                <div class="math">
+                    \[
+                    \frac{1}{\Gamma(z)\Gamma(1-z)}=\frac{\sin{\pi z}}{\pi}
+                    \]
+                </div>
+                <p>
+                    したがって、次式が成り立ちます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（相反公式）</figcaption>
+                    <div class="math">
+                        \[
+                        \Gamma(z)\Gamma(1-z)=\displaystyle\frac{\pi}{\sin{\pi z}}~~~(z\notin\mathbb{Z})
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="5">
+                <h2>ガウスの乗法公式</h2>
+            </section>
+            <section id="6">
+                <h2>スターリングの公式</h2>
+                <figure class="th">
+                    <figcaption>定理（スターリングの公式）</figcaption>
+                    <div class="math">
+                        \[
+                        \Gamma(z+1)\fallingdotseq\sqrt{2\pi z}\left(\frac{z}{e}\right)^z
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
