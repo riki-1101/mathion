@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>行列の区分け</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>行列の区分け</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>行列の区分け</h2>
+                <p class="indent">
+                    行列の区分けとは、大きな行列を小さなブロックに分ける操作です。
+                    この方法により、行列の演算を型の小さい行列の演算に帰着させることができます。
+                </p>
+                <div class="math">
+                    \[
+                    A=
+                    \begin{bmatrix}
+                    3 & -1 & 0 & 0\\
+                    2 & 1 & 0 & 0\\
+                    0 & 0 & -1 & 1\\
+                    0 & 0 & 2 & 1
+                    \end{bmatrix}
+                    ,\quad
+                    B=
+                    \begin{bmatrix}
+                    1 & 1 & -1 & 0\\
+                    -2 & 3 & 0 & 1\\
+                    0 & 0 & 1 & 2\\
+                    0 & 0 & -2 & 3
+                    \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    次のように区分けします。
+                </p>
+                <div class="math">
+                    \[
+                    A =
+                    \left[
+                    \begin{array}{cc|cc}
+                    3 & -1 & 0 & 0\\
+                    2 & 1 & 0 & 0\\ \hline
+                    0 & 0 & -1 & 1\\
+                    0 & 0 & 2 & 1
+                    \end{array}
+                    \right]
+                    ,\quad
+                    B =
+                    \left[
+                    \begin{array}{cc|cc}
+                    1 & 1 & -1 & 0\\
+                    -2 & 3 & 0 & 1\\ \hline
+                    0 & 0 & 1 & 2\\
+                    0 & 0 & -2 & 3
+                    \end{array}
+                    \right]
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    A_1=
+                    \begin{bmatrix}
+                    3 & -1\\
+                    2 & 1
+                    \end{bmatrix}
+                    ,\quad
+                    A_2
+                    \begin{bmatrix}
+                    -1 & 1\\
+                    2 & 1
+                    \end{bmatrix}
+                    \]
+                    \[
+                    B_1=
+                    \begin{bmatrix}
+                    1 & 1\\
+                    -2 & 3
+                    \end{bmatrix}
+                    ,\quad
+                    B_2
+                    \begin{bmatrix}
+                    -1 & 0\\
+                    0 & 1
+                    \end{bmatrix}
+                    ,\quad
+                    B_3
+                    \begin{bmatrix}
+                    1 & 2\\
+                    -2 & 3
+                    \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    とおくと
+                </p>
+                <div class="math">
+                    \[
+                    A=
+                    \begin{bmatrix}
+                    A_1 & O \\
+                    O & A_2
+                    \end{bmatrix}
+                    ,\quad
+                    B=
+                    \begin{bmatrix}
+                    B_1 & B_2 \\
+                    O & B_3
+                    \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    この行列に対して計算します。
+                </p>
+                <div class="math">
+                    \[
+                    AB=
+                    \begin{bmatrix}
+                    A_1 & O \\
+                    O & A_2
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    B_1 & B_2 \\
+                    O & B_3
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    A_1B_1 & A_1B_2 \\
+                    O & A_2B_3
+                    \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    A_1B_1&=
+                    \begin{bmatrix}
+                    3 & -1 \\
+                    2 & 1
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    1 & 1 \\
+                    -2 & 3
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    5 & 0 \\
+                    0 & 5
+                    \end{bmatrix}\\
+                    
+                    A_1B_2&=
+                    \begin{bmatrix}
+                    3 & -1 \\
+                    2 & 1
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    -1 & 0 \\
+                    0 & 1
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    -3 & -1 \\
+                    -2 & 1
+                    \end{bmatrix}\\
+
+                    A_2B_3&=
+                    \begin{bmatrix}
+                    -1 & 1 \\
+                    2 & 1
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    1 & 2 \\
+                    -2 & 3
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    -3 & 1 \\
+                    0 & 7
+                    \end{bmatrix}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    AB=
+                    \begin{bmatrix}
+                    5 & 0 & -3 & -1\\
+                    0 & 5 & -2 & 1\\
+                    0 & 0 & -3 & 1\\
+                    0 & 0 & 0 & 7
+                    \end{bmatrix}
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

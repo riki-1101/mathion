@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>行列の演算</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>行列の演算</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>行列の和と差</h2>
+                <p class="indent">
+                    行列の和と差は同じ型の行列の間にのみ定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（行列の和と差）</figcaption>
+                    <p class="indent">
+                        \(A=[a_{ij}],~B=[b_{ij}]\) をともに \(m\times n\) 行列とするとき、\(A\) と \(B\) の和を次のように定義する。
+                    </p>
+                    <div class="math">
+                        \[
+                        A\pm B=[a_{ij}\pm b_{ij}]
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+            </section>
+            <section id="2">
+                <h2>行列のスカラー倍</h2>
+                <figure class="def">
+                    <figcaption>定義（行列のスカラー倍）</figcaption>
+                    <p class="indent">
+                        行列 \(A=[a_{ij}]\) に対して、スカラー倍を次のように定義する。
+                    </p>
+                    <div class="math">
+                        \[
+                        kA=[ka_{ij}]
+                        \]
+                    </div>
+                    <p class="indent">
+                        特に、\(A\) の \(-1\) 倍を \(-A\) で表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>行列の積</h2>
+                <figure class="def">
+                    <figcaption>定義（行列の積）</figcaption>
+                    <p class="indent">
+                        \(A=[a_{ij}]\) を \(m\times k\) 行列、\(B=[b_{ij}]\)を \(k\times n\) 行列とするとき、\(A\) と \(B\) の積を次のように定義する。
+                    </p>
+                    <div class="math">
+                        \[
+                        AB=[c_{ij}], \quad c_{ij}=\sum_{l=1}^ka_{il}b_{lj}
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（行列の積の性質）</figcaption>
+                    <ol>
+                        <li>\((AB)C=A(BC)\)</li>
+                        <li>\(A(B+C)=AB+AC\)</li>
+                        <li>\((A+B)C=AC+BC\)</li>
+                        <li>\((kA)B=k(AB)\)</li>
+                        <li>\(AE=A,~~EA=A\)</li>
+                        <li>\(AO=O,~~OA=O\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
