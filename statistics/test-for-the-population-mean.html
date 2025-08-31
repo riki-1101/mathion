@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>母平均の検定（Z検定）</title>
+        <title>母平均の検定</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
@@ -11,211 +11,271 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>母平均の検定（Z検定）</h1>
+            <h1>母平均の検定</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>母平均の検定統計量（母分散既知）</h2>
-                <p>
-                    母集団を正規母集団と仮定します。<br>
-                    正規母集団 \(N(\mu,\sigma^2)\) から抽出した \(n\) 個の無作為標本を
-                    \[
-                    X_1,~~~X_2,~~~\cdots,~~~X_{n}
-                    \]
-                    とすると、この標本平均は
-                    \[
-                    \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
-                    \]
-                    となります。このとき
-                </p>
-                <p>
-                    \[
-                    \overline{X}\sim N\left(\mu,~\frac{\sigma^2}{n}\right)
-                    \]
-                    となるので \(\overline{X}\) を標準化すると
-                    \[
-                    Z=\frac{\overline{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
-                    \]
-                    これが検定統計量となります。<br>
-                    標準正規分布に従う検定統計量を用いた検定を \(Z\) 検定といいます。
-                </p>
-                <figure class="box">
-                    <figcaption>仮説検定の流れ（棄却域法）</figcaption>
-                    <ol>
-                        <li>帰無仮説・対立仮説を立てる</li>
-                        <li>検定統計量を計算する</li>
-                        <li>有意水準を決める</li>
-                        <li>棄却域を求める</li>
-                        <li>検定統計量の実現値が棄却域に入るかを見る</li>
-                    </ol>
-                </figure>
-                <p></p>
-                <figure class="box">
-                    <figcaption>仮説検定の流れ（p値法）</figcaption>
-                    <ol>
-                        <li>帰無仮説・対立仮説を立てる</li>
-                        <li>検定統計量を計算する</li>
-                        <li>有意水準を決める</li>
-                        <li>p値を計算する</li>
-                        <li>p値が有意水準未満かを見る</li>
-                    </ol>
-                </figure>
+                <h2>母平均の検定（母分散が既知の場合）</h2>
+                <section>
+                    <h3>帰無仮説を定める</h3>
+                    <p class="indent">
+                        ある母集団の母平均 \(\mu\) がある特定の値 \(\mu_0\) に等しいといえるかどうかを検定します。
+                        ここでは、母集団は正規母集団 \(N(\mu,\sigma^2)\) であると仮定します。
+                        帰無仮説 \(H_0\) は次のようになります。
+                    </p>
+                    <div class="math">
+                        \[
+                        H_0:\mu=\mu_0
+                        \]
+                    </div>
+                </section>
+                <section>
+                    <h3>対立仮説を定める</h3>
+                    <p class="indent">
+                        対立仮説を次の３種類から一つ選びます。
+                    </p>
+                    <ul>
+                        <li><p>\(H_1:\mu\neq\mu_0\) （両側検定）</p></li>
+                        <li><p>\(H_1:\mu\gt\mu_0\) （右側検定）</p></li>
+                        <li><p>\(H_1:\mu\lt\mu_0\) （左側検定）</p></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>有意水準を定める</h3>
+                    <p class="indent">
+                        有意水準 \(\alpha\) を定めます。
+                        \(\alpha=0.05\) や \(\alpha=0.01\) などとします。
+                    </p>
+                </section>
+                <section>
+                    <h3>検定統計量を選ぶ</h3>
+                    <p class="indent">
+                        正規母集団 \(N(\mu,\sigma^2)\) から抽出した \(n\) 個の無作為標本を \(X_1,X_2,\cdots,X_{n}\) とします。
+                    </p>
+                    <p class="indent">
+                        帰無仮説 \(H_0\) が正しい（母平均は \(\mu_0\) である）と仮定すると
+                    </p>
+                    <div class="math">
+                        \[
+                        X_1,X_2,\cdots,X_{n}\sim N(\mu_0,\sigma^2)
+                        \]
+                    </div>
+                    <p>
+                        となります。
+                    </p>
+                    <p class="indent">
+                        母平均 \(\mu_0\) からのずれを調べるには、母平均の不偏推定量である標本平均
+                    </p>
+                    <div class="math">
+                        \[
+                        \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
+                        \]
+                    </div>
+                    <p>
+                        を用いるのが自然です。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \overline{X}\sim N\left(\mu_0,~\frac{\sigma^2}{n}\right)
+                        \]
+                    </div>
+                    <p>
+                        となります。標準正規分布表を用いるために、\(\overline{X}\) を標準化したもの
+                    </p>
+                    <div class="math">
+                        \[
+                        Z=\frac{\overline{X}-\mu_0}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
+                        \]
+                    </div>
+                    <p>
+                        を検定統計量とします。
+                        標準正規分布に従う検定統計量を用いた検定を<strong> \(Z\) 検定</strong>といいます。
+                    </p>
+                </section>
             </section>
             <section id="2">
-                <h2>例題（棄却域法）</h2>
-                <figure class="ex-problem">
-                    <figcaption>例題</figcaption>
-                    <p>
-                        あるカフェでは、\(1\) 杯のコーヒーは平均 \(200~\mathrm{mL}\) 注がれるように設定されている。
-                        しかし、「量が少ない気がする」とお客様から苦情が出てきた。
-                        そこで、ランダムに \(25\) 杯を計測したところ、得られた標本の標本平均の実現値は \(197.8~\mathrm{mL}\) となった。
-                        \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) と異なると言えるか、有意水準 \(5\%\) で判断せよ。
-                        母標準偏差は既知で \(5~\mathrm{mL}\) とする。
-                    </p>
-                </figure>
-                <h3>1. 帰無仮説・対立仮説を立てる</h3>
-                <p>
-                    母平均を \(\mu\) として、次のように仮説を立てます。
+                <h2>母平均の検定（母分散が未知の場合）</h2>
+                <p class="indent">
+                    帰無仮説、対立仮説、有意水準の定め方は、母分散が既知の場合と同様です。
+                    しかし、母分散が既知の場合と同様に、検定統計量を
                 </p>
-                <span class="center"><p>
-                    帰無仮説 \(H_0:\mu=200\)<br>
-                    対立仮説 \(H_1:\mu\neq200\)
-                </p></span>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\mu_0}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
+                    \]
+                </div>
                 <p>
-                    よって、両側検定を行います。
+                    としてしまうと、未知の \(\sigma^2\) を含んでいるため、\(Z\) の実現値が計算できません。
+                    そこで、母分散 \(\sigma^2\) の不偏推定量である不偏分散
                 </p>
-                <h3>2. 検定統計量を計算する</h3>
+                <div class="math">
+                    \[
+                    U^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2
+                    \]
+                </div>
                 <p>
-                    検定統計量を
+                    を \(\sigma^2\) の代わりに用います。
+                    \(Z\) の \(\sigma^2\) を \(U^2\) にした新しい量を \(T\) とすると
+                </p>
+                <div class="indent">
                     \[
-                    Z=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0,1)
+                    T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}}
                     \]
-                    とすると、\(Z\) の実現値 \(z\) は
+                </div>
+                <p class="indent">
+                    この \(T\) が従う分布を考えます。
+                    不偏分散に関して次のことが成り立ちます。
+                </p>
+                <div class="math">
                     \[
-                    z=\frac{197.8-200}{\frac{5}{\sqrt{25}}}=-2.2
+                    \frac{(n-1)U^2}{\sigma^2}\sim\chi^2(n-1)
                     \]
+                </div>
+                <p>
+                    また、\(Z\sim N(0,1),~W\sim\chi^2(n)\) であるとき
+                </p>
+                <div class="math">
+                    \[
+                    \frac{Z}{\sqrt{\frac{W}{n}}}\sim t(n)
+                    \]
+                </div>
+                <p>
                     となります。
+                    これらをもとに \(T\) を変形すると
                 </p>
-                <h3>3. 有意水準を決める</h3>
-                <p>
-                    本問では有意水準 \(\alpha\) は \(5\%\) と与えられているので
+                <div class="math">
                     \[
-                    \alpha=0.05
+                    T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}}
+                    =\frac{\frac{\overline{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}}}{\frac{\sqrt{\frac{U^2}{n}}}{\sqrt{\frac{\sigma^2}{n}}}}
+                    =\frac{Z}{\sqrt{\frac{U^2}{\sigma^2}}}
+                    =\frac{Z}{\sqrt{\frac{\frac{(n-1)U^2}{\sigma^2}}{n-1}}}
+                    =\frac{Z}{\sqrt{\frac{W}{n-1}}}
                     \]
-                    です。
+                </div>
+                <p>
+                    よって
                 </p>
-                <h3>4. 棄却域を求める</h3>
+                <div class="math">
+                    \[
+                    T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}}\sim t(n-1)
+                    \]
+                </div>
                 <p>
-                    両側 \(5\%\) 点を求めます。<br>
-                    両側 \(5\%\) 点とは
-                    \[
-                    P(Z\le -z_{0.025})+P(Z\ge z_{0.025})=0.05
-                    \]
-                    となるような \(z_{0.025}\) です。
-                    \[
-                    P(Z\le -z_{0.025})=P(Z\ge z_{0.025})
-                    \]
-                    より
-                    \[
-                    P(Z\ge z_{0.025})=0.025
-                    \]
-                    を考えればよく、標準正規分布表より
-                    \[
-                    z_{0.025}=1.96
-                    \]
-                    とわかります。<br>
-                    したがって、棄却域は
-                    \[
-                    z\le-1.96,~~~1.96\le z
-                    \]
-                    となります。
-                </p>
-                <h3>検定統計量の実現値が棄却域に入るかを見る</h3>
-                <p>
-                    検定統計量の実現値は
-                    \[
-                    z=-2.2
-                    \]
-                    であり、これは棄却域
-                    \[
-                    z\le-1.96,~~~1.96\le z
-                    \]
-                    に入ります。<br>
-                    よって、帰無仮説 \(H_0\) を棄却し、対立仮説 \(H_1\) を採択します。<br>
-                    \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) と異なると言えます。<br>
+                    となり、この \(T\) が分散が未知の場合の母平均の検定統計量となります。
+                    \(t\) 分布に従う検定統計量を用いた検定を<strong> \(t\) 検定</strong>といいます。
                 </p>
             </section>
             <section id="3">
-                <h2>例題（p値法）</h2>
-                <p>
-                    今度は先ほどの例題をp値法を使って行います。
-                </p>
+                <h2>例題</h2>
                 <figure class="ex-problem">
                     <figcaption>例題</figcaption>
-                    <p>
-                        あるカフェでは、\(1\) 杯のコーヒーは平均 \(200~\mathrm{mL}\) 注がれるように設定されています。
-                        しかし最近、「量が少ない気がする」とお客様から苦情が出てきました。
-                        そこで、ランダムに \(25\) 杯を計測したところ、得られた標本の標本平均の実現値は \(197.8~\mathrm{mL}\) となりました。<br>
-                        \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) と異なると言えるか、有意水準 \(5\%\) で判断してください。<br>
-                        母標準偏差は既知で \(5~\mathrm{mL}\) とします。
+                    <p class="indent">
+                        あるカフェでは、\(1\) 杯のコーヒーは平均 \(200~\mathrm{mL}\) 注がれるように設定されいる。
+                        しかし最近、「量が少ない気がする」とお客様から苦情が出てきた。
+                        そこで、ランダムに \(25\) 杯を計測したところ、標本平均は \(197.3~\mathrm{mL}\) であった。
+                        \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えるか、以下の場合において、有意水準 \(1\%\) で判断せよ。
                     </p>
+                    <ol>
+                        <li>母標準偏差が既知で \(5~\mathrm{mL}\) である場合</li>
+                        <li>母分散が未知の場合</li>
+                    </ol>
                 </figure>
-                <h3>1. 帰無仮説・対立仮説を立てる</h3>
                 <p>
                     母平均を \(\mu\) として、次のように仮説を立てます。
                 </p>
-                <span class="center"><p>
+                <p class="center">
                     帰無仮説 \(H_0:\mu=200\)<br>
-                    対立仮説 \(H_1:\mu\neq200\)
-                </p></span>
-                <p>
-                    よって、両側検定を行います。
+                    対立仮説 \(H_1:\mu\lt200\)
                 </p>
-                <h3>2. 検定統計量を計算する</h3>
                 <p>
-                    検定統計量を
+                    よって、左側検定を行います。
+                    有意水準 \(\alpha\) は \(1\%\) と与えられているので
                     \[
-                    Z=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0,1)
+                    \alpha=0.01
                     \]
-                    とすると、\(Z\) の実現値 \(z\) は
-                    \[
-                    z=\frac{197.8-200}{\frac{5}{\sqrt{25}}}=-2.2
-                    \]
-                    となります。
+                    です。
                 </p>
-                <h3>3. 有意水準を定める</h3>
-                <p>
-                    本問では有意水準 \(\alpha\) は \(5\%\) と与えられているので
-                    \[
-                    \alpha=0.05
-                    \]
-                    です。ここまでは棄却域法と同様です。
+                <ol>
+                    <li>
+                        <p>
+                            母平均は \(\sigma^2=5^2\) と既知なので、\(H_0\) が正しいと仮定すると、無作為標本 \(X_1,X_2,\cdots,X_{25}\) は
+                        </p>
+                        <div class="math">
+                            \[
+                            X_1,X_2,\cdots,X_{25}\sim N(200,5^2)
+                            \]
+                        </div>
+                        <p>
+                            であり、標本平均 \(\overline{X}\) は
+                        </p>
+                        <div class="math">
+                            \[
+                            \overline{X}\sim N\left(200,~\frac{5^2}{25}\right)
+                            \]
+                        </div>
+                        <p>
+                            となります。これを標準化することで、検定統計量は
+                        </p>
+                        <div class="math">
+                            \[
+                            Z=\frac{\overline{X}-200}{\frac{5}{\sqrt{25}}}\sim N(0,1)
+                            \]
+                        </div>
+                        <p>
+                            となります。
+                        </p>
+                        <p>
+                            左側検定で、有意水準 \(\alpha=0.01\) より、\(N(0,1)\) の下側 \(1\%\) 点 \(-z_{0.01}\) を求めます。
+                            棄却域は
+                        </p>
+                        <div class="math">
+                            \[
+                            R=(-\infty,-2.33]
+                            \]
+                        </div>
+                        <p>
+                            \(Z\) の実現値 \(z\) は
+                        </p>
+                        <div class="math">
+                            \[
+                            z=\frac{197.3-200}{\frac{5}{\sqrt{25}}}=-2.7
+                            \]
+                        </div>
+                        <p>
+                            であり、これは棄却域 \(R\) に含まれます。
+                            よって、帰無仮説 \(H_0\) を棄却し、対立仮説 \(H_1\) を採択します。
+                            \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えます。
+                        </p>
+                    </li>
+                </ol>
+            </section>
+            <section id="4">
+                <h2>例題（p値）</h2>
+                <p class="indent">
+                    今度は先ほどの例題をp値を使って行います。
+                    p値を計算して、有意水準 \(\alpha=0.01\) と比較します。
                 </p>
-                <h3>4. p値を計算する</h3>
-                <p>
+                <div class="math">
                     \[
                     \begin{align}
-                    p&=P(|Z|\ge |z|)\\
-                    &=P(|Z|\ge 2.2)\\
-                    &=P(Z\le-2.2)+P(Z\ge 2.2)\\
-                    &=2P(Z\ge 2.2)\\
-                    &=2\cdot 0.0139~~~(\because\text{標準正規分布表より})\\
-                    &=0.0278
+                    p&=P(Z\le z)\\
+                    &=P(Z\le -2.7)\\
+                    &=P(Z\ge 2.7)\\
+                    &=0.0035 \quad (\because\text{標準正規分布表より})\\
                     \end{align}
                     \]
-                </p>
-                <h3>5. p値が有意水準未満かを見る</h3>
+                </div>
                 <p>
-                    有意水準 \(\alpha\) と p値 \(p\) は
-                    \[
-                    \alpha=0.05,~~~~~p=0.0278
-                    \]
-                    なので
+                    よって
+                </p>
+                <div class="math">
                     \[
                     p\lt\alpha
                     \]
-                    となり、p値が有意水準を満たないことがわかります。<br>
-                    よって、帰無仮説 \(H_0\) を棄却し、対立仮説 \(H_1\) を採択します。<br>
-                    \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) と異なると言えます。<br>
+                </div>
+                <p>
+                    したがって、帰無仮説 \(H_0\) を棄却し、対立仮説 \(H_1\) を採択します。
+                    \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えます。
                     このように、棄却域法のときと同じ結論が得られます。
                 </p>
             </section>
