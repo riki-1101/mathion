@@ -17,15 +17,23 @@
                 <h2>カイ二乗分布の定義</h2>
                 <figure class="def">
                     <figcaption>定義（カイ二乗分布）</figcaption>
-                    <p>
+                    <p class="indent">
                         互いに独立な確率変数 \(Z_1,Z_2,\cdots, Z_n\sim N(0,1)\) に対して
+                    </p>
+                    <div class="math">
                         \[
-                        X=Z_1^2+Z_2^2+\cdots+Z_n^2
+                        X=Z_1^2+Z_2^2+\cdots+Z_n^2=\sum_{i=1}^nZ_i^2
                         \]
-                        で定まる \(X\) が従う確率分布を自由度 \(n\) のカイ二乗分布といい
+                    </div>
+                    <p>
+                        で定まる \(X\) が従う確率分布を自由度 \(n\) の<strong>カイ二乗分布</strong>といい
+                    </p>
+                    <div class="math">
                         \[
                         X\sim \chi^2(n)
                         \]
+                    </div>
+                    <p>
                         と表す。
                     </p>
                 </figure>
@@ -34,8 +42,10 @@
                 <h2>カイ二乗分布の確率密度関数</h2>
                 <figure class="th">
                     <figcaption>定理（カイ二乗分布の確率密度関数）</figcaption>
-                    <p>
-                        カイ二乗分布に従う確率変数の確率密度関数 \(f\) は
+                    <p class="indent">
+                        確率変数 \(X\sim\chi^2(n)\) の確率密度関数 \(f\) は次式で表される。
+                    </p>
+                    <div class="math">
                         \[
                         f(x)=
                         \begin{cases}
@@ -43,20 +53,21 @@
                         0 & (\mathrm{otherwise})
                         \end{cases}
                         \]
-                        と表される。
-                    </p>
+                    </div>
                 </figure>
             </section>
             <section id="3">
                 <h2>カイ二乗分布に従う確率変数の期待値と分散</h2>
                 <figure class="th">
                     <figcaption>定理（カイ二乗分布に従う確率変数の期待値と分散）</figcaption>
-                    <p>
-                        確率変数 \(X\sim\chi^2(n)\) に対して
-                        \[
-                        E[X]=n,~~~~~V[X]=2n
-                        \]
+                    <p class="indent">
+                        確率変数 \(X\sim\chi^2(n)\) に対して次が成り立つ。
                     </p>
+                    <div class="math">
+                        \[
+                        E[X]=n,\quad V[X]=2n
+                        \]
+                    </div>
                 </figure>
                 <p></p>
                 <details class="pf">
@@ -77,6 +88,33 @@
                         \)
                     </div>
                 </details>
+            </section>
+            <section id="4">
+                <h2>カイ二乗分布に従う確率変数</h2>
+                <figure class="th">
+                    <figcaption>定理（カイ二乗分布に従う確率変数）</figcaption>
+                    <p class="indent">
+                        不偏分散 \(U^2\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{(n-1)U^2}{\sigma^2}\sim \chi^2(n-1)
+                        \]
+                    </div>
+                </figure>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    U^2&=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2\\
+                    &=\frac{1}{n-1}\sum_{i=1}^n\{(X_i-\mu)-(\overline{X}-\mu)\}^2\\
+                    &=\frac{1}{n-1}\sum_{i=1}^n\{(X_i-\mu)^2-2(X_i-\mu)(\overline{X}-\mu)+(\overline{X}-\mu)^2\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)\sum_{i=1}^n(X_i-\mu)+\sum_{i=1}^n(\overline{X}-\mu)^2\right\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)(n\overline{X}-n\mu)+n(\overline{X}-\mu)^2\right\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2n(\overline{X}-\mu)^2+n(\overline{X}-\mu)^2\right\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-n(\overline{X}-\mu)^2\right\}\\
+                    \end{align}
+                    \]
+                </div>
             </section>
         </main>
         <footer id="footer"></footer>

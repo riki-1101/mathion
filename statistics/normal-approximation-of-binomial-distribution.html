@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>二項分布の正規近似</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>二項分布の正規近似</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ド・モアブル-ラプラスの定理</h2>
+                <p class="indent">
+                    <strong>ド・モアブル-ラプラスの定理</strong>とは、二項分布 \(B(n,p)\) は、\(n\) が十分大きいならば、正規分布 \(N(np,np(1-p))\) に近似できるという定理です。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（ド・モアブル-ラプラスの定理）</figcaption>
+                    <p class="indent">
+                        確率変数 \(X\sim B(n,p)\) に対して、\(n\to\infty\) のとき
+                    </p>
+                    <div class="math">
+                        \[
+                        X\sim N(np,np(1-p))
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <h3>証明</h3>
+                <p class="indent">
+                    \(X\sim B(n,p)\) であるとき、成功確率 \(p\) のベルヌーイ分布に従う確率変数 \(X_1,X_2,\cdots,X_n\) を用いて
+                </p>
+                <div class="math">
+                    \[
+                    X=X_1+X_2+\cdots+X_n
+                    \]
+                </div>
+                <p>
+                    と表せる。
+                </p>
+            </section>
+            <section id="2">
+                <h2>例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        あるチョコレートには \(20\%\) の確率で当たりが入っている。
+                        ある人がこのチョコレートを \(100\) 個買ったとき、当たりが \(30\) 個以上出る確率を求めよ。
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <p>
+                        当たりの個数を \(X\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        X\sim B(100,0.2)
+                        \]
+                    </div>
+                    <p>
+                        である。
+                    </p>
+                    <div class="math">
+                        \[
+                        E[X]=100\cdot0.2=20,\quad V[X]=100\cdot0.2(1-0.2)=16
+                        \]
+                    </div>
+                    <p>
+                        ド・モアブル-ラプラスの定理より、\(X\) は近似的に正規分布 \(N(20,16)\) に従う。
+                    </p>
+                    <p>
+                        求める確率は連続補正をして
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        P(X\ge30)&=P\left(Z\ge\frac{30-0.5-20}{\sqrt{16}}\right)\\
+                        &=P(Z\ge2.375)\\
+                        &=0.0087\quad(\because \text{標準正規分布表より})
+                        \end{align}
+                        \]
+                    </div>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
