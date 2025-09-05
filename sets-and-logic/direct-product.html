@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>集合の直積</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>集合の直積</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,55 +13,78 @@
         <main id="contents">
             <h1>集合の直積</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">順序対</h2>
-            <div class="article">
-                まず、順序対を定義する。
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（順序対）</div>
-                2つの対象に対して、並べる順番を考慮した組を順序対という。
-                <p></p>
-                1番目の要素を第1成分、2番目の要素を第2成分と呼ぶ。
-                <p></p>
-                第1成分が \(a\in A\) 、第2成分が \(b\in B\) の順序対を
-                \[
-                (a,b)
-                \]
-                と書く。
-            </div>
-            <p></p>
-            <div class="article">
-                \(a,b\) が異なるとき
-                \[
-                \{a,b\}=\{b,a\}~~~~~\text{(集合)}
-                \]
-                であるが
-                \[
-                (a,b)\neq(b,a)~~~~~\text{(順序対)}
-                \]
-                であることに注意する。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">直積</h2>
-            <div class="def">
-                <div>定義（直積）</div>
-                集合 \(A,B\) に対して
-                \[
-                A\times B:=\{(a,b)~|~a\in A~\text{かつ}~b\in B\}
-                \]
-                を \(A\) と \(B\) の直積（カルテシアン積）という。
-                <p></p>
-                特に、同じ集合同士の直積 \(A\times A\) は \(A^2\) と書く。
-            </div>
-            <p></p>
-            <h3>直積の例</h3>
-            <div class="article">
-                \[
-                \mathbb{R}\times\mathbb{R}=\mathbb{R}^2=\{(x,y)~|~x,y\in\mathbb{R}\}
-                \]
-                これは \(xy\) 平面全体を表している。
-            </div>
+            <section id="1">
+                <h2>順序対</h2>
+                <p class="indent">
+                    まず、順序対を定義します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（順序対）</figcaption>
+                    <p class="indent">
+                        2つの対象に対して、並べる順番を考慮した組を順序対という。
+                        1番目の要素を第1成分、2番目の要素を第2成分と呼ぶ。
+                    </p>
+                    <p class="indent">
+                        第1成分が \(a\in A\) 、第2成分が \(b\in B\) の順序対を
+                    </p>
+                    <div class="math">
+                        \[
+                        (a,b)
+                        \]
+                    </div>
+                    <p>
+                        と書く。
+                    </p>
+                </figure>
+                <p class="indent">
+                    \(a,b\) が異なるとき
+                </p>
+                <div class="math">
+                    \[
+                    \{a,b\}=\{b,a\}~~~~~\text{(集合)}
+                    \]
+                </div>
+                <p>
+                    ですが
+                </p>
+                <div class="math">
+                    \[
+                    (a,b)\neq(b,a)~~~~~\text{(順序対)}
+                    \]
+                </div>
+                <p>
+                    であることに注意します。
+                </p>
+            </section>
+            <section id="2">
+                <h2>直積</h2>
+                <figure class="def">
+                    <figcaption>定義（直積）</figcaption>
+                    <p class="indent">
+                        集合 \(A,B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A\times B:=\{(a,b)~|~a\in A~\text{かつ}~b\in B\}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) と \(B\) の直積（カルテシアン積）という。
+                        特に、同じ集合同士の直積 \(A\times A\) は \(A^2\) と書く。
+                    </p>
+                </figure>
+                <p class="indent">
+                    例えば
+                </p>
+                <div class="math">
+                    \[
+                    \mathbb{R}\times\mathbb{R}=\mathbb{R}^2=\{(x,y)~|~x,y\in\mathbb{R}\}
+                    \]
+                </div>
+                <p>
+                    これは \(xy\) 平面全体を表しています。
+                </p>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
