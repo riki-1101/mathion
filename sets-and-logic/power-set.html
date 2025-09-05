@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>べき集合</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>べき集合</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,29 +13,35 @@
         <main id="contents">
             <h1>べき集合</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">べき集合の定義</h2>
-            <div class="article">
-                ある集合の部分集合全体の集合をべき集合という。
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（べき集合）</div>
-                集合 \(A\) に対して
-                \[
-                2^A:=\{B~|~B\subset A\}
-                \]
-                を \(A\) のべき集合という。
-                <p></p>
-                べき集合 \(2^A\) は \(\mathcal{P}(A)\) とも書かれる。
-            </div>
-            <p></p>
-            <h3>べき集合の例</h3>
-            <div class="article">
-                \(A=\{a,b\}\) のべき集合は
-                \[
-                2^A=\{\emptyset,~\{a\},~\{b\},~\{a,b\}\}
-                \]
-            </div>
+            <section id="1">
+                <h2>べき集合の定義</h2>
+                <p class="indent">
+                    ある集合の部分集合全体の集合をべき集合といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（べき集合）</figcaption>
+                    <p clss="indent">
+                        集合 \(A\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        2^A:=\{B~|~B\subset A\}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) のべき集合という。
+                        べき集合 \(2^A\) は \(\mathcal{P}(A)\) とも書かれる。
+                    </p>
+                </figure>
+                <p class="indent">
+                    例えば、\(A=\{a,b\}\) のべき集合は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    2^A=\{\emptyset,~\{a\},~\{b\},~\{a,b\}\}
+                    \]
+                </div>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
