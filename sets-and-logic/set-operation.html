@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>集合の演算</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>集合の演算</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,59 +13,94 @@
         <main id="contents">
             <h1>集合の演算</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">共通部分と和集合</h2>
-            <div class="def">
-                <div>定義（共通部分）</div>
-                集合 \(A,B\) に対して
-                \[
-                A\cap B:=\{x~|~x\in A~\text{かつ}~x\in B\}
-                \]
-                を \(A\) と \(B\) の共通部分（積集合）という。
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（和集合・直和）</div>
-                集合 \(A,B\) に対して
-                \[
-                A\cup B:=\{x~|~x\in A~\text{または}~x\in B\}
-                \]
-                を \(A\) と \(B\) の和集合という。
+            <section id="1">
+                <h2>共通部分と和集合</h2>
+                <figure class="def">
+                    <figcaption>定義（共通部分）</figcaption>
+                    <p class="indent">
+                        集合 \(A,B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A\cap B:=\{x~|~x\in A~\text{かつ}~x\in B\}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) と \(B\) の共通部分（積集合）という。
+                    </p>
+                </figure>
                 <p></p>
-                特に、\(A\cap B=\phi\) のとき、和集合 \(A\cup B\) は
-                \[
-                A\sqcup B
-                \]
-                と書き、\(A\) と \(B\) の直和（非交和）という。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">差集合と補集合</h2>
-            <div class="def">
-                <div>定義（差集合）</div>
-                集合 \(A,B\) に対して
-                \[
-                A\setminus B:=\{x~|~x\in A~\text{かつ}~x\notin B\}
-                \]
-                を \(A\) と \(B\) の差集合という。
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（補集合）</div>
-                全体集合 \(U\) があり、その部分集合 \(A\subset U\) に対して
-                \[
-                A^c:=U\setminus A
-                \]
-                を \(A\) の補集合という。\(\overline{A}\) とも書かれる。
-            </div>
-            <p class="space"></p>
-            <h2 id="3">ド・モルガンの法則</h2>
-            <div class="th">
-                <div>定理（ド・モルガンの法則）</div>
-                集合 \(U\) の部分集合 \(A,B\subset U\) に対して、次が成り立つ。
-                <ol>
-                    <li>\((A\cup B)^c=A^c\cap B^c\)</li>
-                    <li>\((A\cap B)^c=A^c\cup B^c\)</li>
-                </ol>
-            </div>
+                <figure class="def">
+                    <figcaption>定義（和集合・直和）</figcaption>
+                    <p class="indent">
+                        集合 \(A,B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A\cup B:=\{x~|~x\in A~\text{または}~x\in B\}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) と \(B\) の和集合という。
+                    </p>
+                    <p class="indent">
+                        特に、\(A\cap B=\phi\) のとき、和集合 \(A\cup B\) は
+                    </p>
+                    <div class="math">
+                        \[
+                        A\sqcup B
+                        \]
+                    </div>
+                    <p>
+                        と書き、\(A\) と \(B\) の直和（非交和）という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>差集合と補集合</h2>
+                <figure class="def">
+                    <figcaption>定義（差集合）</figcaption>
+                    <p class="indent">
+                        集合 \(A,B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A\setminus B:=\{x~|~x\in A~\text{かつ}~x\notin B\}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) と \(B\) の差集合という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（補集合）</figcaption>
+                    <p class="indent">
+                        全体集合 \(U\) があり、その部分集合 \(A\subset U\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        A^c:=U\setminus A
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) の補集合という。\(\overline{A}\) とも書かれる。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>ド・モルガンの法則</h2>
+                <figure class="th">
+                    <figcaption>定理（ド・モルガンの法則）</figcaption>
+                    <p class="indent">
+                        全体集合 \(U\) の部分集合 \(A,B\subset U\) に対して、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\((A\cup B)^c=A^c\cap B^c\)</li>
+                        <li>\((A\cap B)^c=A^c\cup B^c\)</li>
+                    </ol>
+                </figure>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
