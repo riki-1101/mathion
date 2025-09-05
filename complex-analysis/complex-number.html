@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>複素数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>複素数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>複素数の定義</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（複素数）</figcaption>
+                    <p class="indent">
+                        \(i\) を虚数単位とする。
+                        このとき、\(a,b \in\mathbb{R}\) を用いて
+                    </p>
+                    <div class="math">
+                        \[
+                        a+bi
+                        \]
+                    </div>
+                    <p>
+                        のように表される数を<strong>複素数</strong>という。
+                        また、複素数全体の集合を
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathbb{C}:=\{a+bi~|~a,b\in\mathbb{R}\}
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（実部・虚部）</figcaption>
+                    <p class="indent">
+                        複素数 \(z=a+bi\) に対し、実数 \(a\) を \(z\) の<strong>実部</strong>、実数 \(b\) を \(z\) の<strong>虚部</strong>といい、それぞれ
+                    </p>
+                    <div class="math">
+                        \[
+                        a=\operatorname{Re}z,\quad b=\operatorname{Im}z
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>共役複素数</h2>
+                <p class="indent">
+                    虚部の符号が異なる数を共役複素数といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（共役複素数）</figcaption>
+                    <p class="indent">
+                        複素数 \(z=a+bi\) に対し
+                    </p>
+                    <div class="math">
+                        \[
+                        \overline{z}:=a-bi
+                        \]
+                    </div>
+                    <p>
+                        を \(z\) の<strong>共役複素数</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（共役複素数の性質）</figcaption>
+                    <p class="indent">
+                        \(\alpha,\beta\in\mathbb{C}\) に対し、以下が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(\overline{(\overline{\alpha})}=\alpha\)</li>
+                        <li>\(\overline{\alpha\pm\beta}=\overline{\alpha}\pm\overline{\beta}\)</li>
+                        <li>\(\overline{\alpha\beta}=\overline{\alpha}\overline{\beta}\)</li>
+                        <li>\(\displaystyle\overline{\left(\frac{\alpha}{\beta}\right)}=\frac{\overline{\alpha}}{\overline{\beta}}\quad (\beta\neq0)\)</li>
+                        <li>\(\operatorname{Re}\alpha=\displaystyle\frac{\alpha+\overline{\alpha}}{2}\)</li>
+                        <li>\(\operatorname{Im}\alpha=\displaystyle\frac{\alpha-\overline{\alpha}}{2i}\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>複素数の絶対値</h2>
+                <figure class="def">
+                    <figcaption>定義（複素数の絶対値）</figcaption>
+                    <p class="indent">
+                        複素数 \(z=a+bi\) に対し
+                    </p>
+                    <div class="math">
+                        \[
+                        |z|=\sqrt{a^2+b^2}
+                        \]
+                    </div>
+                    <p>
+                        を \(z\) の<strong>絶対値</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（複素数の絶対値の性質）</figcaption>
+                    <p class="indent">
+                        \(\alpha,\beta\in\mathbb{C}\) に対し、以下が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(|\alpha|=0\Longleftrightarrow \alpha=0\)</li>
+                        <li>\(|\alpha|=|-\alpha|=|\overline{\alpha}|\)</li>
+                        <li>\(|\alpha|^2=\alpha\overline{\alpha}\)</li>
+                        <li>\(|\alpha\beta|=|\alpha||\beta|\)</li>
+                        <li>\(\displaystyle\left|\frac{\alpha}{\beta}\right|=\frac{|\alpha|}{|\beta|}\quad (\beta\neq0)\)</li>
+                    </ol>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
