@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>データの代表値</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>データの代表値</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>平均値</h2>
+                <figure class="def">
+                    <figcaption>定義（平均値）</figcaption>
+                    <p class="indent">
+                        \(n\) 個のデータ \(x_1,x_2,\cdots,x_n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \overline{x}=\frac{1}{n}\sum_{i=1}^nx_i
+                        \]
+                    </div>
+                    <p>
+                        をデータの<strong>平均値</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>中央値</h2>
+                <figure class="def">
+                    <figcaption>定義（中央値）</figcaption>
+                    <p class="indent">
+                        \(n\) 個のデータ \(x_1,x_2,\cdots,x_n\) を昇順に並べたものを
+                    </p>
+                    <div class="math">
+                        \[
+                        x_{(1)},~x_{(2)},~\cdots,~x_{(n)}
+                        \]
+                    </div>
+                    <p>
+                        とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        Median=
+                        \begin{cases}
+                        x_{(k)} & (n=2k-1)\\
+                        \displaystyle\frac{x_{(k)}+x_{(k+1)}}{2} & (n=2k)
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        をデータの<strong>中央値</strong>（メジアン）という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>最頻値</h2>
+                <figure class="def">
+                    <figcaption>定義（最頻値）</figcaption>
+                    <p class="indent">
+                        データに対し、最も個数の多い値をデータの<strong>最頻値</strong>（モード）という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

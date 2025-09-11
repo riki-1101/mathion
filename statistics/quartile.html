@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>四分位数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>四分位数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>四分位数の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（四分位数）</figcaption>
+                    <p class="indent">
+                        データを昇順に並べたとき、小さい方から \(25\%\) の値 \(Q_1\) を<strong>第１四分位数</strong>、\(50\%\) の値 \(Q_2\) を<strong>第２四分位数</strong>、\(75\%\) の値 \(Q_3\) を<strong>第３四分位数</strong>という。
+                    </p>
+                </figure>
+                <p>
+                    例題を通して、四分位数の求め方を説明します。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p>
+                        あるクラスの10人のテストの点数が次の通りである。
+                        このデータの四分位数 \(Q_1,Q_2,Q_3\) を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        ~80,~72,~60,~90,~62,~85,~75~65,~55,~70
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    まず、データを昇順（小さい順）に並べます。
+                </p>
+                <div class="math">
+                    \[
+                    55,~60,~62,~65,~70,~72,~75,~80,~85,~90
+                    \]
+                </div>
+                <p class="indent">
+                    中央値を求めます。
+                    中央値は第２四分位数 \(Q_2\) です。
+                </p>
+                <div class="math">
+                    \[
+                    Q_2=\frac{70+72}{2}=71
+                    \]
+                </div>
+                <p class="indent">
+                    下位のデータを取り出して、その中央値を求めます。
+                    これが第１四分位数 \(Q_1\) です。
+                </p>
+                <div class="math">
+                    \[
+                    55,~60,~62,~65,~70
+                    \]
+                    \[
+                    Q_1=62
+                    \]
+                </div>
+                <p class="indent">
+                    上位のデータを取り出して、その中央値を求めます。
+                    これが第３四分位数 \(Q_3\) です。
+                </p>
+                <div class="math">
+                    \[
+                    72,~75,~80,~85,~90
+                    \]
+                    \[
+                    Q_3=80
+                    \]
+                </div>
+                <p class="indent">
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    Q_1=62,\quad Q_2=71,\quad Q_3=80
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>四分位範囲と四分位偏差</h2>
+                <figure class="def">
+                    <figcaption>定義（四分位範囲・四分位偏差）</figcaption>
+                    <p class="indent">
+                        第１四分位数 \(Q_1\) 、第３四分位数 \(Q_3\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathrm{IQR}=Q_3-Q_1
+                        \]
+                    </div>
+                    <p>
+                        を<strong>四分位範囲</strong>といい、
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{Q_3-Q_1}{2}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>四分位偏差</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
