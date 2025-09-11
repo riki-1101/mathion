@@ -383,7 +383,7 @@ footer {
     margin: 1em 0;
     padding: 1em 1.2em;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 4px;
     overflow-x: auto;
     overflow-y: visible;
 }
@@ -421,6 +421,33 @@ footer {
     padding: 0.2em 0;
 }
 
+/* 証明部分（details全体） */
+.pf {
+    margin: 0.8em 0 1em 0;
+    padding: 0.8em 1em;
+    border: 1px solid #aaa;
+    border-left: 4px solid #666;
+    border-radius: 4px;
+    background-color: whitesmoke;
+}
+.pf summary {  /* 証明タイトル（summary） */
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    list-style: none; /* デフォルトの▶マークを消す */
+    position: relative;
+    padding-left: 1.2em;
+}
+.pf summary::before {  /* summary の前にアイコン（▶ / ▼）をつける */
+    content: "▶";
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s ease;
+}
+.pf[open] summary::before {  /* 開いたときに矢印を下向きに */
+    content: "▼";
+}
+
 
 .ex {
     background-color: gainsboro;
@@ -439,7 +466,7 @@ details.ex-answer {
 }
 
     
-details.pf, details.annotation, details.ans {
+details.annotation, details.ans {
     margin-top: 10px;
     padding: 1em;
     background-color: lightgray;
