@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>二項分布</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>二項分布</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,121 +13,178 @@
         <main id="contents">
             <h1>二項分布</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">ベルヌーイ試行</h2>
-            <div class="article">
-                次の３つの条件を満たす試行をベルヌーイ試行という。
-                <p></p>
-                ・試行の結果が成功と失敗の２通りである
-                <p></p>
-                ・各試行は独立である
-                <p></p>
-                ・成功確率と失敗確率はそれぞれ常に一定である
-            </div>
-            <p class="space"></p>
-            <h2 id="2">反復試行の確率</h2>
-            <div class="ex">
-                <div>例題</div>
-                表が出る確率が \(p\) のコインを３回投げる。次の確率を求めよ。
-                <ol>
-                    <li>１回目に表、２回目に表、３回目に裏が出る確率</li>
-                    <li>表が２回、裏が１回出る確率</li>
-                </ol>
-            </div>
-            <div class="article">
-                <ol>
-                    <li>
-                        求める確率は
-                        \[
-                        p\times p\times(1-p)=p^2(1-p)
-                        \]
-                        である。
-                    </li>
-                    <li>
-                        これは \(p^2(1-p)\) ではない。
-                        表が２回、裏が１回出る場合は
-                        <p></p>
-                        ・１回目に表、２回目に表、３回目に裏が出る
-                        <p></p>
-                        ・１回目に表、２回目に裏、３回目に表が出る
-                        <p></p>
-                        ・１回目に裏、２回目に表、３回目に表が出る
-                        <p></p>
-                        の３通りが存在する。求める確率は
-                        \[
-                        p^2(1-p)\times3
-                        \]
-                        となる。
-                    </li>
-                </ol>
-                <p></p>
-                次に、試行回数を \(n\) 回とし、表が \(k\) 回出る確率を考える。
-                <p></p>
-                表が \(k\) 回出る場合は \(_{n}\mathrm{C}_k\) 通り存在する。
-                <p></p>
-                \[
-                _{n}\mathrm{C}_kp^k(1-p)^{n-k}
-                \]
-            </div>
-            <p class="space"></p>
-            <h2 id="3">二項分布の定義と性質</h2>
-            <div class="def">
-                <div>定義（二項分布）</div>
-                \(p\in(0,1)\) 、\(n\in\mathbb{N}\) とする。
-                <p></p>
-                確率変数 \(X\) の確率質量関数 \(f\) が
-                \[
-                f(x)={_{n}\mathrm{C}_x}p^x(1-p)^{n-x}~~(x=0,1,\cdots,n)\\
-                \]
-                であるとき、\(X\) は二項分布 \(B(n,p)\) に従うといい
-                \[
-                X\sim B(n,p)
-                \]
-                と表す。
-            </div>
-            <p></p>
-            <div class="article">
-                成功確率が \(p\) のベルヌーイ試行を \(n\) 回行い、その成功回数を \(X\) とする。
-            </div>
-            <p></p>
-            <div class="th">
-                <div>定理（二項分布の期待値と分散）</div>
-                \(X\sim B(n,p)\) のとき
-                \[
-                E[X]=np,~~~V[X]=np(1-p)
-                \]
-            </div>
-            <details class="pf">
-                <summary>証明</summary>
-                <div>
+            <section id="1">
+                <h2>ベルヌーイ試行</h2>
+                <p>
+                    次の３つの条件を満たす試行をベルヌーイ試行といいます。
+                </p>
+                <ul>
+                    <li>試行の結果が成功と失敗の２通りである</li>
+                    <li>各試行は独立である</li>
+                    <li>成功確率と失敗確率はそれぞれ常に一定である</li>
+                </ul>
+            </section>
+            <section id="2">
+                <h2>反復試行の確率</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p>
+                        表が出る確率が \(p\) のコインを３回投げる。次の確率を求めよ。
+                    </p>
+                    <ol>
+                        <li>１回目に表、２回目に表、３回目に裏が出る確率</li>
+                        <li>表が２回、裏が１回出る確率</li>
+                    </ol>
+                </figure>
+                <div class="article">
+                    <ol>
+                        <li>
+                            求める確率は
+                            \[
+                            p\times p\times(1-p)=p^2(1-p)
+                            \]
+                            である。
+                        </li>
+                        <li>
+                            これは \(p^2(1-p)\) ではない。
+                            表が２回、裏が１回出る場合は
+                            <p></p>
+                            ・１回目に表、２回目に表、３回目に裏が出る
+                            <p></p>
+                            ・１回目に表、２回目に裏、３回目に表が出る
+                            <p></p>
+                            ・１回目に裏、２回目に表、３回目に表が出る
+                            <p></p>
+                            の３通りが存在する。求める確率は
+                            \[
+                            p^2(1-p)\times3
+                            \]
+                            となる。
+                        </li>
+                    </ol>
+                    <p></p>
+                    次に、試行回数を \(n\) 回とし、表が \(k\) 回出る確率を考える。
+                    <p></p>
+                    表が \(k\) 回出る場合は \(_{n}\mathrm{C}_k\) 通り存在する。
+                    <p></p>
                     \[
-                    E[X]=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}
+                    _{n}\mathrm{C}_kp^k(1-p)^{n-k}
                     \]
                 </div>
-            </details>
-            <p class="space"></p>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>問題</div>
-                A,B,C,Dの文字が書かれた4枚のカードの中から無作為に1枚のカードを取り出し、元に戻す操作を128回繰り返したとき、Aのカードを引く回数を \(X\) とする。
-                このときの \(X\) の期待値と分散を求めよ。
-            </div>
-            <details class="ans">
-                <summary>解答</summary>
-                <div>
-                    1回の試行の成功確率（A,B,C,Dの文字が書かれた4枚のカードの中からAのカードを引く確率）は \(\displaystyle\frac{1}{4}\) であるから、
-                    \(X=k\) となる確率は
-                    \[
-                    P(X=k)=\binom{128}{k}\left(\frac{1}{4}\right)^k\left(\frac{3}{4}\right)^{128-k}~~~(k=0,1,\cdots,128)
-                    \]
-                    したがって、\(\displaystyle X\sim Bin\left(128,\frac{1}{4}\right)\) であるから
-                    \[
-                    E[X]=128\cdot\frac{1}{4}=32
-                    \]
-                    \[
-                    V[X]=128\cdot\frac{1}{4}\cdot\frac{3}{4}=24
-                    \]
-                </div>
-            </details>
+            </section>
+            <section id="3">
+                <h2>二項分布の定義と性質</h2>
+                <section>
+                    <p class="indent">
+                        成功確率が \(p\) のベルヌーイ試行を \(n\) 回行うとき、その成功回数 \(X\) が従う確率分布を<strong>二項分布</strong>といいます。
+                    </p>
+                    <figure class="def">
+                        <figcaption>定義（二項分布）</figcaption>
+                        <p class="indent">
+                            \(p\in(0,1)\) 、\(n\in\mathbb{N}\) とする。
+                            確率変数 \(X\) の確率質量関数 \(f_X(x)\) が
+                        </p>
+                        <div class="math">
+                            \[
+                            f_X(x)={_{n}\mathrm{C}_x}p^x(1-p)^{n-x}~~(x=0,1,\cdots,n)\\
+                            \]
+                        </div>
+                        <p>
+                            であるとき、\(X\) は二項分布 \(B(n,p)\) に従うといい
+                        </p>
+                        <div class="math">
+                            \[
+                            X\sim B(n,p)
+                            \]
+                        </div>
+                        <p>
+                            と表す。
+                        </p>
+                    </figure>
+                </section>
+                <section>
+                    <figure class="th">
+                        <figcaption>定理（二項分布の積率母関数）</figcaption>
+                        <p class="indent">
+                            \(X\sim B(n,p)\) の積率母関数は次式で表される。
+                        </p>
+                        <div class="math">
+                            \[
+                            M_X(t)=(e^tp+1-p)^n
+                            \]
+                        </div>
+                    </figure>
+                    <details class="pf">
+                        <summary>証明</summary>
+                        <div>
+                            \[
+                            \begin{align}
+                            M_X(t)&=E[e^{tX}]\\
+                            &=\sum_{x=0}^ne^{tx}{_{n}\mathrm{C}_x}p^x(1-p)^{n-x}\\
+                            &=\sum_{x=0}^n{_{n}\mathrm{C}_x}(e^tp)^x(1-p)^{n-x}\\
+                            &=(e^tp+1-p)^n \quad (\because\text{二項定理より})
+                            \end{align}
+                            \]
+                        </div>
+                    </details>
+                </section>
+                <section>
+                    <figure class="th">
+                        <figcaption>定理（二項分布の期待値と分散）</figcaption>
+                        <p class="indent">
+                            \(X\sim B(n,p)\) のとき、次が成り立つ。
+                        </p>
+                        <div class="math">
+                            \[
+                            E[X]=np,\quad V[X]=np(1-p)
+                            \]
+                        </div>
+                    </figure>
+                    <details class="pf">
+                        <summary>証明</summary>
+                        <div>
+                            \[
+                            E[X]=\sum_{k=0}^nk\binom{n}{k}p^k(1-p)^{n-k}
+                            \]
+                        </div>
+                    </details>
+                </section>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        A,B,C,Dの文字が書かれた4枚のカードの中から無作為に1枚のカードを取り出し、元に戻す操作を128回繰り返したとき、Aのカードを引く回数を \(X\) とする。
+                        このときの \(X\) の期待値と分散を求めよ。
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <p>
+                        1回の試行の成功確率（A,B,C,Dの文字が書かれた4枚のカードの中からAのカードを引く確率）は \(\displaystyle\frac{1}{4}\) である。
+                    </p>
+                    <p>
+                        操作を128回繰り返して、\(X=k\) となる確率は
+                    </p>
+                    <div class="math">
+                        \[
+                        P(X=k)=\binom{128}{k}\left(\frac{1}{4}\right)^k\left(\frac{3}{4}\right)^{128-k}~~~(k=0,1,\cdots,128)
+                        \]
+                    </div>
+                    <p>
+                        したがって、\(\displaystyle X\sim Bin\left(128,\frac{1}{4}\right)\) であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        E[X]=128\cdot\frac{1}{4}=32
+                        \]
+                        \[
+                        V[X]=128\cdot\frac{1}{4}\cdot\frac{3}{4}=24
+                        \]
+                    </div>
+                </details>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
