@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>時系列データ</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>時系列データ</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>時系列データとは</h2>
+                <p class="indent">
+                    時間の経過に沿って観測されたデータの列を<strong>時系列データ</strong>といいます。
+                    例えば、「毎年の売上高」、「毎月の気温」、「毎日の株価」などです。
+                </p>
+            </section>
+            <section id="2">
+                <h2>時系列データの構成要素</h2>
+                <p class="indent">
+                    時系列データは<strong>傾向変動</strong> \(T\) 、<strong>循環変動</strong> \(c\) 、<strong>季節変動</strong> \(S\) 、<strong>不規則変動</strong> \(I\) によって構成されると考えます。
+                    これらを用いて、観測値 \(Y\) を表すモデルが作れます。
+                </p>
+                <p>
+                    加法モデル
+                </p>
+                <div>
+                    \[
+                    Y=T+C+S+I
+                    \]
+                </div>
+                <p>
+                    乗法モデル
+                </p>
+                <div>
+                    \[
+                    Y=T\cdot C\cdot S\cdot I
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2></h2>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>指数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>指数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2></h2>
+                <p class="indent">
+                    
+                </p>
+            </section>
+            <section id="2">
+                <h2>ラスパイレス指数</h2>
+                <figure class="def">
+                    <figcaption>定義（ラスパイレス指数）</figcaption>
+                    <p class="indent">
+                        財 \(i\) の時点 \(t\) での価格を \(p_{i,t}\) 、数量を \(q_{i,t}\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        P_L=\frac{\displaystyle\sum_{i=1}^n p_{i,t}q_{i,0}}{\displaystyle\sum_{i=1}^n p_{i,0}q_{i,0}}\times100
+                        \]
+                    </div>
+                    <p>
+                        を<strong>ラスパイレス指数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    数式ではわかりにくいですが、言葉で表すと次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\text{基準年と同じ量を購入した場合の比較年の総額}}{\text{基準年の総額}}\times100
+                    \]
+                </div>
+                <p>
+                    数量を基準年に固定して、価格の変化を見ているということです。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の表は、ある国で基準年と比較年における「りんご」と「バナナ」の価格と数量である。
+                        このとき、比較年のラスパイレス物価指数を求めよ。
+                    </p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>品目</th><th>基準年価格</th><th>基準年数量</th><th>比較年価格</th><th>比較年数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>りんご</td><td>100</td><td>10</td><td>120</td><td>8</td></tr>
+                            <tr><td>バナナ</td><td>200</td><td>5</td><td>250</td><td>6</td></tr>
+                        </tbody>
+                    </table>
+                </figure>
+                <div class="math">
+                    \[
+                    \frac{120\cdot10+250\cdot5}{100\cdot10+200\cdot5}\times100=\frac{2450}{2000}\times100=122.5
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>パーシェ指数</h2>
+                <figure class="def">
+                    <figcaption>定義（パーシェ指数）</figcaption>
+                    <p class="indent">
+                        財 \(i\) の時点 \(t\) での価格を \(p_{i,t}\) 、数量を \(q_{i,t}\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        P_P=\frac{\displaystyle\sum_{i=1}^n p_{i,t}q_{i,t}}{\displaystyle\sum_{i=1}^n p_{i,0}q_{i,t}}\times100
+                        \]
+                    </div>
+                    <p>
+                        を<strong>パーシェ指数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    こちらも言葉で表すと次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\text{比較年の総額}}{\text{比較年と同じ量を購入した場合の基準年の総額}}\times100
+                    \]
+                </div>
+                <p>
+                    数量を比較年に固定して、価格の変化を見ているということです。
+                </p>
+            </section>
+            <section id="4">
+                <h2>フィッシャー指数</h2>
+                <figure class="def">
+                    <figcaption>定義（フィッシャー指数）</figcaption>
+                    <p class="indent">
+                        ラスパイレス指数を \(P_L\) 、パーシェ指数を \(P_P\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        P_F=\sqrt{P_LP_P}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>フィッシャー指数</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
