@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>線形独立と線形従属</title>
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>線形独立と線形従属</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>線形結合</h2>
+                <figure class="def">
+                    <figcaption>定義（線形結合）</figcaption>
+                    <p class="indent">
+                        \(V\) を \(K\) 上のベクトル空間とする。
+                        ベクトル \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) と スカラー \(k_1,k_2,\cdots,k_n\in K\) によって
+                    </p>
+                    <div class="math">
+                        \[
+                        k_1\boldsymbol{v}_1+k_2\boldsymbol{v}_2+\cdots+k_n\boldsymbol{v}_n
+                        \]
+                    </div>
+                    <p>
+                        の形で表される式をベクトル \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) の<strong>線形結合</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    \(K\) 上のベクトル空間 \(V\) のベクトル \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) の線形結合が零ベクトルと等しいとした関係式
+                </p>
+                <div class="math">
+                    \[
+                    k_1\boldsymbol{v}_1+k_2\boldsymbol{v}_2+\cdots+k_n\boldsymbol{v}_n=\boldsymbol{0}
+                    \]
+                </div>     
+                <p>
+                    を \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) の<strong>線形関係式</strong>といいます。
+                </p>
+                <p class="indent">
+                    特に
+                </p>
+                <div class="math">
+                    \[
+                    k_1=k_2=\cdots=k_n=0
+                    \]
+                </div>
+                <p>
+                    のとき、線形関係式は
+                </p>
+                <div class="math">
+                    \[
+                    0\boldsymbol{v}_1+0\boldsymbol{v}_2+\cdots+0\boldsymbol{v}_n=\boldsymbol{0}
+                    \]
+                </div>
+                <p>
+                    となり、これを<strong>自明な線形関係式</strong>といいます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>線形独立・線形従属の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（線形独立と線形従属）</figcaption>
+                    <p class="indent">
+                        \(V\) を \(K\) 上のベクトル空間とする。
+                        \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) が非自明な線形関係式をもたないとき、すなわち、\(k_1,k_2,\cdots,k_n\in K\) として
+                    </p>
+                    <div class="math">
+                        \[
+                        k_1\boldsymbol{v}_1+k_2\boldsymbol{v}_2+\cdots+k_n\boldsymbol{v}_n=\boldsymbol{0}\\
+                        \]
+                    </div>
+                    <p>
+                        を満たす \(k_1,k_2,\cdots,k_n\in K\) が
+                    </p>
+                    <div class="math">
+                        \[
+                        k_1=k_2=\cdots=k_n=0
+                        \]
+                    </div>
+                    <p>
+                        に限るとき、\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) は<strong>線形独立</strong>であるという。
+                    </p>
+                    <p class="indent">
+                        逆に \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) が非自明な線形関係式をもつとき、\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) は<strong>線形従属</strong>であるという。
+                    </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        次の \(\mathbb{R}^3\) のベクトルの組は線形独立か線形従属かを判定せよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \left\{\begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix},\begin{bmatrix} 2 \\ -2 \\ 1 \end{bmatrix},\begin{bmatrix} 2 \\ -1 \\ 2 \end{bmatrix}\right\}
+                        \]
+                    </div>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div class="math">
+                        \[
+                        k_1\begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix}+k_2\begin{bmatrix} 2 \\ -2 \\ 1 \end{bmatrix}+k_3\begin{bmatrix} 2 \\ -1 \\ 2 \end{bmatrix}=\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        とおくと
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{bmatrix} 1 & 2 & 2 \\ 1 & -2 & -1 \\ 2 & 1 & 2 \end{bmatrix}\begin{bmatrix} k_1 \\ k_2 \\ k_3 \end{bmatrix}=\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        この同次連立一次方程式を解くことを考える。
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \begin{vmatrix} 1 & 2 & 2 \\ 1 & -2 & -1 \\ 2 & 1 & 2 \end{vmatrix}
+                        &=\begin{vmatrix} 1 & 2 & 2 \\ 0 & -4 & -3 \\ 0 & -3 & -2 \end{vmatrix}\\
+                        &=(-1)^2\begin{vmatrix} 1 & 2 & 2 \\ 0 & 4 & 3 \\ 0 & 3 & 2 \end{vmatrix}
+                        =\begin{vmatrix} 1 & 2 & 2 \\ 0 & 4 & 3 \\ 0 & 3 & 2 \end{vmatrix}\\
+                        &=\begin{vmatrix} 4 & 3 \\ 3 & 2 \end{vmatrix}
+                        =4\cdot2-3\cdot3
+                        =-1
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        であるから、同次連立一次方程式は自明な解しかもたない。
+                        したがって、線形独立である。
+                    </p>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
