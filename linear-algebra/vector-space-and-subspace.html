@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ベクトル空間と部分空間</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ベクトル空間と部分空間</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ベクトル空間</h2>
+                <figure class="def">
+                    <figcaption>定義（ベクトル空間）</figcaption>
+                    <p class="indent">
+                        体 \(K\) および空でない集合 \(V\) について
+                    </p>
+                    <div class="math">
+                        \[
+                        \forall \boldsymbol{a},\boldsymbol{b}\in V:\boldsymbol{a}+\boldsymbol{b}\in V
+                        \]
+                        \[
+                        \forall \boldsymbol{a}\in V,~\forall k\in K:k\boldsymbol{a}\in V
+                        \]
+                    </div>
+                    <p>
+                        が成り立ち、次の１～８の性質（ベクトルの公理）を満たすとき、\(V\) を \(K\) 上の<strong>ベクトル空間</strong>（線形空間）という。
+                    </p>
+                    <ol>
+                        <li>
+                            <figcaption>（和に関する結合法則）</figcaption>
+                            <div class="math">
+                                \(\forall \boldsymbol{a},\boldsymbol{b},\boldsymbol{c}\in V:(\boldsymbol{a}+\boldsymbol{b})+\boldsymbol{c}=\boldsymbol{a}+(\boldsymbol{b}+\boldsymbol{c})\)
+                            </div>
+                        </li>
+                        <li>
+                            <figcaption>（和に関する交換法則）</figcaption>
+                            <div class="math">
+                                \(\forall \boldsymbol{a},\boldsymbol{b}\in V:\boldsymbol{a}+\boldsymbol{b}=\boldsymbol{b}+\boldsymbol{a}\)
+                            </div>
+                        </li>
+                        <li>
+                            <figcaption>（零元の存在）</figcaption>
+                            <div class="math">
+                                \(\exists \boldsymbol{0}\in V,~\forall \boldsymbol{a}\in V:\boldsymbol{a}+\boldsymbol{0}=\boldsymbol{a}\)
+                            </div>
+                        </li>
+                        <li>
+                            <figcaption>（逆元の存在）</figcaption>
+                            <div class="math">
+                                \(\forall \boldsymbol{a}\in V,~\exists -\boldsymbol{a}\in V:\boldsymbol{a}+(-\boldsymbol{a})=\boldsymbol{0}\)
+                            </div>
+                        </li>
+                        <li>
+                            <figcaption>（スカラー倍に関する結合法則）</figcaption>
+                            <div class="math">
+                                \(\forall \boldsymbol{a},\boldsymbol{b}\in V,~\forall k,l\in K:k(l\boldsymbol{a})=(kl)\boldsymbol{a}\)
+                            </div>
+                        </li>
+                        <li>
+                            <figcaption>（スカラーに関する分配法則）</figcaption>
+                            <div class="math">
+                                \(\forall \boldsymbol{a}\in V,~\forall k,l\in K:(k+l)\boldsymbol{a}=k\boldsymbol{a}+l\boldsymbol{a}\)
+                            </div>
+                        </li>
+                        <li>
+                            <figcaption>（ベクトルに関する分配法則）</figcaption>
+                            <div class="math">
+                                \(\forall \boldsymbol{a},\boldsymbol{b}\in V,~\forall k\in K:k(\boldsymbol{a}+\boldsymbol{b})=k\boldsymbol{a}+k\boldsymbol{b}\)
+                            </div>
+                        </li>
+                        <li>
+                            <figcaption>（単位元によるスカラー倍）</figcaption>
+                            <div class="math">
+                                \(\exists 1\in K,~\forall \boldsymbol{a}\in V:1\boldsymbol{a}=\boldsymbol{a}\)
+                            </div>
+                        </li>
+                    </ol>
+                    <p class="indent">
+                        特に、\(V\) は \(K=\mathbb{R}\) のとき<strong>実ベクトル空間</strong>といい、\(K=\mathbb{C}\) のとき<strong>複素ベクトル空間</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    ベクトル空間の例を示します。
+                </p>
+                <figure class="ex">
+                    <figcaption>例（実数列全体の集合がなすベクトル空間）</figcaption>
+                    <p class="indent">
+                        実数列全体の集合 \(A(\mathbb{R})=\{\{a_n\}_{n=1}^\infty~|~a_n\in\mathbb{R}~(n\in\mathbb{N})\}\) に対し、和とスカラー倍を
+                    </p>
+                    <div clss="math">
+                        \[
+                        \{a_n\}+\{b_n\}=\{a_n+b_n\},\quad k\{a_n\}=\{ka_n\}
+                        \]
+                    </div>
+                    <p>
+                        と定義すると、\(A(\mathbb{R})\) はベクトル空間となる。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>部分空間</h2>
+                <figure class="def">
+                    <figcaption>定義（部分空間）</figcaption>
+                    <p class="indent">
+                        \(K\) 上のベクトル空間 \(V\) の部分集合 \(W\) について
+                    </p>
+                    <ol>
+                        <li>\(\boldsymbol{0}\in W\)</li>
+                        <li>\(\forall \boldsymbol{a},\boldsymbol{b}\in W:\boldsymbol{a}+\boldsymbol{b}\in W\)</li>
+                        <li>\(\forall \boldsymbol{a}\in W,~\forall k\in K:k\boldsymbol{a}\in W\)</li>
+                    </ol>
+                    <p>
+                        が成り立つとき、\(W\) をベクトル空間 \(V\) の部分空間という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        \(\mathbb{R}\) 上のベクトル空間 \(\mathbb{R}^2\) の部分集合
+                    </p>
+                    <div class="math">
+                        \[
+                        W=\left\{\left. \begin{bmatrix} x \\ y \end{bmatrix}\in\mathbb{R}^2 ~\right|~ x+2y=0 \right\}
+                        \]
+                    </div>
+                    <p>
+                        が \(\mathbb{R}^2\) の部分空間であるかどうか判定せよ。
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>
+                            <p>
+                                \(0+2\cdot0=0\) より \(\boldsymbol{0}\in W\)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                \(\boldsymbol{a}=\begin{bmatrix} a_1 \\ a_2 \end{bmatrix},~\boldsymbol{b}=\begin{bmatrix} b_1 \\ b_2 \end{bmatrix}\in W\) とすると
+                            </p>
+                            <div class="math">
+                                \[
+                                a_1+2a_2=0,\quad b_1+2b_2=0
+                                \]
+                            </div>
+                            <p>
+                                であるから \(\boldsymbol{a}+\boldsymbol{b}=\begin{bmatrix} a_1+b_1 \\ a_2+b_2 \end{bmatrix}\) について
+                            </p>
+                            <div class="math">
+                                \[
+                                (a_1+b_1)+2(a_2+b_2)=(a_1+2a_2)+(b_1+2b_2)=0
+                                \]
+                            </div>
+                            <p>
+                                よって \(\boldsymbol{a}+\boldsymbol{b}\in W\)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                \(\boldsymbol{a}=\begin{bmatrix} a_1 \\ a_2 \end{bmatrix}\in W,~k\in\mathbb{R}\) とすると
+                            </p>
+                            <div class="math">
+                                \[
+                                a_1+2a_2=0
+                                \]
+                            </div>
+                            <p>
+                                であるから \(k\boldsymbol{a}=\begin{bmatrix} ka_1 \\ ka_2 \end{bmatrix}\) について
+                            </p>
+                            <div class="math">
+                                \[
+                                ka_1+2ka_2=k(a_1+2a_2)=0
+                                \]
+                            </div>
+                            <p>
+                                よって \(k\boldsymbol{a}\in W\)
+                            </p>
+                        </li>
+                    </ol>
+                    <p>
+                        したがって、\(W\) は \(\mathbb{R}^2\) の部分空間である。
+                    </p>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
