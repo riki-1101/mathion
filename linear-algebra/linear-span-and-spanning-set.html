@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>線形包と生成系</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>線形包と生成系</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>線形包</h2>
+                <figure class="def">
+                <figcaption>定義（線形包）</figcaption>
+                <p class="indent">
+                    \(V\) を \(K\) 上のベクトル空間とする。
+                    \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) の線形結合の全体からなる集合
+                </p>
+                <div class="math">
+                    \[
+                    \{k_1\boldsymbol{v}_1+k_2\boldsymbol{v}_2+\cdots+k_n\boldsymbol{v}_n\in V~|~k_1,k_2,\cdots,k_n\in K\}
+                    \]
+                </div>
+                <p>
+                    を
+                </p>
+                <div class="math">
+                    \[
+                    \langle \boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n \rangle 
+                    \]
+                </div>
+                <p>
+                    と表し、これを \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) の<strong>線形包</strong>という。
+                </p>
+            </figure>
+            </section>
+            <section id="2">
+                <h2>生成系</h2>
+                <figure class="def">
+                    <figcaption>定義（ベクトルが生成する部分空間・生成系）</figcaption>
+                    <p class="indent">
+                        \(V\) を \(K\) 上のベクトル空間とし、\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) とする。
+                        \(V\) の部分集合 \(W\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        W=\langle \boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n \rangle
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(W\) を \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) が生成する部分空間といい、\(\{\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\}\) を \(W\) の生成系という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        \(\left\{ \begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}1\\1\end{bmatrix} \right\}\) は \(\mathbb{R}^2\) を生成するか。
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <p>
+                        任意の \(\begin{bmatrix}x\\y\end{bmatrix}\in\mathbb{R}^2\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{bmatrix}x\\y\end{bmatrix}=s\begin{bmatrix}1\\0\end{bmatrix}+t\begin{bmatrix}1\\1\end{bmatrix}~~~(s,t\in\mathbb{R})
+                        \]
+                    </div>
+                    とおくと
+                    \[
+                    \begin{cases}
+                    x=s+t\\
+                    y=t
+                    \end{cases}
+                    \Leftrightarrow
+                    \begin{cases}
+                    s=x-y\\
+                    t=y
+                    \end{cases}
+                    \]
+                    であるから
+                    \[
+                    \begin{bmatrix}x\\y\end{bmatrix}=(x-y)\begin{bmatrix}1\\0\end{bmatrix}+y\begin{bmatrix}1\\1\end{bmatrix}
+                    \]
+                    よって \(\left\{ \begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}1\\1\end{bmatrix} \right\}\) は \(\mathbb{R}^2\) を生成する。
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
