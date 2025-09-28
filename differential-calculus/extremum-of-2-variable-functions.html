@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>２変数関数の極値</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>２変数関数の極値</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>２変数関数の極値の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（2変数関数の極値）</figcaption>
+                    <p class="indent">
+                        2変数関数 \(f(x,y)\) がある点 \((a,b)\) の \(\epsilon\)-近傍
+                    </p>
+                    <div class="math">
+                        \[
+                        U_\epsilon(a,b)=\left\{(x,y)\in\mathbb{R}^2~\left|~\sqrt{(x-a)^2+(y-b)^2}\lt\epsilon\right.\right\}
+                        \]
+                    </div>
+                    <p>
+                        において
+                    </p>
+                    <div class="math">
+                        \[
+                        f(a,b)\gt f(x,y)
+                        \]
+                    </div>
+                    <p>
+                        を満たすとき、\(f\) は点 \((a,b)\) で極大であるといい、\(f(a,b)\) を極大値という。
+                    </p>
+                    <p class="indent">
+                        また、\(U_\epsilon(a,b)\) において
+                    </p>
+                    <div class="math">
+                        \[
+                        f(a,b)\lt f(x,y)
+                        \]
+                    </div>
+                    <p>
+                        を満たすとき、\(f(x,y)\) は点 \((a,b)\) で極小であるといい、\(f(a,b)\) を極小値という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>極値をもつ必要条件</h2>
+                <figure class="th">
+                    <figcaption>定理（極値をもつ必要条件）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x,y)\) が点 \((a,b)\) において極値をもつならば
+                    </p>
+                    <div class="math">
+                        \[
+                        f_x(a,b)=f_y(a,b)=0
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                        このときの点 \((a,b)\) を<strong>停留点</strong>（臨界点）という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>極値判定</h2>
+                <p class="indent">
+                    \(f(x,y)\) を点 \((a,b)\) で2次までテイラー展開すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x,y)=&f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)\\
+                    &+\frac{1}{2}\{f_{xx}(a,b)(x-a)^2+2f_{xy}(a,b)(x-a)(y-b)+f_{yy}(a,b)(y-b)^2\}+R_3
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    点 \((a,b)\) が停留点であるとき
+                </p>
+                <div class="math">
+                    \[
+                    f_x(a,b)=f_y(a,b)=0
+                    \]
+                </div>
+                <p>
+                    であるから
+                </p>
+                <div class="math">
+                    \[
+                    f(x,y)=f(a,b)+\frac{1}{2}\{f_{xx}(a,b)(x-a)^2+2f_{xy}(a,b)(x-a)(y-b)+f_{yy}(a,b)(y-b)^2\}+R_3
+                    \]
+                </div>
+                <p>
+                    が成り立つ。
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &f_{xx}(a,b)(x-a)^2+2f_{xy}(a,b)(x-a)(y-b)+f_{yy}(a,b)(y-b)^2\\
+                    &=f_{xx}(a,b)\left\{\left((x-a)+\frac{f_{xy}(a,b)}{f_{xx}(a,b)}(y-b)\right)^2+\frac{f_{xx}(a,b)f_{yy}(a,b)-\{f_{xy}(a,b)\}^2}{\{f_{xx}(a,b)\}^2}(x-a)^2\right\}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    であるから
+                </p>
+                <p>
+                    \(f_{xx}(a,b)\gt0\) かつ \(f_{xx}(a,b)f_{yy}(a,b)-\{f_{xy}(a,b)\}^2\gt0\) のとき \(f(a,b)\lt f(x,y)\)
+                </p>
+                <p>
+                    \(f_{xx}(a,b)\lt0\) かつ \(f_{xx}(a,b)f_{yy}(a,b)-\{f_{xy}(a,b)\}^2\gt0\) のとき \(f(a,b)\gt f(x,y)\)
+                </p>
+                <p>
+                    \(f_{xx}(a,b)f_{yy}(a,b)-\{f_{xy}(a,b)\}^2\lt0\) のとき、\(x-a,~y-b\) の値によって \(f(x,y)-f(a,b)\) の符号が変化する。
+                </p>
+                <p>
+                    このことから次のことがいえる。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（ヘッセ行列）</figcaption>
+                    <p class="indent">
+                        \(C^2\) 級関数 \(f(x,y)\) に対して、行列
+                    </p>
+                    <div class="indent">
+                        \[
+                        H_f(a,b)=\begin{bmatrix} f_{xx}(a,b) & f_{xy}(a,b) \\ f_{xy}(a,b) & f_{yy}(a,b) \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を \(f(x,y)\) のヘッセ行列という。
+                    </p>
+                    <p class="indent">
+                        また、ヘッセ行列の行列式
+                    </p>
+                    <div class="math">
+                        \[
+                        \det H_f(a,b)=f_{xx}(x,y)f_{yy}(x,y)-f_{xy}(x,y)^2
+                        \]
+                    </div>
+                    <p>
+                        を<strong>ヘッシアン</strong>という。
+                    </p>
+                </figure>
+                <figure class="th">
+                    <figcaption>定理（極値判定）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x,y)\) の停留点 \((a,b)\) に対して
+                    </p>
+                    <ol>
+                        <li>\(\det H_f(a,b)\gt0\) かつ \(f_{xx}(a,b)\gt0\) のとき、\(f(a,b)\) は極小値である</li>
+                        <li>\(\det H_f(a,b)\gt0\) かつ \(f_{xx}(a,b)\lt0\) のとき、\(f(a,b)\) は極大値である</li>
+                        <li>\(\det H_f(a,b)\lt0\) のとき、\((a,b)\) で極値をもたない</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="ex">
+                <figure class="ex">
+                    <figcaption>例題</figcaption>
+                    <p>
+                        \(f(x,y)=xye^{x+y}\) の極値を求めよ。
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div class="math">
+                        \[
+                        f_x(x,y)=(x+1)ye^{x+y},~~f_y(x,y)=x(y+1)e^{x+y}
+                        \]
+                        \[
+                        f_{xx}(x,y)=(x+2)ye^{x+y},~~f_{xy}(x,y)=(x+1)(y+1)e^{x+y},~~f_{yy}(x,y)=x(y+2)e^{x+y}
+                        \]
+                    </div>
+                    <p>
+                        であり
+                    </p>
+                    <div class="math">
+                        \[
+                        f_x(x,y)=f_y(x,y)=0
+                        \]
+                    </div>
+                    <p>
+                        とすると、停留点は
+                    </p>
+                    <div class="math">
+                        \[
+                        (x,y)=(0,0),(-1,-1)
+                        \]
+                    </div>
+                    <p>
+                        である。
+                    </p>
+                    <div class="math">
+                        \[
+                        H_f(0,0)=\begin{bmatrix} f_{xx}(0,0) & f_{xy}(0,0) \\ f_{xy}(0,0) & f_{yy}(0,0) \end{bmatrix}
+                        =\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+                        \]
+                        \[
+                        H_f(-1,-1)=\begin{bmatrix} f_{xx}(-1,-1) & f_{xy}(-1,-1) \\ f_{xy}(-1,-1) & f_{yy}(-1,-1) \end{bmatrix}
+                        =\begin{bmatrix} -\frac{1}{e^2} & 0 \\ 0 & -\frac{1}{e^2} \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        であるから
+                    </p>
+                    <p>
+                        \(\det H_f(0,0)=-1\lt0\) より、点 \((0,0)\) は鞍点である。
+                    </p>
+                    <p>
+                        \(\det H_f(-1,-1)=\displaystyle\frac{1}{e^4}\gt0\) かつ \(f_{xx}(-1,-1)=-\displaystyle\frac{1}{e^2}\lt0\) より、\(f(x,y)\) は点 \((-1,-1)\) で極大値 \(f(-1,-1)=\displaystyle\frac{1}{e^2}\) をとる。
+                    </p>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
