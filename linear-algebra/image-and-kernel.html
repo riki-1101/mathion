@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>線形写像の像と核</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>線形写像の像と核</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>線形写像の核</h2>
+                <figure class="def">
+                    <figcaption>定義（線形写像の核）</figcaption>
+                    <p class="indent">
+                        \(V,W\) を \(K\) 上のベクトル空間とし、\(f:V\to W\) を線形写像とする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Ker}f:=\{\boldsymbol{x}\in V~|~f(\boldsymbol{x})=\boldsymbol{0}\}
+                        \]
+                    </div>
+                    <p>
+                        を \(f\) の核という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>線形写像の像</h2>
+                <figure class="def">
+                    <figcaption>定義（線形写像の像）</figcaption>
+                    <p class="indent">
+                        \(V,W\) を \(K\) 上のベクトル空間とし、\(f:V\to W\) を線形写像とする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Im}f=f(V)=\{f(\boldsymbol{x})\in W~|~\boldsymbol{x}\in V\}
+                        \]
+                    </div>
+                    <p>
+                        を \(f\) の像という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（線形写像の階数）</figcaption>
+                    <p class="indent">
+                        \(V,W\) を \(K\) 上のベクトル空間とし、\(f:V\to W\) を線形写像とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{rank}f:=\dim \operatorname{Im}f
+                        \]
+                    </div>
+                    <p>
+                        を \(f\) の階数という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（行列写像の階数）</figcaption>
+                    <p class="indent">
+                        \(K\) の要素を成分にもつ \(m\times n\) 行列 \(A\) によって定まる線形写像 \(f_A:K^n\to K^m\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{rank}f_A=\operatorname{rank}A
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>次元定理</h2>
+                <figure class="th">
+                    <figcaption>定理（次元定理）</figcaption>
+                    <p class="indent">
+                        \(V,W\) を \(K\) 上のベクトル空間とし、\(f:V\to W\) を線形写像とする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \dim V=\operatorname{rank}f+\dim\operatorname{Ker}f
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        写像 \(f:\mathbb{R}^4\to\mathbb{R}^3\) を次のように定める。
+                    </p>
+                    <div class="math">
+                        \[
+                        f\left(\begin{bmatrix} x \\ y \\ z \\ w \end{bmatrix}\right)
+                        =\begin{bmatrix} x+4y-2z-w \\ -2x-y-z+2w \\ x+2y-z \end{bmatrix}
+                        \]
+                    </div>
+                    <ol>
+                        <li>\(\operatorname{Ker}f\) の基底を1組求めよ。</li>
+                        <li>\(\operatorname{Im}f\) の基底を1組求めよ。</li>
+                    </ol>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
