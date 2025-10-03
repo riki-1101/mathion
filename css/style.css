@@ -446,13 +446,17 @@ footer {
     content: "▼";
 }
 
+.ex-problem {
+    background-color: white;
+}
+.ex-problem p {
+    margin: 0;
+    padding: 0.2em 0;
+}
+
 
 .ex {
     background-color: gainsboro;
-}
-
-.ex-problem {
-    background-color: white;
 }
 
 details.ex-answer {
