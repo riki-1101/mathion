@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>独立性の検定</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>独立性の検定</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>独立性の検定とは</h2>
+                <p class="indent">
+                    ２つのカテゴリ変数の間に関係があるかどうかを調べる検定を<strong>独立性の検定</strong>といいます。
+                </p>
+                <p class="indent">
+                    例えば、「コーヒー派」と「紅茶派」という好みが、性別に関係しているのかを調べたいとします。
+                    そこで、男性と女性それぞれ50人にアンケートを取ったところ、次のデータが得られました。
+                </p>
+                <table class="fixed-table">
+                    <thead>
+                        <tr><th></th><th>コーヒー派</th><th>紅茶派</th><th>合計</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>男性</th><td>\(30\)</td><td>\(20\)</td><td>\(50\)</td></tr>
+                        <tr><th>女性</th><td>\(10\)</td><td>\(40\)</td><td>\(50\)</td></tr>
+                        <tr><th>合計</th><td>\(40\)</td><td>\(60\)</td><td>\(100\)</td></tr>
+                    </tbody>
+                </table>
+                <p class="indent">
+                    この結果から、「性別」と「飲み物の好み」が本当に関係していると言えるのでしょうか。
+                    それとも、たまたまこのような結果になっただけでしょうか。
+                    そんなときに使うのが<strong>独立性の検定</strong>です。
+                </p>
+            </section>
+            <section id="2">
+                <h2>独立性の検定の理論</h2>
+                <p>
+                    \(A_i\) かつ \(B_j\) である観測度数を \(X_{ij}\) とします。
+                </p>
+                <table class="fixed-table">
+                    <thead>
+                        <tr><th></th><th>\(B_1\)</th><th>\(B_2\)</th><th>\(\cdots\)</th><th>\(B_m\)</th><th>合計</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>\(A_1\)</th><td>\(X_{11}\)</td><td>\(X_{12}\)</td><td>\(\cdots\)</td><td>\(X_{1m}\)</td><td>\(X_{1\cdot}\)</td></tr>
+                        <tr><th>\(A_2\)</th><td>\(X_{21}\)</td><td>\(X_{22}\)</td><td>\(\cdots\)</td><td>\(X_{2m}\)</td><td>\(X_{2\cdot}\)</td></tr>
+                        <tr><th>\(\vdots\)</th><td>\(\vdots\)</td><td>\(\vdots\)</td><td>\(\ddots\)</td><td>\(\vdots\)</td><td>\(\vdots\)</td></tr>
+                        <tr><th>\(A_l\)</th><td>\(X_{l1}\)</td><td>\(X_{l2}\)</td><td>\(\cdots\)</td><td>\(X_{lm}\)</td><td>\(X_{l\cdot}\)</td></tr>
+                        <tr><th>合計</th><td>\(X_{\cdot 1}\)</td><td>\(X_{\cdot 2}\)</td><td>\(\cdots\)</td><td>\(X_{\cdot m}\)</td><td>\(n\)</td></tr>
+                    </tbody>
+                </table>
+                <p class="indent">
+                    独立性の検定では、次のように仮説を立てます。
+                </p>
+                <ul>
+                    <li>帰無仮説 \( H_0 \)：２つの変数は<strong>独立である</strong></li>
+                    <li>対立仮説 \( H_1 \)：２つの変数は<strong>独立でない</strong></li>
+                </ul>
+                <p class="indent">
+                    \(H_0\) が正しいと仮定します。
+                    つまり
+                </p>
+                <div class="math">
+                    \[
+                    P(A_i\cap B_j)=P(A_i)P(B_j)
+                    \]
+                </div>
+                <p>
+                    が成り立つとします。
+                    このとき、各セルの期待度数を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    E_{ij}=nP(A_i\cap B_j)=nP(A_i)P(B_j)=\frac{X_{i\cdot}X_{\cdot j}}{n}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    P(A_i)=\frac{X_{i\cdot}}{n},\quad P(B_j)=\frac{X_{\cdot j}}{n}
+                    \]
+                </div>
+                <p class="indent">
+                    観測値 \( O_{ij} \) と期待度数 \( E_{ij} \) の差がどれくらい大きいかを測るために、
+                    <strong>カイ二乗統計量</strong>を計算します。
+                </p>
+                <div class="math">
+                    \[
+                    \chi^2 = \sum_{i=1}^l\sum_{j=1}^m \dfrac{(O_{ij} - E_{ij})^2}{E_{ij}}
+                    \]
+                </div>
+                <p>
+                    ここで、次の定理を用います。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（独立性の検定におけるカイ二乗統計量）</figcaption>
+                    <div class="math">
+                        \[
+                        \sum_{i=1}^l\sum_{j=1}^m \dfrac{\left(O_{ij} - \frac{X_{i\cdot}X_{\cdot j}}{n}\right)^2}{\frac{X_{i\cdot}X_{\cdot j}}{n}}
+                        \]
+                    </div>
+                    <p>
+                        は近似的に自由度 \((l-1)(m-1)\) のカイ二乗分布に従う。
+                    </p>
+                </figure>
+                <p>
+                    つまり、\(n\) が十分大きいとき
+                </p>
+                <div class="math">
+                    \[
+                    \chi^2=\sum_{i=1}^l\sum_{j=1}^m \dfrac{\left(O_{ij} - \frac{X_{i\cdot}X_{\cdot j}}{n}\right)^2}{\frac{X_{i\cdot}X_{\cdot j}}{n}}\sim \chi^2((l-1)(m-1))
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

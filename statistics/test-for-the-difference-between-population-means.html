@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>2標本による母平均の差の検定</title>
+        <title>母平均の差の検定</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
@@ -11,7 +11,7 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>2標本による母平均の差の検定</h1>
+            <h1>母平均の差の検定</h1>
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>母平均の差の検定統計量（z検定）</h2>
@@ -42,6 +42,95 @@
                     \]
                     これが検定統計量となります。
                 </p>
+            </section>
+            <section id="2">
+                <h2>母分散が未知で等しい場合</h2>
+                <p class="indent">
+                    母分散 \(\sigma_A^2,\sigma_B^2\) はともに未知であるが、\(\sigma_A^2=\sigma_B^2\) と仮定できる場合です。
+                </p>
+                <div class="math">
+                    \[
+                    \sigma^2=\sigma_A^2=\sigma_B^2
+                    \]
+                </div>
+                <p>
+                    とすると、統計量 \(Z\) は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_A^2}{n_A}+\frac{\sigma_B^2}{n_B}}}=\frac{\overline{X}-\overline{Y}}{\sqrt{\sigma^2}\sqrt{\frac{1}{n_A}+\frac{1}{n_B}}}
+                    \]
+                </div>
+                <p>
+                    ここで \(\sigma^2\) は未知であるから、\(\sigma^2\) の不偏推定量で代用することを考えます。
+                </p>
+                <p class="indent">
+                    次の事実を用います。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n_A-1)U_A^2}{\sigma_A^2}\sim\chi^2(n_A-1), \quad \frac{(n_B-1)U_B^2}{\sigma_B^2}\sim\chi^2(n_B-1)
+                    \]
+                </div>
+                <p>
+                    これらの和をとると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n_A-1)U_A^2}{\sigma_A^2}+\frac{(n_B-1)U_B^2}{\sigma_B^2}=\frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{\sigma^2}
+                    \]
+                </div>
+                <p>
+                    カイ二乗分布の性質より
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{\sigma^2}\sim \chi^2(n_A+n_B-2)
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                </p>
+                <p class="indent">
+                    カイ二乗分布に従う確率変数の期待値は自由度であるから
+                </p>
+                <div class="math">
+                    \[
+                    E\left[\frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{\sigma^2}\right]=n_A+n_B-2
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    E\left[\frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{n_A+n_B-2}\right]=\sigma^2
+                    \]
+                </div>
+                <p>
+                    が成り立つので
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{n_A+n_B-2}
+                    \]
+                </div>
+                <p>
+                    は \(\sigma^2\) の不偏推定量であるとわかります。
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\overline{Y}}{\sqrt{\sigma^2}\sqrt{\frac{1}{n_A}+\frac{1}{n_B}}}
+                    \]
+                </div>
+                <p>
+                    の \(\sigma^2\) を置き換えた統計量を \(T\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    T=\frac{\overline{X}-\overline{Y}}{\sqrt{\frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{n_A+n_B-2}}\sqrt{\frac{1}{n_A}+\frac{1}{n_B}}}
+                    \]
+                </div>
             </section>
         </main>
         <footer id="footer"></footer>

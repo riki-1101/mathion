@@ -74,6 +74,44 @@
                     </p>
                 </figure>
             </section>
+            <section id="2">
+                <h2>フーリエ変換の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（フーリエ変換の線形性）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t),g(t)\) 、定数 \(a,b\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div clss="math">
+                        \[
+                        \mathcal{F}\{af(t)+bg(t)\}=a\mathcal{F}\{f(t)\}+b\mathcal{F}\{g(t)\}
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（時間軸の推移）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) 、定数 \(\tau\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{F}\{f(t-\tau)\}=e^{-i\omega\tau}F(\omega)
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（周波数の推移）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) 、定数 \(\omega_0\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{F}\{f(t)e^{i\omega_0t}\}=F(\omega-\omega_0)
+                        \]
+                    </div>
+                </figure>
+            </section>
             <section id="ex">
                 <h2>演習問題</h2>
                 <figure class="ex">

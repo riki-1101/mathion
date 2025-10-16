@@ -122,33 +122,43 @@
                 </p>
             </section>
             <h2 id="1">フーリエ級数展開とは</h2>
-            <div class="article">
+            <p class="indent">
                 フーリエ級数展開とは、ある関数を三角関数の和で表す手法である。
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（フーリエ級数）</div>
-                関数 \(f(x)\) を周期 \(2\pi\) の周期関数とする。このとき
-                \[
-                f(x)\sim\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)
-                \]
-                を \(f\) のフーリエ級数という。また、\(a_n,~b_n\) をフーリエ係数という。
-            </div>
+            </p>
+            <figure class="def">
+                <figcaption>定義（フーリエ級数）</figcaption>
+                <p class="indent">
+                    関数 \(f(t)\) を周期 \(T\) の周期関数とする。
+                    このとき
+                </p>
+                <div class="math">
+                    \[
+                    f(t)\sim\frac{a_0}{2}+\sum_{n=1}^\infty\left(a_n\cos\frac{2\pi n}{T}t+b_n\sin\frac{2\pi n}{T}t\right)
+                    \]
+                </div>
+                <p>
+                    を \(f\) のフーリエ級数といい、\(a_n,b_n\) をフーリエ係数という。
+                </p>
+            </figure>
             <p class="space"></p>
             <h2 id="2">フーリエ係数</h2>
             <div class="article">
                 フーリエ係数は、三角関数の直交性を利用することで求められる。
             </div>
-            <div class="th">
-                <div>再掲（三角関数の直交性）</div>
-                \(m,n\in\mathbb{Z}_{\ge0}\) とする。
+            <figure class="th">
+                <figcaption>再掲（三角関数の直交性）</figcaption>
+                <p class="indent">
+                    \(m,n\in\mathbb{Z}_{\ge0}\) とする。
+                </p>
                 <ol>
-                    <li>\(\displaystyle\int_0^{2\pi}\cos mx\sin nxdx=0\)</li>
-                    <li>\(\displaystyle\int_0^{2\pi}\cos mx\cos nxdx=0~~~(m\neq n)\)</li>
-                    <li>\(\displaystyle\int_0^{2\pi}\sin mx\sin nxdx=0~~~(m\neq n)\)</li>
+                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos\left(\frac{2\pi m}{T}t\right)\sin\left(\frac{2\pi n}{T}t\right)dt=0\)</li>
+                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos\left(\frac{2\pi m}{T}t\right)\cos\left(\frac{2\pi n}{T}t\right)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
+                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\sin\left(\frac{2\pi m}{T}t\right)\sin\left(\frac{2\pi n}{T}t\right)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
                 </ol>
-            </div>
-            <p></p>
+            </figure>
+            <p>
+                三角関数の積の１周期分の積分は、異なる三角関数の積ならば \(0\) 、同じ三角関数の積であるときのみ \(\frac{T}{2}\) となる。
+            </p>
             <h3>\(a_n\) を求める</h3>
             <div class="article">
                 両辺に \(\cos mx~(m\in\mathbb{N})\) を掛ける
@@ -159,15 +169,17 @@
                 \[
                 (\text{左辺})=\int_0^{2\pi}f(x)\cos mxdx
                 \]
+            <div class="math">
                 \[
                 \begin{align}
                 (\text{右辺})&=\int_0^{2\pi}\left\{\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\right\}\cos mxdx\\
                 &=\frac{a_0}{2}\int_0^{2\pi}\cos mxdx+\int_0^{2\pi}\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\cos mxdx\\
-                &=\frac{a_0}{2}\int_0^{2\pi}\cos mxdx+\sum_{n=1}^\infty\left(a_n\int_0^{2\pi}\cos nx\cos mxdx+b_n\int_0^{2\pi}\sin nx\cos mxdx\right)\\
+                &=\frac{a_0}{2}\left[\frac{1}{m}\sin mx\right]_0^{2\pi}+\sum_{n=1}^\infty\left(a_n\int_0^{2\pi}\cos nx\cos mxdx+b_n\int_0^{2\pi}\sin nx\cos mxdx\right)\\
                 &=\frac{a_0}{2}\int_0^{2\pi}\cos mxdx+a_m\int_0^{2\pi}\cos mx\cos mxdx\\
                 &=a_m\pi
                 \end{align}
                 \]
+            </div>
                 よって
                 \[
                 \int_0^{2\pi}f(x)\cos mxdx=a_m\pi

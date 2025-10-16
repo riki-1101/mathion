@@ -582,6 +582,10 @@ table th {
 table td {
     padding: 10px;
     border: solid 1px;
+    background-color: white;
+}
+.fixed-table {
+    table-layout: fixed;
 }
 
 
