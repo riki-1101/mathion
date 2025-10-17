@@ -40,6 +40,9 @@
             </section>
             <section id="2">
                 <h2>独立性の検定の理論</h2>
+                <p class="indent">
+                    ここでは、２つのカテゴリ変数の独立性を検定する理論を一般的な形で説明します。
+                </p>
                 <p>
                     \(A_i\) かつ \(B_j\) である観測度数を \(X_{ij}\) とします。
                 </p>
@@ -64,7 +67,7 @@
                 </ul>
                 <p class="indent">
                     \(H_0\) が正しいと仮定します。
-                    つまり
+                    つまり、２つの変数は確率的に独立であり
                 </p>
                 <div class="math">
                     \[
@@ -86,8 +89,7 @@
                     \]
                 </div>
                 <p class="indent">
-                    観測値 \( O_{ij} \) と期待度数 \( E_{ij} \) の差がどれくらい大きいかを測るために、
-                    <strong>カイ二乗統計量</strong>を計算します。
+                    観測値 \( O_{ij} \) と期待度数 \( E_{ij} \) の差がどれくらい大きいかを測るために、次の<strong>カイ二乗統計量</strong>を計算します。
                 </p>
                 <div class="math">
                     \[
@@ -95,7 +97,7 @@
                     \]
                 </div>
                 <p>
-                    ここで、次の定理を用います。
+                    各セルの期待度数 \(E_{ij}\) が十分大きい場合（一般に5以上）、次の定理により、カイ二乗統計量は近似的にカイ二乗分布に従います。
                 </p>
                 <figure class="th">
                     <figcaption>定理（独立性の検定におけるカイ二乗統計量）</figcaption>
@@ -114,6 +116,94 @@
                 <div class="math">
                     \[
                     \chi^2=\sum_{i=1}^l\sum_{j=1}^m \dfrac{\left(O_{ij} - \frac{X_{i\cdot}X_{\cdot j}}{n}\right)^2}{\frac{X_{i\cdot}X_{\cdot j}}{n}}\sim \chi^2((l-1)(m-1))
+                    \]
+                </div>
+                <p class="indent">
+                    独立であるときは観測度数 \(O_{ij}\) と期待度数 \(E_{ij}\) の差は小さくなり、\(\chi^2\) の値は小さくなります。
+                    つまり、\(\chi^2\) が大きいほど観測度数 \(O_{ij}\) と期待度数 \(E_{ij}\) のずれが大きいことを意味するため、右側（大きい値の領域）を棄却域とする<strong>右側検定</strong>を行います。
+                </p>
+                <p class="indent">
+                    自由度 \((l-1)(m-1)\) のカイ二乗分布 \(\chi^2((l-1)(m-1))\) の上側 \(100\alpha\%\) 点を探します。
+                    これを \(\chi^2_{(l-1)(m-1)}(\alpha)\) とすると、棄却域は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    R=\left[\chi^2_{(l-1)(m-1)}(\alpha),~\infty\right)
+                    \]
+                </div>
+                <p class="indent">
+                    計算したカイ二乗値が棄却域 \(R\) に入れば、帰無仮説 \(H_0\) を棄却し、「２つの変数の間に関係がある（２つの変数は独立でない）」と結論づけます。
+                </p>
+            </section>
+            <section id="3">
+                <h2>例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        「コーヒー派」と「紅茶派」という好みが、性別に関係しているのかを調べたい。
+                        そこで、男性と女性それぞれ50人にアンケートを取ったところ、次のデータが得られた。
+                    </p>
+                    <table class="fixed-table">
+                        <thead>
+                            <tr><th></th><th>コーヒー派</th><th>紅茶派</th><th>合計</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th>男性</th><td>\(30\)</td><td>\(20\)</td><td>\(50\)</td></tr>
+                            <tr><th>女性</th><td>\(10\)</td><td>\(40\)</td><td>\(50\)</td></tr>
+                            <tr><th>合計</th><td>\(40\)</td><td>\(60\)</td><td>\(100\)</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="indent">
+                        この結果から、「性別」と「飲み物の好み」は関係しているといえるだろうか。
+                        有意水準 \(5\%\) で検定せよ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    
+                </p>
+
+                <table class="fixed-table">
+                    <thead>
+                        <tr><th></th><th>コーヒー派 \(B_1\)</th><th>紅茶派 \(B_2\)</th><th>合計</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>男性 \(A_1\)</th><td>\(O_{11}=30\)</td><td>\(O_{12}=20\)</td><td>\(X_{1\cdot}=50\)</td></tr>
+                        <tr><th>女性 \(A_2\)</th><td>\(O_{21}=10\)</td><td>\(O_{22}=40\)</td><td>\(X_{2\cdot}=50\)</td></tr>
+                        <tr><th>合計</th><td>\(X_{\cdot 1}=40\)</td><td>\(X_{\cdot 2}=60\)</td><td>\(n=100\)</td></tr>
+                    </tbody>
+                </table>
+                <p>
+                    セルごとに期待度数 \(E_{ij}\) を計算すると
+                </p>
+                <table class="fixed-table">
+                    <thead>
+                        <tr><th></th><th>コーヒー派</th><th>紅茶派</th><th>合計</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>男性</th><td>\(\displaystyle\frac{50\cdot40}{100}=20\)</td><td>\(\displaystyle\frac{50\cdot60}{100}=30\)</td><td>\(50\)</td></tr>
+                        <tr><th>女性</th><td>\(\displaystyle\frac{50\cdot40}{100}=20\)</td><td>\(\displaystyle\frac{50\cdot60}{100}=30\)</td><td>\(50\)</td></tr>
+                        <tr><th>合計</th><td>\(40\)</td><td>\(60\)</td><td>\(100\)</td></tr>
+                    </tbody>
+                </table>
+                <p>
+                    棄却域は
+                </p>
+                <div class="math">
+                    \[
+                    R=\left[\chi^2_{1}(0.05),~\infty\right)=[3.841,~\infty)
+                    \]
+                </div>
+                <p>
+                    検定統計量 \(\chi^2\) 実現値 \(\chi^2_0\) は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \chi^2_0 &= \frac{(30-20)^2}{20} + \frac{(20-30)^2}{30} + \frac{(10-20)^2}{20} + \frac{(40-30)^2}{30}\\
+                    &=5 + \frac{10}{3} + 5 + \frac{10}{3}\\
+                    &= \frac{50}{3}\\
+                    &\approx 16.6667
+                    \end{align}
                     \]
                 </div>
             </section>
