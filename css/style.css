@@ -52,14 +52,14 @@ ol li {
     list-style-type: none;
     margin-bottom: 1em;
     position: relative;   /* 絶対配置の基準 */
-    padding-left: 2.5em; /* 番号の幅 + 番号とテキストの間の余白 */
+    padding-left: 2.5em;  /* 番号の幅 + 番号とテキストの間の余白 */
 }
 ol li:before {
     content: "(" counter(list-item) ")";
     position: absolute;
     left: 0;
     top: 0;
-    width: 2em;      /* 2桁番号でも収まる幅 */
+    width: 2em;        /* 2桁番号でも収まる幅 */
     text-align: right; /* 右寄せにして見やすく */
 }
 
@@ -193,19 +193,6 @@ footer {
 #homeimg {
     padding: 2vw;
     font-size: 5vw;
-}
-
-.page {
-    list-style: none;
-    display: flex;
-    li {
-        width: 33%;
-        text-align: center;
-        a {
-            color: black;
-            display: block;
-        }
-    }
 }
 
 
@@ -342,7 +329,6 @@ footer {
     color: black;
     display: block;
 }
-
 #contents h1 {
     margin: 30px 0;
     font-family: sans-serif;
@@ -386,9 +372,7 @@ footer {
     overflow-x: auto;
     overflow-y: visible;
 }
-
-/* キャプション（タイトル） */
-#contents figcaption {
+#contents figcaption {    /* キャプション（タイトル） */
     font-weight: bold;
     margin-bottom: 0.5em;
     font-size: 1.05em;
