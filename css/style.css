@@ -36,8 +36,8 @@ p.center {
 
 
 div.math {
+    margin: 1em 0;
     padding: 0 1em;
-    line-height: 3;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
