@@ -17,49 +17,65 @@
                 <h2>t分布の定義</h2>
                 <figure class="def">
                     <figcaption>定義（t分布）</figcaption>
-                    <p>
-                        確率変数 \(Z\sim N(0,1),~X\sim\chi^2(n)\) に対して、確率変数
+                    <p class="indent">
+                        確率変数 \(Z\sim N(0,1),~W\sim\chi^2(n)\) に対して
+                    </p>
+                    <div class="math">
                         \[
-                        T=\frac{Z}{\sqrt{\frac{X}{n}}}
+                        T=\frac{Z}{\sqrt{\frac{W}{n}}}
                         \]
-                        を定めると、\(T\) は自由度 \(n\) のt分布に従うといい
+                    </div>
+                    <p>
+                        を定めると、\(T\) は自由度 \(n\) の<strong>t分布</strong>に従うといい
+                    </p>
+                    <div class="math">
                         \[
                         T\sim t(n)
                         \]
+                    </div>
+                    <p>
                         と表す。
                     </p>
                 </figure>
             </section>
             <section id="2">
                 <h2>t分布の確率密度関数</h2>
-                <p>
-                    t分布の確率密度関数 \(f_T(t)\) を求めます。
+                <p class="indent">
+                    t分布の確率密度関数 \(f_T\) を求めます。
                 </p>
                 <p>
-                    確率変数 \(Z\sim N(0,1),~X\sim\chi^2(n)\) は互いに独立なので、\(Z,X\) の同時確率密度関数は次のようになります。
+                    確率変数 \(Z\sim N(0,1),~W\sim\chi^2(n)\) は互いに独立なので、\(Z,W\) の同時確率密度関数は次のようになります。
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    f_{Z,X}(z,x)&=f_Z(z)f_X(x)\\
-                    &=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\cdot\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}
+                    f_{Z,W}(z,w)&=f_Z(z)f_W(w)\\
+                    &=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\cdot\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{w}{2}}
                     \end{align}
                     \]
                 </div>
                 <p>
                     次に以下の変数変換を考えます。
+                </p>
+                <div class="math">
                     \[
-                    t=\frac{z}{\sqrt{\frac{x}{n}}},~~~u=x
+                    t=\frac{z}{\sqrt{\frac{w}{n}}},~~~u=w
                     \]
+                </div>
+                <p>
                     このとき
+                </p>
+                <div class="math">
                     \[
-                    z=t\sqrt{\frac{u}{n}},~~~x=u
+                    z=t\sqrt{\frac{u}{n}},~~~w=u
                     \]
+                </div>
+                <p>
                     であり、ヤコビアンは
                 </p>
                 <div class="math">
                     \[
-                    J=\begin{vmatrix} \frac{\partial z}{\partial t} & \frac{\partial z}{\partial u} \\ \frac{\partial x}{\partial t} & \frac{\partial x}{\partial u} \end{vmatrix}
+                    J=\begin{vmatrix} \frac{\partial z}{\partial t} & \frac{\partial z}{\partial u} \\ \frac{\partial w}{\partial t} & \frac{\partial w}{\partial u} \end{vmatrix}
                     =\begin{vmatrix} \sqrt{\frac{u}{n}} & \frac{t}{2\sqrt{nu}} \\ 0 & 1 \end{vmatrix}
                     =\sqrt{\frac{u}{n}}
                     \]
@@ -90,9 +106,13 @@
                 </div>
                 <p> 
                     ここで
+                </p>
+                <div class="math">
                     \[
                     v=u\left(\frac{1}{2}+\frac{t^2}{2n}\right)
                     \]
+                </div>
+                <p>
                     とおくと
                 </p>
                 <div class="math">
@@ -109,25 +129,28 @@
                 <p></p>
                 <figure class="th">
                     <figcaption>定理（t分布の確率密度関数）</figcaption>
-                    <p>
-                        t分布に従う確率変数の確率密度関数 \(f\) は
-                        \[
-                        f(x)=\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{x^2}{n}\right)^{-\frac{n+1}{2}}
-                        \]
-                        と表される。
+                    <p class="indent">
+                        確率変数 \(T\sim t(n)\) の確率密度関数 \(f_T\) は次式で表される。
                     </p>
+                    <div class="math">
+                        \[
+                        f_T(x)=\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{x^2}{n}\right)^{-\frac{n+1}{2}}
+                        \]
+                    </div>
                 </figure>
             </section>
             <section id="3">
-                <h2>t分布に従う確率変数の期待値と分散</h2>
+                <h2>t分布の期待値と分散</h2>
                 <figure class="th">
-                    <figcaption>定理（t分布に従う確率変数の期待値と分散）</figcaption>
-                    <p>
-                        確率変数 \(X\sim t(n)\) に対して
-                        \[
-                        E[X]=0,~~~~~V[X]=\begin{cases}\end{cases}
-                        \]
+                    <figcaption>定理（t分布の期待値と分散）</figcaption>
+                    <p class="indent">
+                        確率変数 \(T\sim t(n)\) に対して、次が成り立つ。
                     </p>
+                    <div class="indent">
+                        \[
+                        E[T]=0,~~~~~V[T]=\begin{cases}\end{cases}
+                        \]
+                    </div>
                 </figure>
                 <details class="pf">
                     <summary>証明</summary>
