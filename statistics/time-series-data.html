@@ -18,20 +18,60 @@
                 <p class="indent">
                     時間の経過に沿って観測されたデータの列を<strong>時系列データ</strong>といいます。
                     例えば、「毎年の売上高」、「毎月の気温」、「毎日の株価」などです。
+                    数学的には以下のように定義されます。
                 </p>
+                <figure class="def">
+                    <figcaption>定義（時系列データ）</figcaption>
+                    <p class="indent">
+                        確率過程 \(\{Y_t\}_{t\in T}\) に対する観測データ
+                    </p>
+                    <div class="math">
+                        \[
+                        \{y_t\}_{t\in T}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>時系列データ</strong>と呼ぶ。
+                    </p>
+                </figure>
             </section>
             <section id="2">
-                <h2>時系列データの構成要素</h2>
+                <h2>時系列データの特徴・性質</h2>
                 <p class="indent">
-                    時系列データは<strong>傾向変動</strong> \(T\) 、<strong>循環変動</strong> \(c\) 、<strong>季節変動</strong> \(S\) 、<strong>不規則変動</strong> \(I\) によって構成されると考えます。
-                    これらを用いて、観測値 \(Y\) を表すモデルが作れます。
+                    時系列データには、次のような特徴や性質があります。
+                </p>
+                <ul>
+                    <li><strong>時間依存性</strong>
+                        <p>
+                            近い時刻のデータは互いに関連していることが多い。
+                        </p>
+                    </li>
+                    <li><strong>トレンド</strong>
+                        <p>
+                            長期的に増加または減少する傾向が存在する。
+                        </p>
+                    </li>
+                    <li><strong>季節性</strong>
+                        <p>
+                            一定の周期で繰り返すパターンが存在する（例：月次売上の季節変動）。
+                        </p>
+                    </li>
+                    <li><strong>不規則成分（ノイズ）</strong>
+                        <p>
+                            予測困難なランダムな変動。突発的なイベントや誤差により生じる。
+                        </p>
+                    </li>
+                </ul>
+                <p class="indent">
+                    時系列データは<strong>傾向変動</strong> \(T_t\) 、<strong>循環変動</strong> \(C_t\) 、<strong>季節変動</strong> \(S_t\) 、<strong>不規則変動</strong> \(I_t\) によって構成されると考えます。
+                    これらを用いて、観測値 \(Y_t\) を表すモデルが作れます。
                 </p>
                 <p>
                     加法モデル
                 </p>
                 <div>
                     \[
-                    Y=T+C+S+I
+                    Y_t=T_t+C_t+S_t+I_t
                     \]
                 </div>
                 <p>
@@ -39,7 +79,7 @@
                 </p>
                 <div>
                     \[
-                    Y=T\cdot C\cdot S\cdot I
+                    Y_t=T_t\cdot C_t\cdot S_t\cdot I_t
                     \]
                 </div>
             </section>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>中心極限定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>中心極限定理</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>中心極限定理</h2>
+                <p class="indent">
+                    現実のデータは、必ずしも正規分布に従うとは限りません。
+                    しかし、正規分布に従わないデータの場合でも、その平均が従う分布は、データ数を増やしていくと正規分布に近づくことが知られています。
+                    これを主張するのが<strong>中心極限定理</strong>です。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（中心極限定理）</figcaption>
+                    <p class="indent">
+                        確率変数 \(X_1,X_2,\cdots,X_n\) は独立同一分布に従うとし、
+                        期待値 \(E[X_i]=\mu\) と分散 \(V[X_i]=\sigma^2\) \((1\le i\le n)\) は存在するものとする。
+                        このとき、標本平均 \(\overline{X_n}\) を標準化した確率変数
+                    </p>
+                    <div class="math">
+                        \[
+                        Z_n=\frac{\overline{X_n}-\mu}{\sqrt{\frac{\sigma^2}{n}}}
+                        \]
+                    </div>
+                    <p>
+                        は、\(n\to\infty\) のとき標準正規分布 \(N(0,1)\) に分布収束する。
+                    </p>
+                </figure>
+                <p class="indent">
+                    ちなみに \(X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)\) であれば、\(n\) が大きくなくても常に
+                </p>
+                <div class="math">
+                    \[
+                    Z_n=\frac{\overline{X_n}-\mu}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

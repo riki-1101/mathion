@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>積率（モーメント）</title>
+        <title>積率と積率母関数</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -11,23 +11,33 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>積率（モーメント）</h1>
+            <h1>積率と積率母関数</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2></h2>
+                <h2>積率（モーメント）</h2>
                 <figure class="def">
                     <figcaption>定義（モーメント）</figcaption>
-                    <p>
+                    <p class="indent">
                         確率変数 \(X\) に対して
+                    </p>
+                    <div class="math">
                         \[
                         E[X^k]
                         \]
-                        を \(X\) の \(k\) 次モーメントという。<br>
+                    </div>
+                    <p>
+                        を \(X\) の<strong> \(k\) 次モーメント</strong>という。
+                    </p>
+                    <p class="indent">
                         また、\(\mu=E[X]\) とするとき
+                    </p>
+                    <div class="math">
                         \[
                         \mu_k=E[(X-\mu)^k]
                         \]
-                        を \(X\) の \(k\) 次の中心モーメントという。
+                    </div>
+                    <p>
+                        を \(X\) の<strong> \(k\) 次の中心モーメント</strong>という。
                     </p>
                 </figure>
             </section>
@@ -38,13 +48,38 @@
                 </p>
                 <figure class="def">
                     <figcaption>定義（積率母関数）</figcaption>
-                    <p>
+                    <p class="indent">
                         確率変数 \(X\) に対して
+                    </p>
+                    <div class="math">
                         \[
                         M_X(t)=E[e^{tX}] \quad (t\in\mathbb{R})
                         \]
-                        を \(X\) の積率母関数という。
+                    </div>
+                    <p>
+                        を \(X\) の<strong>積率母関数</strong>という。
                     </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>積率母関数の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（積率母関数の性質）</figcaption>
+                    <p class="indent">
+                        確率変数 \(X\) と \(Y\) の積率母関数をそれぞれ \(M_X(t),M_Y(t)\) とすると、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>
+                            <p>
+                                \(a\) を定数とすると \(M_{aX}(t)=M_X(at)\)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                \(X\) と \(Y\) が独立ならば \(M_{X+Y}(t)=M_X(t)M_Y(t)\)
+                            </p>
+                        </li>
+                    </ol>
                 </figure>
             </section>
             <section id="ex">

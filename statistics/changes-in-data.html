@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>データの変化</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>データの変化</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>変化量</h2>
+                <p class="indent">
+                    ある時点の値とその次の時点の値の差を見て、どれくらい変化したのかを調べます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（差分）</figcaption>
+                    <p class="indent">
+                        時系列データ \(\{y_t\}_{t\in T}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \varDelta y_t=y_t-y_{t-1}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>差分</strong>と呼ぶ。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>変化率</h2>
+                <p class="indent">
+                    ある時点の値が前の時点に比べて「何倍になったか」を示すのが変化率です。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（変化率）</figcaption>
+                    <p class="indent">
+                        時系列データ \(\{y_t\}_{t\in T}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{y_t-y_{t-1}}{y_{t-1}}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>変化率</strong>と呼ぶ。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（幾何平均による平均変化率）</figcaption>
+                    <p class="indent">
+                        時系列データ \(\{y_t\}_{t\in T}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \left(\prod_{t=1}^N\frac{y_t}{y_{t-1}}\right)^{\frac{1}{N}}-1=\left(\frac{y_N}{y_0}\right)^{\frac{1}{N}}-1
+                        \]
+                    </div>
+                    <p>
+                        を<strong>平均変化率</strong>と呼ぶ。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2></h2>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>大数の法則</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>大数の法則</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>大数の法則</h2>
+                <p class="indent">
+                    「標本の個数を増やせば、その標本平均は母平均に近づいていく」ということを保証する定理が<strong>大数の法則</strong>です。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（大数の弱法則）</figcaption>
+                    <p class="indent">
+                        確率変数 \(X_1,X_2,\cdots,X_n\) は独立同一分布に従うとし、
+                        期待値 \(E[X_i]=\mu\) \((i=1,2,\cdots,n)\) は存在するものとする。
+                        このとき、標本平均 \(\overline{X_n}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \overline{X_n}\xrightarrow{P}\mu\quad(n\to\infty)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <div class="math">
+                    \[
+                    \overline{X_n}\xrightarrow{P}\mu\quad(n\to\infty)
+                    \]
+                </div>
+                <p>
+                    は \(\overline{X_n}\) は \(\mu\) に確率収束することを意味し、具体的には
+                </p>
+                <div class="math">
+                    \[
+                    \forall \varepsilon\gt0,\quad\lim_{n\to\infty}P(|\overline{X_n}-\mu|\lt\varepsilon)=1
+                    \]
+                </div>
+                <p>
+                    が成り立つことをいいます。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

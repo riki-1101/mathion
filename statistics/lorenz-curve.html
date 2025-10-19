@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ローレンツ曲線</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ローレンツ曲線</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ローレンツ曲線とは</h2>
+                <p>
+                    ローレンツ曲線は、所得や資産の分布の不平等さを視覚的に表すためのグラフです。
+                </p>
+                <p>
+                    度数分布表
+                </p>
+                <table>
+                    <thead>
+                        <tr><th>所得階級</th><th>階級値</th><th>度数</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0以上100未満</td><td>50</td><td>5</td></tr>
+                        <tr><td>100～200</td><td>150</td><td>10</td></tr>
+                        <tr><td>200～400</td><td>300</td><td>15</td></tr>
+                        <tr><td>400～800</td><td>600</td><td>8</td></tr>
+                        <tr><td>800～1600</td><td>1200</td><td>2</td></tr>
+                        <tr><td>計</td><td></td><td>40</td></tr>
+                    </tbody>
+                </table>
+                <p>
+                    人口の累積相対度数を計算します。
+                </p>
+                <table>
+                    <thead>
+                        <tr><th>所得階級</th><th>累積人口</th><th>人口の累積相対度数</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>100未満</td><td>5</td><td>\(\frac{5}{40}=0.125\)</td></tr>
+                        <tr><td>～200</td><td>15</td><td>\(\frac{15}{40}=0.375\)</td></tr>
+                        <tr><td>～400</td><td>30</td><td>\(\frac{30}{40}=0.750\)</td></tr>
+                        <tr><td>～800</td><td>38</td><td>\(\frac{38}{40}=0.950\)</td></tr>
+                        <tr><td>～1600</td><td>40</td><td>\(\frac{40}{40}=1.000\)</td></tr>
+                    </tbody>
+                </table>
+                <p>
+                    所得の累積相対度数を計算します。
+                </p>
+                <table>
+                    <thead>
+                        <tr><th>所得階級</th><th>累積所得</th><th>所得の累積相対度数</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>100未満</td><td>250</td><td>\(\frac{250}{13450}=0.019\)</td></tr>
+                        <tr><td>～200</td><td>1750</td><td>\(\frac{1750}{13450}=0.130\)</td></tr>
+                        <tr><td>～400</td><td>6250</td><td>\(\frac{6250}{13450}=0.465\)</td></tr>
+                        <tr><td>～800</td><td>11050</td><td>\(\frac{11050}{13450}=0.821\)</td></tr>
+                        <tr><td>～1600</td><td>13450</td><td>\(\frac{13450}{13450}=1.000\)</td></tr>
+                    </tbody>
+                </table>
+                <p>
+                    したがって、原点を含めて次の結果を得ます。
+                </p>
+                <table>
+                    <thead>
+                        <tr><th>人口の累積相対度数</th><th>所得の累積相対度数</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>\(0.000\)</td><td>\(0.000\)</td></tr>
+                        <tr><td>\(0.125\)</td><td>\(0.019\)</td></tr>
+                        <tr><td>\(0.375\)</td><td>\(0.130\)</td></tr>
+                        <tr><td>\(0.750\)</td><td>\(0.465\)</td></tr>
+                        <tr><td>\(0.950\)</td><td>\(0.821\)</td></tr>
+                        <tr><td>\(1.000\)</td><td>\(1.000\)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

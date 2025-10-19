@@ -19,23 +19,49 @@
                     点推定では、母数を1点（1つの値）で推定しましたが、区間推定では、母数が含まれていると考えられる区間を推定します。
                 </p>
                 <p class="indent">
-                    未知母数 \(\theta\) に対して、
+                    未知母数 \(\theta\) に対して
+                </p>
+                <div class="math">
                     \[
                     P(Q_1 \le \theta \le Q_2) = 1 - \alpha
                     \]
-                    を満たすような確率変数 \(Q_1, Q_2\) を考えます。<br>
-                    このときの \(1 - \alpha\) を<strong>信頼水準（信頼係数）</strong>と呼びます。<br>
+                </div>
+                <p>
+                    を満たすような確率変数 \(Q_1, Q_2\) を考えます。
+                    このときの \(1 - \alpha\) を<strong>信頼水準（信頼係数）</strong>と呼びます。
                     \(Q_1, Q_2\) の実現値をそれぞれ \(q_1, q_2\) とすると、区間 \([q_1, q_2]\) を母数 \(\theta\) に対する<strong>\(100(1-\alpha)\%\) 信頼区間</strong>といいます。
                     また、\(q_1\) を<strong>信頼下限</strong>、\(q_2\) を<strong>信頼上限</strong>と呼びます。
                 </p>
-                <p class="indent">
-                    信頼水準が \(1 - \alpha\) のとき、ある分布に従う確率変数 \(X\) に対して、\(X\) が従う分布の上側 \(100\alpha\%\) 点を \(x_{U(\alpha)}\)、下側 \(100\alpha\%\) 点を \(x_{L(\alpha)}\) とすると、
-                    \[
-                    P\left(x_{L\left(\frac{\alpha}{2}\right)}\le X\le x_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
-                    \]
-                </p>
             </section>
             <section id="2">
+                <h2>区間推定の手順</h2>
+                <p class="indent">
+                    母数 \(\theta\) の区間推定を行うには、まず母数 \(\theta\) を含み、分布が \(\theta\) に依存しないような確率変数 \(T(X_1,X_2,\cdots,X_n;\theta)\) を見つけます。
+                    このような量を<strong>枢軸量</strong>と呼びます。
+                    信頼水準が \(1 - \alpha\) のとき、
+                    \(T\) が従う分布の上側 \(100\alpha\%\) 点を \(t_{U(\alpha)}\)、下側 \(100\alpha\%\) 点を \(t_{L(\alpha)}\) とすると
+                </p>
+                
+                <div class="math">
+                    \[
+                    P\left(t_{L\left(\frac{\alpha}{2}\right)}\le T\le t_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    となります。
+                    この不等式を \(\theta\) について解くと
+                </p>
+                <div class="math">
+                    \[
+                    P\left(Q_1 \le \theta \le Q_2\right) = 1 - \alpha
+                    \]
+                </div>
+                <p>
+                    という形を得ます。
+                    \(Q_1,Q_2\) の実現値がそれぞれ \(q_1,q_2\) であるとき、区間 \([q_1, q_2]\) が母数 \(\theta\) に対する \(100(1-\alpha)\%\) 信頼区間となります。
+                </p>
+            </section>
+            <section id="3">
                 <h2>母平均の区間推定（母分散が既知）</h2>
                 <p class="indent">
                     母集団分布が正規分布である母集団の母平均 \(\mu\) を推定します。ただし、母分散は既知で \(\sigma^2\) であるとします。
@@ -118,13 +144,13 @@
                 </div>
             </div>
             </section>
-            <section id="3">
+            <section id="4">
                 <h2>母平均の区間推定（母分散が未知）</h2>
             </section>
-            <section id="4">
+            <section id="5">
                 <h2>母分散の区間推定</h2>
             </section>
-            <section id="5">
+            <section id="6">
                 <h2>母比率の区間推定</h2>
             </section>
             <h2 id="ex">演習問題</h2>

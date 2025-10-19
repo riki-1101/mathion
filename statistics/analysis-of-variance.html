@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>分散分析</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>分散分析</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>分散分析の目的</h2>
+                <table>
+                    <thead>
+                        <tr><th>因子 \(A\) の水準</th><th>観測値</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>\(A_1\)</td><td>\(x_{11},~x_{12},~\cdots,~x_{1n_1}\)</td></tr>
+                        <tr><td>\(A_2\)</td><td>\(x_{21},~x_{22},~\cdots,~x_{2n_2}\)</td></tr>
+                        <tr><td>\(\vdots\)</td><td>\(\vdots\)</td></tr>
+                        <tr><td>\(A_k\)</td><td>\(x_{k1},~x_{k2},~\cdots,~x_{kn_k}\)</td></tr>
+                    </tbody>
+                </table>
+                <p></p>
+                <table>
+                    <thead>
+                        <tr><th>因子 \(A\) の水準</th><th>標本</th><th>標本平均</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>\(A_1\)</td><td>\(X_{11},~X_{12},~\cdots,~X_{1n_1}\)</td><td>\(\displaystyle\sum_{j=1}^{n_1}X_{1j}\)</td></tr>
+                        <tr><td>\(A_2\)</td><td>\(X_{21},~X_{22},~\cdots,~X_{2n_2}\)</td><td>\(\displaystyle\sum_{j=1}^{n_2}X_{2j}\)</td></tr>
+                        <tr><td>\(\vdots\)</td><td>\(\vdots\)</td><td>\(\cdots\)</td></tr>
+                        <tr><td>\(A_k\)</td><td>\(X_{k1},~X_{k2},~\cdots,~X_{kn_k}\)</td><td>\(\displaystyle\sum_{j=1}^{n_k}X_{kj}\)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="2">
+                <h2>分散分析のモデル</h2>
+                <p class="indent">
+                    １元配置分散分析において、水準 \(A_j\) の \(i\) 番目のデータは次のモデルで表されます。
+                </p>
+                <div class="math">
+                    \[
+                    X_{ji}=\mu+\alpha_j+\varepsilon_{ji}
+                    \]
+                </div>
+                <p>
+                    \(\mu\) は一般平均、\(\alpha_j\) は水準 \(A_j\) の効果を表します。
+                    \(\varepsilon_{ji}\) は互いに独立で \(N(0,\sigma^2)\) に従う確率変数です。
+                </p>
+                <p class="indent">
+                    分散分析では、「水準間に差があるかどうか」を検定します。
+                    すなわち、効果が \(0\) でない水準があるかを調べます。
+                    仮説は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    H_0&:\alpha_1=\alpha_2=\cdots=\alpha_k=0\\
+                    H_1&:\alpha_1,\alpha_2,\cdots,\alpha_k~\text{のいずれかは}~0~\text{ではない}
+                    \end{align}
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>効果の推定</h2>
+                <p class="indent">
+                    効果 \(\alpha_j~(j=1,2,\cdots,k)\) を推定します。
+                </p>
+                <div class="math">
+                    \[
+                    \hat{X}_{ij}=\hat{\mu}+\hat{\alpha}_i
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    L=\sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\hat{X}_{ij})^2=\sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\hat{\mu}-\hat{\alpha}_i)^2
+                    \]
+                </div>
+                <p>
+                    これを最小化する \(\hat{\mu},\hat{\alpha}_i~(i=1,2,\cdots,k)\) を求めます。
+                </p>
+                <p>
+                    \(L\) を \(\hat{\mu}\) で偏微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\partial L}{\partial\hat{\mu}}=-2\sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\hat{\mu}-\hat{\alpha}_i)
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\frac{\partial L}{\partial\hat{\mu}}=0\\
+                    &\Longleftrightarrow \sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\hat{\mu}-\hat{\alpha}_i)=0\\
+                    &\Longleftrightarrow \sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}-\sum_{i=1}^k\sum_{j=1}^{n_i}\hat{\mu}-\sum_{i=1}^k\sum_{j=1}^{n_i}\hat{\alpha}_i=0\\
+                    &\Longleftrightarrow N\overline{X}_{\cdot\cdot}-N\hat{\mu}-\sum_{i=1}^kn_i\hat{\alpha}_i=0
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、制約条件 \(\displaystyle\sum_{i=1}^kn_i\hat{\alpha}_i=0\) より
+                </p>
+                <div class="math">
+                    \[
+                    N\overline{X}_{\cdot\cdot}-N\hat{\mu}=0
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\mu}=\overline{X}_{\cdot\cdot}
+                    \]
+                </div>
+                <p>
+                    また、\(L\) を \(\hat{\alpha}_i\) で偏微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\partial L}{\partial\hat{\alpha}_i}=-2\sum_{j=1}^{n_i}(X_{ij}-\hat{\mu}-\hat{\alpha}_i)
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\frac{\partial L}{\partial\hat{\alpha}_i}=0\\
+                    &\Longleftrightarrow \sum_{j=1}^{n_i}(X_{ij}-\hat{\mu}-\hat{\alpha}_i)=0\\
+                    &\Longleftrightarrow \sum_{j=1}^{n_i}X_{ij}-\sum_{j=1}^{n_i}\hat{\mu}-\sum_{j=1}^{n_i}\hat{\alpha}_i=0\\
+                    &\Longleftrightarrow n_i\overline{X}_{i\cdot}-n_i\hat{\mu}-n_i\hat{\alpha}_i=0\\
+                    &\Longleftrightarrow \overline{X}_{i\cdot}-\hat{\mu}-\hat{\alpha}_i=0\\
+                    &\Longleftrightarrow \hat{\alpha}_i=\overline{X}_{i\cdot}-\hat{\mu}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\alpha}_i=\overline{X}_{i\cdot}-\overline{X}_{\cdot\cdot}
+                    \]
+                </div>
+            </section>
+            <section id="4">
+                <h2>検定統計量の作成</h2>
+                <p class="indent">
+                    前項で求めた \(\hat{\alpha}_i\) をそのまま検定統計量にしたいところですが、単純に「 \(\hat{\alpha}_i\) が 0 から遠いかどうか」を個別に見ても、それぞれがバラつき（誤差）を含んでいるので、全体的に有意な差があるかは判断できません。
+                    そこで、平方和をとって「全体としてどのくらい差があるか」を見ます。
+                </p>
+                <div class="math">
+                    \[
+                    \sum_{i=1}^k\sum_{j=1}^{n_i}(\hat{\alpha}_i)^2
+                    =\sum_{i=1}^kn_i(\hat{\alpha}_i)^2
+                    =\sum_{i=1}^kn_i(\overline{X}_{i\cdot}-\overline{X}_{\cdot\cdot})^2
+                    \]
+                </div>
+                <p>
+                    これを<strong>水準間平方和</strong>（群間平方和）といい
+                </p>
+                <div class="math">
+                    \[
+                    S_A=\sum_{i=1}^kn_i(\overline{X}_{i\cdot}-\overline{X}_{\cdot\cdot})^2
+                    \]
+                </div>
+                <p>
+                    と表します。
+                </p>
+                <p>
+                    また、誤差の平方和は
+                    \(\hat{\mu}=\overline{X}_{\cdot\cdot},~\hat{\alpha}_i=\overline{X}_{i\cdot}-\overline{X}_{\cdot\cdot}\) を \(L\) に代入して
+                </p>
+                <div class="math">
+                    \[
+                    L=\sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\hat{\mu}-\hat{\alpha}_i)^2
+                    =\sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\overline{X}_{i\cdot})^2
+                    \]
+                </div>
+                <p>
+                    これを<strong>残差平方和</strong>（群内平方和）といい
+                </p>
+                <div class="math">
+                    \[
+                    S_e=\sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\overline{X}_{i\cdot})^2
+                    \]
+                </div>
+                <p>
+                    と表します。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

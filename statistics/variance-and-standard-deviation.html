@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>データのばらつきの指標</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>データのばらつきの指標</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>平均偏差</h2>
+                <p class="indent">
+                    各データ \(x_1,x_2,\cdots,x_n\) からその平均 \(\overline{x}\) を引いたもの
+                </p>
+                <div class="math">
+                    \[
+                    x_i-\overline{x}\quad (i=1,2,\cdots,n)
+                    \]
+                </div>
+                <p>
+                    を<strong>偏差</strong>といいます。
+                    これは各データが平均からどのくらい離れているのかを示します。
+                </p>
+                <p>
+                    各データの偏差を平均すれば、データのばらつきを表現できそうですが、そのまま偏差の平均を考えると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{1}{n}\sum_{i=1}^n(x_i-\overline{x})=\left(\frac{1}{n}\sum_{i=1}^nx_i\right)-\overline{x}=\overline{x}-\overline{x}=0
+                    \]
+                </div>
+                <p>
+                    のように \(0\) となってしまいます。
+                    これを回避するために偏差の絶対値をとったものを考えます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（平均偏差）</figcaption>
+                    <p class="indent">
+                        \(n\) 個のデータ \(x_1,x_2,\cdots,x_n\) とその平均 \(\overline{x}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        d=\frac{1}{n}\sum_{i=1}^n|x_i-\overline{x}|
+                        \]
+                    </div>
+                    <p>
+                        をデータの<strong>平均偏差</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>分散と標準偏差</h2>
+                <p class="indent">
+                    前項の平均偏差では、偏差に絶対値をとることで、\(0\) になるのを回避しましたが、２乗をしてもうまくいきます。
+                    偏差の２乗の平均を<strong>分散</strong>といい、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（分散）</figcaption>
+                    <p class="indent">
+                        \(n\) 個のデータ \(x_1,x_2,\cdots,x_n\) とその平均 \(\overline{x}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        s_x^2=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{x})^2
+                        \]
+                    </div>
+                    <p>
+                        を<strong>分散</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>変動係数</h2>
+                <figure class="def">
+                    <figcaption>定義（変動係数）</figcaption>
+                    <p class="indent">
+                        データの平均 \(\overline{x}\) と標準偏差 \(s_x\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        CV=\frac{s_x}{\overline{x}}
+                        \]
+                    </div>
+                    <p>
+                        をデータの<strong>変動係数</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
