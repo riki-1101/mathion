@@ -22,15 +22,15 @@
                     </p>
                     <div class="math">
                         \[
-                        X=Z_1^2+Z_2^2+\cdots+Z_n^2=\sum_{i=1}^nZ_i^2
+                        W=Z_1^2+Z_2^2+\cdots+Z_n^2=\sum_{i=1}^nZ_i^2
                         \]
                     </div>
                     <p>
-                        で定まる \(X\) が従う確率分布を自由度 \(n\) の<strong>カイ二乗分布</strong>といい
+                        の従う確率分布を自由度 \(n\) の<strong>カイ二乗分布</strong>といい
                     </p>
                     <div class="math">
                         \[
-                        X\sim \chi^2(n)
+                        W\sim\chi^2(n)
                         \]
                     </div>
                     <p>
@@ -43,11 +43,11 @@
                 <figure class="th">
                     <figcaption>定理（カイ二乗分布の確率密度関数）</figcaption>
                     <p class="indent">
-                        確率変数 \(X\sim\chi^2(n)\) の確率密度関数 \(f\) は次式で表される。
+                        確率変数 \(W\sim\chi^2(n)\) の確率密度関数 \(f_W\) は次式で表される。
                     </p>
                     <div class="math">
                         \[
-                        f(x)=
+                        f_W(x)=
                         \begin{cases}
                         \displaystyle\frac{1}{2^\frac{n}{2}\Gamma\left(\frac{n}{2}\right)}x^{\frac{n}{2}-1}e^{-\frac{x}{2}} & (\mathrm{if}~x\gt0)\\
                         0 & (\mathrm{otherwise})
@@ -57,15 +57,15 @@
                 </figure>
             </section>
             <section id="3">
-                <h2>カイ二乗分布に従う確率変数の期待値と分散</h2>
+                <h2>カイ二乗分布の期待値と分散</h2>
                 <figure class="th">
-                    <figcaption>定理（カイ二乗分布に従う確率変数の期待値と分散）</figcaption>
+                    <figcaption>定理（カイ二乗分布の期待値と分散）</figcaption>
                     <p class="indent">
-                        確率変数 \(X\sim\chi^2(n)\) に対して次が成り立つ。
+                        確率変数 \(W\sim\chi^2(n)\) に対して次が成り立つ。
                     </p>
                     <div class="math">
                         \[
-                        E[X]=n,\quad V[X]=2n
+                        E[W]=n,\quad V[W]=2n
                         \]
                     </div>
                 </figure>
