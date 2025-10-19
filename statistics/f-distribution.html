@@ -17,12 +17,24 @@
                 <h2>F分布の定義</h2>
                 <figure class="def">
                     <figcaption>定義（F分布）</figcaption>
-                    <p>
-                        互いに独立な確率変数 \(X_1\sim\chi^2(n_1),~X_2\sim\chi^2(n_2)\) に対して
+                    <p class="indent">
+                        互いに独立な確率変数 \(W_1\sim\chi^2(n_1),~W_2\sim\chi^2(n_2)\) に対して
+                    </p>
+                    <div class="math">
                         \[
-                        F=\frac{\frac{X_1}{n_1}}{\frac{X_2}{n_2}}
+                        F=\frac{\frac{W_1}{n_1}}{\frac{W_2}{n_2}}
                         \]
-                        で定まる \(F\) が従う確率分布をF分布といいう。
+                    </div>
+                    <p>
+                        で定めると、\(F\) は自由度 \((n_1,n_2)\) の<strong>F分布</strong>に従うといい
+                    </p>
+                    <div class="math">
+                        \[
+                        F\sim F(N_1,n_2)
+                        \]
+                    </div>
+                    <p>
+                        と表す。
                     </p>
                 </figure>
             </section>
@@ -30,13 +42,14 @@
                 <h2>F分布の確率密度関数</h2>
                 <figure class="th">
                     <figcaption>定理（F分布の確率密度関数）</figcaption>
-                    <p>
-                        F分布に従う確率変数の確率密度関数 \(f\) は
+                    <p class="indent">
+                        F分布に従う確率変数の確率密度関数 \(f\) は次式で表される。
+                    </p>
+                    <div class="math">
                         \[
                         f(x)=\frac{x^{\frac{n_1-2}{2}}}{B\left(\frac{n_1}{2},\frac{n_2}{2}\right)\left(1+\frac{n_1}{n_2}\right)^{\frac{n_1+n_2}{2}}}\left(\frac{n_1}{n_2}\right)^\frac{n_1}{2}
                         \]
-                        と表される。
-                    </p>
+                    </div>
                 </figure>
             </section>
         </main>
