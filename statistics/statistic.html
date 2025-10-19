@@ -47,7 +47,7 @@
                 <p>
                     のように表し、これらは確率変数です。
                     標本が互いに独立に同一の分布に従うとき、この標本を<strong>無作為標本</strong>といいます。
-                    これに対して、実際の調査で得られるデータ
+                    また、実際の調査で得られるデータ
                 </p>
                 <div class="math">
                     \[
@@ -66,14 +66,68 @@
                 <section>
                     <h3>単純無作為抽出法</h3>
                     <p class="indent">
-                        最も基本的な抽出法であり、母集団の全要素から同じ確率で無作為に抽出する方法です。
+                        母集団の全ての要素を等しい確率で抽出する方法です。
+                    </p>
+                    <p>
+                        <strong>手順：</strong> 母集団の名簿に番号を振り、乱数やくじ引きで抽出。<br>
+                        <strong>メリット：</strong> 偏りが少なく理論的に扱いやすい。<br>
+                        <strong>デメリット：</strong> 母集団リストが必要、大規模では不便。<br>
+                        <strong>例：</strong> クラス40人から乱数で5人を選ぶ。
+                    </p>
+                </section>
+                <section>
+                    <h3>系統抽出法</h3>
+                    <p class="indent">
+                        母集団から一定間隔ごとに要素を抽出する方法です。
+                    </p>
+                    <p>
+                        <strong>手順：</strong> 最初の番号をランダムに決め、等間隔で抽出。<br>
+                        <strong>メリット：</strong> 簡単で効率的、標本が全体に散らばりやすい。<br>
+                        <strong>デメリット：</strong> 並び方に周期性があると偏る。<br>
+                        <strong>例：</strong> 出席番号を5番ごとに選ぶ。
+                    </p>
+                </section>
+                <section>
+                    <h3>層化抽出法</h3>
+                    <p class="indent">
+                        母集団を「層」に分け、それぞれから抽出する方法です。
+                    </p>
+                    <p>
+                        <strong>手順：</strong> 性別・年齢・地域などで層化し、各層から無作為抽出。<br>
+                        <strong>メリット：</strong> 層ごとの特徴を反映でき、代表性が高い。<br>
+                        <strong>デメリット：</strong> 層の分け方を誤ると逆に偏る。<br>
+                        <strong>例：</strong> 男女別に分け、それぞれから10人ずつ抽出。
+                    </p>
+                </section>
+                <section>
+                    <h3>多段抽出法</h3>
+                    <p class="indent">
+                        抽出を段階的に行う方法です。
+                    </p>
+                    <p>
+                        <strong>手順：</strong> 大きな単位（都道府県）→ 中くらい（学校）→ 個人。<br>
+                        <strong>メリット：</strong> 大規模調査に便利、コストを抑えられる。<br>
+                        <strong>デメリット：</strong> 標本誤差がやや大きくなる。<br>
+                        <strong>例：</strong> まず県を選び、その県の学校を選び、さらに生徒を抽出。
+                    </p>
+                </section>
+                <section>
+                    <h3>クラスター抽出法</h3>
+                    <p class="indent">
+                        グループごと（クラスター単位）で抽出する方法です。
+                    </p>
+                    <p>
+                        <strong>手順：</strong> 母集団をグループに分け、いくつかのグループを無作為に選び、その全員を調査。<br>
+                        <strong>メリット：</strong> 調査が簡単で費用が少ない。<br>
+                        <strong>デメリット：</strong> クラスター間に違いがあると偏りやすい。<br>
+                        <strong>例：</strong> 学年全体からいくつかのクラスを選び、そのクラス全員を調査。
                     </p>
                 </section>
             </section>
             <section id="4">
                 <h2>標本誤差と非標本誤差</h2>
                 <p class="indent">
-                    統計調査の結果が真の値からずれてしまう原因は、大きく分けて<strong>標本誤差</strong>と<strong>非標本誤差</strong>の2つがあります。
+                    標本調査の結果が真の値からずれてしまう原因は、大きく分けて<strong>標本誤差</strong>と<strong>非標本誤差</strong>の2つがあります。
                 </p>
                 <section>
                     <h3>標本誤差</h3>
@@ -165,7 +219,7 @@
                         </p>
                         <div class="math">
                             \[
-                        \overline{X}:=\frac{1}{n}\sum_{i=1}^nX_i
+                        \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
                         \]
                         </div>
                         <p>
@@ -176,7 +230,7 @@
                     <figure class="th">
                         <figcaption>定理（標本平均の期待値と分散）</figcaption>
                         <p class="indent">
-                            平均 \(\mu\) 、分散 \(\sigma^2\) の母集団からの無作為標本の標本平均 \(\overline{X}\) に対して、以下が成り立つ。
+                            平均 \(\mu\) 、分散 \(\sigma^2\) の母集団からの無作為標本の標本平均 \(\overline{X}\) に対して、次が成り立つ。
                         </p>
                         <div class="math">
                             \[
