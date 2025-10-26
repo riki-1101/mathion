@@ -125,6 +125,31 @@
             <p class="indent">
                 フーリエ級数展開とは、ある関数を三角関数の和で表す手法である。
             </p>
+            <p class="indent">
+                周期信号 \(f(t)\) を、直流成分と正弦波、余弦波で分解することを考えます。
+            </p>
+            <div class="math">
+                \[
+                \omega=\frac{2\pi}{T}
+                \]
+            </div>
+            <div class="math">
+                \[
+                \begin{align}
+                f(t)\sim a_0
+                &+a_1\cos(\omega t)+a_2\cos(2\omega t)+\cdots+a_n\cos(n\omega t)+\cdots\\
+                &+b_1\sin(\omega t)+b_2\sin(2\omega t)+\cdots+b_n\sin(n\omega t)+\cdots
+                \end{align}
+                \]
+            </div>
+            <p>
+                すなわち
+            </p>
+            <div class="math">
+                    \[
+                    f(t)\sim a_0+\sum_{n=1}^\infty\left\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\right\}
+                    \]
+                </div>
             <figure class="def">
                 <figcaption>定義（フーリエ級数）</figcaption>
                 <p class="indent">

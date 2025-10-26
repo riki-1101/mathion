@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ラプラス変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ラプラス変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ラプラス変換の定義</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ラプラス変換・逆ラプラス変換）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        F(s)=\mathscr{L}[f(t)](s)=\int_0^\infty f(t)e^{-st}dt
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>ラプラス変換</strong>という。これに対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=\mathscr{L}^{-1}[f(s)](t)=\frac{1}{2\pi i}\int_{a-i\infty}^{a+i\infty} F(s)e^{st}ds
+                        \]
+                    </div>
+                    <p>
+                        を \(F(s)\) の<strong>逆ラプラス変換</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>ラプラス変換の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（ラプラス変換の線形性）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t),g(t)\) 、定数 \(a,b\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div clss="math">
+                        \[
+                        \mathscr{L}\{af(t)+bg(t)\}=a\mathscr{L}\{f(t)\}+b\mathscr{L}\{g(t)\}
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（時間軸の移動）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) 、定数 \(a\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}\{f(t-a)\}=e^{-as}F(s)
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（減衰性）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) 、定数 \(a\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}\{f(t)e^{-at}\}=F(s+a)
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（相似性）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) 、定数 \(a\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}\{f(at)\}=\frac{1}{a}F\left(\frac{s}{a}\right) \quad (a\gt0)
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

@@ -15,42 +15,106 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>フーリエ変換の定義</h2>
+                <p class="indent">
+                    信号 \(f(t)\) は複素フーリエ級数展開により、次式で表されます。
+                </p>
                 <div class="math">
                     \[
-                    f(x)\sim\frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}
-                    \]
-                </div>
-                <div class="math">
-                    \[
-                    \begin{align}
-                    f(x)&\sim
-                    \frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}\\
-                    &=\frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}\varDelta\left(\frac{2\pi}{T}n\right)\cdot\frac{T}{2\pi}\\
-                    &=\frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}\varDelta\left(\frac{2\pi}{T}n\right)\\
-                    \end{align}
+                    f(t)\sim\frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)e^{-i\frac{2\pi}{T}n\tau}d\tau\right)e^{i\frac{2\pi}{T}nt}
                     \]
                 </div>
                 <p>
-                    ここで、\(\displaystyle\omega_n=\frac{2\pi}{T}n\) とおくと
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \Delta\omega = \frac{2\pi}{T}
+                    \]
+                </div>
+                <p>
+                    とすると
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    f(x)&\sim
-                    \frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\omega_nt}dt\right)e^{i\omega_nx}\varDelta\omega_n\\
+                    f(t)&\sim\frac{\Delta\omega}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}\\
+                    &=\frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}\Delta\omega
                     \end{align}
                     \]
                 </div>
                 <p>
-                    \(T\to\infty\) とすると、\(\omega_n\to0\) となり
+                    \(T\to\infty\) とすると、\(\Delta\omega\to0\) となるので
                 </p>
+                <div class="math">
                     \[
                     \begin{align}
-                    f(x)&\sim
-                    \frac{1}{2\pi}\int_{-\infty}^\infty\left(\int_{-\infty}^\infty f(t)e^{-i\omega t}dt\right)e^{i\omega x}d\omega\\
+                    \lim_{\Delta\omega\to0}\frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\infty}^\infty f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}\Delta\omega
                     \end{align}
                     \]
                 </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    g(n\Delta\omega)=\left(\int_{-\infty}^\infty f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}
+                    \]
+                </div>
+                <p>
+                    とおくと、次のように書けます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \lim_{\Delta\omega\to0}\frac{1}{2\pi}\sum_{n=-\infty}^\infty g(n\Delta\omega)\Delta\omega
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    そして、次の定理を用います。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（無限区間の積分）</figcaption>
+                    <div class="math">
+                        \[
+                        \lim_{\Delta x\to 0}\sum_{n=-\infty}^\infty f(n\Delta x)\Delta x=\int_{-\infty}^\infty f(x)dx
+                        \]
+                    </div>
+                </figure>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(t)&\sim\frac{1}{2\pi}\int_{-\infty}^\infty g(\omega)d\omega\\
+                    &=\frac{1}{2\pi}\int_{-\infty}^\infty \left(\int_{-\infty}^\infty f(\tau)e^{-i\omega\tau}d\tau\right)e^{i\omega t}d\omega
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    このとき、内側の積分
+                </p>
+                <div class="math">
+                    \[
+                    F(\omega)=\int_{-\infty}^\infty f(\tau)e^{-i\omega \tau}d\tau
+                    \]
+                </div>
+                <p>
+                    を<strong>フーリエ変換</strong>といい、外側の積分
+                </p>
+                <div class="math">
+                    \[
+                    f(t)=\frac{1}{2\pi}\int_{-\infty}^\infty F(\omega)e^{i\omega t}d\omega
+                    \]
+                </div>
+                <p>
+                    を<strong>逆フーリエ変換</strong>といいます。
+                </p>
+                <p class="indent">
+                    \(\tau\) のままでもいいのですが、\(t\) で定義することが一般的です。
+                    
+                </p>
                 <figure class="def">
                     <figcaption>定義（フーリエ変換・逆フーリエ変換）</figcaption>
                     <p class="indent">
@@ -58,7 +122,7 @@
                     </p>
                     <div class="math">
                         \[
-                        F(\omega)=\mathcal{F}[f(t)](\omega)=\int_{-\infty}^\infty f(t)e^{-i\omega t}dt
+                        F(\omega)=\mathscr{F}[f(t)](\omega)=\int_{-\infty}^\infty f(t)e^{-i\omega t}dt
                         \]
                     </div>
                     <p>
@@ -66,7 +130,7 @@
                     </p>
                     <div class="math">
                         \[
-                        f(t)=\mathcal{F}^{-1}[F(\omega)](t)=\frac{1}{2\pi}\int_{-\infty}^\infty F(\omega)e^{i\omega t}d\omega
+                        f(t)=\mathscr{F}^{-1}[F(\omega)](t)=\frac{1}{2\pi}\int_{-\infty}^\infty F(\omega)e^{i\omega t}d\omega
                         \]
                     </div>
                     <p>
@@ -83,7 +147,7 @@
                     </p>
                     <div clss="math">
                         \[
-                        \mathcal{F}\{af(t)+bg(t)\}=a\mathcal{F}\{f(t)\}+b\mathcal{F}\{g(t)\}
+                        \mathscr{F}\{af(t)+bg(t)\}=a\mathscr{F}\{f(t)\}+b\mathscr{F}\{g(t)\}
                         \]
                     </div>
                 </figure>
@@ -95,7 +159,7 @@
                     </p>
                     <div class="math">
                         \[
-                        \mathcal{F}\{f(t-\tau)\}=e^{-i\omega\tau}F(\omega)
+                        \mathscr{F}\{f(t-\tau)\}=e^{-i\omega\tau}F(\omega)
                         \]
                     </div>
                 </figure>
@@ -107,7 +171,7 @@
                     </p>
                     <div class="math">
                         \[
-                        \mathcal{F}\{f(t)e^{i\omega_0t}\}=F(\omega-\omega_0)
+                        \mathscr{F}\{f(t)e^{i\omega_0t}\}=F(\omega-\omega_0)
                         \]
                     </div>
                 </figure>

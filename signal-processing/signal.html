@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>基本的な信号</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>基本的な信号</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>単位インパルス信号</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（単位インパルス関数）</figcaption>
+                    <p class="indent">
+                        \(t\in\mathbb{R}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \delta(t)=
+                        \begin{cases}
+                        \infty & (t=0)\\
+                        0 & (t\neq0)
+                        \end{cases}
+                        ~~,\quad
+                        \int_{-\infty}^\infty \delta(t)dt=1
+                        \]
+                    </div>
+                    <p>
+                        で定義される \(\delta(t)\) を<strong>単位インパルス関数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    離散時間の場合は次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（離散時間単位インパルス信号）</figcaption>
+                    <p class="indent">
+                        \(n\in\mathbb{Z}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \delta[n]=
+                        \begin{cases}
+                        1 & (n=0)\\
+                        0 & (n\neq0)
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        で定義される信号 \(\delta[n]\) を<strong>離散時間単位インパルス信号</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>単位ステップ信号</h2>
+                <figure class="def">
+                    <figcaption>定義（単位ステップ関数）</figcaption>
+                    <p class="indent">
+                        \(t\in\mathbb{R}\) に対して
+                    </p>
+                    <div clss="math">
+                        \[
+                        u(t)=
+                        \begin{cases}
+                        1 & (t\ge0)\\
+                        0 & (t\lt0)
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        で定義される関数 \(u(t)\) を<strong>単位ステップ関数</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（離散時間単位ステップ信号）</figcaption>
+                    <p class="indent">
+                        \(n\in\mathbb{Z}\) に対して
+                    </p>
+                    <div clss="math">
+                        \[
+                        u[n]=
+                        \begin{cases}
+                        1 & (n\ge0)\\
+                        0 & (n\lt0)
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        で定義される信号 \(u[n]\) を<strong>離散時間単位ステップ信号</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理</figcaption>
+                    <p class="indent">
+                        
+                    </p>
+                    <div class="math">
+                        \[
+                        \Delta u[n]=u[n+1]-u[n]=\delta[n]
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

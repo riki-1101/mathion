@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>畳み込み（合成積）</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>畳み込み（合成積）</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>畳み込み積分</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（畳み込み積分）</figcaption>
+                    <p class="indent">
+                        ２つの関数 \(f(t),g(t)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)*g(t):=\int_{-\infty}^\infty f(\tau)g(t-\tau)d\tau
+                        \]
+                    </div>
+                    <p>
+                        を \(f,g\) の<strong>畳み込み積分</strong>（合成積）という。
+                    </p>
+                    <p class="indent">
+                        また、\(f(t)*g(t)\) は \((f*g)(t)\) とも書く。
+                    </p>
+                </figure>
+                <p class=indent>
+                    畳み込み積分には次の性質があります。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（畳み込み積分の性質）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t),g(t),h(t)\) に対して、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(f(t)*g(t)=g(t)*f(t)\)</li>
+                        <li>\((f(t)*g(t))*h(t)=f(t)*(g(t)*h(t))\)</li>
+                        <li>\(f(t)*(g(t)+h(t))=f(t)*g(t)+f(t)*h(t)\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>畳み込み総和</h2>
+                <p class="indent">
+                    離散信号における畳み込みは次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（畳み込み総和）</figcaption>
+                    <p class="indent">
+                        ２つの離散信号 \(f[n],g[n]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f[n]*g[n]:=\sum_{k=-\infty}^\infty f[k]g[n-k]
+                        \]
+                    </div>
+                    <p>
+                        を \(f,g\) の<strong>畳み込み総和</strong>（合成積）という。
+                    </p>
+                    <p class="indent">
+                        また、\(f[n]*g[n]\) は \((f*g)[n]\) とも書く。
+                    </p>
+                </figure>
+                <p class="indent">
+                    畳み込み総和も畳み込み積分と同様の性質を持ちます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（畳み込み総和の性質）</figcaption>
+                    <p class="indent">
+                        離散信号 \(f[n],g[n],h[n]\) に対して、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(f[n]*g[n]=g[n]*f[n]\)</li>
+                        <li>\((f[n]*g[n])*h[n]=f[n]*(g[n]*h[n])\)</li>
+                        <li>\(f[n]*(g[n]+h[n])=f[n]*g[n]+f[n]*h[n]\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
