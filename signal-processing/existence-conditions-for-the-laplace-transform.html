@@ -46,16 +46,74 @@
                     \]
                 </div>
                 <p>
-                    グラフを描くと
+                    グラフを描くと下図のようになります。
                 </p>
                 <img src="img/existence-conditions-for-the-laplace-transform_1.svg" width="100%" height="100%" alt="image">
-                <p>
-                    関数 \(y=f(t)\) が２つの曲線 \(y=Me^{\alpha t}\) と \(y=-Me^{\alpha t}\) に挟まれる領域に存在するとき、\(f(t)\) を指数 \(\alpha\) 位の関数と呼ぶということです。
+                <p class="indent">
+                    関数 \(y=f(t)\) が２つの曲線 \(y=Me^{\alpha t}\) と \(y=-Me^{\alpha t}\) に挟まれる領域（境界線を含む）に存在するとき、\(f(t)\) を指数 \(\alpha\) 位の関数と呼ぶということです。
                 </p>
             </section>
             <section id="2">
-                <h2></h2>
-                
+                <h2>ラプラス変換の存在条件</h2>
+                <figure class="th">
+                    <figcaption>定理（ラプラス変換の存在条件）</figcaption>
+                    <p class="indent">
+                        区間 \([0,\infty)\) で定義された関数 \(f(t)\) が、区分的に連続であり、指数 \(\alpha\) 位の関数であるとき、\(s\gt\alpha\) を満たすすべての \(s\) について、\(f(t)\) のラプラス変換 \(\mathscr{L}[f(t)](s)\) が存在する。
+                    </p>
+                </figure>
+                <p><strong>証明</strong></p>
+                <p class="indent">
+                    条件より、\(f(t)\) は指数 \(\alpha\) 位の関数であるから、ある \(M\gt0,\alpha\) が存在して
+                </p>
+                <div class="math">
+                    \[
+                    |f(t)|\le Me^{\alpha t}
+                    \]
+                </div>
+                <p>
+                    が成り立つ。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \left|\int_0^\infty f(t)e^{-st}dt\right|
+                    &\le\int_0^\infty |f(t)e^{-st}|dt\\
+                    &=\int_0^\infty |f(t)|e^{-st}dt\\
+                    &\le\int_0^\infty Me^{\alpha t}e^{-st}dt\\
+                    &=M\int_0^\infty e^{-(s-\alpha)t}dt\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(s\gt\alpha\) のとき \(s-\alpha\gt0\) なので
+                </p>
+                <div class="math">
+                    \[
+                    \int_0^\infty e^{-(s-\alpha)t}dt=\left[-\frac{1}{s-\alpha}e^{-(s-\alpha)t}\right]_0^\infty=\frac{1}{s-\alpha}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \left|\int_0^\infty f(t)e^{-st}dt\right|\le\frac{M}{s-\alpha}
+                    \]
+                </div>
+                <p>
+                    となり、広義積分 \(\displaystyle\int_0^\infty f(t)e^{-st}dt\) は絶対収束する。
+                </p>
+                <p>
+                    したがって、\(s\gt\alpha\) のとき
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}[f(t)](s)=\int_0^\infty f(t)e^{-st}dt
+                    \]
+                </div>
+                <p>
+                    は存在する。
+                </p>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
