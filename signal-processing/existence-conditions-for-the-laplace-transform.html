@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ラプラス変換の存在条件</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ラプラス変換の存在条件</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>指数 \(\alpha\) 位の関数</h2>
+                <figure class="def">
+                    <figcaption>定義（指数 \(\alpha\) 位の関数）</figcaption>
+                    <p class="indent">
+                        区間 \([0,\infty)\) で定義された関数 \(f(t)\) に対して、ある定数 \(M\gt0,\alpha\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        \forall t\in[0,\infty),\quad|f(t)|\le Me^{\alpha t}
+                        \]
+                    </div>
+                    <p>
+                        を満たすとき、\(f(t)\) を<strong>指数 \(\alpha\) 位の関数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    これはグラフを描くとイメージがしやすいと思います。
+                </p>
+                <div class="math">
+                    \[
+                    |f(t)|\le Me^{\alpha t}
+                    \]
+                </div>
+                <p>
+                    の絶対値を外すと次のように書けます。
+                </p>
+                <div class="math">
+                    \[
+                    -Me^{\alpha t}\le f(t)\le Me^{\alpha t}
+                    \]
+                </div>
+                <p>
+                    グラフを描くと
+                </p>
+                <img src="img/existence-conditions-for-the-laplace-transform_1.svg" width="100%" height="100%" alt="image">
+                <p>
+                    関数 \(y=f(t)\) が２つの曲線 \(y=Me^{\alpha t}\) と \(y=-Me^{\alpha t}\) に挟まれる領域に存在するとき、\(f(t)\) を指数 \(\alpha\) 位の関数と呼ぶということです。
+                </p>
+            </section>
+            <section id="2">
+                <h2></h2>
+                
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
