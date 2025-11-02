@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>システム</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>システム</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>システムの定義</h2>
+                <p class="indent">
+                    <strong>システム</strong>とは、ある信号を別の信号に写す関数をいい、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（システム）</figcaption>
+                    <p class="indent">
+                        入力信号の集合を \(\mathcal{X}\) 、出力信号の集合を \(\mathcal{Y}\) とする。
+                        このとき、写像
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{S}:\mathcal{X}\to\mathcal{Y}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>システム</strong>という。
+                    </p>
+                    <p class="indent">
+                        \(x(t)\in\mathcal{X},~y(t)\in\mathcal{Y}\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        y(t)=\mathcal{S}\{x(t)\}
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>線形システム</h2>
+                <figure class="def">
+                    <figcaption>定義（線形システム）</figcaption>
+                    <p class="indent">
+                        システム \(\mathcal{S}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{S}\{x_1(t)\}=y_1(t),\quad\mathcal{S}\{x_2(t)\}=y_2(t)
+                        \]
+                    </div>
+                    <p>
+                        であるとする。
+                        このとき、\(a,b\in\mathbb{R}\) として
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{S}\{ax_1(t)+bx_2(t)\}=ay_1(t)+by_2(t)
+                        \]
+                    </div>
+                    <p>
+                        を満たすならば、\(\mathcal{S}\) を<strong>線形システム</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>時不変システム</h2>
+                <p class="indent">
+                    <strong>時不変システム</strong>とは、入力信号を時間シフトさせたとき、出力信号も同じだけ時間シフトするという性質を満たすシステムです。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（時不変システム）</figcaption>
+                    <p class="indent">
+                        システム \(\mathcal{S}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{S}\{x(t)\}=y(t)
+                        \]
+                    </div>
+                    <p>
+                        であるとする。
+                        このとき、\(\tau\in\mathbb{R}\) として
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{S}\{x(t-\tau)\}=y(t-\tau)
+                        \]
+                    </div>
+                    <p>
+                        満たすならば、\(\mathcal{S}\) を<strong>時不変システム</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>線形時不変システム</h2>
+                <figure class="def">
+                    <figcaption>定義（線形時不変システム）</figcaption>
+                    <p class="indent">
+                        システム \(\mathcal{S}\) が、線形システムかつ時不変システムであるシステムを<strong>線形時不変システム（LTIシステム）</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    線形時不変システムは、次の畳み込みと呼ばれる操作
+                </p>
+                <div class="math">
+                    \[
+                    y(t)=\int_{-\infty}^\infty h(\tau)x(t-\tau)d\tau
+                    \]
+                </div>
+                <p>
+                    によって完全に表現することができます。
+                    ここで、\(h\) をインパルス応答といいます。
+                </p>
+            </section>
+            <section id="5">
+                <h2>因果システム</h2>
+                <p class="indent">
+                    <strong>因果システム</strong>とは、現在の出力信号は現在までの入力のみで決まる（未来の入力には依存しない）という性質を満たすシステムです。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（因果システム）</figcaption>
+                    <p class="indent">
+                        システム \(\mathcal{S}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{S}\{x(t)\}=y(t)
+                        \]
+                    </div>
+                    <p>
+                        であるとする。
+                        このとき、入力 \(x(t)\) が
+                    </p>
+                    <div class="math">
+                        \[
+                        x(t)=0\quad (t\lt0)
+                        \]
+                    </div>
+                    <p>
+                        満たすならば、\(\mathcal{S}\) を<strong>因果システム</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
