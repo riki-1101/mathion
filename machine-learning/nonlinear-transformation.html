@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>非線形変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>非線形変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>特徴ベクトル</h2>
+                <figure class="def">
+                    <figcaption>定義（特徴ベクトル・基底関数）</figcaption>
+                    <p class="indent">
+                        入力ベクトル \(\boldsymbol{x}\in\mathbb{R}^D\) に対して、非線形変換
+                    </p>
+                    <div class="math">
+                        \[
+                        \phi:\mathbb{R}^D\to\mathbb{R}^K
+                        \]
+                    </div>
+                    <p>
+                        を考えるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \phi(\boldsymbol{x})=
+                        \begin{bmatrix}
+                        \phi_0(\boldsymbol{x}) \\ \phi_1(\boldsymbol{x}) \\ \vdots \\ \phi_{K-1}(\boldsymbol{x})
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>特徴ベクトル</strong>という。
+                        また、\(\phi(\boldsymbol{x})\) の各成分
+                    </p>
+                    <div clss="math">
+                        \[
+                        \phi_k(\boldsymbol{x})\quad(k=0,1,\cdots,K-1)
+                        \]
+                    </div>
+                    <p>
+                        を<strong>基底関数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

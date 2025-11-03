@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>線形回帰とは</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>線形回帰とは</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>問題の定式化</h2>
+                <p class="indent">
+                    データの個数を \(N\) とします。
+                    入力ベクトルを \(\boldsymbol{x}_n\in\mathbb{R}^D\) とし、これに対応する目標値を \(y_n\in\mathbb{R}\) として、データセット \(\mathcal{D}\) を次のように与えます。
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{D}=\{(\boldsymbol{x}_1,y_1),(\boldsymbol{x}_2,y_2),\cdots,(\boldsymbol{x}_N,y_N)\}
+                    \]
+                </div>
+                <p>
+                    この \(\mathcal{D}\) から入力ベクトルを取り出して、入力の集合として
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{X}:=\{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_N\}
+                    \]
+                </div>
+                <p>
+                    を定めます。
+                    同様に、目標値の集合として
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{Y}:=\{y_1,y_2,\cdots,y_N\}
+                    \]
+                </div>
+                <p>
+                    を定めます。
+                </p>
+                <p>
+                    次のモデルを考えます。
+                </p>
+                <div class="math">
+                    \[
+                    y_n=f(\boldsymbol{x}_n)+\epsilon,\quad \epsilon\sim\mathcal{N}(0,\sigma^2)
+                    \]
+                </div>
+                <p>
+                    これは、入力 \(\boldsymbol{x}_n\) に対する出力 \(y_n\) は、真の関数 \(f(\boldsymbol{x}_n)\) にノイズ（誤差）\(\epsilon\) を加えたものであるとするものです。
+                </p>
+                <p>
+                    このとき、正規分布の性質より
+                </p>
+                <div class="math">
+                    \[
+                    y_n\sim\mathcal{N}(f(\boldsymbol{x}_n),\sigma^2)
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（線形回帰）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\) を予測するモデル関数 \(f(\boldsymbol{x})\) を
+                    </p>
+                    <div class="math">
+                        \[
+                        f(\boldsymbol{x}_n)=\boldsymbol{x}_n^\top\boldsymbol{\theta}
+                        \]
+                    </div>
+                    <p>
+                        とするとき、すなわち、モデル式を
+                    </p>
+                    <div class="math">
+                        \[
+                        y_n=\boldsymbol{x}_n^\top\boldsymbol{\theta}+\epsilon
+                        \]
+                    </div>
+                    <p>
+                        とする回帰を<strong>線形回帰</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

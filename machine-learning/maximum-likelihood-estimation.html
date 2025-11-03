@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>最尤推定</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>最尤推定</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>問題の定式化</h2>
+                <figure class="def">
+                    <figcaption>定義（最尤推定法）</figcaption>
+                    <p class="indent">
+                        入力の集合 \(\mathcal{X}\) とそれに対応する目標値の集合 \(\mathcal{Y}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{\theta}_{\mathrm{ML}}=\underset{\boldsymbol{\theta}}{\operatorname{argmax}}p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})
+                        \]
+                    </div>
+                    <p>
+                        をパラメータ \(\boldsymbol{\theta}\) の最尤推定値という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    \(N\) 個のデータのデータセット \(\mathcal{D}\) が次のように得られたとします。
+                <div class="math">
+                    \[
+                    \mathcal{D}=\{(\boldsymbol{x}_1,y_1),(\boldsymbol{x}_2,y_2),\cdots,(\boldsymbol{x}_N,y_N)\}
+                    \]
+                </div>
+                <p>
+                    このとき、入力の集合 \(\mathcal{X}\) 、目標値の集合 \(\mathcal{Y}\) は
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{X}=\{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_N\},\quad\mathcal{Y}=\{y_1,y_2,\cdots,y_N\}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <p>
+                    モデルを次のように設定します。
+                </p>
+                <div class="math">
+                    \[
+                    y_n=\boldsymbol{x}_n^\top\boldsymbol{\theta}+\epsilon,\quad \epsilon\sim\mathcal{N}(0,\sigma^2)
+                    \]
+                </div>
+                <p>
+                    このとき、正規分布の性質より
+                </p>
+                <div class="math">
+                    \[
+                    y_n\sim\mathcal{N}(\boldsymbol{x}_n^\top\boldsymbol{\theta},\sigma^2)
+                    \]
+                </div>
+                <p>
+                    となるので、\(y_n\) の確率密度関数は次式で表されます。
+                </p>
+                <div class="math">
+                    \[
+                    p(y_n|\boldsymbol{x}_n,\boldsymbol{\theta})=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(y_n-\boldsymbol{x}_n^\top\boldsymbol{\theta})^2}{2\sigma^2}\right\}
+                    \]
+                </div>
+                <p class="indent">
+                    最尤推定とは、定義より
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{\theta}_{\mathrm{ML}}=\underset{\boldsymbol{\theta}}{\operatorname{argmax}}p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})
+                    \]
+                </div>
+                <p>
+                    を求めることです。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})
+                    &=p(\{y_1,y_2,\cdots,y_N\}|\{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_N\},\boldsymbol{\theta})\\
+                    &=p(y_1|\boldsymbol{x}_1,\boldsymbol{\theta})p(y_2|\boldsymbol{x}_2,\boldsymbol{\theta})\cdots p(y_N|\boldsymbol{x}_N,\boldsymbol{\theta})\\
+                    &=\prod_{n=1}^Np(y_n|\boldsymbol{x}_n,\boldsymbol{\theta})\\
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    積のままでは扱いづらい（巨大な数になる）ため、対数をとることを考えます。
+                    また、最大化よりも最小化の方が扱いやすいため、負の対数をとることにします。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \boldsymbol{\theta}_{\mathrm{ML}}
+                    &=\underset{\boldsymbol{\theta}}{\operatorname{argmax}}p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})\\
+                    &=\underset{\boldsymbol{\theta}}{\operatorname{argmax}}\log p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})\\
+                    &=\underset{\boldsymbol{\theta}}{\operatorname{argmin}}\{-\log p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})\}
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    \(p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})\) の負の自然対数をとると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    -\log p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})
+                    &=-\log\prod_{n=1}^Np(y_n|\boldsymbol{x}_n,\boldsymbol{\theta})\\
+                    &=-\sum_{n=1}^N\log p(y_n|\boldsymbol{x}_n,\boldsymbol{\theta})\\
+                    &=-\sum_{n=1}^N\log \left[\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(y_n-\boldsymbol{x}_n^\top\boldsymbol{\theta})^2}{2\sigma^2}\right\}\right]\\
+                    &=\sum_{n=1}^N\log \left[\sqrt{2\pi\sigma^2}\exp\left\{\frac{(y_n-\boldsymbol{x}_n^\top\boldsymbol{\theta})^2}{2\sigma^2}\right\}\right]\\
+                    &=\sum_{n=1}^N \left\{\log\sqrt{2\pi\sigma^2} + \frac{(y_n-\boldsymbol{x}_n^\top\boldsymbol{\theta})^2}{2\sigma^2}\right\}\\
+                    &=N\log\sqrt{2\pi\sigma^2}+\frac{1}{2\sigma^2}\sum_{n=1}^N (y_n-\boldsymbol{x}_n^\top\boldsymbol{\theta})^2\\
+                    &=N\log\sqrt{2\pi\sigma^2}+\frac{1}{2\sigma^2}||\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}||^2
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \boldsymbol{\theta}_{\mathrm{ML}}
+                    &=\underset{\boldsymbol{\theta}}{\operatorname{argmin}}\{-\log p(\mathcal{Y}|\mathcal{X},\boldsymbol{\theta})\}\\
+                    &=\underset{\boldsymbol{\theta}}{\operatorname{argmin}}\left\{N\log\sqrt{2\pi\sigma^2}+\frac{1}{2\sigma^2}||\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}||^2\right\}\\
+                    &=\underset{\boldsymbol{\theta}}{\operatorname{argmin}}\left\{\frac{1}{2}||\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}||^2\right\}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{L}(\boldsymbol{\theta}):=\frac{1}{2}||\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}||^2
+                    \]
+                </div>
+                <p>
+                    を最小にする \(\boldsymbol{\theta}\) を求めればいいことになります。
+                </p>
+                <p>
+                    ※ 係数の \(\dfrac{1}{2}\) は不要だが、微分した際の簡潔化ために残している。
+                </p>
+                <p>
+                    \(\mathcal{L}(\boldsymbol{\theta})\) を \(\boldsymbol{\theta}\) で微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{d\mathcal{L}}{d\boldsymbol{\theta}}
+                    &=\frac{d}{d\boldsymbol{\theta}}\left(\frac{1}{2}||\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}||^2\right)\\
+                    &=\frac{1}{2}\frac{d}{d\boldsymbol{\theta}}\left(||\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}||^2\right)\\
+                    &=\frac{1}{2}\frac{d}{d\boldsymbol{\theta}}(||\boldsymbol{g}(\boldsymbol{\theta})||^2) \quad (\boldsymbol{g}(\boldsymbol{\theta}):=\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta})\\
+                    &=\frac{1}{2}\frac{d}{d\boldsymbol{g}}(||\boldsymbol{g}(\boldsymbol{\theta})||^2)\frac{d\boldsymbol{g}}{d\boldsymbol{\theta}}\\
+                    &=\frac{1}{2}\frac{d}{d\boldsymbol{g}}(\boldsymbol{g}(\boldsymbol{\theta})^\top\boldsymbol{g}(\boldsymbol{\theta}))\frac{d\boldsymbol{g}}{d\boldsymbol{\theta}}\\
+                    &=\frac{1}{2}\cdot 2\boldsymbol{g}(\boldsymbol{\theta})^\top\frac{d\boldsymbol{g}}{d\boldsymbol{\theta}}\\
+                    &=(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta})^\top\frac{d}{d\boldsymbol{\theta}}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta})\\
+                    &=(\boldsymbol{y}^\top-\boldsymbol{\theta}^\top\boldsymbol{X}^\top)(-\boldsymbol{X})\\
+                    &=-\boldsymbol{y}^\top\boldsymbol{X}+\boldsymbol{\theta}^\top\boldsymbol{X}^\top\boldsymbol{X}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    \(\dfrac{d\mathcal{L}}{d\boldsymbol{\theta}}=\boldsymbol{0}^\top\) となるとき、\(\mathcal{L}(\boldsymbol{\theta})\) は最小となるから
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &-\boldsymbol{y}^\top\boldsymbol{X}+\boldsymbol{\theta}^\top\boldsymbol{X}^\top\boldsymbol{X}=\boldsymbol{0}^\top\\
+                    &\Longleftrightarrow\boldsymbol{\theta}^\top\boldsymbol{X}^\top\boldsymbol{X}=\boldsymbol{y}^\top\boldsymbol{X}\\
+                    &\Longleftrightarrow(\boldsymbol{\theta}^\top\boldsymbol{X}^\top\boldsymbol{X})^\top=(\boldsymbol{y}^\top\boldsymbol{X})^\top\\
+                    &\Longleftrightarrow \boldsymbol{X}^\top\boldsymbol{X}\boldsymbol{\theta}=\boldsymbol{X}^\top\boldsymbol{y}\\
+                    &\Longleftrightarrow \boldsymbol{\theta}=(\boldsymbol{X}^\top\boldsymbol{X})^{-1}\boldsymbol{X}^\top\boldsymbol{y}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ゆえに
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{\theta}_{\mathrm{ML}}=(\boldsymbol{X}^\top\boldsymbol{X})^{-1}\boldsymbol{X}^\top\boldsymbol{y}
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>パラメータの評価</h2>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
