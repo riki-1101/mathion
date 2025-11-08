@@ -13,197 +13,200 @@
         <main id="contents">
             <h1>フーリエ級数</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">フーリエ級数展開とは</h2>
-            <p class="indent">
-                ある周期信号 \(f(t)\) を、直流成分と正弦波、余弦波で分解することを考えます。
-            </p>
-            <figure class="def">
-                <figcaption>定義（角周波数）</figcaption>
+            <section id="1">
+                <h2>フーリエ級数展開とは</h2>
                 <p class="indent">
-                    単位時間あたりの位相 \(\theta\) の変化を<strong>角周波数</strong>といい
+                    ある周期信号 \(f(t)\) を、直流成分と正弦波、余弦波で分解することを考えます。
                 </p>
+                <figure class="def">
+                    <figcaption>定義（角周波数）</figcaption>
+                    <p class="indent">
+                        単位時間あたりの位相 \(\theta\) の変化を<strong>角周波数</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \omega:=\frac{d\theta}{dt}
+                        \]
+                    </div>
+                    <p>
+                        と定義する。
+                    </p>
+                    <p class="indent">
+                        任意の周期 \(T\) の信号の角周波数 \(\omega\) は
+                    </p>
+                    <div class="math">
+                        \[
+                        \omega=\frac{2\pi}{T}
+                        \]
+                    </div>
+                    <p>
+                        である。
+                    </p>
+                </figure>
                 <div class="math">
                     \[
-                    \omega:=\frac{d\theta}{dt}
+                    \begin{align}
+                    f(t)\sim a_0
+                    &+a_1\cos(\omega t)+a_2\cos(2\omega t)+\cdots+a_n\cos(n\omega t)+\cdots\\
+                    &+b_1\sin(\omega t)+b_2\sin(2\omega t)+\cdots+b_n\sin(n\omega t)+\cdots
+                    \end{align}
                     \]
                 </div>
                 <p>
-                    と定義する。
+                    すなわち
                 </p>
+                <div class="math">
+                        \[
+                        f(t)\sim a_0+\sum_{n=1}^\infty\left\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\right\}
+                        \]
+                    </div>
+                <figure class="def">
+                    <figcaption>定義（フーリエ級数）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) を周期 \(T\) の周期信号とする。
+                        \(\omega=\dfrac{2\pi}{T}\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)\sim a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\}
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>フーリエ級数</strong>といい、\(a_0,a_n,b_n\) を<strong>フーリエ係数</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>フーリエ係数</h2>
                 <p class="indent">
-                    任意の周期 \(T\) の信号の角周波数 \(\omega\) は
+                    フーリエ係数は、三角関数の直交性を利用することで求められます。
+                </p>
+                <figure class="th">
+                    <figcaption>再掲（三角関数の直交性）</figcaption>
+                    <p class="indent">
+                        \(m,n\in\mathbb{Z}_{\ge0}\) とし、\(\omega=\dfrac{2\pi}{T}\) とするとき、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos(m\omega t)\sin(n\omega t)dt=0\)</li>
+                        <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos(m\omega t)\cos(n\omega t)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
+                        <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\sin(m\omega t)\sin(n\omega t)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
+                    </ol>
+                </figure>
+                <p class="indent">
+                    三角関数の積の１周期分の積分は、異なる三角関数の積ならば \(0\) 、同じ三角関数の積であるときのみ \(\dfrac{T}{2}\) となります。
+                </p>
+                <h3>\(a_n\) を求める</h3>
+                <p class="indent">
+                    両辺に \(\cos(m\omega t)~(m\in\mathbb{N})\) を掛けると
                 </p>
                 <div class="math">
                     \[
-                    \omega=\frac{2\pi}{T}
+                    f(t)\cos(m\omega t) \sim \left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \cos(m\omega t)
                     \]
                 </div>
                 <p>
-                    である。
-                </p>
-            </figure>
-            
-            <div class="math">
-                \[
-                \begin{align}
-                f(t)\sim a_0
-                &+a_1\cos(\omega t)+a_2\cos(2\omega t)+\cdots+a_n\cos(n\omega t)+\cdots\\
-                &+b_1\sin(\omega t)+b_2\sin(2\omega t)+\cdots+b_n\sin(n\omega t)+\cdots
-                \end{align}
-                \]
-            </div>
-            <p>
-                すなわち
-            </p>
-            <div class="math">
-                    \[
-                    f(t)\sim a_0+\sum_{n=1}^\infty\left\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\right\}
-                    \]
-                </div>
-            <figure class="def">
-                <figcaption>定義（フーリエ級数）</figcaption>
-                <p class="indent">
-                    信号 \(f(t)\) を周期 \(T\) の周期信号とする。
-                    \(\omega=\dfrac{2\pi}{T}\) とするとき
-                </p>
-                <div class="math">
-                    \[
-                    f(t)\sim a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\}
-                    \]
-                </div>
-                <p>
-                    を \(f(t)\) の<strong>フーリエ級数</strong>といい、\(a_0,a_n,b_n\) を<strong>フーリエ係数</strong>という。
-                </p>
-            </figure>
-            <h2 id="2">フーリエ係数</h2>
-            <p class="indent">
-                フーリエ係数は、三角関数の直交性を利用することで求められます。
-            </p>
-            <figure class="th">
-                <figcaption>再掲（三角関数の直交性）</figcaption>
-                <p class="indent">
-                    \(m,n\in\mathbb{Z}_{\ge0}\) とし、\(\omega=\dfrac{2\pi}{T}\) とするとき、次が成り立つ。
-                </p>
-                <ol>
-                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos(m\omega t)\sin(n\omega t)dt=0\)</li>
-                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos(m\omega t)\cos(n\omega t)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
-                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\sin(m\omega t)\sin(n\omega t)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
-                </ol>
-            </figure>
-            <p class="indent">
-                三角関数の積の１周期分の積分は、異なる三角関数の積ならば \(0\) 、同じ三角関数の積であるときのみ \(\dfrac{T}{2}\) となります。
-            </p>
-            <h3>\(a_n\) を求める</h3>
-            <p class="indent">
-                両辺に \(\cos(m\omega t)~(m\in\mathbb{N})\) を掛けると
-            </p>
-            <div class="math">
-                \[
-                f(t)\cos(m\omega t) \sim \left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \cos(m\omega t)
-                \]
-            </div>
-            <p>
-                これを \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
-            </p>
-            <div class="math">
-                \[
-                \begin{align}
-                \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(m\omega t)dt
-                &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \cos(m\omega t)dt\\
-                &=\int_{-\frac{T}{2}}^\frac{T}{2}a_m\cos(m\omega t)\cos(m\omega t)dt \quad (\because \text{三角関数の直交性より})\\
-                &=a_m\int_{-\frac{T}{2}}^\frac{T}{2}\cos^2(m\omega t)dt\\
-                &=\frac{T}{2}a_m
-                \end{align}
-                \]
-            </div>
-            <p>
-                よって
-            </p>
-            <div class="math">
-                \[
-                a_m=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(m\omega t)dt
-                \]
-            </div>
-            <h3>\(b_n\) を求める</h3>
-            <p class="indent">
-                両辺に \(\sin(m\omega t)~(m\in\mathbb{N})\) を掛けると
-            </p>
-            <div class="math">
-                \[
-                f(t)\sin(m\omega t) \sim \left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \sin(m\omega t)
-                \]
-            </div>
-            <p>
-                これを \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
-            </p>
-            <div class="math">
-                \[
-                \begin{align}
-                \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(m\omega t)dt
-                &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \sin(m\omega t)dt\\
-                &=\int_{-\frac{T}{2}}^\frac{T}{2}b_m\sin(m\omega t)\sin(m\omega t)dt \quad (\because \text{三角関数の直交性より})\\
-                &=b_m\int_{-\frac{T}{2}}^\frac{T}{2}\sin^2(m\omega t)dt\\
-                &=\frac{T}{2}b_m
-                \end{align}
-                \]
-            </div>
-            <p>
-                よって
-            </p>
-            <div class="math">
-                \[
-                b_m=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(m\omega t)dt
-                \]
-            </div>
-            <h3>\(a_0\) を求める</h3>
-            <p>
-                \(f(t)\) を \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
-            </p>
-            <div class="math">
-                \[
-                \begin{align}
-                \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt
-                &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right]dt\\
-                &=\int_{-\frac{T}{2}}^\frac{T}{2}a_0dt \quad (\because \text{三角関数の直交性より})\\
-                &=a_0\int_{-\frac{T}{2}}^\frac{T}{2}dt\\
-                &=Ta_0
-                \end{align}
-                \]
-            </div>
-            <p>
-                よって
-            </p>
-            <div class="math">
-                \[
-                a_0=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt
-                \]
-            </div>
-            <p class="indent">
-                したがって、以上をまとめると次のようになります。
-            </p>
-            <figure class="th">
-                <figcaption>定理（フーリエ係数）</figcaption>
-                <p class="indent">
-                    \(f(t)\) のフーリエ級数
-                </p>
-                <div class="math">
-                    \[
-                    f(t)\sim a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\}
-                    \]
-                </div>
-                <p>
-                    のフーリエ係数 \(a_0,a_n,b_n\) は次のように書ける。
+                    これを \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    a_0&=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt\\
-                    a_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(n\omega t)dt\\
-                    b_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(n\omega t)dt
+                    \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(m\omega t)dt
+                    &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \cos(m\omega t)dt\\
+                    &=\int_{-\frac{T}{2}}^\frac{T}{2}a_m\cos(m\omega t)\cos(m\omega t)dt \quad (\because \text{三角関数の直交性より})\\
+                    &=a_m\int_{-\frac{T}{2}}^\frac{T}{2}\cos^2(m\omega t)dt\\
+                    &=\frac{T}{2}a_m
                     \end{align}
                     \]
                 </div>
-            </figure>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    a_m=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(m\omega t)dt
+                    \]
+                </div>
+                <h3>\(b_n\) を求める</h3>
+                <p class="indent">
+                    両辺に \(\sin(m\omega t)~(m\in\mathbb{N})\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    f(t)\sin(m\omega t) \sim \left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \sin(m\omega t)
+                    \]
+                </div>
+                <p>
+                    これを \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(m\omega t)dt
+                    &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \sin(m\omega t)dt\\
+                    &=\int_{-\frac{T}{2}}^\frac{T}{2}b_m\sin(m\omega t)\sin(m\omega t)dt \quad (\because \text{三角関数の直交性より})\\
+                    &=b_m\int_{-\frac{T}{2}}^\frac{T}{2}\sin^2(m\omega t)dt\\
+                    &=\frac{T}{2}b_m
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    b_m=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(m\omega t)dt
+                    \]
+                </div>
+                <h3>\(a_0\) を求める</h3>
+                <p>
+                    \(f(t)\) を \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt
+                    &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right]dt\\
+                    &=\int_{-\frac{T}{2}}^\frac{T}{2}a_0dt \quad (\because \text{三角関数の直交性より})\\
+                    &=a_0\int_{-\frac{T}{2}}^\frac{T}{2}dt\\
+                    &=Ta_0
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    a_0=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt
+                    \]
+                </div>
+                <p class="indent">
+                    したがって、以上をまとめると次のようになります。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（フーリエ係数）</figcaption>
+                    <p class="indent">
+                        \(f(t)\) のフーリエ級数
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)\sim a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\}
+                        \]
+                    </div>
+                    <p>
+                        のフーリエ係数 \(a_0,a_n,b_n\) は次のように書ける。
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        a_0&=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt\\
+                        a_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(n\omega t)dt\\
+                        b_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(n\omega t)dt
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+            </section>
             <section id="3">
                 <h2>正規直交関数系によるフーリエ級数の導出</h2>
                 <p class="indent">
