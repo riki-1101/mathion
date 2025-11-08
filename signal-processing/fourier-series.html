@@ -13,9 +13,200 @@
         <main id="contents">
             <h1>フーリエ級数</h1>
             <div id="table-of-contents"></div>
-            <section>
-                <h2></h2>
+            <h2 id="1">フーリエ級数展開とは</h2>
+            <p class="indent">
+                ある周期信号 \(f(t)\) を、直流成分と正弦波、余弦波で分解することを考えます。
+            </p>
+            <figure class="def">
+                <figcaption>定義（角周波数）</figcaption>
+                <p class="indent">
+                    単位時間あたりの位相 \(\theta\) の変化を<strong>角周波数</strong>といい
+                </p>
+                <div class="math">
+                    \[
+                    \omega:=\frac{d\theta}{dt}
+                    \]
+                </div>
                 <p>
+                    と定義する。
+                </p>
+                <p class="indent">
+                    任意の周期 \(T\) の信号の角周波数 \(\omega\) は
+                </p>
+                <div class="math">
+                    \[
+                    \omega=\frac{2\pi}{T}
+                    \]
+                </div>
+                <p>
+                    である。
+                </p>
+            </figure>
+            
+            <div class="math">
+                \[
+                \begin{align}
+                f(t)\sim a_0
+                &+a_1\cos(\omega t)+a_2\cos(2\omega t)+\cdots+a_n\cos(n\omega t)+\cdots\\
+                &+b_1\sin(\omega t)+b_2\sin(2\omega t)+\cdots+b_n\sin(n\omega t)+\cdots
+                \end{align}
+                \]
+            </div>
+            <p>
+                すなわち
+            </p>
+            <div class="math">
+                    \[
+                    f(t)\sim a_0+\sum_{n=1}^\infty\left\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\right\}
+                    \]
+                </div>
+            <figure class="def">
+                <figcaption>定義（フーリエ級数）</figcaption>
+                <p class="indent">
+                    信号 \(f(t)\) を周期 \(T\) の周期信号とする。
+                    \(\omega=\dfrac{2\pi}{T}\) とするとき
+                </p>
+                <div class="math">
+                    \[
+                    f(t)\sim\frac{a_0}{2}+\sum_{n=1}^\infty\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\}
+                    \]
+                </div>
+                <p>
+                    を \(f(t)\) の<strong>フーリエ級数</strong>といい、\(a_0,a_n,b_n\) を<strong>フーリエ係数</strong>という。
+                </p>
+            </figure>
+            <h2 id="2">フーリエ係数</h2>
+            <p class="indent">
+                フーリエ係数は、三角関数の直交性を利用することで求められます。
+            </p>
+            <figure class="th">
+                <figcaption>再掲（三角関数の直交性）</figcaption>
+                <p class="indent">
+                    \(m,n\in\mathbb{Z}_{\ge0}\) とし、\(\omega=\dfrac{2\pi}{T}\) とするとき、次が成り立つ。
+                </p>
+                <ol>
+                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos(m\omega t)\sin(n\omega t)dt=0\)</li>
+                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos(m\omega t)\cos(n\omega t)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
+                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\sin(m\omega t)\sin(n\omega t)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
+                </ol>
+            </figure>
+            <p class="indent">
+                三角関数の積の１周期分の積分は、異なる三角関数の積ならば \(0\) 、同じ三角関数の積であるときのみ \(\dfrac{T}{2}\) となります。
+            </p>
+            <h3>\(a_n\) を求める</h3>
+            <p class="indent">
+                両辺に \(\cos(m\omega t)~(m\in\mathbb{N})\) を掛けると
+            </p>
+            <div class="math">
+                \[
+                f(t)\cos(m\omega t) \sim \left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \cos(m\omega t)
+                \]
+            </div>
+            <p>
+                これを \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
+            </p>
+            <div class="math">
+                \[
+                \begin{align}
+                \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(m\omega t)dt
+                &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \cos(m\omega t)dt\\
+                &=\int_{-\frac{T}{2}}^\frac{T}{2}a_m\cos(m\omega t)\cos(m\omega t)dt \quad (\because \text{三角関数の直交性より})\\
+                &=a_m\int_{-\frac{T}{2}}^\frac{T}{2}\cos^2(m\omega t)dt\\
+                &=\frac{T}{2}a_m
+                \end{align}
+                \]
+            </div>
+            <p>
+                よって
+            </p>
+            <div class="math">
+                \[
+                a_m=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(m\omega t)dt
+                \]
+            </div>
+            <h3>\(b_n\) を求める</h3>
+            <p class="indent">
+                両辺に \(\sin(m\omega t)~(m\in\mathbb{N})\) を掛けると
+            </p>
+            <div class="math">
+                \[
+                f(t)\sin(m\omega t) \sim \left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \sin(m\omega t)
+                \]
+            </div>
+            <p>
+                これを \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
+            </p>
+            <div class="math">
+                \[
+                \begin{align}
+                \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(m\omega t)dt
+                &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right] \sin(m\omega t)dt\\
+                &=\int_{-\frac{T}{2}}^\frac{T}{2}b_m\sin(m\omega t)\sin(m\omega t)dt \quad (\because \text{三角関数の直交性より})\\
+                &=b_m\int_{-\frac{T}{2}}^\frac{T}{2}\sin^2(m\omega t)dt\\
+                &=\frac{T}{2}b_m
+                \end{align}
+                \]
+            </div>
+            <p>
+                よって
+            </p>
+            <div class="math">
+                \[
+                b_m=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(m\omega t)dt
+                \]
+            </div>
+            <h3>\(a_0\) を求める</h3>
+            <p>
+                \(f(t)\) を \(-\dfrac{T}{2}\) から \(\dfrac{T}{2}\) まで積分すると
+            </p>
+            <div class="math">
+                \[
+                \begin{align}
+                \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt
+                &=\int_{-\frac{T}{2}}^\frac{T}{2}\left[ a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t) + b_n\sin(n\omega t)\}\right]dt\\
+                &=\int_{-\frac{T}{2}}^\frac{T}{2}a_0dt \quad (\because \text{三角関数の直交性より})\\
+                &=a_0\int_{-\frac{T}{2}}^\frac{T}{2}dt\\
+                &=Ta_0
+                \end{align}
+                \]
+            </div>
+            <p>
+                よって
+            </p>
+            <div class="math">
+                \[
+                a_0=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt
+                \]
+            </div>
+            <p class="indent">
+                したがって、以上をまとめると次のようになります。
+            </p>
+            <figure class="th">
+                <figcaption>定理（フーリエ係数）</figcaption>
+                <p class="indent">
+                    \(f(t)\) のフーリエ級数
+                </p>
+                <div class="math">
+                    \[
+                    f(t)\sim a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\}
+                    \]
+                </div>
+                <p>
+                    のフーリエ係数 \(a_0,a_n,b_n\) は次のように書ける。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    a_0&=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)dt\\
+                    a_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(n\omega t)dt\\
+                    b_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(n\omega t)dt
+                    \end{align}
+                    \]
+                </div>
+            </figure>
+            <section id="3">
+                <h2>正規直交関数系によるフーリエ級数の導出</h2>
+                <p class="indent">
                     ベクトル \(\boldsymbol{a}=\begin{bmatrix} a_1 & a_2 & \cdots & a_n \end{bmatrix}\) を正規直交基底 \(\boldsymbol{e}_i\) を用いて表現すると
                 </p>
                 <div class="math">
@@ -45,14 +236,14 @@
                     \boldsymbol{a}=\sum_{i=1}^n(\boldsymbol{a},\boldsymbol{e}_i)\boldsymbol{e}_i
                     \]
                 </div>
-                <p>
-                    \(f(x)\) を周期 \(T\) の関数とし、\(\{e_i(x)~|~i\in\mathbb{N}\}\) を正規直交関数系とします。
+                <p class="indent">
+                    \(f(t)\) を周期 \(T\) の関数とし、\(\{e_i(x)~|~i\in\mathbb{N}\}\) を正規直交関数系とします。
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    f(x)&\sim\sum_{i=1}^\infty(f(t),e_i(t))e_i(x)\\
-                    &=\sum_{i=1}^\infty\left\{\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e_i(t)dt\right)e_i(x)\right\}
+                    f(t)&\sim\sum_{i=1}^\infty(f(\tau),e_i(\tau))e_i(t)\\
+                    &=\sum_{i=1}^\infty\left\{\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)e_i(\tau)d\tau\right)e_i(t)\right\}
                     \end{align}
                     \]
                 </div>
@@ -61,30 +252,31 @@
                 </p>
                 <div class="math">
                     \[
-                    \left\{1,~\cos\left(\frac{2\pi}{T}nx\right),~\sin\left(\frac{2\pi}{T}nx\right)\right\}_{n\in\mathbb{N}}
+                    \left\{1,~\cos\left(\frac{2\pi}{T}nt\right),~\sin\left(\frac{2\pi}{T}nt\right)\right\}_{n\in\mathbb{N}}
                     \]
                 </div>
                 <p>
-                    は直交関数系です。よってこれを正規化した関数系
+                    は直交関数系です。
+                    よってこれを正規化した関数系
                 </p>
                 <div class="math">
                     \[
-                    \left\{\frac{1}{\sqrt{T}},~\frac{\cos\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}},~\frac{\sin\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}}\right\}_{n\in\mathbb{N}}
+                    \left\{\frac{1}{\sqrt{T}},~\frac{\cos\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}},~\frac{\sin\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}}\right\}_{n\in\mathbb{N}}
                     \]
                 </div>
                 <p>
                     は正規直交関数系となります。
                 </p>
                 <p>
-                    先ほどの \(\{e_i(x)~|~i\in\mathbb{N}\}\) をこれにしたもの
+                    先ほどの \(\{e_i(t)~|~i\in\mathbb{N}\}\) をこれにしたもの
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    f(x)\sim&
-                    \int_{-\frac{T}{2}}^\frac{T}{2}f(t)\frac{1}{\sqrt{T}}dt\cdot\frac{1}{\sqrt{T}}\\
-                    &+\sum_{n=1}^\infty\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\frac{\cos\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}}dt\cdot\frac{\cos\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}}\\
-                    &+\sum_{n=1}^\infty\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\frac{\sin\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}}dt\cdot\frac{\sin\left(\frac{2\pi}{T}nx\right)}{\sqrt{\frac{T}{2}}}
+                    f(t)
+                    \sim&\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)\frac{1}{\sqrt{T}}d\tau\cdot\frac{1}{\sqrt{T}}\\
+                    &+\sum_{n=1}^\infty\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)\frac{\cos\left(\frac{2\pi}{T}n\tau\right)}{\sqrt{\frac{T}{2}}}d\tau\cdot\frac{\cos\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}}\\
+                    &+\sum_{n=1}^\infty\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)\frac{\sin\left(\frac{2\pi}{T}n\tau\right)}{\sqrt{\frac{T}{2}}}d\tau\cdot\frac{\sin\left(\frac{2\pi}{T}nt\right)}{\sqrt{\frac{T}{2}}}
                     \end{align}
                     \]
                 </div>
@@ -94,26 +286,26 @@
                 <div class="math">
                     \[
                     \begin{align}
-                    f(x)\sim&
-                    \frac{1}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(t)dt\\
-                    &+\frac{2}{T}\sum_{n=1}^\infty\left[\left\{\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\cos\left(\frac{2\pi}{T}nt\right)dt\right\}\cos\left(\frac{2\pi}{T}nx\right)\right]\\
-                    &+\frac{2}{T}\sum_{n=1}^\infty\left[\left\{\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\sin\left(\frac{2\pi}{T}nt\right)dt\right\}\sin\left(\frac{2\pi}{T}nx\right)\right]
+                    f(t)\sim&
+                    \frac{1}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)d\tau\\
+                    &+\frac{2}{T}\sum_{n=1}^\infty\left[\left\{\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)\cos\left(\frac{2\pi}{T}n\tau\right)d\tau\right\}\cos\left(\frac{2\pi}{T}nt\right)\right]\\
+                    &+\frac{2}{T}\sum_{n=1}^\infty\left[\left\{\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)\sin\left(\frac{2\pi}{T}n\tau\right)d\tau\right\}\sin\left(\frac{2\pi}{T}nt\right)\right]
                     \end{align}
                     \]
                 </div>
                 <p>
-                    これを \(f(x)\) のフーリエ級数展開といいます。
+                    これを \(f(t)\) のフーリエ級数展開といいます。
                 </p>
                 <p class="indent">
-                    特に、\(f(x)\) の周期が \(2\pi\) のときは
+                    特に、\(f(t)\) の周期が \(2\pi\) のときは
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    f(x)\sim&
-                    \frac{1}{2\pi}\int_{-\pi}^\pi f(t)dt\\
-                    &+\frac{1}{\pi}\sum_{n=1}^\infty\left[\left\{\int_{-\pi}^\pi f(t)\cos(nt)dt\right\}\cos(nx)\right]\\
-                    &+\frac{1}{\pi}\sum_{n=1}^\infty\left[\left\{\int_{-\pi}^\pi f(t)\sin(nt)dt\right\}\sin(nx)\right]
+                    f(t)\sim&
+                    \frac{1}{2\pi}\int_{-\pi}^\pi f(\tau)d\tau\\
+                    &+\frac{1}{\pi}\sum_{n=1}^\infty\left[\left\{\int_{-\pi}^\pi f(\tau)\cos(n\tau)d\tau\right\}\cos(nt)\right]\\
+                    &+\frac{1}{\pi}\sum_{n=1}^\infty\left[\left\{\int_{-\pi}^\pi f(\tau)\sin(n\tau)d\tau\right\}\sin(nt)\right]
                     \end{align}
                     \]
                 </div>
@@ -121,148 +313,6 @@
                     となります。
                 </p>
             </section>
-            <h2 id="1">フーリエ級数展開とは</h2>
-            <p class="indent">
-                フーリエ級数展開とは、ある関数を三角関数の和で表す手法である。
-            </p>
-            <p class="indent">
-                周期信号 \(f(t)\) を、直流成分と正弦波、余弦波で分解することを考えます。
-            </p>
-            <div class="math">
-                \[
-                \omega=\frac{2\pi}{T}
-                \]
-            </div>
-            <div class="math">
-                \[
-                \begin{align}
-                f(t)\sim a_0
-                &+a_1\cos(\omega t)+a_2\cos(2\omega t)+\cdots+a_n\cos(n\omega t)+\cdots\\
-                &+b_1\sin(\omega t)+b_2\sin(2\omega t)+\cdots+b_n\sin(n\omega t)+\cdots
-                \end{align}
-                \]
-            </div>
-            <p>
-                すなわち
-            </p>
-            <div class="math">
-                    \[
-                    f(t)\sim a_0+\sum_{n=1}^\infty\left\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\right\}
-                    \]
-                </div>
-            <figure class="def">
-                <figcaption>定義（フーリエ級数）</figcaption>
-                <p class="indent">
-                    関数 \(f(t)\) を周期 \(T\) の周期関数とする。
-                    このとき
-                </p>
-                <div class="math">
-                    \[
-                    f(t)\sim\frac{a_0}{2}+\sum_{n=1}^\infty\left(a_n\cos\frac{2\pi n}{T}t+b_n\sin\frac{2\pi n}{T}t\right)
-                    \]
-                </div>
-                <p>
-                    を \(f\) のフーリエ級数といい、\(a_n,b_n\) をフーリエ係数という。
-                </p>
-            </figure>
-            <p class="space"></p>
-            <h2 id="2">フーリエ係数</h2>
-            <div class="article">
-                フーリエ係数は、三角関数の直交性を利用することで求められる。
-            </div>
-            <figure class="th">
-                <figcaption>再掲（三角関数の直交性）</figcaption>
-                <p class="indent">
-                    \(m,n\in\mathbb{Z}_{\ge0}\) とする。
-                </p>
-                <ol>
-                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos\left(\frac{2\pi m}{T}t\right)\sin\left(\frac{2\pi n}{T}t\right)dt=0\)</li>
-                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\cos\left(\frac{2\pi m}{T}t\right)\cos\left(\frac{2\pi n}{T}t\right)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
-                    <li>\(\displaystyle\int_{-\frac{T}{2}}^\frac{T}{2}\sin\left(\frac{2\pi m}{T}t\right)\sin\left(\frac{2\pi n}{T}t\right)dt=\begin{cases} 0 & (m\neq n) \\ \frac{T}{2} & (m=n)\end{cases}\)</li>
-                </ol>
-            </figure>
-            <p>
-                三角関数の積の１周期分の積分は、異なる三角関数の積ならば \(0\) 、同じ三角関数の積であるときのみ \(\frac{T}{2}\) となる。
-            </p>
-            <h3>\(a_n\) を求める</h3>
-            <div class="article">
-                両辺に \(\cos mx~(m\in\mathbb{N})\) を掛ける
-                \[
-                f(x)\cos mx\sim\left\{\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\right\}\cos mx
-                \]
-                両辺を \(0\) から \(2\pi\) まで積分する
-                \[
-                (\text{左辺})=\int_0^{2\pi}f(x)\cos mxdx
-                \]
-            <div class="math">
-                \[
-                \begin{align}
-                (\text{右辺})&=\int_0^{2\pi}\left\{\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\right\}\cos mxdx\\
-                &=\frac{a_0}{2}\int_0^{2\pi}\cos mxdx+\int_0^{2\pi}\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\cos mxdx\\
-                &=\frac{a_0}{2}\left[\frac{1}{m}\sin mx\right]_0^{2\pi}+\sum_{n=1}^\infty\left(a_n\int_0^{2\pi}\cos nx\cos mxdx+b_n\int_0^{2\pi}\sin nx\cos mxdx\right)\\
-                &=\frac{a_0}{2}\int_0^{2\pi}\cos mxdx+a_m\int_0^{2\pi}\cos mx\cos mxdx\\
-                &=a_m\pi
-                \end{align}
-                \]
-            </div>
-                よって
-                \[
-                \int_0^{2\pi}f(x)\cos mxdx=a_m\pi
-                \]
-                \[
-                a_n=\frac{1}{\pi}\int_0^{2\pi}f(x)\cos nxdx
-                \]
-            </div>
-            <p></p>
-            <h3>\(b_n\) を求める</h3>
-            <div class="article">
-                両辺に \(\sin mx~(m\in\mathbb{N})\) を掛ける
-                \[
-                f(x)\sin mx\sim\left\{\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\right\}\sin mx
-                \]
-                両辺を \(0\) から \(2\pi\) まで積分する
-                \[
-                (\text{左辺})=\int_0^{2\pi}f(x)\sin mxdx
-                \]
-                \[
-                \begin{align}
-                (\text{右辺})&=\int_0^{2\pi}\left\{\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\right\}\sin mxdx\\
-                &=\frac{a_0}{2}\int_0^{2\pi}\sin mxdx+\int_0^{2\pi}\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\sin mxdx\\
-                &=\frac{a_0}{2}\int_0^{2\pi}\sin mxdx+\sum_{n=1}^\infty\left(a_n\int_0^{2\pi}\cos nx\sin mxdx+b_n\int_0^{2\pi}\sin nx\sin mxdx\right)\\
-                &=\frac{a_0}{2}\int_0^{2\pi}\sin mxdx+b_m\int_0^{2\pi}\sin mx\sin mxdx\\
-                &=b_m\pi
-                \end{align}
-                \]
-                よって
-                \[
-                \int_0^{2\pi}f(x)\sin mxdx=b_m\pi
-                \]
-                \[
-                b_n=\frac{1}{\pi}\int_0^{2\pi}f(x)\sin nxdx
-                \]
-            </div>
-            <p></p>
-            <h3>\(a_0\) を求める</h3>
-            <div class="article">
-                両辺を \(0\) から \(2\pi\) まで積分する
-                \[
-                (\text{左辺})=\int_0^{2\pi}f(x)dx
-                \]
-                \[
-                \begin{align}
-                (\text{右辺})&=\int_0^{2\pi}\left\{\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\right\}dx\\
-                &=\frac{a_0}{2}\int_0^{2\pi}dx+\sum_{n=1}^\infty\left(a_n\int_0^{2\pi}\cos nxdx+b_n\int_0^{2\pi}\sin nxdx\right)
-                &=a_0\pi
-                \end{align}
-                \]
-                よって
-                \[
-                \int_0^{2\pi}f(x)dx=a_0\pi
-                \]
-                \[
-                a_0=\frac{1}{\pi}\int_0^{2\pi}f(x)dx
-                \]
-            </div>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
