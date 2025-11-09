@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>離散フーリエ変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>離散フーリエ変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>離散フーリエ変換の導出</h2>
+                <p class="indent">
+                    これまで無限長の信号を扱ってきましたが、現実では有限の長さの信号を扱います。
+                    そこで、長さ \(N\) の有限長信号
+                </p>
+                <div class="math">
+                    \[
+                    x[n]\quad(n=0,1,\cdots,N-1)
+                    \]
+                </div>
+                <p>
+                    を考えます。
+                </p>
+                <p class="indent">
+                    この信号 \(x[n]\) の離散時間フーリエ変換は
+                </p>
+                <div class="math">
+                    \[
+                    X(\omega) = \sum_{n=-\infty}^{\infty} x[n] e^{-i\omega n}
+                    = \sum_{n=0}^{N-1} x[n] e^{-i\omega n}
+                    \quad(\omega\in\mathbb{R})
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <p class="indent">
+                    しかし、\(\omega\) が連続的に変化するので \(X(\omega)\) は連続関数です。
+                    このままでは離散的に表現できません。
+                    ここで、次の事実を使います。
+                </p>
+                <figure class="th">
+                    <figcaption>事実（離散時間フーリエ変換の双対性）</figcaption>
+                    <p class="indent">
+                        長さ \(N\) の有限長信号は、周波数領域でも \(N\) 個の独立成分で表せる。
+                    </p>
+                </figure>
+                <p class="indent">
+                    この事実から、\(\omega\) は \(N\) 個の点で十分であることがわかります。
+                    また、\(X(\omega)\) は \(e^{-i\omega n}~(n\in\mathbb{Z})\) によって、周期は \(2\pi\) であることから、区間 \([0,2\pi)\) の中で \(N\) 個の点を考えればよいです。
+                </p>
+                <p class="indent">
+                    そこで、区間 \((0,2\pi]\) を \(N\) 等分する点
+                </p>
+                <div class="math">
+                    \[
+                    \omega_k=\frac{2\pi}{N}k\quad(k=0,1,\cdots,N-1)
+                    \]
+                </div>
+                <p>
+                    を選ぶと、指数関数 \(e^{-i\omega_k n}\) は互いに直交します。
+                </p>
+                <p class="indent">
+                    これを \(X(\omega)\) に代入すると
+                </p>
+                <div class="math">
+                    \[
+                    X(\omega_k) = \sum_{n=0}^{N-1} x[n] e^{-i\omega_k n}
+                    = \sum_{n=0}^{N-1} x[n] e^{-i\frac{2\pi}{N}kn}
+                    \]
+                </div>
+                <p>
+                    となります。
+                    この式を \(X[k]\) と書き、<strong>離散フーリエ変換</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（離散フーリエ変換）</figcaption>
+                    <p class="indent">
+                        長さ \(N\) の有限長信号 \(x[n]~(n=0,1,\cdots,N-1)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        X[k] = \sum_{n=0}^{N-1} x[n] e^{-i\frac{2\pi}{N}kn} \quad (k=0,1,\cdots,N-1)
+                        \]
+                    </div>
+                    <p>
+                        を \(x[n]\) の<strong>離散フーリエ変換（DFT）</strong>という。
+                    </p>
+                    <p class="indent">
+                        また、<strong>回転因子</strong> \(W=e^{-i\frac{2\pi}{N}}\) を定義すると
+                    </p>
+                    <div class="math">
+                        \[
+                        X[k] = \sum_{n=0}^{N-1} x[n] W^{kn} \quad (k=0,1,\cdots,N-1)
+                        \]
+                    </div>
+                    <p>
+                        とも書ける。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

@@ -147,7 +147,7 @@
                     </p>
                     <div clss="math">
                         \[
-                        \mathscr{F}\{af(t)+bg(t)\}=a\mathscr{F}\{f(t)\}+b\mathscr{F}\{g(t)\}
+                        \mathscr{F}[af(t)+bg(t)]=a\mathscr{F}\{f(t)\}+b\mathscr{F}\{g(t)\}
                         \]
                     </div>
                 </figure>
@@ -174,6 +174,44 @@
                         \mathscr{F}\{f(t)e^{i\omega_0t}\}=F(\omega-\omega_0)
                         \]
                     </div>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>フーリエ変換のスペクトル</h2>
+                <p class="indent">
+
+                </p>
+                <figure class="def">
+                    <figcaption>定義（フーリエ変換の振幅スペクトル）</figcaption>
+                    <p class="indent">
+                        ある信号 \(f(t)\) に対して、そのフーリエ変換を \(F(\omega)\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        |F(\omega)|
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>振幅スペクトル</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（フーリエ変換の位相スペクトル）</figcaption>
+                    <p class="indent">
+                        ある信号 \(f(t)\) に対して、そのフーリエ変換を \(F(\omega)\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        \arg F(\omega)
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>位相スペクトル</strong>という。
+                    </p>
+                    <p class="indent">
+                        偏角は不定性があるが、\(\arg F(\omega)\in(-\pi,\pi]\) とすることが多い。
+                    </p>
                 </figure>
             </section>
             <section id="ex">

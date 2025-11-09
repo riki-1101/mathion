@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>離散時間フーリエ変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>離散時間フーリエ変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>フーリエ変換の離散化</h2>
+                <p class="indent">
+                    連続信号 \(x_c(t)\) をサンプリングする。
+                    サンプリング周期を \(T_s\) とすると、サンプリングした信号 \(x_S(t)\) は
+                </p>
+                <img src="" alt="img">
+                <div class="math">
+                    \[
+                    x_s(t)=\sum_{n=-\infty}^\infty x_c(nT_s)\delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    と表される。
+                    これをフーリエ変換すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    X_s(\Omega)
+                    &=\mathscr{F}[x_s(t)](\Omega)\\
+                    &=\int_{-\infty}^\infty \sum_{n=-\infty}^\infty x_c(nT_s)\delta(t-nT_s)e^{-i\Omega t}dt\\
+                    &=\sum_{n=-\infty}^\infty x_c(nT_s)\int_{-\infty}^\infty\delta(t-nT_s)e^{-i\Omega t}dt\\
+                    &=\sum_{n=-\infty}^\infty x_c(nT_s)e^{-i\Omega nT_s}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(x[n]=x_c(nT_s)\) とおくと、
+                </p>
+                <p class="indent">
+                    サンプリングによって得られた離散時間信号 \(x[n]\) は、時間が刻み \(T_s\) でしか存在しません。
+                    そのため、連続時間の角周波数 \(\Omega\) をそのまま用いると、<strong>サンプルごとの変化</strong>を表すには少し不便になります。
+                </p>
+                <p class="indent">
+                    そこで、<strong>1 サンプル当たりの位相変化</strong>を基準にした角周波数を導入すると、とても扱いやすくなります。
+                    この量を<strong>正規化角周波数</strong>（あるいは離散時間角周波数）と呼びます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（正規化角周波数）</figcaption>
+                    <p>
+                        角周波数を \(\Omega\) とする。
+                        １サンプル当たりの位相変化量
+                    </p>
+                    <div class="math">
+                        \[
+                        \omega = \Omega \cdot T_s
+                        \]
+                    </div>
+                </figure>
+                <div class="math">
+                    \[
+                    \omega \;[\mathrm{rad/sample}] = \Omega \;[\mathrm{rad/sec}] \cdot T_s \;[\mathrm{sec/sample}] = \frac{\Omega}{F_s}
+                    \]
+                </div>
+                <p>
+                    つまり、\(\omega\) は「連続時間の周波数 \(\Omega\) をサンプリング周波数 \(F_s = 1/T_s\) で割ったもの」であり、離散時間の世界で自然に使える周波数軸になります。
+                </p>
+                <p>
+                    この量を使うと、先ほど得られた式
+                </p>
+                <div class="math">
+                    \[
+                    X_s(\Omega)=\sum_{n=-\infty}^{\infty} x[n] e^{-i\Omega n T_s}
+                    \]
+                </div>
+                <p>
+                    は書き換られ
+                </p>
+                <div class="math">
+                    \[
+                    X(\omega) = \sum_{n=-\infty}^{\infty} x[n] e^{-i\omega n}
+                    \]
+                </div>
+                <p>
+                    と、非常にすっきりした形になります。
+                    これを<strong>離散時間フーリエ変換</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（離散時間フーリエ変換）</figcaption>
+                    <p class="indent">
+                        離散時間信号 \(x[n]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        X(\omega) = \sum_{n=-\infty}^{\infty} x[n] e^{-i\omega n}
+                        \]
+                    </div>
+                    <p>
+                        を \(x[n]\) の<strong>離散時間フーリエ変換（DTFT）</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
