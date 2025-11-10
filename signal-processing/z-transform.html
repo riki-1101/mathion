@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ｚ変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ｚ変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ラプラス変換の離散化</h2>
+                <p class="indent">
+                    連続因果信号 \(x(t)\) をサンプリングする。
+                    サンプリング周期を \(T_s\) とすると、サンプリングした信号 \(x_s(t)\) は
+                </p>
+                <img src="" alt="img">
+                <div class="math">
+                    \[
+                    x_s(t)=\sum_{n=0}^\infty x(t)\delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    と表される。
+                    これをラプラス変換すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    X_s(s)
+                    &=\mathscr{L}[x_s(t)](s)\\
+                    &=\int_0^\infty \sum_{n=0}^\infty x(t)\delta(t-nT_s)e^{-st}dt\\
+                    &=\sum_{n=0}^\infty\int_0^\infty x(t)\delta(t-nT_s)e^{-st}dt\\
+                    &=\sum_{n=0}^\infty x(nT_s)e^{-snT_s}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(x[n]=x(nT_s),~z=e^{sT_s}\) とおくと、\(X_s(s)\) は
+                </p>
+                <div class="math">
+                    \[
+                    \sum_{n=0}^\infty x[n]z^{-n}
+                    \]
+                </div>
+                <p>
+                    と表せます。
+                    これを<strong>ｚ変換</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ｚ変換）</figcaption>
+                    <p class="indent">
+                        離散因果信号 \(x[n]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        X(z) = \mathcal{Z}[x[n]](z) = \sum_{n=0}^{\infty} x[n] z^{-n}
+                        \]
+                    </div>
+                    <p>
+                        を \(x[n]\) の<strong>ｚ変換</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

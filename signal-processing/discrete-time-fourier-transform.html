@@ -16,13 +16,13 @@
             <section id="1">
                 <h2>フーリエ変換の離散化</h2>
                 <p class="indent">
-                    連続信号 \(x_c(t)\) をサンプリングする。
-                    サンプリング周期を \(T_s\) とすると、サンプリングした信号 \(x_S(t)\) は
+                    連続信号 \(x(t)\) をサンプリングする。
+                    サンプリング周期を \(T_s\) とすると、サンプリングした信号 \(x_s(t)\) は
                 </p>
                 <img src="" alt="img">
                 <div class="math">
                     \[
-                    x_s(t)=\sum_{n=-\infty}^\infty x_c(nT_s)\delta(t-nT_s)
+                    x_s(t)=\sum_{n=-\infty}^\infty x(t)\delta(t-nT_s)
                     \]
                 </div>
                 <p>
@@ -34,14 +34,14 @@
                     \begin{align}
                     X_s(\Omega)
                     &=\mathscr{F}[x_s(t)](\Omega)\\
-                    &=\int_{-\infty}^\infty \sum_{n=-\infty}^\infty x_c(nT_s)\delta(t-nT_s)e^{-i\Omega t}dt\\
-                    &=\sum_{n=-\infty}^\infty x_c(nT_s)\int_{-\infty}^\infty\delta(t-nT_s)e^{-i\Omega t}dt\\
-                    &=\sum_{n=-\infty}^\infty x_c(nT_s)e^{-i\Omega nT_s}\\
+                    &=\int_{-\infty}^\infty \sum_{n=-\infty}^\infty x(t)\delta(t-nT_s)e^{-i\Omega t}dt\\
+                    &=\sum_{n=-\infty}^\infty\int_{-\infty}^\infty x(t)\delta(t-nT_s)e^{-i\Omega t}dt\\
+                    &=\sum_{n=-\infty}^\infty x(nT_s)e^{-i\Omega nT_s}\\
                     \end{align}
                     \]
                 </div>
                 <p>
-                    ここで、\(x[n]=x_c(nT_s)\) とおくと、
+                    ここで、\(x[n]=x(nT_s)\) とおくと、
                 </p>
                 <p class="indent">
                     サンプリングによって得られた離散時間信号 \(x[n]\) は、時間が刻み \(T_s\) でしか存在しません。
