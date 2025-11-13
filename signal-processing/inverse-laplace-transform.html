@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>逆ラプラス変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>逆ラプラス変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>逆ラプラス変換</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（逆ラプラス変換）</figcaption>
+                    <p class="indent">
+                        関数 \(F(s)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=\mathscr{L}^{-1}[F(s)](t)=\frac{1}{2\pi i}\int_{a-i\infty}^{a+i\infty} F(s)e^{st}ds
+                        \]
+                    </div>
+                    <p>
+                        を \(F(s)\) の<strong>逆ラプラス変換</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>部分分数展開のよる解法</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題１</figcaption>
+                    <p class="indent">
+                        次の関数 \(F(s)\) の逆ラプラス変換を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        F(s)=\frac{2s+3}{(s-1)(s+2)}
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    まず、分数式を次のように展開することを考えます。
+                </p>
+                <div class="math">
+                    \[
+                    F(s)=\frac{\alpha}{s-1}+\frac{\beta}{s+2}
+                    \]
+                </div>
+                <p>
+                    これを満たすような \(\alpha,\beta\) を求めればよいです。
+                </p>
+                <p>
+                    両辺に \((s-1)\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    (s-1)F(s)=\alpha+\frac{\beta(s-1)}{s+2}
+                    \]
+                </div>
+                <p>
+                    これに \(s=1\) を代入すると、右辺の第２項は消えるので
+                </p>
+                <div class="math">
+                    \[
+                    \alpha=(s-1)F(s)|_{s=1}=\left.\frac{2s+3}{s+2}\right|_{s=1}=\frac{5}{3}
+                    \]
+                </div>
+                <p>
+                    \(\beta\) は、両辺に \((s+2)\) を掛けて \(s=-2\) を代入することにより
+                </p>
+                <div class="math">
+                    \[
+                    \beta=(s+2)F(s)|_{s=-2}=\left.\frac{2s+3}{s-1}\right|_{s=-2}=\frac{1}{3}
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    F(s)=\frac{5}{3}\cdot\frac{1}{s-1}+\frac{1}{3}\cdot\frac{1}{s+2}
+                    \]
+                </div>
+                <p>
+                    と部分分数展開ができます。
+                    よって \(F(s)\) の逆ラプラス変換は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \mathscr{L}^{-1}[F(s)](t)
+                    &=\frac{5}{3}\mathscr{L}^{-1}\left[\frac{1}{s-1}\right]+\frac{1}{3}\mathscr{L}^{-1}\left[\frac{1}{s+2}\right]\\
+                    &=\frac{5}{3}e^t+\frac{1}{3}e^{-2t}\quad (t\ge0)
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    と求められます。
+                </p>
+                <p>
+                    あるいは、\(t\ge0\) と書かずに単位ステップ関数 \(u(t)\) を用いて
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}^{-1}[F(s)](t)=\left(\frac{5}{3}e^t+\frac{1}{3}e^{-2t}\right)u(t)
+                    \]
+                </div>
+                <p>
+                    と答えても構いません。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題２</figcaption>
+                    <p class="indent">
+                        次の関数 \(F(s)\) の逆ラプラス変換を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        F(s)=\frac{5s+2}{(s+1)^2(s-3)}
+                        \]
+                    </div>
+                </figure>
+                <div class="math">
+                    \[
+                    F(s)=\frac{A}{s+1}+\frac{B}{(s+1)^2}+\frac{C}{s-3}
+                    \]
+                </div>
+                <p>
+                    と部分分数展開することを考えます。
+                </p>
+                <p>
+                    \(B\) と \(C\) は例題１と同じように
+                </p>
+                <div class="math">
+                    \[
+                    B=(s+1)^2F(s)|_{S=-1}=\left.\frac{5s+2}{s-3}\right|_{s=-1}=\frac{3}{4}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    C=(s-3)F(s)|_{S=3}=\left.\frac{5s+2}{(s+1)^2}\right|_{s=3}=\frac{17}{16}
+                    \]
+                </div>
+                <p>
+                    と求められます。
+                </p>
+                <p>
+                    しかし、\(A\) についても同様に、両辺に \((s+1)\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    (s+1)F(s)=A+\frac{B}{s+1}+\frac{C(s+1)}{s-3}
+                    \]
+                </div>
+                <p>
+                    となり、\(s=-1\) を代入すると第２項の分母が \(0\) になってしまい、上手く \(A\) が求められません。
+                </p>
+                <p>
+                    両辺に \((s+1)^2\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    (s+1)^2F(s)=A(s+1)+B+\frac{C(s+1)^2}{s-3}
+                    \]
+                </div>
+                <p>
+                    両辺を \(s\) で微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{d}{ds}(s+1)^2F(s)=A+C\cdot\frac{2(s+1)(s+3)-(s+1)^2}{(s-3)^2}
+                    \]
+                </div>
+                <p>
+                    これに \(s=-1\) を代入すると、右辺の第２項は消えるので
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    A&=\left.\frac{d}{ds}(s+1)^2F(s)\right|_{s=-1}\\
+                    &=\left.\frac{d}{ds}\left(\frac{5s+2}{s-3}\right)\right|_{s=-1}\\
+                    &=\left.\frac{5(s-3)-(5s+2)}{(s-3)^2}\right|_{s=-1}\\
+                    &=\frac{5(-1-3)-(-5+2)}{(-1-3)^2}\\
+                    &=-\frac{17}{16}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    F(s)=-\frac{17}{16}\cdot\frac{1}{s+1}+\frac{3}{4}\cdot\frac{1}{(s+1)^2}+\frac{17}{16}\cdot\frac{1}{s-3}
+                    \]
+                </div>
+                <p>
+                    と部分分数展開ができます。
+                    よって \(F(s)\) の逆ラプラス変換は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \mathcal{L}^{-1}[F(s)](t)&=-\frac{17}{16}\mathcal{L}^{-1}\left[\frac{1}{s+1}\right]+\frac{3}{4}\mathcal{L}^{-1}\left[\frac{1}{(s+1)^2}\right]+\frac{17}{16}\mathcal{L}^{-1}\left[\frac{1}{s-3}\right]\\
+                    &=-\frac{17}{16}e^{-t}+\frac{3}{4}te^{-t}+\frac{17}{16}e^{3t}
+                    \end{align}
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>定義通りの複素積分による解法</h2>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

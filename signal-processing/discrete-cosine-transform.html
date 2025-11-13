@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>離散コサイン変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>離散コサイン変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>離散コサイン変換の導出</h2>
+                <p class="indent">
+                    元々は実数の信号であっても、DFTを行うと虚数成分が現れるため、計算や解析が面倒になります。
+                    これを解消するために、信号を偶数対称に拡張することを考えます。
+                </p>
+                <p>
+                    元の信号 \(x[n]\) を、左右対称になるように偶信号として
+                </p>
+                <div class="math">
+                    \[
+                    x_{\mathrm{even}}[n]=
+                    \begin{cases}
+                    x[n] & (n=0,1,\cdots,N-1)\\
+                    x[2N-1-n] & (n=N,N+1,\cdots,2N-1)
+                    \end{cases}
+                    \]
+                </div>
+                <p>
+                    のように拡張します。
+                </p>
+                <p class="indent">
+                    この偶信号 \(x_{\mathrm{even}}[n]\) の離散フーリエ変換 \(X_{\mathrm{even}}[k]\) を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    X_{\mathrm{even}}[k]
+                    &= \sum_{n=0}^{2N-1} x_{\mathrm{even}}[n] e^{-i\frac{2\pi}{2N}kn}\\
+                    &= \sum_{n=0}^{2N-1} x_{\mathrm{even}}[n] e^{-i\frac{\pi}{N}kn}\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{-i\frac{\pi}{N}kn} + \sum_{n=N}^{2N-1} x[2N-1-n] e^{-i\frac{\pi}{N}kn}\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{-i\frac{\pi}{N}kn} + \sum_{n=0}^{N-1} x[N-1-n] e^{-i\frac{\pi}{N}k(n+N)}\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{-i\frac{\pi}{N}kn} + \sum_{n=0}^{N-1} x[(N-1)-n] e^{i\frac{\pi}{N}k\{(N-1)-n-2N+1\}}\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{-i\frac{\pi}{N}kn} + \sum_{n=0}^{N-1} x[n] e^{i\frac{\pi}{N}k(n-2N+1)}\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{-i\frac{\pi}{N}kn} + \sum_{n=0}^{N-1} x[n] e^{i\frac{\pi}{N}k(n+1)}e^{-i2\pi k}\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{-i\frac{\pi}{N}kn} + \sum_{n=0}^{N-1} x[n] e^{i\frac{\pi}{N}k(n+1)}\quad (\because e^{-i2\pi k}=1)\\
+                    &= \sum_{n=0}^{N-1} x[n] \left(e^{-i\frac{\pi}{N}kn} + e^{i\frac{\pi}{N}k(n+1)}\right)\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{i\frac{\pi}{2N}k}\left(e^{-i\frac{\pi}{N}\left(n+\frac{1}{2}\right)k} + e^{i\frac{\pi}{N}\left(n+\frac{1}{2}\right)k}\right)\\
+                    &= \sum_{n=0}^{N-1} x[n] e^{i\frac{\pi}{2N}k}\cdot 2\cos\left\{\frac{\pi}{N}\left(n+\frac{1}{2}\right)k\right\}\\
+                    &= 2e^{i\frac{\pi}{2N}k}\sum_{n=0}^{N-1} x[n]\cos\left\{\frac{\pi}{N}\left(n+\frac{1}{2}\right)k\right\}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(2e^{i\frac{\pi}{2N}k}\) は振幅を \(2\) 倍し、全ての係数を同じだけ回転させるのみであるから、考える必要がありません。
+                </p>
+                <div class="math">
+                    \[
+                    X[k]:=\sum_{n=0}^{N-1} x[n]\cos\left\{\frac{\pi}{N}\left(n+\frac{1}{2}\right)k\right\}
+                    \]
+                </div>
+                <p>
+                    この式を<strong>離散コサイン変換</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（離散コサイン変換）</figcaption>
+                    <p class="indent">
+                        長さ \(N\) の有限長信号 \(x[n]\in\mathbb{R}~(n=0,1,\cdots,N-1)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        X[k]:=\sum_{n=0}^{N-1} x[n]\cos\left\{\frac{\pi}{N}\left(n+\frac{1}{2}\right)k\right\}
+                        \]
+                    </div>
+                    <p>
+                        を \(x[n]\) の<strong>離散コサイン変換（DCT）</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の信号の離散コサイン変換を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
