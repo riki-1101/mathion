@@ -166,6 +166,66 @@
                         \]
                     </div>
                 </details>
+                <figure class="th">
+                    <figcaption>定理（正弦波信号のｚ変換）</figcaption>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[\cos(n\omega)](z) = \frac{z^2-z\cos\omega}{z^2-2z\cos\omega+1}
+                        \]
+                    </div>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[\sin(n\omega)](z) = \frac{z\sin\omega}{z^2-2z\cos\omega+1}
+                        \]
+                    </div>
+                </figure>
+                <details class="ans">
+                    <summary>証明</summary>
+                    <p>
+                        \(e^{in\omega}\) のｚ変換を考えると
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \mathcal{Z}[e^{in\omega}](z) &= \frac{z}{z-e^{i\omega}}\\
+                        &=\frac{z}{z-(\cos\omega+i\sin\omega)}\\
+                        &=\frac{z}{(z-\cos\omega)-i\sin\omega}\\
+                        &=\frac{z(z-\cos\omega+i\sin\omega)}{(z-\cos\omega)^2-(i\sin\omega)^2}\\
+                        &=\frac{z^2-z\cos\omega+iz\sin\omega}{z^2-2\cos\omega+\cos^2\omega+\sin^2\omega}\\
+                        &=\frac{z^2-z\cos\omega+iz\sin\omega}{z^2-2\cos\omega+1}\\
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        ここで、オイラーの公式より
+                    </p>
+                    <div class="math">
+                        \[
+                        e^{in\omega}=\cos(n\omega)+i\sin(n\omega)
+                        \]
+                    </div>
+                    <p>
+                        であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Re}(e^{in\omega})=\cos(n\omega),\quad\operatorname{Im}(e^{in\omega})=\sin(n\omega)
+                        \]
+                    </div>
+                    <p>
+                        なので
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[\cos(n\omega)](z) = \frac{z^2-z\cos\omega}{z^2-2z\cos\omega+1}
+                        \]
+                    </div>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[\sin(n\omega)](z) = \frac{z\sin\omega}{z^2-2z\cos\omega+1}
+                        \]
+                    </div>
+                </details>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
