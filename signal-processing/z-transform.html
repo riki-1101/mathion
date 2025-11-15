@@ -19,7 +19,6 @@
                     連続因果信号 \(x(t)\) をサンプリングする。
                     サンプリング周期を \(T_s\) とすると、サンプリングした信号 \(x_s(t)\) は
                 </p>
-                <img src="" alt="img">
                 <div class="math">
                     \[
                     x_s(t)=\sum_{n=0}^\infty x(t)\delta(t-nT_s)
@@ -77,6 +76,96 @@
                         を<strong>逆ｚ変換</strong>という。
                     </p>
                 </figure>
+            </section>
+            <section id="2">
+                <h2>様々な信号のｚ変換</h2>
+                <figure class="th">
+                    <figcaption>定理（単位インパルス信号のｚ変換）</figcaption>
+                    <p class="indent">
+                        離散時間単位インパルス信号 \(\delta[n]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[\delta[n]](z) = 1
+                        \]
+                    </div>
+                </figure>
+                <details class="ans">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \delta[n]=
+                        \begin{cases}
+                        1 & (n=0)\\
+                        0 & (n\neq0)
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[\delta[n]](z) = \sum_{n=0}^{\infty} \delta[n] z^{-n}=1\cdot z^{-0}=1
+                        \]
+                    </div>
+                </details>
+                <figure class="th">
+                    <figcaption>定理（単位ステップ信号のｚ変換）</figcaption>
+                    <p class="indent">
+                        離散時間単位ステップ信号 \(u[n]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[u[n]](z) = \frac{z}{z-1}
+                        \]
+                    </div>
+                </figure>
+                <details class="ans">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        u[n]=
+                        \begin{cases}
+                        1 & (n\ge0)\\
+                        0 & (n\lt0)
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \mathcal{Z}[u[n]](z) &= \sum_{n=0}^{\infty} u[n] z^{-n} = \sum_{n=0}^{\infty} z^{-n}\\
+                        &= \frac{1}{1-z^{-1}}= \frac{z}{z-1}
+                        \end{align}
+                        \]
+                    </div>
+                </details>
+                <figure class="th">
+                    <figcaption>定理（指数信号のｚ変換）</figcaption>
+                    <p class="indent">
+                        離散指数信号 \(a^n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{Z}[a^n](z) = \frac{z}{z-a}
+                        \]
+                    </div>
+                </figure>
+                <details class="ans">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \mathcal{Z}[a^n](z) &= \sum_{n=0}^{\infty} a^n z^{-n} = \sum_{n=0}^{\infty} (az^{-1})^{n}\\
+                        &= \frac{1}{1-az^{-1}}= \frac{z}{z-a}
+                        \end{align}
+                        \]
+                    </div>
+                </details>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
