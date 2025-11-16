@@ -16,8 +16,20 @@
             <section id="1">
                 <h2>中心極限定理</h2>
                 <p class="indent">
+                    正規分布に従う無作為標本 \(X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)\) に対して、標本平均を \(\overline{X_n}\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    Z_n=\frac{\overline{X_n}-\mu}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    正規分布に従うデータは扱いやすいです。
+                </p>
+                <p class="indent">
                     現実のデータは、必ずしも正規分布に従うとは限りません。
-                    しかし、正規分布に従わないデータの場合でも、その平均が従う分布は、データ数を増やしていくと正規分布に近づくことが知られています。
+                    しかし、正規分布に従わないデータの場合でも、その標本平均が従う分布は、データ数を増やしていくと正規分布に近づくことが知られています。
                     これを主張するのが<strong>中心極限定理</strong>です。
                 </p>
                 <figure class="th">
@@ -34,17 +46,7 @@
                         は、\(n\to\infty\) のとき標準正規分布 \(N(0,1)\) に分布収束する。
                     </p>
                 </figure>
-                <p class="indent">
-                    ちなみに \(X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)\) であれば、\(n\) が大きくなくても常に
-                </p>
-                <div class="math">
-                    \[
-                    Z_n=\frac{\overline{X_n}-\mu}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
-                    \]
-                </div>
-                <p>
-                    が成り立ちます。
-                </p>
+                
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
