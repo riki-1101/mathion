@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>標本調査</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>標本調査</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>統計調査の手法</h2>
+                <p class="indent">
+                    調査対象全体の集合を<strong>母集団</strong>といい、母集団が従う確率分布を<strong>母集団分布</strong>といいます。
+                    母集団分布の特徴を表す量を<strong>母数</strong>（パラメータ）といいます。
+                    特に、母集団分布の平均を<strong>母平均</strong>、分散を<strong>母分散</strong>、標準偏差を<strong>母標準偏差</strong>といいます。
+                    これらの母数について調べるには２通りの方法があります。
+                </p>
+                <p class="indent">
+                    まず、<strong>全数調査</strong>です。
+                    全数調査とは、母集団に属するすべての個体を対象として調査する手法です。
+                    全数調査を行えば母集団分布を正確に特定できますが、母集団全体を調査することは困難であることが多いです。
+                </p>
+                <p class="indent">
+                    もう一つは<strong>標本調査</strong>です。
+                    標本調査とは、母集団に属する一部の個体から全体の状況を推測する手法です。
+                    これからはこの標本調査について詳しく見ていきます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>標本抽出</h2>
+                <p class="indent">
+                    標本調査において、母集団から取り出された要素の集合を<strong>標本</strong>といい、母集団から標本を取り出すことを<strong>標本抽出</strong>といいます。
+                    また、抽出した標本の個数を<strong>標本の大きさ</strong>といいます。
+                    標本は
+                </p>
+                <div class="math">
+                    \[
+                    X_1,X_2,\cdots,X_n
+                    \]
+                </div>
+                <p>
+                    のように表し、これらは取り方によって変化するので、確率変数として考えます。
+                    標本が互いに独立に同一の分布に従うとき、この標本を<strong>無作為標本</strong>といいます。
+                    また、実際の調査で得られるデータ
+                </p>
+                <div class="math">
+                    \[
+                    x_1,x_2,\cdots,x_n
+                    \]
+                </div>
+                <p>
+                    を<strong>実現値</strong>（観測値）といいます。
+                </p>
+            </section>
+            <section id="3">
+                <h2>標本抽出法</h2>
+                <p class="indent">
+                    標本抽出には、いくつかの方法があります。
+                </p>
+                <section>
+                    <h3>単純無作為抽出法</h3>
+                    <p class="indent">
+                        <strong>単純無作為抽出法</strong>とは、母集団のすべての要素が等しい確率で選ばれるように抽出する方法です。
+                        母集団の各要素に番号を振り、その番号を乱数やくじ引きで選びます。
+                    </p>
+                    <p>
+                        <strong>利点：</strong>偏りが少なく理論的に扱いやすい。<br>
+                        <strong>欠点：</strong>大きな母集団だと、要素のリストを用意するのが難しい。<br>
+                    </p>
+                    <p>例：</p>
+                    <ul>
+                        <li><p>
+                            クラス40人から代表者を選ぶとき、全員に番号をつけて乱数で選び出す。
+                        </p></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>系統抽出法</h3>
+                    <p class="indent">
+                        <strong>系統抽出法</strong>とは、母集団の要素を順番に並べ（名簿順、番号順など）、ある番目の要素から一定間隔ごとに抽出する方法です。
+                    </p>
+                    <p>
+                        <strong>利点：</strong>簡単で効率的であり、標本が全体に散らばりやすい。<br>
+                        <strong>欠点：</strong>並び方に周期性があると偏ってしまう。<br>
+                    </p>
+                    <p>例：</p>
+                    <ul>
+                        <li><p>
+                            工場の製品検査を行うとき、製品に連番を振り、10個ごとに1個取り出して、それらを調べる。
+                        </p></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>層化抽出法</h3>
+                    <p class="indent">
+                        <strong>層化抽出法</strong>とは、母集団をいくつかの「層」に分け、各層から無作為に抽出する方法です。
+                        この方法は、母集団に明らかなグループ（層）があるときに使います。
+                        各層で平均や分散が大きく異なる場合に効果的です。
+                    </p>
+                    <p>
+                        <strong>利点：</strong>層ごとの特徴を反映でき、代表性が高い。<br>
+                        <strong>欠点：</strong>層の分け方を誤ると逆に偏ってしまう。<br>
+                        <p>例：</p>
+                        <ul>
+                            <li><p>
+                                男女別に分けて、それぞれから抽出する。
+                            </p></li>
+                            <li><p>
+                                学年ごとに分けて、各学年から抽出する。
+                            </p></li>
+                            <li><p>
+                                都道府県ごとに分けて、それぞれから抽出する。
+                            </p></li>
+                        </ul>
+                    </p>
+                </section>
+                <section>
+                    <h3>多段抽出法</h3>
+                    <p class="indent">
+                        <strong>多段抽出法</strong>とは、母集団を段階的に分割しながら標本を抽出する方法です。
+                        つまり、一度に全対象から選ぶのではなく、まずは大きな単位を選んで、次にその中の小さな単位から標本を選びます。
+                    </p>
+                    <p>
+                        <strong>利点：</strong>大規模調査に便利で、コストが抑えられる。<br>
+                        <strong>欠点：</strong>標本誤差が大きくなる場合がある。<br>
+                    </p>
+                    <p>例：</p>
+                    <ul>
+                        <li><p>
+                            全国の大学生を調査したいとき、まず都道府県を無作為に選び、選ばれた都道府県から大学を無作為に選ぶ。
+                            そしてその大学から学生を無作為に選ぶ。
+                        </p></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>クラスター抽出法（集落抽出法）</h3>
+                    <p class="indent">
+                        <strong>クラスター抽出法（集落抽出法）</strong>とは、母集団をいくつかの集団（クラスター）に分けて、クラスターごとに無作為に選択し、そのクラスター内のすべての個体を調査する方法です。
+                    </p>
+                    <p>
+                        <strong>利点：</strong>調査対象が地理的に広い場合に便利である。<br>
+                        <strong>欠点：</strong>クラスター内の個体が似ていると偏りやすい。<br>
+                    </p>
+                    <p>例：</p>
+                    <ul>
+                        <li><p>
+                            全国の高校生の平均身長を調査したいとき、高校を1つのクラスターと考え、全国の高校の中から無作為に30校を選ぶ。
+                            選ばれた30校に通う高校生全員の身長を測定する。
+                        </p></li>
+                    </ul>
+                </section>
+            </section>
+            <section id="4">
+                <h2>標本誤差と非標本誤差</h2>
+                <p class="indent">
+                    標本調査の結果が真の値からずれてしまう原因は、大きく分けて<strong>標本誤差</strong>と<strong>非標本誤差</strong>の2つがあります。
+                </p>
+                <section>
+                    <h3>標本誤差</h3>
+                    <p class="indent">
+                        <strong>標本誤差</strong>とは、標本を使って母集団を推測するときに、標本の選び方や偶然性によって生じる誤差のことです。
+                        標本誤差には次の特徴があります。
+                    </p>
+                    <figure class="box">
+                        <ul>
+                            <li><p>無作為抽出でも必ず発生する</p></li>
+                            <li><p>標本の大きさを増やすと小さくできる</p></li>
+                            <li><p>数学的に評価できる</p></li>
+                        </ul>
+                    </figure>
+                    <p class="indent">
+                        例えば、「母平均が本当は \(50\) なのに、抽出した標本では平均が \(48\) だった」といったものです。
+                    </p>
+                </section>
+                <section>
+                    <h3>非標本誤差</h3>
+                    <p class="indent">
+                        <strong>非標本誤差</strong>とは、標本の偶然性以外で生じる誤差であり、調査設計やデータ収集の過程で発生します。
+                        非標本誤差には次の特徴があります。
+                    </p>
+                    <figure class="box">
+                        <ul>
+                            <li><p>標本の大きさを増やしても減らせない</p></li>
+                            <li><p>設計の工夫や実施方法の改善が必要</p></li>
+                            <li><p>推定や修正が難しいことが多い</p></li>
+                        </ul>
+                    </figure>
+                    <p class="indent">
+                        主な原因として以下のことが挙げられます。
+                    </p>
+                    <ul>
+                        <li><p>
+                            <strong>カバレッジ誤差</strong><br>
+                            … 調査対象から一部の集団が漏れている、重複している
+                        </p></li>
+                        <li><p>
+                            <strong>非回答誤差</strong><br>
+                            … 回答してくれない人が偏っている
+                        </p></li>
+                        <li><p>
+                            <strong>測定誤差</strong><br>
+                            … 記入ミス、インタビュー時の誘導、機器の不正確さ
+                        </p></li>
+                        <li><p>
+                            <strong>処理誤差</strong><br>
+                            … データの入力や集計のミス
+                        </p></li>
+                    </ul>
+                    <p class="indent">
+                        例えば、「ネット利用者しか対象になっていない」、「回答者が嘘をついた」、「集計時に数値の桁を間違えた」といったものです。
+                    </p>
+                </section>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

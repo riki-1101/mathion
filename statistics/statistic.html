@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>標本調査と統計量</title>
+        <title>統計量</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -11,184 +11,12 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>標本調査と統計量</h1>
+            <h1>統計量</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>統計調査の手法</h2>
-                <p class="indent">
-                    調査対象全体の集合を<strong>母集団</strong>といい、母集団が従う確率分布を<strong>母集団分布</strong>といいます。
-                    母集団分布の特徴を表す量を<strong>母数</strong>（パラメータ）といいます。
-                    特に、母集団分布の平均を<strong>母平均</strong>、分散を<strong>母分散</strong>、標準偏差を<strong>母標準偏差</strong>といいます。
-                    これらの母数について調べるには２通りの方法があります。
-                </p>
-                <p class="indent">
-                    まず、<strong>全数調査</strong>です。
-                    全数調査とは、母集団に属するすべての個体を対象として調査する手法です。
-                    全数調査を行えば母集団分布を正確に特定できますが、母集団全体を調査することは困難であることが多いです。
-                </p>
-                <p class="indent">
-                    もう一つは<strong>標本調査</strong>です。
-                    標本調査とは、母集団に属する一部の個体から全体の状況を推測する手法です。
-                    これからはこの標本調査について詳しく見ていきます。
-                </p>
-            </section>
-            <section id="2">
-                <h2>標本抽出</h2>
-                <p class="indent">
-                    標本調査において、母集団から取り出された要素の集合を<strong>標本</strong>といい、母集団から標本を取り出すことを<strong>標本抽出</strong>といいます。
-                    また、抽出した標本の個数を<strong>標本の大きさ</strong>といいます。
-                    標本は
-                </p>
-                <div class="math">
-                    \[
-                    X_1,X_2,\cdots,X_n
-                    \]
-                </div>
-                <p>
-                    のように表し、これらは確率変数です。
-                    標本が互いに独立に同一の分布に従うとき、この標本を<strong>無作為標本</strong>といいます。
-                    また、実際の調査で得られるデータ
-                </p>
-                <div class="math">
-                    \[
-                    x_1,x_2,\cdots,x_n
-                    \]
-                </div>
-                <p>
-                    を<strong>実現値</strong>（観測値）といいます。
-                </p>
-            </section>
-            <section id="3">
-                <h2>標本抽出法</h2>
-                <p class="indent">
-                    標本抽出には、いくつかの方法があります。
-                </p>
-                <section>
-                    <h3>単純無作為抽出法</h3>
-                    <p class="indent">
-                        母集団の全ての要素を等しい確率で抽出する方法です。
-                    </p>
-                    <p>
-                        <strong>手順：</strong> 母集団の名簿に番号を振り、乱数やくじ引きで抽出。<br>
-                        <strong>メリット：</strong> 偏りが少なく理論的に扱いやすい。<br>
-                        <strong>デメリット：</strong> 母集団リストが必要、大規模では不便。<br>
-                        <strong>例：</strong> クラス40人から乱数で5人を選ぶ。
-                    </p>
-                </section>
-                <section>
-                    <h3>系統抽出法</h3>
-                    <p class="indent">
-                        母集団から一定間隔ごとに要素を抽出する方法です。
-                    </p>
-                    <p>
-                        <strong>手順：</strong> 最初の番号をランダムに決め、等間隔で抽出。<br>
-                        <strong>メリット：</strong> 簡単で効率的、標本が全体に散らばりやすい。<br>
-                        <strong>デメリット：</strong> 並び方に周期性があると偏る。<br>
-                        <strong>例：</strong> 出席番号を5番ごとに選ぶ。
-                    </p>
-                </section>
-                <section>
-                    <h3>層化抽出法</h3>
-                    <p class="indent">
-                        母集団を「層」に分け、それぞれから抽出する方法です。
-                    </p>
-                    <p>
-                        <strong>手順：</strong> 性別・年齢・地域などで層化し、各層から無作為抽出。<br>
-                        <strong>メリット：</strong> 層ごとの特徴を反映でき、代表性が高い。<br>
-                        <strong>デメリット：</strong> 層の分け方を誤ると逆に偏る。<br>
-                        <strong>例：</strong> 男女別に分け、それぞれから10人ずつ抽出。
-                    </p>
-                </section>
-                <section>
-                    <h3>多段抽出法</h3>
-                    <p class="indent">
-                        抽出を段階的に行う方法です。
-                    </p>
-                    <p>
-                        <strong>手順：</strong> 大きな単位（都道府県）→ 中くらい（学校）→ 個人。<br>
-                        <strong>メリット：</strong> 大規模調査に便利、コストを抑えられる。<br>
-                        <strong>デメリット：</strong> 標本誤差がやや大きくなる。<br>
-                        <strong>例：</strong> まず県を選び、その県の学校を選び、さらに生徒を抽出。
-                    </p>
-                </section>
-                <section>
-                    <h3>クラスター抽出法</h3>
-                    <p class="indent">
-                        グループごと（クラスター単位）で抽出する方法です。
-                    </p>
-                    <p>
-                        <strong>手順：</strong> 母集団をグループに分け、いくつかのグループを無作為に選び、その全員を調査。<br>
-                        <strong>メリット：</strong> 調査が簡単で費用が少ない。<br>
-                        <strong>デメリット：</strong> クラスター間に違いがあると偏りやすい。<br>
-                        <strong>例：</strong> 学年全体からいくつかのクラスを選び、そのクラス全員を調査。
-                    </p>
-                </section>
-            </section>
-            <section id="4">
-                <h2>標本誤差と非標本誤差</h2>
-                <p class="indent">
-                    標本調査の結果が真の値からずれてしまう原因は、大きく分けて<strong>標本誤差</strong>と<strong>非標本誤差</strong>の2つがあります。
-                </p>
-                <section>
-                    <h3>標本誤差</h3>
-                    <p class="indent">
-                        <strong>標本誤差</strong>とは、標本を使って母集団を推測するときに、標本の選び方や偶然性によって生じる誤差のことです。
-                        標本誤差には次の特徴があります。
-                    </p>
-                    <figure class="box">
-                        <ul>
-                            <li><p>無作為抽出でも必ず発生する</p></li>
-                            <li><p>標本の大きさを増やすと小さくできる</p></li>
-                            <li><p>数学的に評価できる</p></li>
-                        </ul>
-                    </figure>
-                    <p class="indent">
-                        例えば、「母平均が本当は \(50\) なのに、抽出した標本では平均が \(48\) だった」といったものです。
-                    </p>
-                </section>
-                <section>
-                    <h3>非標本誤差</h3>
-                    <p class="indent">
-                        <strong>非標本誤差</strong>とは、標本の偶然性以外で生じる誤差であり、調査設計やデータ収集の過程で発生します。
-                        非標本誤差には次の特徴があります。
-                    </p>
-                    <figure class="box">
-                        <ul>
-                            <li><p>標本の大きさを増やしても減らせない</p></li>
-                            <li><p>設計の工夫や実施方法の改善が必要</p></li>
-                            <li><p>推定や修正が難しいことが多い</p></li>
-                        </ul>
-                    </figure>
-                    <p class="indent">
-                        主な原因として以下のことが挙げられます。
-                    </p>
-                    <ul>
-                        <li><p>
-                            <strong>カバレッジ誤差</strong><br>
-                            … 調査対象から一部の集団が漏れている、重複している
-                        </p></li>
-                        <li><p>
-                            <strong>非回答誤差</strong><br>
-                            … 回答してくれない人が偏っている
-                        </p></li>
-                        <li><p>
-                            <strong>測定誤差</strong><br>
-                            … 記入ミス、インタビュー時の誘導、機器の不正確さ
-                        </p></li>
-                        <li><p>
-                            <strong>処理誤差</strong><br>
-                            … データの入力や集計のミス
-                        </p></li>
-                    </ul>
-                    <p class="indent">
-                        例えば、「ネット利用者しか対象になっていない」、「回答者が嘘をついた」、「集計時に数値の桁を間違えた」といったものです。
-                    </p>
-                </section>
-            </section>
-            <section id="5">
                 <h2>統計量の定義</h2>
                 <p class="indent">
-                    標本 \(X_1,X_2,\cdots,X_n\) の関数
+                    標本 \(X_1,X_2,\cdots,X_n\) から作られた関数
                 </p>
                 <div class="math">
                     \[
@@ -208,54 +36,71 @@
                     を統計量 \(T\) の実現値といいます。
                 </p>
                 <p class="indent">
-                    代表的な統計量として、標本平均と不偏分散があります。
+                    代表的な統計量として、標本平均、標本分散、不偏分散、標本比率などがあります。
                 </p>
-                <section>
-                    <h3>標本平均</h3>
-                    <figure class="def">
-                        <figcaption>定義（標本平均）</figcaption>
-                        <p class="indent">
-                            無作為標本 \(X_1,~X_2,~\cdots,~X_n\) に対して
-                        </p>
-                        <div class="math">
-                            \[
-                        \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
+            </section>
+            <section id="2">
+                <h2>標本平均</h2>
+                <figure class="def">
+                    <figcaption>定義（標本平均）</figcaption>
+                    <p class="indent">
+                        無作為標本 \(X_1,X_2,\cdots,X_n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                    \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
+                    \]
+                    </div>
+                    <p>
+                        を<strong>標本平均</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（標本平均の期待値と分散）</figcaption>
+                    <p class="indent">
+                        平均 \(\mu\) 、分散 \(\sigma^2\) の母集団からの無作為標本の標本平均 \(\overline{X}\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        E[\overline{X}]=\mu,~~~~~V[\overline{X}]=\frac{\sigma^2}{n}
                         \]
-                        </div>
-                        <p>
-                            を<strong>標本平均</strong>という。
-                        </p>
-                    </figure>
-                    <p></p>
-                    <figure class="th">
-                        <figcaption>定理（標本平均の期待値と分散）</figcaption>
-                        <p class="indent">
-                            平均 \(\mu\) 、分散 \(\sigma^2\) の母集団からの無作為標本の標本平均 \(\overline{X}\) に対して、次が成り立つ。
-                        </p>
-                        <div class="math">
-                            \[
-                            E[\overline{X}]=\mu,~~~~~V[\overline{X}]=\frac{\sigma^2}{n}
-                            \]
-                        </div>
-                    </figure>
-                </section>
-                <section>
-                    <h3>不偏分散</h3>
-                    <figure class="def">
-                        <figcaption>定義（不偏分散）</figcaption>
-                        <p class="indent">
-                            無作為標本 \(X_1,~X_2,~\cdots,~X_n\) とその標本平均 \(\overline{X}\) に対して
-                        </p>
-                        <div class="math">
-                            \[
-                            U^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2
-                            \]
-                        </div>
-                        <p>
-                            を<strong>不偏分散</strong>という。
-                        </p>
-                    </figure>
-                </section>
+                    </div>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>標本分散</h2>
+                <figure class="def">
+                    <figcaption>定義（標本分散）</figcaption>
+                    <p class="indent">
+                        無作為標本 \(X_1,X_2,\cdots,X_n\) とその標本平均 \(\overline{X}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        S^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2
+                        \]
+                    </div>
+                    <p>
+                        を<strong>標本分散</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>不偏分散</h2>
+                <figure class="def">
+                    <figcaption>定義（不偏分散）</figcaption>
+                    <p class="indent">
+                        無作為標本 \(X_1,X_2,\cdots,X_n\) とその標本平均 \(\overline{X}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        U^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2
+                        \]
+                    </div>
+                    <p>
+                        を<strong>不偏分散</strong>という。
+                    </p>
+                </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
