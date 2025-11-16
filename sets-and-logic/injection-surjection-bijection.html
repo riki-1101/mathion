@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>単射・全射・全単射</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>単射・全射・全単射</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,31 +13,49 @@
         <main id="contents">
             <h1>単射・全射・全単射</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">単射</h2>
-            <div class="def">
-                <div>定義（単射）</div>
-                写像 \(f:A\to B\) が条件
-                \[
-                \forall a_1,a_2\in A,~a_1\neq a_2\Longrightarrow f(a_1)\neq f(a_2)
-                \]
-                を満たすとき、\(f\) は単射であるという。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">全射</h2>
-            <div class="def">
-                <div>定義（全射）</div>
-                写像 \(f:A\to B\) に対して
-                \[
-                f(A)=B
-                \]
-                が成り立つとき、\(f\) は全射であるという。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">全単射</h2>
-            <div class="def">
-                <div>定義（全単射）</div>
-                写像 \(f\) が単射かつ全射であるとき \(f\) は全単射であるという。
-            </div>
+            <section id="1">
+                <h2>単射</h2>
+                <figure class="def">
+                    <figcaption>定義（単射）</figcaption>
+                    <p class="indent">
+                        写像 \(f:A\to B\) が条件
+                    </p>
+                    <div class="math">
+                        \[
+                        \forall a_1,a_2\in A,~a_1\neq a_2\Longrightarrow f(a_1)\neq f(a_2)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(f\) は<strong>単射</strong>であるという。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>全射</h2>
+                <figure class="def">
+                    <figcaption>定義（全射）</figcaption>
+                    <p class="indent">
+                        写像 \(f:A\to B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(A)=B
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(f\) は<strong>全射</strong>であるという。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>全単射</h2>
+                <figure class="def">
+                    <figcaption>定義（全単射）</figcaption>
+                    <p class="indent">
+                        写像 \(f\) が単射かつ全射であるとき、\(f\) は<strong>全単射</strong>であるという。
+                    </p>
+                </figure>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
