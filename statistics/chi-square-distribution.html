@@ -37,6 +37,22 @@
                         と表す。
                     </p>
                 </figure>
+                <p class="indent">
+                    \(X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)\) とすると
+                </p>
+                <div class="indent">
+                    \[
+                    \frac{X_i-\mu}{\sigma}\sim N(0,1)
+                    \]
+                </div>
+                <p>
+                    であることから、次のようにも書けます。
+                </p>
+                <div class="math">
+                    \[
+                    W=\sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}\sim\chi^2(n)
+                    \]
+                </div>
             </section>
             <section id="2">
                 <h2>カイ二乗分布の確率密度関数</h2>
@@ -94,11 +110,11 @@
                 <figure class="th">
                     <figcaption>定理（カイ二乗分布に従う確率変数）</figcaption>
                     <p class="indent">
-                        不偏分散 \(U^2\) に対して次が成り立つ。
+                        無作為標本 \(X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)\) の標本平均を \(\overline{X}\) 、不偏分散を \(U^2\) とするとき、次が成り立つ。
                     </p>
                     <div class="math">
                         \[
-                        \frac{(n-1)U^2}{\sigma^2}\sim \chi^2(n-1)
+                        \sum_{i=1}^n\frac{(X_i-\overline{X})^2}{\sigma^2}=\frac{(n-1)U^2}{\sigma^2}\sim \chi^2(n-1)
                         \]
                     </div>
                 </figure>
