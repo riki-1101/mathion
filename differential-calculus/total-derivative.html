@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>全微分</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>全微分</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,31 +13,71 @@
         <main id="contents">
             <h1>全微分</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">全微分可能性</h2>
-            <div class="article">
-                関数 \(f(x,y)\) が \((a,b)\) で全微分可能であるとは、ある \(A,B\in\mathbb{R}\) が存在して
-                \[
-                \begin{align}
-                &f(a+\varDelta x,b+\varDelta y)-f(a,b)\\
-                &=A\varDelta x+B\varDelta y+o\left(\sqrt{{\varDelta x}^2+{\varDelta y}^2}\right)~~((h,k)\to0)
-                \end{align}
-                \]
-                とできることをいう。
+            <section id="1">
+                <h2>全微分可能性</h2>
+                <figure class="def">
+                    <figcaption>定義（全微分可能）</figcaption>
+                    <p class="indent">
+                        点 \((a,b)\) の近傍上で定義された関数 \(f(x,y)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{(\Delta x,\Delta y)\to(0,0)}\frac{f(a+\Delta x,b+\Delta y)-f(a,b)-A\Delta x-B\Delta y}{\sqrt{\Delta x^2+\Delta y^2}}=0
+                        \]
+                    </div>
+                    <p>
+                        となる \(A,B\in\mathbb{R}\) が存在するとき、\(f(x,y)\) は点 \((a,b)\) で<strong>全微分可能</strong>であるという。
+                    </p>
+                    <p class="indent">
+                        また、このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        A=f_x(a,b),\quad B=f_y(a,b)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    ある関数 \(f(x,y)\) の全微分可能性を調べるには、\(f(x,y)\) が点 \((a,b)\) で偏微分可能であるかを確認して
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{(\Delta x,\Delta y)\to(0,0)}\frac{f(a+\Delta x,b+\Delta y)-f(a,b)-f_x(a,b)\Delta x-f_y(a,b)\Delta y}{\sqrt{\Delta x^2+\Delta y^2}}=0
+                    \]
+                </div>
+                <p>
+                    が成り立つかを調べればよいです。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（全微分可能性と連続性）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x,y)\) が点 \((a,b)\) で全微分可能であれば、\(f(x,y)\) は点 \((a,b)\) で連続である。
+                    </p>
             </div>
+            </section>
+            <section id="2">
+                <h2>全微分の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（全微分）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x,y)\) が領域 \(D\) 上のすべての点で全微分可能であるとき、\(f(x,y)\) は \(D\) 上で全微分可能であるといい
+                    </p>
+                    <div class="math">
+                        \[
+                        df:=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy
+                        \]
+                    </div>
+                    <p>
+                        を \(f\) の<strong>全微分</strong>という。
+                    </p>
+                </figure>
+            </section>
+            
             <p></p>
-            <div class="def">
-                <div>定義（全微分）</div>
-                2変数関数 \(f(x,y)\) に対して
-                \[
-                df:=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy
-                \]
-                を \(f\) の全微分という。
-            </div>
-            <p></p>
-            <div class="th">
-                <div>定理（全微分可能な点において連続）</div>
-                \(f(x,y)\) が点 \((a,b)\) で全微分可能であれば、この点で連続である。
-            </div>
+            
             <p class="space"></p>
             <h2 id="ex">演習問題</h2>
             <div class="ex">

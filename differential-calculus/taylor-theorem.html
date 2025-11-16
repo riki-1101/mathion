@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>テイラーの定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>テイラーの定理</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>テイラーの定理</h2>
+                <figure class="th">
+                    <figcaption>定理（テイラーの定理）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) は \(a\) を含む開区間 \(I\) 上で \(n\) 回微分可能とする。
+                        このとき、すべての \(x\in I\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(x)=\sum_{k=0}^{n-1}\frac{f^{(k)}(a)}{k!}(x-a)^k+\frac{f^{(n)}(c)}{n!}(x-a)^n
+                        \]
+                    </div>
+                    <p>
+                        となる \(c\) が \(a\) と \(x\) の間に存在する。
+                    </p>
+                </figure>
+                <p>
+                    最終項 \(R_n=\displaystyle\frac{f^{(n)}(c)}{n!}(x-a)^n\) はラグランジュの剰余項と呼ばれます。
+                </p>
+                <p>証明</p>
+                <div class="math">
+                    \[
+                    f(b)=\sum_{k=0}^{n-1}\frac{f^{(k)}(a)}{k!}(b-a)^k+\frac{A}{n!}(b-a)^n
+                    \]
+                </div>
+                <p>
+                    を満たすように定数 \(A\) を定める。
+                </p>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \varphi(t)=f(t)+\sum_{k=1}^{n-1}\frac{f^{(k)}(t)}{k!}(b-t)^k+\frac{A}{n!}(b-t)^n\quad(a\le t\le b)
+                    \]
+                </div>
+                <p>
+                    とおくと
+                </p>
+                <div class="math">
+                    \[
+                    \varphi(a)=f(a)+\sum_{k=1}^{n-1}\frac{f^{(k)}(t)}{k!}(b-a)^k+\frac{A}{n!}(b-a)^n=f(b)
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \varphi(b)=f(b)+\sum_{k=1}^{n-1}\frac{f^{(k)}(t)}{k!}(b-b)^k+\frac{A}{n!}(b-b)^n=f(b)
+                    \]
+                </div>
+                <p>
+                    より
+                </p>
+                <div class="math">
+                    \[
+                    \varphi(a)=\varphi(b)
+                    \]
+                </div>
+                <p>
+                    である。
+                    また、\(\varphi(t)\) は \((a,b)\) で微分可能であるから
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \varphi'(t)&=f'(t)+\sum_{k=1}^{n-1}\left\{\frac{f^{(k+1)}(t)}{k!}(b-t)^k-\frac{f^{(k)}(t)}{(k-1)!}(b-t)^{k-1}\right\}-\frac{A}{(n-1)!}(b-t)^{n-1}\\
+                    &=f'(t)+\left\{\frac{f^{(n)}(t)}{(n-1)!}(b-t)^{n-1}-f'(t)\right\}-\frac{A}{(n-1)!}(b-t)^{n-1}\\
+                    &=\frac{A-f^{(n)}(t)}{(n-1)!}(b-t)^{n-1}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    \(\varphi(t)\) は区間 \([a,b]\) で連続、点 \((a,b)\) で微分可能であり、\(\varphi(a)=\varphi(b)\) であるから、ロルの定理より
+                </p>
+                <div class="math">
+                    \[
+                    \varphi'(c)=0\quad(a\lt c\lt b)
+                    \]
+                </div>
+                <p>
+                    を満たす \(c\) が存在する。
+                    すなわち
+                </p>
+                <div class="math">
+                    \[
+                    \frac{A-f^{(n)}(c)}{(n-1)!}(b-c)^{n-1}=0\quad(a\lt c\lt b)
+                    \]
+                </div>
+                <p>
+                    を満たす \(c\) が存在する。
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    A=f^{(n)}(c)~~(a\lt c\lt b)
+                    \]
+                </div>
+                <p>
+                    を満たす \(c\) が存在する。
+                    以上より
+                </p>
+                <div class="math">
+                    \[
+                    f(b)=\sum_{k=0}^{n-1}\frac{f^{(k)}(a)}{k!}(b-a)^k+\frac{f^{(n)}(c)}{n!}(b-a)^n
+                    \]
+                </div>
+                <p>
+                    を満たす \(c~(a\lt c\lt b)\) が存在する。
+                </p>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
