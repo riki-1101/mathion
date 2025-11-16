@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>自己情報量</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>自己情報量</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,136 +13,162 @@
         <main id="contents">
             <h1>自己情報量</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">自己情報量の定義</h2>
-            <div class="article">
-                情報量とは、ある情報がどれだけ「驚き」を持っているかを表す指標です。
-                <p></p>
-                情報量が満たすべき性質として、次が挙げられます。
-            </div>
-            <p></p>
-            <div class="box">
-                <div>情報量が満たすべき性質</div>
-                <ul>
-                    <li>複数の独立事象が起きたとき、全体の情報量は各情報量の和になる</li>
-                    <li>起きる確率が高い事象ほど、情報量は小さい</li>
-                </ul>
-            </div>
-            <p></p>
-            <div class="article">
-                これを数学的に書くと次のようになります。
-                <p></p>
-                \(a,b\) を事象とする。
-                \[
-                I(ab)=I(a)+I(b)
-                \]
-                \[
-                P(a)\lt P(b)\Longleftrightarrow I(a)\gt I(b)
-                \]
-                これらを満たす関数は
-                \[
-                I(x)=-\log(x)
-                \]
-                である。以上より、次のように情報量を定義します。
-            </div>
-            <details class="pf">
-                <summary>証明</summary>
-                <div>
+            <section id="1">
+                <h2>自己情報量の定義</h2>
+                <p class="indent">
+                    情報量とは、ある情報がどれだけ「驚き」を持っているかを表す指標です。
+                    情報量が満たすべき性質として、次が挙げられます。
+                </p>
+                <figure class="box">
+                    <figcaption>情報量が満たすべき性質</figcaption>
+                    <ul>
+                        <li>複数の独立事象が起きたとき、全体の情報量は各情報量の和になる</li>
+                        <li>起きる確率が高い事象ほど、情報量は小さい</li>
+                    </ul>
+                </figure>
+                <p class="indent">
+                    これを数学的に表してみます。
+                </p>
+                    \(a,b\) を事象とする。
                     \[
-                    f(xy)=f(x)+f(y)
+                    I(ab)=I(a)+I(b)
                     \]
-                    において、\(y=1\) とすると
                     \[
-                    f(x)=f(x)+f(1)
+                    P(a)\lt P(b)\Longleftrightarrow I(a)\gt I(b)
                     \]
-                    よって
+                    これらを満たす関数は
                     \[
-                    f(1)=0~\cdots~\text{①}
+                    I(x)=-\log(x)
                     \]
                     である。
-                    <p></p>
-                    \(f(x)\) は微分可能であるから
-                    \[
-                    \begin{align}
-                    f'(x)&=\lim_{\varDelta x\to0}\frac{f(x+\varDelta x)-f(x)}{\varDelta x}\\
-                    &=\lim_{\varDelta x\to0}\frac{f(x(1+\frac{\varDelta x}{x}))-f(x)}{\varDelta x}\\
-                    &=\lim_{\varDelta x\to0}\frac{f(x)+f(1+\frac{\varDelta x}{x})-f(x)}{\varDelta x}\\
-                    &=\lim_{\varDelta x\to0}\frac{f(1+\frac{\varDelta x}{x})}{\varDelta x}\\
-                    \end{align}
-                    \]
-                    ここで、\(\displaystyle t=\frac{\varDelta x}{x}\) とおくと \(t\to0\) であり
-                    \[
-                    f'(x)=\lim_{t\to0}\frac{f(1+t)}{xt}=\frac{1}{x}\cdot\lim_{t\to0}\frac{f(1+t)}{t}
-                    \]
-                    ここで、\(\displaystyle\lim_{t\to0}\frac{f(1+t)}{t}=A\) とおき、両辺を \(x\) で積分すると
-                    \[
-                    \int f'(x)dx=\int\frac{A}{x}dx
-                    \]
-                    \[
-                    f(x)=A\log x+C
-                    \]
-                    ① より \(C=0\) であるから、\(f(x)=A\log x\)
                 </div>
-            </details>
-            <p></p>
-            <div class="def">
-                <div>定義（自己情報量）</div>
-                事象 \(a\) に対して
-                \[
-                I(a)=-\log_2P(a)~~~[\mathrm{bit}]
-                \]
-                を事象 \(a\) の自己情報量という。
-            </div>
-            <div class="article">
-                底は \(2\) の他に \(e,3,10\) なども考えられるが、情報理論では \(2\) を底とする。
-            </div>
-            <p></p>
-            <div class="ex-problem">
-                <div>例題</div>
-                ある地域では、年間、雨の日は60日、雪の日は3日間だけである。<br>
-                この地域で、次の場合の自己情報量を求めよ。（小数第2位まで）
-                <ol>
-                    <li>「今日は雪だった」と聞いたとき</li>
-                    <li>「今日は雨か雪だった」と聞いた後に「今日は雪だった」と判明したとき</li>
-                </ol>
-            </div>
-            <details class="ex-answer">
-                <summary>解答</summary>
-                <div>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                        \[
+                        f(xy)=f(x)+f(y)
+                        \]
+                        において、\(y=1\) とすると
+                        \[
+                        f(x)=f(x)+f(1)
+                        \]
+                        よって
+                        \[
+                        f(1)=0~\cdots~\text{①}
+                        \]
+                        である。
+                        <p></p>
+                        \(f(x)\) は微分可能であるから
+                        \[
+                        \begin{align}
+                        f'(x)&=\lim_{\varDelta x\to0}\frac{f(x+\varDelta x)-f(x)}{\varDelta x}\\
+                        &=\lim_{\varDelta x\to0}\frac{f(x(1+\frac{\varDelta x}{x}))-f(x)}{\varDelta x}\\
+                        &=\lim_{\varDelta x\to0}\frac{f(x)+f(1+\frac{\varDelta x}{x})-f(x)}{\varDelta x}\\
+                        &=\lim_{\varDelta x\to0}\frac{f(1+\frac{\varDelta x}{x})}{\varDelta x}\\
+                        \end{align}
+                        \]
+                        ここで、\(\displaystyle t=\frac{\varDelta x}{x}\) とおくと \(t\to0\) であり
+                        \[
+                        f'(x)=\lim_{t\to0}\frac{f(1+t)}{xt}=\frac{1}{x}\cdot\lim_{t\to0}\frac{f(1+t)}{t}
+                        \]
+                        ここで、\(\displaystyle\lim_{t\to0}\frac{f(1+t)}{t}=A\) とおき、両辺を \(x\) で積分すると
+                        \[
+                        \int f'(x)dx=\int\frac{A}{x}dx
+                        \]
+                        \[
+                        f(x)=A\log x+C
+                        \]
+                        ① より \(C=0\) であるから、\(f(x)=A\log x\)
+                    </div>
+                </details>
+                <p class="indent">
+                    以上より、次のように情報量を定義します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（自己情報量）</figcaption>
+                    <p class="indent">
+                        事象 \(a\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        I(a):=-\log_2P(a)~~~[\mathrm{bit}]
+                        \]
+                    </div>
+                    <p>
+                        を事象 \(a\) の<strong>自己情報量</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    底は \(2\) の他に \(e,3,10\) なども考えられますが、情報理論では \(2\) を底とします。
+                </p>
+            </section>
+            <section id="2">
+                <h2>例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        ある地域では、年間、雨の日は60日、雪の日は3日間だけである。
+                        この地域で、次の場合の自己情報量を求めよ。（小数第2位まで）
+                    </p>
+                    <ol>
+                        <li>「今日は雪だった」と聞いたとき</li>
+                        <li>「今日は雨か雪だった」と聞いた後に「今日は雪だった」と判明したとき</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
                     <ol>
                         <li>
-                            「今日は雪である」という事象を \(A\) とする。
-                            <p></p>
-                            この地域で雪が降る確率は
-                            \[
-                            P(A)=\displaystyle\frac{3}{365}
-                            \]
-                            よって、求める自己情報量は
-                            \[
-                            I(A)=-\log_2\frac{3}{365}=6.93~\mathrm{bit}
-                            \]
+                            <p>
+                                「今日は雪である」という事象を \(A\) とする。
+                                この地域で雪が降る確率は
+                            </p>
+                            <div class="math">
+                                \[
+                                P(A)=\displaystyle\frac{3}{365}
+                                \]
+                            </div>
+                            <p>
+                                よって、求める自己情報量は
+                            </p>
+                            <div class="math">
+                                \[
+                                I(A)=-\log_2\frac{3}{365}=6.93~\mathrm{bit}
+                                \]
+                            </div>
                         </li>
                         <li>
-                            「今日は雨か雪である」という事象を \(B\) とする。
-                            <p></p>
-                            「今日は雨か雪である」と聞いた後に「今日は雪である」という確率は
-                            \[
-                            P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{\frac{3}{360}}{\frac{60+3}{360}}=\frac{3}{63}=\frac{1}{21}
-                            \]
-                            よって、求める自己情報量は
-                            \[
-                            I(A|B)=-\log_2\frac{1}{21}=4.39~\mathrm{bit}
-                            \]
+                            <p>
+                                「今日は雨か雪である」という事象を \(B\) とする。
+                                「今日は雨か雪である」と聞いた後に「今日は雪である」という確率は
+                            </p>
+                            <div class="math">
+                                \[
+                                P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{\frac{3}{360}}{\frac{60+3}{360}}=\frac{3}{63}=\frac{1}{21}
+                                \]
+                            </div>
+                            <p>
+                                よって、求める自己情報量は
+                            </p>
+                            <div class="math">
+                                \[
+                                I(A|B)=-\log_2\frac{1}{21}=4.39~\mathrm{bit}
+                                \]
+                            </div>
                         </li>
                     </ol>
-                    補足：事前に雨か雪であることを知っている分、(2)の情報量は(1)より少ない。
-                </div>
-            </details>
-            <p class="space"></p>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>例題</div>
+                    <p>
+                        補足：事前に雨か雪であることを知っている分、(2)の情報量は(1)より少ない。
+                    </p>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
 
-            </div>
+                </figure>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
