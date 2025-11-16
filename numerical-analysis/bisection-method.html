@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>二分法</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>二分法</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>二分法のアルゴリズム</h2>
+                <p class="indent">
+                    区間 \([a,b]\) 上で連続な関数 \(f(x)\) を考えます。
+                    ここで、\(a,b\) は \(f(a)\) と \(f(b)\) が異符号となるもの、すなわち
+                </p>
+                <div class="math">
+                    \[
+                    f(a)f(b)\lt0
+                    \]
+                </div>
+                <p>
+                    を満たすものとします。
+                </p>
+                <p>
+                    方程式
+                </p>
+                <div class="math">
+                    \[
+                    f(x)=0
+                    \]
+                </div>
+                <p>
+                    の解 \(x=\alpha\) を求めたいです。
+                </p>
+                <p>
+                    曲線 \(y=f(x)\) のグラフを描くと次のようになったとします。
+                </p>
+                <img src="" alt="">
+                <p class="indent">
+                    区間 \([a,b]\) の中間点を \(c\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    c=\frac{a+b}{2}
+                    \]
+                </div>
+                <p>
+                    であり、図示すると次のようになります。
+                </p>
+                <img src="" alt="">
+                <p>
+                    この場合
+                </p>
+                <div class="math">
+                    \[
+                    f(a)f(c)\gt0,\quad f(c)f(b)\lt0
+                    \]
+                </div>
+                <p>
+                    となっているので、区間 \([c,b]\) に解を持つことがわかります。
+                </p>
+                <p class="indent">
+                    区間 \([a,b]\) に解を持つというのが、長さが半分の区間 \([c,b]\) に解を持つということに言い換えられました。
+                    この操作を繰り返すことにより、区間がさらに小さくなり、解 \(x=\alpha\) が特定できそうです。
+                    この手法を<strong>二分法</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（二分法）</figcaption>
+                    <p class="indent">
+                        区間 \([a,b]\) 上の連続関数 \(f(x)\) を考える。
+                        ただし、\(f(a)f(b)\lt0\) であるとする。
+                    </p>
+                    <ol>
+                        <li>\([a_0,b_0]=[a,b]\) とおき、\(k=0\) とする。</li>
+                        <li>\([a_k,b_k]\) の中間点 \(c_{k+1}=\dfrac{a_k+b_k}{2}\) を求める。</li>
+                        <li>
+                            \(f(a_k)f(c_{k+1})\) を計算し、次のように \([a_{k+1},b_{k+1}]\) を定める。
+                            \(f(a_k)f(c_{k+1})\lt0 \Rightarrow [a_{k+1},b_{k+1}]=[a_k,c_{k+1}]\)
+                            \(f(a_k)f(c_{k+1})\gt0 \Rightarrow [a_{k+1},b_{k+1}]=[c_{k+1},b_{k}]\)
+                        </li>
+                        <li>\(k\gets k+1\) として (2) に戻る。</li>
+                    </ol>
+                </figure>
+                <p class="indent">
+                    
+                </p>
+            </section>
+            <section id="2">
+                <h2></h2>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

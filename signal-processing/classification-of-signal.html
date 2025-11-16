@@ -14,60 +14,86 @@
             <h1>信号とシステム</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>信号の分類</h2>
-                <section>
-                    <h3>標本化と量子化</h3>
-                    <p class="indent">
-                        連続時間信号を離散時間信号へ変換することを<strong>標本化（サンプリング）</strong>といいます。
-                        連続して流れる時間軸を一定の間隔で区切り、その瞬間の値だけを取り出して並べていく操作です。
-                    </p>
-                    <p class="indent">
-                        一方、連続的に変化する振幅（値）を、あらかじめ決めた段階に丸めて離散的な値にすることを<strong>量子化</strong>といいます。
-                        連続した縦軸の値をいくつかのレベルに分け、それぞれに最も近い値へ写し替える操作です。
-                    </p>
-                    <figure class="box">
-                        標本化：時間軸（縦軸）の離散化<br>
-                        量子化：振幅軸（縦軸）の離散化
-                    </figure>
-                    <p class="indent">
-                        信号は次の表のように分類されます。
-                    </p>
-                    <table class="fixed-table">
-                        <thead>
-                            <tr><th></th><th>連続値</th><th>離散値</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><th>連続時間</th><td>アナログ信号</td><td>多値信号</td></tr>
-                            <tr><th>離散時間</th><td>サンプル値信号</td><td>ディジタル信号</td></tr>
-                        </tbody>
-                    </table>
-                </section>
-                <section>
-                    <h3>アナログ信号</h3>
-                    <p class="indent">
-                        時間軸と振幅軸がともに連続である信号を<strong>アナログ信号</strong>といいます。
-                    </p>
-                </section>
-                <section>
-                    <h3>サンプル値信号</h3>
-                    <p class="indent">
-                        アナログ信号を標本化した信号を<strong>サンプル値信号</strong>といいます。
-                    </p>
-                </section>
-                <section>
-                    <h3>多値信号</h3>
-                    <p class="indent">
-                        アナログ信号を量子化した信号を<strong>多値信号</strong>といいます。
-                    </p>
-                </section>
-                <section>
-                    <h3>ディジタル信号</h3>
-                    <p class="indent">
-                        アナログ信号を標本化し量子化した信号を<strong>ディジタル信号</strong>といいます。
-                    </p>
-                </section>
+                <h2>標本化と量子化</h2>
+                <p class="indent">
+                    連続時間信号を離散時間信号へ変換することを<strong>標本化（サンプリング）</strong>といいます。
+                    連続して流れる時間軸を一定の間隔で区切り、その瞬間の値だけを取り出して並べていく操作です。
+                </p>
+                <p class="indent">
+                    一方、連続的に変化する振幅（値）を、あらかじめ決めた段階に丸めて離散的な値にすることを<strong>量子化</strong>といいます。
+                    連続した縦軸の値をいくつかのレベルに分け、それぞれに最も近い値へ写し替える操作です。
+                </p>
+                <figure class="box">
+                    標本化：時間軸（縦軸）の離散化<br>
+                    量子化：振幅軸（縦軸）の離散化
+                </figure>
+                <p class="indent">
+                    信号は次の表のように分類されます。
+                </p>
+                <table class="fixed-table">
+                    <thead>
+                        <tr><th></th><th>連続値</th><th>離散値</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>連続時間</th><td>アナログ信号</td><td>多値信号</td></tr>
+                        <tr><th>離散時間</th><td>サンプル値信号</td><td>ディジタル信号</td></tr>
+                    </tbody>
+                </table>
             </section>
-            <section id="2">
+            <section>
+                <h2>アナログ信号</h2>
+                <p class="indent">
+                    時間軸と振幅軸がともに連続である信号を<strong>アナログ信号</strong>といいます。
+                </p>
+            </section>
+            <section>
+                <h2>サンプル値信号</h2>
+                <p class="indent">
+                    アナログ信号を標本化した信号を<strong>サンプル値信号</strong>といいます。
+                </p>
+                <p class="indent">
+                    連続信号 \(f(t)\) をサンプリング周期 \(T_s\) でサンプリングした連続信号 \(f_s(t)\) は
+                </p>
+                <div class="math">
+                    \[
+                    f_s(t)=\sum_{n=-\infty}^\infty f(t)\delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    と書けて、これは<strong>サンプル列信号</strong>と呼ばれます。
+                    この式は単位インパルス信号 \(\delta(t)\) の性質から
+                </p>
+                <div class="math">
+                    \[
+                    f_s(t)=\sum_{n=-\infty}^\infty f(nT_s)\delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    と書き換えられます。
+                    ここで \(f(nT_s)\) を
+                </p>
+                <div class="math">
+                    \[
+                    f[n]=f(nT_s)
+                    \]
+                </div>
+                <p>
+                    と書き、<strong>サンプル値信号</strong>と呼びます。
+                </p>
+            </section>
+            <section>
+                <h2>多値信号</h2>
+                <p class="indent">
+                    アナログ信号を量子化した信号を<strong>多値信号</strong>といいます。
+                </p>
+            </section>
+            <section>
+                <h2>ディジタル信号</h2>
+                <p class="indent">
+                    アナログ信号を標本化し量子化した信号を<strong>ディジタル信号</strong>といいます。
+                </p>
+            </section>
+            <section id="">
                 <h2>信号の操作</h2>
             </section>
             <section id="ex">

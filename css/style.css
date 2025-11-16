@@ -192,7 +192,7 @@ footer {
 
 #homeimg {
     padding: 2vw;
-    font-size: 5vw;
+    font-size: 2em;
 }
 
 
@@ -209,7 +209,7 @@ footer {
 }
 #home ul li {
     border-bottom: 1px solid gray;
-    height: 80px;
+    height: 90px;
 }
 #home ul li a figure {
     margin: 0;
@@ -223,12 +223,12 @@ footer {
     display: flex;
     justify-content: center;  /* 横方向に中央揃え */
     align-items: center;  /* 縦方向に中央揃え */
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 #home ul li a figure figcaption {
     display: flex;
     align-items: center;  /* 縦方向に中央揃え */
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-family: sans-serif;
 }
 
@@ -280,7 +280,7 @@ footer {
     height: 100%;
     padding: 1em;
     color: #333;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
     font-family: sans-serif;
 }

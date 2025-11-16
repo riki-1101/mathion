@@ -46,23 +46,23 @@
                 <figure class="th">
                     <figcaption>定理（ラプラス変換の線形性）</figcaption>
                     <p class="indent">
-                        関数 \(f(t),g(t)\) 、定数 \(a,b\in\mathbb{R}\) に対して次が成り立つ。
+                        信号 \(f(t),g(t)\) 、定数 \(a,b\in\mathbb{R}\) に対して次が成り立つ。
                     </p>
                     <div clss="math">
                         \[
-                        \mathscr{L}\{af(t)+bg(t)\}=a\mathscr{L}\{f(t)\}+b\mathscr{L}\{g(t)\}
+                        \mathscr{L}[af(t)+bg(t)]=a\mathscr{L}[f(t)]+b\mathscr{L}[g(t)]
                         \]
                     </div>
                 </figure>
                 <p></p>
                 <figure class="th">
-                    <figcaption>定理（時間軸の移動）</figcaption>
+                    <figcaption>定理（時間軸の推移）</figcaption>
                     <p class="indent">
-                        関数 \(f(t)\) 、定数 \(a\in\mathbb{R}\) に対して次が成り立つ。
+                        信号 \(f(t)\) 、定数 \(\tau\in\mathbb{R}\) に対して次が成り立つ。
                     </p>
                     <div class="math">
                         \[
-                        \mathscr{L}\{f(t-a)\}=e^{-as}F(s)
+                        \mathscr{L}[f(t-\tau)]=e^{-\tau s}\mathscr{L}[f(t)]
                         \]
                     </div>
                 </figure>
@@ -87,6 +87,22 @@
                     <div class="math">
                         \[
                         \mathscr{L}\{f(at)\}=\frac{1}{a}F\left(\frac{s}{a}\right) \quad (a\gt0)
+                        \]
+                    </div>
+                </figure>
+                <figure class="th">
+                    <figcaption>定理（時間微分）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}\left[\frac{df(t)}{dt}\right]=sF(s)-f(0)
+                        \]
+                    </div>
+                    <div class="math">
+                        \[
+                        \mathscr{L}\left[\frac{d^nf(t)}{dt^n}\right]=s^nF(s)-\sum_{k=1}^ns^{n-k}f^{(k-1)}(0)
                         \]
                     </div>
                 </figure>
