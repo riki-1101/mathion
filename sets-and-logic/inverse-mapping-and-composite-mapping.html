@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>逆写像と合成写像</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>逆写像と合成写像</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -13,71 +13,88 @@
         <main id="contents">
             <h1>逆写像と合成写像</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">逆写像の定義</h2>
-            <div class="def">
-                <div>定義（逆写像）</div>
-                写像 \(f:X\to Y\) が全単射であるとき
-                \[
-                f^{-1}:Y\to X
-                \]
-                が定義でき、これを \(f\) の逆写像という。
-            </div>
-            <p></p>
-            <div class="article">
-              
-            </div>
-            <p class="space"></p>
-            <h2 id="2">逆写像の性質</h2>
-            <div class="th">
-                <div>定理（逆写像の性質）</div>
-                <ol>
-                    <li>\(f\) と \(f^{-1}\) とでは、定義域と値域が入れ替わる。</li>
-                    <li>2つのグラフ \(G(f),~G(f^{-1})\) は、直線 \(y=x\) に関して対称である。</li>
-                </ol>
-            </div>
-            <p class="space"></p>
-            <h2 id="1">合成写像の定義</h2>
-            <div class="def">
-                <div>定義（合成写像）</div>
-                ２つの写像 \(f:X\to Y,~~g:Y\to Z\) に対して
-                \(f\) の値域が \(g\) の定義域に含まれているとき、対応
-                \[
-                x\mapsto g(f(x))~~~(x\in X)
-                \]
-                を考えることができる。これを \(f\) と \(g\) の合成写像といい
-                \[
-                g\circ f:X\to Z
-                \]
-                と表す。
-            </div>
-            <p></p>
-            <div class="article">
-              
-            </div>
-            <p class="space"></p>
-            <h2 id="2">合成写像の性質</h2>
-            <div class="th">
-                <div>定理（合成写像の性質）</div>
-                <ol>
-                    
-                </ol>
-            </div>
-            <p class="space"></p>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>問題</div>
-                次の写像の逆写像は存在するか。存在する場合は具体的に求めよ。
-                <ol>
-                    <li>\(f(x)=2x+1\)</li>
-                    <li>\(g(x)=x^2+3\)</li>
-                </ol>
-            </div>
-            <details class="ans">
-                <summary>解答</summary>
-                <div>
-                    
-                </div>
-            </details>
+            <section id="1">
+                <h2>逆写像の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（逆写像）</figcaption>
+                    <p class="indent">
+                        写像 \(f:X\to Y\) が全単射であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        f^{-1}:Y\to X
+                        \]
+                    </div>
+                    <p>
+                        が定義でき、これを \(f\) の<strong>逆写像</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>逆写像の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（逆写像の性質）</figcaption>
+                    <ol>
+                        <li>\(f\) と \(f^{-1}\) とでは、定義域と値域が入れ替わる。</li>
+                        <li>2つのグラフ \(G(f),~G(f^{-1})\) は、直線 \(y=x\) に関して対称である。</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>合成写像の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（合成写像）</figcaption>
+                    <p class="indent">
+                        ２つの写像 \(f:X\to Y,~~g:Y\to Z\) に対して、\(f\) の値域が \(g\) の定義域に含まれているとき、対応
+                    </p>
+                    <div class="math">
+                        \[
+                        x\mapsto g(f(x))~~~(x\in X)
+                        \]
+                    </div>
+                    <p>
+                        を考えることができる。
+                        これを \(f\) と \(g\) の<strong>合成写像</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        g\circ f:X\to Z
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>合成写像の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（合成写像の性質）</figcaption>
+                    <ol>
+                        
+                    </ol>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        次の写像の逆写像は存在するか。
+                        存在する場合は具体的に求めよ。
+                    </p>
+                    <ol>
+                        <li>\(f(x)=2x+1\)</li>
+                        <li>\(g(x)=x^2+3\)</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div>
+                        
+                    </div>
+                </details>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
