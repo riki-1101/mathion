@@ -47,17 +47,6 @@
                         と略記することもある。
                     </p>
                 </figure>
-                <p></p>
-                <figure class="def">
-                    <figcaption>定義（正方行列・対角行列）</figcaption>
-                    <p class="indent">
-                        行数と列数が等しい行列を<strong>正方行列</strong>という。
-                        正方行列において、行数（列数）を正方行列の<strong>次数</strong>といい、次数が \(n\) である正方行列を <strong>\(n\) 次正方行列</strong>という。
-                    </p>
-                    <p class="indent">
-                        \(n\) 次正方行列 \(A=[a_{ij}]\) の成分 \(a_{11},a_{22},\cdots,a_{nn}\) を<strong>対角成分</strong>といい、対角成分以外がすべて \(0\) である正方行列を<strong>対角行列</strong>という。
-                    </p>
-                </figure>
             </section>
             <section id="2">
                 <h2>行ベクトルと列ベクトル</h2>
@@ -131,6 +120,61 @@
                 </figure>
             </section>
             <section id="4">
+                <h2>正方行列</h2>
+                <figure class="def">
+                    <figcaption>定義（正方行列・対角行列）</figcaption>
+                    <p class="indent">
+                        行数と列数が等しい行列を<strong>正方行列</strong>という。
+                        正方行列において、行数（列数）を正方行列の<strong>次数</strong>といい、次数が \(n\) である正方行列を <strong>\(n\) 次正方行列</strong>という。
+                    </p>
+                    <p class="indent">
+                        \(n\) 次正方行列 \(A=[a_{ij}]\) の成分 \(a_{11},a_{22},\cdots,a_{nn}\) を<strong>対角成分</strong>といい、対角成分以外がすべて \(0\) である正方行列を<strong>対角行列</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（三角行列）</figcaption>
+                    <p class="indent">
+                        \(n\) 次正方行列 \(A=[a_{ij}]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        a_{ij}=0\quad (i\gt j)
+                        \]
+                    </div>
+                    <p>
+                        であるとき、\(A\) は<strong>上三角行列</strong>という。
+                        また
+                    </p>
+                    <div class="math">
+                        \[
+                        a_{ij}=0\quad (i\lt j)
+                        \]
+                    </div>
+                    <p>
+                        であるとき、\(A\) は<strong>下三角行列</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    例えば、次のような行列が三角行列です。
+                </p>
+                <div class="math">
+                    \[
+                    A_1=
+                    \begin{bmatrix}
+                    1 & 2\\
+                    0 & 4
+                    \end{bmatrix}
+                    ,\quad
+                    A_2=
+                    \begin{bmatrix}
+                    -1 & 0 & 5\\
+                    0 & -3 & 2\\
+                    0 & 0 & 7
+                    \end{bmatrix}
+                    \]
+                </div>
+            </section>
+            <section id="5">
                 <h2>行列の相等</h2>
                 <figure class="def">
                     <figcaption>定義（行列の相等）</figcaption>
