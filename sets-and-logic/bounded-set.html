@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>有界集合と上限・下限</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>有界集合と上限・下限</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>上界と下界</h2>
+                <figure class="def">
+                    <figcaption>定義（上に有界・下に有界・上界・下界）</figcaption>
+                    <p class="indent">
+                        \(A\subset\mathbb{R}\) を空でない集合とする。
+                    </p>
+                    <div class="math">
+                        \[
+                        \exists M\in\mathbb{R},~\forall x\in A:x\le M
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(A\) は<strong>上に有界</strong>であるといい、\(M\) を \(A\) の<strong>上界</strong>という。
+                    </p>
+                    <div class="math">
+                        \[
+                        \exists m\in\mathbb{R},~\forall x\in A:m\le x
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(A\) が<strong>下に有界</strong>であるといい、\(m\) を \(A\) の<strong>下界</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（有界集合）</figcaption>
+                    <p class="indent">
+                        集合 \(A\subset\mathbb{R}\) が上に有界かつ下に有界である、すなわち
+                    </p>
+                    \[
+                    \exists m,M\in\mathbb{R},~\forall x\in A:m\le x\le M
+                    \]
+                    が成り立つとき、\(A\) は<strong>有界集合</strong>であるという。
+                </figure>
+                <p>
+                    「有界集合である」は単に「有界である」とも言います。
+                </p>
+            </section>
+            <section id="2">
+                <h2>上限と下限</h2>
+                <figure class="th">
+                    <figcaption>定理（ワイエルシュトラスの定理）</figcaption>
+                    <p class="indent">
+                        空でない集合 \(A\subset\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(A\) が上に有界であるとき、\(A\) の上界の最小値が存在する。</li>
+                        <li>\(A\) が下に有界であるとき、\(A\) の下界の最大値が存在する。</li>
+                    </ol>
+                </figure>
+                <p class="indent">
+                    この定理から、次の「上限」と「下限」が定義できます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（上限・下限）</figcaption>
+                    <p class="indent">
+                        \(A\) を空でない実数 \(\mathbb{R}\) の集合とする。
+                    </p>
+                    <p>
+                        \(A\) の上界の最小値を \(A\) の<strong>上限（最小上界）</strong>といい、\(\sup A \) と書く。
+                    </p>
+                    <p>
+                        \(A\) の下界の最大値を \(A\) の<strong>下限（最大下界）</strong>といい、\(\inf A \) と書く。
+                    </p>
+                </figure>
+                <p>
+                    \(f(x)=x\) を \(x\lt 1\) で考えると、最大値は存在しないが、上限は存在して \(1\) である。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        次の集合は上に有界か下に有界か、あるいは有界集合であるかを答えよ。
+                    </p>
+                    <ol>
+                        <li>\(A=(-\infty,5]\)</li>
+                        <li>\(B=[-2,8]\)</li>
+                        <li>\(C=[7,\infty)\)</li>
+                        <li>\(\mathbb{Z}\)</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>\(A\) は上に有界である。</li>
+                        <li>\(B\) は有界である。</li>
+                        <li>\(C\) は下に有界である。</li>
+                        <li>\(\mathbb{Z}\) は上にも下にも有界でない。</li>
+                    </ol>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
