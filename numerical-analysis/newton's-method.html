@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ニュートン法</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax-config.js"></script>
+        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ニュートン法</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ニュートン法のアルゴリズム</h2>
+                <p class="indent">
+                    \(C^1\) 級関数 \(f(x)\) を考えます。
+                </p>
+                <p>
+                    方程式
+                </p>
+                <div class="math">
+                    \[
+                    f(x)=0
+                    \]
+                </div>
+                <p>
+                    の解 \(x=\alpha\) を求めたいです。
+                </p>
+                <p>
+                    曲線 \(y=f(x)\) のグラフを描くと次のようになったとします。
+                </p>
+                <img src="" alt="image">
+                <p class="indent">
+                    ある点 \((x_0,0)\) を設定し、\(x=x_0\) における \(f(x)\) の接線 \(l_0\) を考えます。
+                    接線 \(l_0\) の方程式は
+                </p>
+                <div class="math">
+                    \[
+                    y=f'(x_0)(x-x_0)+f(x_0)
+                    \]
+                </div>
+                <p>
+                    です。
+                    接線 \(l_0\) と \(x\) 軸の交点を \((x_1,0)\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    0=f'(x_0)(x_1-x_0)+f(x_0)
+                    \]
+                    \[
+                    \therefore~x_1=x_0-\frac{f(x_0)}{f'(x_0)}
+                    \]
+                </div>
+                <img src="" alt="image">
+                <p class="indent">
+                    上図を見ると、\(x_1\) は \(x_0\) よりも、解 \(x=\alpha\) に近づいていることがわかります。
+                </p>
+                <p class="indent">
+                    次に、\(x=x_1\) における \(f(x)\) の接線 \(l_1\) を考え、\(l_1\) と \(x\) 軸との交点を \((x_2,0)\) とすると、同様にして
+                </p>
+                <div class="math">
+                    \[
+                    x_2=x_1-\frac{f(x_1)}{f'(x_1)}
+                    \]
+                </div>
+                <img src="" alt="image">
+                <p class="indent">
+                    上図を見ると、\(x_2\) は \(x_1\) よりも、解 \(x=\alpha\) に近づいていることがわかります。
+                    この操作を繰り返して
+                </p>
+                <div class="math">
+                    \[
+                    x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}\quad (n=0,1,2,\cdots)
+                    \]
+                </div>
+                <p>
+                    とすれば、数列 \(\{x_n\}\) は解 \(x=\alpha\) に収束することが期待されます。
+                    この手法を<strong>ニュートン法</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ニュートン法）</figcaption>
+                    <p class="indent">
+                        \(C^1\) 級関数 \(f(x)\) に対して、方程式 \(f(x)=0\) の解を考える。
+                    </p>
+                    <div class="math">
+                        \[
+                        x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}\quad (n=0,1,2,\cdots)
+                        \]
+                    </div>
+                    <p>
+                        として、解の逐次近似列 \(\{x_n\}\) を構成する手法を<strong>ニュートン法（ニュートン・ラフソン法）</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>ニュートン法の収束と誤差</h2>
+                <figure class="th">
+                    <figcaption>定理（）</figcaption>
+                    
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

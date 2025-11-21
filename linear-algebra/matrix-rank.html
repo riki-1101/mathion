@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>行列の階数</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>行列の階数</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax-config.js"></script>
         <script src="../mathjax/es5/tex-mml-chtml.js"></script>
@@ -15,9 +15,43 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>階段行列</h2>
+                <p>
+                    ピボットとは
+                </p>
                 <figure class="def">
                     <figcaption>定義（階段行列）</figcaption>
-
+                    <p class="indent">
+                        \(m\times n\) 行列 \(A=[a_{ij}]\) が以下の条件を満たすとする。
+                    </p>
+                    <ol>
+                        <li>
+                            \(A\) の第 \(i\) 行ベクトル \(\boldsymbol{a}_i\) に対して
+                            <div class="math">
+                                \[
+                                \forall i\in[1,r],\quad\boldsymbol{a}_i\neq\boldsymbol{0}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \(A\) の第 \(i\) 行ベクトル \(\boldsymbol{a}_i\) 、自然数 \(r\lt m\) に対して
+                            <div class="math">
+                                \[
+                                \forall i\in[r+1,m],\quad\boldsymbol{a}_i=\boldsymbol{0}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            第 \(i\) 行のピボットの列番号を \(c_i\) とすると
+                            <div class="math">
+                                \[
+                                a_{i,c_i}\neq0~~\text{かつ}~~c_1\lt c_2\lt\cdots\lt c_r
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                    <p>
+                        このとき、\(A\) を<strong>階段行列</strong>という。
+                    </p>
                 </figure>
             </section>
             <section id="2">

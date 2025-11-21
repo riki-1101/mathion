@@ -41,7 +41,7 @@
                 <p>
                     曲線 \(y=f(x)\) のグラフを描くと次のようになったとします。
                 </p>
-                <img src="" alt="">
+                <img src="img/bisection-method-1.png" alt="image">
                 <p class="indent">
                     区間 \([a,b]\) の中間点を \(c\) とすると
                 </p>
@@ -53,21 +53,22 @@
                 <p>
                     であり、図示すると次のようになります。
                 </p>
-                <img src="" alt="">
+                <img src="img/bisection-method-2.png" alt="image">
                 <p>
-                    この場合
+                    この場合、区間 \([a,c]\) に解 \(x=\alpha\) を持つことがわかります。
+                    これは<strong>中間値の定理</strong>より
                 </p>
                 <div class="math">
                     \[
-                    f(a)f(c)\gt0,\quad f(c)f(b)\lt0
+                    f(a)f(c)\lt0
                     \]
                 </div>
                 <p>
-                    となっているので、区間 \([c,b]\) に解を持つことがわかります。
+                    であることと同値です。
                 </p>
                 <p class="indent">
-                    区間 \([a,b]\) に解を持つというのが、長さが半分の区間 \([c,b]\) に解を持つということに言い換えられました。
-                    この操作を繰り返すことにより、区間がさらに小さくなり、解 \(x=\alpha\) が特定できそうです。
+                    区間 \([a,b]\) に解を持つというのが、長さが半分の区間 \([a,c]\) に解を持つということに言い換えられました。
+                    この操作を繰り返すことにより、区間が半分ずつ小さくなり、解 \(x=\alpha\) が特定できそうです。
                     この手法を<strong>二分法</strong>といいます。
                 </p>
                 <figure class="def">
@@ -80,19 +81,33 @@
                         <li>\([a_0,b_0]=[a,b]\) とおき、\(k=0\) とする。</li>
                         <li>\([a_k,b_k]\) の中間点 \(c_{k+1}=\dfrac{a_k+b_k}{2}\) を求める。</li>
                         <li>
-                            \(f(a_k)f(c_{k+1})\) を計算し、次のように \([a_{k+1},b_{k+1}]\) を定める。
-                            \(f(a_k)f(c_{k+1})\lt0 \Rightarrow [a_{k+1},b_{k+1}]=[a_k,c_{k+1}]\)
-                            \(f(a_k)f(c_{k+1})\gt0 \Rightarrow [a_{k+1},b_{k+1}]=[c_{k+1},b_{k}]\)
+                            次のように \([a_{k+1},b_{k+1}]\) を定める。<br>
+                            <p>\(f(a_k)f(c_{k+1})\lt0 ~\Longrightarrow~ [a_{k+1},b_{k+1}]=[a_k,c_{k+1}]\)</p>
+                            <p>\(f(a_k)f(c_{k+1})\gt0 ~\Longrightarrow~ [a_{k+1},b_{k+1}]=[c_{k+1},b_{k}]\)</p>
                         </li>
                         <li>\(k\gets k+1\) として (2) に戻る。</li>
                     </ol>
+                    <p>
+                        この手法を<strong>二分法</strong>という。
+                    </p>
                 </figure>
-                <p class="indent">
-                    
-                </p>
             </section>
             <section id="2">
-                <h2></h2>
+                <h2>二分法の収束と誤差</h2>
+                <figure class="th">
+                    <figcaption>定理（二分法の収束と誤差）</figcaption>
+                    <p>
+                        関数 \(f(x)\) は区間 \([a,b]\) 上の連続関数で
+                    </p>
+                    <div class="math">
+                        \[
+                        |\alpha-x_n|\le\frac{b-a}{2^n}
+                        \]
+                    </div>
+                    <p>
+                        を満たすような \(\alpha\in[a,b]\) が存在する。
+                    </p>
+                </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>

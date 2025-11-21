@@ -15,25 +15,69 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>ブール代数の定義</h2>
-                <p>ブール代数とは、ある集合 B 上に定義された三つの演算（和、積、補元）について、特定の公理を満たす代数的構造です。</p>
-
-                <h3>演算</h3>
+                <p class="indent">
+                    ブール代数は、論理演算や集合演算を抽象的に扱う代数的構造です。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ブール代数）</figcaption>
+                    <p class="indent">
+                        集合 \(B\) と二項演算「 \(+\) 」「 \(\cdot\) 」および単項演算「 \(\overline{}\) 」、さらに２つの特別な元 \(0,1\in B\) からなる代数系 \((B,+,\cdot,\overline{},0,1)\) が以下の公理を満たすとき、この代数系を<strong>ブール代数</strong>という。
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>交換律</strong>
+                            <p>\(x + y = y + x,\quad x\cdot y = y\cdot x\)</p>
+                        </li>
+                        <li>
+                            <strong>結合律</strong>
+                            <p>\((x + y) + z = x + (y + z),\quad (x\cdot y)\cdot z = x\cdot (y\cdot z)\)</p>
+                        </li>
+                        <li>
+                            <strong>分配律</strong>
+                            <p>\(x + (y \cdot z) = (x + y) \cdot (x + z)\)</p>
+                            <p>\(x \cdot (y + z) = (x \cdot y) + (x \cdot z)\)</p>
+                        </li>
+                        <li>
+                            <strong>単位元の存在</strong>
+                            <p>\(x + 0 = x,\quad x\cdot 1 = x\)</p>
+                        </li>
+                        <li>
+                            <strong>補元の存在</strong>
+                            <p>\(x + \overline{x} = 1,\quad x\cdot\overline{x} = 0\)</p>
+                        </li>
+                    </ol>
+                </figure>
                 <ul>
                     <li><strong>和演算（OR）</strong>： \(a+b\) または a ∨ b</li>
                     <li><strong>積演算（AND）</strong>： \(a\cdot b\) または a ∧ b</li>
                     <li><strong>補元（NOT）</strong>： \(\overline{a}\) または ¬a</li>
                 </ul>
+                <p class="indent">
+                    この定義から、次の定理が成り立ちます。
+                </p>
                 <figure class="th">
-                    <figcaption>定理（ブール代数の公理）</figcaption>
-                    <p class="indent">
-                        ブール代数は、集合 \(B\) 上の演算 \(+\)（和）、\(\cdot\)（積）、および \(\overline{a}\)（補元）に対して、以下のような基本的な性質を満たす代数系である。
-                    </p>
+                    <figcaption>定理（ブール代数の定理）</figcaption>
                     <ol>
-                        <li>交換律： \(a + b = b + a,~~ a\cdot b = b\cdot a\)</li>
-                        <li>結合律： \(a + (b + c) = (a + b) + c\)</li>
-                        <li>分配律： \(a\cdot(b + c) = (a\cdot b) + (a\cdot c)\)</li>
-                        <li>単位元の存在： \(a + 0 = a,~~ a\cdot 1 = a\)</li>
-                        <li>補元の存在： \(a + \overline{a} = 1,~~a\cdot\overline{a} = 0\)</li>
+                        <li>
+                            <strong>復帰則</strong>
+                            <p>\(\overline{\overline{x}}=x\)</p>
+                        </li>
+                        <li>
+                            <strong>べき等則</strong>
+                            <p>\(x+x=x,\quad x\cdot x = x\)</p>
+                        </li>
+                        <li>
+                            \(x+1=1,\quad x\cdot 0=0\)
+                            <p></p>
+                        </li>
+                        <li>
+                            <strong>吸収則</strong>
+                            <p>\(x+x\cdot y=x,\quad x\cdot(x+y)=x\)</p>
+                        </li>
+                        <li>
+                            <strong>ド・モルガンの定理</strong>
+                            <p>\(\overline{x+y}=\overline{x}\cdot\overline{y},\quad \overline{x\cdot y}=\overline{x}+\overline{y}\)</p>
+                        </li>
                     </ol>
                 </figure>
             </section>
