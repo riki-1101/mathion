@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>行列式</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -26,13 +25,23 @@
                         \]
                     </div>
                     <p>
-                        を \(A\) の行列式という。\(\det A\) は \(|A|\) とも書く。
+                        を \(A\) の<strong>行列式</strong>という。
+                        \(\det A\) は \(|A|\) とも書く。
                     </p>
                 </figure>
             </section>
             <h3>2次正方行列の行列式</h3>
             <p class="indent">
-                \(A=\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}\) の行列式を考えます。
+                ２次正方行列
+            </p>
+            <div class="math">
+                \[
+                A=\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
+                \]
+            </div>
+            <p>
+                の行列式を考えます。
+                置換の集合は
             </p>
             <div class="math">
                 \[
@@ -40,7 +49,7 @@
                 \]
             </div>
             <p>
-                であるから
+                なので
             </p>
             <div class="math">
                 \[
@@ -52,52 +61,89 @@
                 \end{align}
                 \]
             </div>
-            <section id="2"></section>
-            <h2>行列式の性質</h2>
-            <div class="th">
-                <div>定理（多重線形性）</div>
-                \(n\) 次元列ベクトル \(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n\in\mathbb{R}^n\) について、\(\boldsymbol{a}_k=s\boldsymbol{b}_k+t\boldsymbol{c}_k~~(s,t\in\mathbb{R},~1\le k\le n)\) のとき
-                \[
-                \begin{align}
-                &\det\begin{bmatrix} \boldsymbol{a}_1 & \cdots & s\boldsymbol{b}_k+t\boldsymbol{c}_k & \cdots & \boldsymbol{a}_n \end{bmatrix}\\
-                &=s\det\begin{bmatrix} \boldsymbol{a}_1 & \cdots & \boldsymbol{b}_k & \cdots & \boldsymbol{a}_n \end{bmatrix}+t\det\begin{bmatrix} \boldsymbol{a}_1 & \cdots & \boldsymbol{c}_k & \cdots & \boldsymbol{a}_n \end{bmatrix}
-                \end{align}
-                \]
+            <p>
+                と計算できます。
+            </p>
+            <section id="2">
+                <h2>行列式の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（多重線形性）</figcaption>
+                    <p class="indent">
+                        \(n\) 次元列ベクトル \(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n\in\mathbb{R}^n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{a}_k=s\boldsymbol{b}_k+t\boldsymbol{c}_k~~(s,t\in\mathbb{R},~1\le k\le n)
+                        \]
+                    </div>
+                    <p>
+                        のとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        &\det\begin{bmatrix} \boldsymbol{a}_1 & \cdots & s\boldsymbol{b}_k+t\boldsymbol{c}_k & \cdots & \boldsymbol{a}_n \end{bmatrix}\\
+                        &=s\det\begin{bmatrix} \boldsymbol{a}_1 & \cdots & \boldsymbol{b}_k & \cdots & \boldsymbol{a}_n \end{bmatrix}+t\det\begin{bmatrix} \boldsymbol{a}_1 & \cdots & \boldsymbol{c}_k & \cdots & \boldsymbol{a}_n \end{bmatrix}
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                    <p class="indent">
+                        また、\(n\) 次元行ベクトル \(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n\in\mathbb{R}^n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{a}_k=s\boldsymbol{b}_k+t\boldsymbol{c}_k~~(s,t\in\mathbb{R},~1\le k\le n)
+                        \]
+                    </div>
+                    <p>
+                        のとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \det\begin{bmatrix} \boldsymbol{a}_1 \\ \vdots \\ s\boldsymbol{b}_k+t\boldsymbol{c}_k \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}
+                        =s\det\begin{bmatrix} \boldsymbol{a}_1 \\ \vdots \\ \boldsymbol{b}_k \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}+t\det\begin{bmatrix} \boldsymbol{a}_1 \\ \vdots \\ \boldsymbol{c}_k \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
                 <p></p>
-                行について
-                \[
-                \det\begin{bmatrix} \boldsymbol{a}_1 \\ \vdots \\ s\boldsymbol{b}_k+t\boldsymbol{c}_k \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}
-                =s\det\begin{bmatrix} \boldsymbol{a}_1 \\ \vdots \\ \boldsymbol{b}_k \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}+t\det\begin{bmatrix} \boldsymbol{a}_1 \\ \vdots \\ \boldsymbol{c}_k \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}
-                \]
-            </div>
-            <p></p>
-            <div class="th">
-                <div>定理（交代性）</div>
-                列
-                \[
-                \det\begin{bmatrix} \boldsymbol{a}_{\sigma(1)} & \boldsymbol{a}_{\sigma(2)} & \cdots & \boldsymbol{a}_{\sigma(n)} \end{bmatrix}
-                =(\operatorname{sgn}\sigma)\det\begin{bmatrix} \boldsymbol{a}_1 & \boldsymbol{a}_2 & \cdots & \boldsymbol{a}_n \end{bmatrix}
-                \]
-                行
-                \[
-                \det\begin{bmatrix} \boldsymbol{a}_{\sigma(1)} \\ \boldsymbol{a}_{\sigma(2)} \\ \vdots \\ \boldsymbol{a}_{\sigma(n)} \end{bmatrix}
-                =(\operatorname{sgn}\sigma)\det\begin{bmatrix} \boldsymbol{a}_1 \\ \boldsymbol{a}_2 \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}
-                \]
-            </div>
-            <p></p>
-            <figure class="th">
-                <figcaption>定理（行列式の公式）</figcaption>
-                <p class="indent">
-                    正方行列 \(A,B\) に対して、以下が成り立つ。
-                </p>
-                <ol>
-                    <li>\(\det A^\top=\det A\)</li>
-                    <li>\(\det(AB)=\det A\det B\)</li>
-                    <li>\(\det(A^{-1})=(\det A)^{-1}\)</li>
-                    <li>\(\displaystyle \det \begin{pmatrix} A & B \\ B & A \end{pmatrix} = \det(A+B)\det(A-B)\)</li>
-                </ol>
-            </figure>
-            <p class="space"></p>
+                <figure class="th">
+                    <figcaption>定理（交代性）</figcaption>
+                    列
+                    <div class="math">
+                        \[
+                        \det\begin{bmatrix} \boldsymbol{a}_{\sigma(1)} & \boldsymbol{a}_{\sigma(2)} & \cdots & \boldsymbol{a}_{\sigma(n)} \end{bmatrix}
+                        =(\operatorname{sgn}\sigma)\det\begin{bmatrix} \boldsymbol{a}_1 & \boldsymbol{a}_2 & \cdots & \boldsymbol{a}_n \end{bmatrix}
+                        \]
+                    </div>
+                    行
+                    <div class="math">
+                        \[
+                        \det\begin{bmatrix} \boldsymbol{a}_{\sigma(1)} \\ \boldsymbol{a}_{\sigma(2)} \\ \vdots \\ \boldsymbol{a}_{\sigma(n)} \end{bmatrix}
+                        =(\operatorname{sgn}\sigma)\det\begin{bmatrix} \boldsymbol{a}_1 \\ \boldsymbol{a}_2 \\ \vdots \\ \boldsymbol{a}_n \end{bmatrix}
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（行列式の公式）</figcaption>
+                    <p class="indent">
+                        正方行列 \(A,B\) に対して、以下が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(\det A^\top=\det A\)</li>
+                        <li>\(\det(AB)=\det A\det B\)</li>
+                        <li>\(\det(A^{-1})=(\det A)^{-1}\)</li>
+                        <li>\(\displaystyle \det \begin{pmatrix} A & B \\ B & A \end{pmatrix} = \det(A+B)\det(A-B)\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section></section>
             <h2 id="4">行列式の計算方法</h2>
             <div class="th">
                 <div>定理（余因子展開）</div>
