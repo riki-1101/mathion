@@ -408,6 +408,15 @@ footer {
     padding: 0.2em 0;
 }
 
+/* 例用 */
+.ex {
+    background-color: #e0f7ff; /* 柔らかい青系 */
+}
+.ex p {
+    margin: 0;
+    padding: 0.2em 0;
+}
+
 /* 証明部分（details全体） */
 .pf {
     margin: 1em 0;
@@ -434,6 +443,7 @@ footer {
     content: "▼";
 }
 
+/* 例題用 */
 .ex-problem {
     background-color: white;
 }
@@ -442,30 +452,13 @@ footer {
     padding: 0.2em 0;
 }
 
-
-.ex {
+/* 演習問題用 */
+.ex-practice {
     background-color: gainsboro;
 }
-
-details.ex-answer {
-    padding: 5px 0;
-    summary {
-        padding: 5px;
-        background-color: lightgray;
-    }       
-}
-
-    
-details.annotation {
-    margin-top: 10px;
-    padding: 1em;
-    background-color: lightgray;
-    summary {
-        padding: 0;
-        margin: 0 0 5px 0;
-        background-color: lightgray;
-        border-bottom: solid 2px black;
-    }
+.ex-practice p {
+    margin: 0;
+    padding: 0.2em 0;
 }
 
 /* 解答部分（details全体） */
@@ -492,6 +485,19 @@ details.annotation {
 }
 .ans[open] summary::before {  /* 開いたときに矢印を下向きに */
     content: "▼";
+}
+
+/* 注意書き */
+details.annotation {
+    margin-top: 10px;
+    padding: 1em;
+    background-color: lightgray;
+}
+details.annotation summary {
+    padding: 0;
+    margin: 0 0 5px 0;
+    background-color: lightgray;
+    border-bottom: solid 2px black;
 }
 
 
