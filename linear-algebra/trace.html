@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>行列のトレース</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>行列のトレース</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>行列のトレースの定義</h2>
+                <figure class="def">
+                    <figcaption>定義（行列のトレース）</figcaption>
+                    <p class="indent">
+                        \(n\) 次正方行列 \(A=[a_{ij}]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{tr}A=\sum_{i=1}^na_{ii}
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) の<strong>トレース</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+            </section>
+            <section id="2">
+                <h2>行列のトレースの性質</h2>
+                <figure class="th">
+                    <figcaption>定理（行列のトレースの性質）</figcaption>
+                    <p class="indent">
+                        \(n\) 次正方行列 \(A,B\) に対して次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(\operatorname{tr}(A+B)=\operatorname{tr}A+\operatorname{tr}B\)</li>
+                        <li>\(\operatorname{tr}(kA)=k\operatorname{tr}A\)</li>
+                        <li>\(\operatorname{tr}A^\top=\operatorname{tr}A\)</li>
+                    </ol>
+                </figure>
+                <figure class="th">
+                    <figcaption>定理（行列のトレースの可換不変性）</figcaption>
+                    <p class="indent">
+                        \(m\times n\) 行列 \(A\) と \(n\times m\) 行列 \(B\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{tr}(AB)=\operatorname{tr}(BA)
+                        \]
+                    </div>
+                </figure>
+                <figure class="th">
+                    <figcaption>定理（行列のトレースの相似不変性）</figcaption>
+                    <p class="indent">
+                        \(n\) 次正方行列 \(A\) と \(n\) 正則行列 \(P\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{tr}(P^{-1}AP)=\operatorname{tr}(A)
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \operatorname{tr}(P^{-1}AP)
+                        &=\operatorname{tr}((P^{-1}A)P)\\
+                        &=\operatorname{tr}(P(P^{-1}A))\quad(\because \text{行列のトレースの可換不変性より})\\
+                        &=\operatorname{tr}((PP^{-1})A)\\
+                        &=\operatorname{tr}A
+                        \end{align}
+                        \]
+                    </div>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
