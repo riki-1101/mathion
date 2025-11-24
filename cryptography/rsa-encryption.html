@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RSA暗号</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>RSA暗号</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>RSA暗号の概要</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（RSA暗号）</figcaption>
+                    <p class="indent">
+                        
+                    </p>
+                    <ol>
+                        <li>大きな２つの素数 \(p,q\) を選ぶ。</li>
+                        <li>\(n=pq\) とし、\(\phi(n)=(p-1)(q-1)\) を求める。</li>
+                        <li>\(\gcd(e,\phi(n))=1\) を満たす整数 \(e\) を選ぶ。</li>
+                        <li>\(ed\equiv1\pmod n\) を満たす整数 \(d\) を選ぶ。</li>
+                    </ol>
+                    <p>
+                        ここで、\(e\) を<strong>暗号化指数</strong>、\(d\) を<strong>復号化指数</strong>と呼ぶ。
+                        平文 \(M\) に対して、暗号文を \(C\) とするとき、暗号化を
+                    </p>
+                    <div class="math">
+                        \[
+                        C\equiv M^e\pmod n
+                        \]
+                    </div>
+                    <p>
+                        復号を
+                    </p>
+                    <div class="math">
+                        \[
+                        M\equiv C^d\pmod n
+                        \]
+                    </div>
+                    <p>
+                        とする暗号化アルゴリズムを<strong>RSA暗号</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>RSA暗号の導出</h2>
+                <p>
+                    平文 \(M\) に対して
+                </p>
+                <div class="math">
+                    \[
+                    M^{ed} \equiv M\pmod n \quad \cdots ~(1)
+                    \]
+                </div>
+                <p>
+                    となるような整数 \(e,d,n\) を考えます。
+                    ここで、次の定理を用います。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（オイラーの定理）</figcaption>
+                    <p class="indent">
+                        互いに素な正の整数 \(a,n\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        a^{\phi(n)} \equiv 1 \pmod n
+                        \]
+                    </div>
+                    <p>
+                        ただし \(\phi(n)\) はオイラーのトーシェント関数である。
+                    </p>
+                </figure>
+                <p class="indent">
+                    平文（正の整数） \(M\) と、\(M\) と互いに素な正の整数 \(n\) においてオイラーの定理より
+                </p>
+                <div class="math">
+                    \[
+                    M^{\phi(n)} \equiv 1 \pmod n
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    \(k\) を任意の整数として、両辺を \(k\) 乗すると
+                </p>
+                <div class="math">
+                    \[
+                    M^{\phi(n)k} \equiv 1 \pmod n
+                    \]
+                </div>
+                <p>
+                    両辺に \(M\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    M^{1+\phi(n)k} \equiv M \pmod n \quad \cdots~(2)
+                    \]
+                </div>
+                <p>
+                    \((1)\) と \((2)\) を比較すると
+                </p>
+                <div calss="math">
+                    \[
+                    ed=1+\phi(n)k
+                    \]
+                </div>
+                <p>
+                    となればよいことがわかります。
+                    移項すると
+                </p>
+                <div calss="math">
+                    \[
+                    ed-\phi(n)k=1
+                    \]
+                </div>
+                <p>
+                    \(k\) は任意の整数なので、これは \(e\) と \(k\) あるいは \(d\) と \(k\) に関する１次不定方程式です。
+                    不定方程式に対して成り立つ、次の定理を用います。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（整数解を持つ１次不定方程式）</figcaption>
+                    <p class="indent">
+                        \(x\) と \(y\) に関する１次不定方程式
+                    </p>
+                    <div class="math">
+                        \[
+                        ax+by=1
+                        \]
+                    </div>
+                    <p>
+                        が整数解を持つことと
+                    </p>
+                    <div class="math">
+                        \[
+                        \gcd(a,b)=1
+                        \]
+                    </div>
+                    <p>
+                        であることは同値である。
+                    </p>
+                </figure>
+                <p class="indent">
+                    この定理により
+                </p>
+                <div calss="math">
+                    \[
+                    ed-\phi(n)k=1
+                    \]
+                </div>
+                <p>
+                    が整数解を持つとき
+                </p>
+                <div class="math">
+                    \[
+                    \gcd(e,\phi(n))=1\quad \mathrm{or} \quad \gcd(d,\phi(n))=1
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                </p>
+                <p class="indent">
+                    したがって、整数 \(e\) は
+                </p>
+                <div class="math">
+                    \[
+                    \gcd(e,\phi(n))=1
+                    \]
+                </div>
+                <p>
+                    を満たすように決めればよいことがわかります。
+                </p>
+                <p>
+                    \((e,n)\) を公開鍵とし、\(d\) を秘密鍵とします。
+                    しかし、このままでは、公開鍵 \((e,n)\) から秘密鍵 \(d\) を簡単に求められてしまいます。
+                    そこで、２つの大きな素数 \(p,q\) を用いて
+                </p>
+                <div class="math">
+                    \[
+                    n=pq
+                    \]
+                </div>
+                <p>
+                    とします。
+                    こうすれば、簡単に \(n\) を素因数分解できなくなり、\(\phi(n)\) の計算が困難になります。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
