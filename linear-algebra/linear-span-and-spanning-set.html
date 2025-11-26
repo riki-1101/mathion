@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>線形包と生成系</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -15,27 +14,26 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>線形包</h2>
+                <p class="indent">
+                    ベクトル \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) の線形結合の全体からなる集合を<strong>線形包</strong>といいます。
+                </p>
                 <figure class="def">
                 <figcaption>定義（線形包）</figcaption>
                 <p class="indent">
-                    \(V\) を \(K\) 上のベクトル空間とする。
-                    \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) の線形結合の全体からなる集合
+                    \(V\) を \(K\) 上のベクトル空間とし、\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) とするとき
+                    
                 </p>
                 <div class="math">
                     \[
-                    \{k_1\boldsymbol{v}_1+k_2\boldsymbol{v}_2+\cdots+k_n\boldsymbol{v}_n\in V~|~k_1,k_2,\cdots,k_n\in K\}
+                    \langle \boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n \rangle
+                    :=\{k_1\boldsymbol{v}_1+k_2\boldsymbol{v}_2+\cdots+k_n\boldsymbol{v}_n\in V~|~k_1,k_2,\cdots,k_n\in K\}
                     \]
                 </div>
                 <p>
-                    を
+                    を \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) の<strong>線形包</strong>という。
                 </p>
-                <div class="math">
-                    \[
-                    \langle \boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n \rangle 
-                    \]
-                </div>
-                <p>
-                    と表し、これを \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) の<strong>線形包</strong>という。
+                <p class="indent">
+                    線形包 \(\langle \boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n \rangle\) は \(\operatorname{span}(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)\) とも書かれる。
                 </p>
             </figure>
             </section>
@@ -53,13 +51,13 @@
                         \]
                     </div>
                     <p>
-                        が成り立つとき、\(W\) を \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) が生成する部分空間といい、\(\{\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\}\) を \(W\) の生成系という。
+                        が成り立つとき、\(W\) を \(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) が<strong>生成する部分空間</strong>といい、集合 \(\{\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\}\) を \(W\) の<strong>生成系</strong>という。
                     </p>
                 </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     <p class="indent">
                         \(\left\{ \begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}1\\1\end{bmatrix} \right\}\) は \(\mathbb{R}^2\) を生成するか。
