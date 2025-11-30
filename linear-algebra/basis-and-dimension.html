@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>基底と次元</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -19,15 +18,15 @@
                     <figcaption>定義（基底）</figcaption>
                     <p class="indent">
                         \(V\) を \(K\) 上のベクトル空間とし、\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V\) とする。
-                        次の２つの条件が満たすとき、\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) は \(V\) の基底であるという。
+                        次の２つの条件を満たすとき、\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) は \(V\) の基底であるという。
                     </p>
                     <ol>
                         <li>\(V=\langle \boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n \rangle\)</li>
                         <li>\(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\) は線形独立である。</li>
                     </ol>
                 </figure>
-                <p>
-                    \(\boldsymbol{e}_i\in\mathbb{R}^n~~(1\le i\le n)\) を第 \(i\) 成分が1で他の成分が0であるような \(n\) 次元数ベクトルとする。
+                <p class="indent">
+                    \(\boldsymbol{e}_i\in\mathbb{R}^n~~(1\le i\le n)\) を第 \(i\) 成分が \(1\) で他の成分が \(0\) であるような \(n\) 次元数ベクトルとする。
                     このとき、任意の \(\boldsymbol{x}=\begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}\in\mathbb{R}^n\) に対して
                 </p>
                 <div class="math">
@@ -47,21 +46,28 @@
                     である。
                 </p>
                 <p>
-                    また、\(A=\begin{bmatrix} \boldsymbol{e}_1 & \boldsymbol{e}_2 & \cdots & \boldsymbol{e}_n \end{bmatrix}\) とすると \(A=E_n\) であるから \(\det A=1\neq0\)
+                    また、\(A=\begin{bmatrix} \boldsymbol{e}_1 & \boldsymbol{e}_2 & \cdots & \boldsymbol{e}_n \end{bmatrix}\) とすると \(A=E_n\) であるから
                 </p>
-                    
-                    <p></p>
-                    すなわち \(\{\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}\) は線形独立である。
-                    <p></p>
-                    したがって \(\{\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}\) は \(\mathbb{R}^n\) の基底である。これを \(\mathbb{R}^n\) の標準基底という。
+                <div class="math">
+                    \[
+                    \det A=1\neq0
+                    \]
                 </div>
+                <p>
+                    すなわち \(\{\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}\) は線形独立である。
+                </p>
+                <p>
+                    したがって \(\{\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}\) は \(\mathbb{R}^n\) の基底である。
+                    これを \(\mathbb{R}^n\) の標準基底という。
+                </p>
             </section>
             <section id="2">
                 <h2>次元の定義</h2>
                 <figure class="def">
                     <figcaption>定義（次元）</figcaption>
                     <p class="indent">
-                        \(V\) をベクトル空間とする。\(V\) の基底の個数を \(V\) の次元といい
+                        \(V\) をベクトル空間とする。
+                        \(V\) の基底の個数を \(V\) の<strong>次元</strong>といい
                     </p>
                     <div class="math">
                         \[
@@ -71,89 +77,157 @@
                     <p>
                         と表す。
                     </p>
+                    <p class="indent">
+                        また、\(V=\{\boldsymbol{0}\}\) のとき \(\dim V=0\) とする。
+                    </p>
                 </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <div class="ex">
-                    <div>問題１</div>
-                    \(\mathbb{R}^3\) の部分空間
-                    \[
-                    W=\left\{\left.\begin{bmatrix} x \\ y \\ z \end{bmatrix}\in\mathbb{R}^3~\right|~3x+y-4z=0\right\}
-                    \]
-                    の基底を一組および次元 \(\dim W\) を求めよ。
-                </div>
+                <figure class="ex-practice">
+                    <figcaption>問題１</figcaption>
+                    <p class="indent">
+                        \(\mathbb{R}^3\) の部分空間
+                    </p>
+                    <div class="math">
+                        \[
+                        W=\left\{\left.\begin{bmatrix} x \\ y \\ z \end{bmatrix}\in\mathbb{R}^3~\right|~3x+y-4z=0\right\}
+                        \]
+                    </div>
+                    <p>
+                        の基底を一組および次元 \(\dim W\) を求めよ。
+                    </p>
+                </figure>
                 <details class="ans">
                     <summary>解答</summary>
-                    <div>
+                    <p>
                         任意の \(\begin{bmatrix} a \\ b \\ c \end{bmatrix}\in W\) に対して、\(3a+b-4c=0\) が成り立つ。
-                        <p></p>
                         \(a=s,~c=t~~(s,t\in\mathbb{R})\) とおくと \(b=-3s+4t\) より
+                    </p>
+                    <div class="math">
                         \[
                         \begin{bmatrix} a \\ b \\ c \end{bmatrix}
                         =\begin{bmatrix} s \\ -3s+4t \\ t \end{bmatrix}
                         =s\begin{bmatrix} 1 \\ -3 \\ 0 \end{bmatrix}+t\begin{bmatrix} 0 \\ 4 \\ 1 \end{bmatrix}
                         \]
-                        と書ける。よって
+                    </div>
+                    <p>
+                        と書ける。
+                        よって
+                    </p>
+                    <div class="math">
                         \[
                         W=\left\langle \begin{bmatrix} 1 \\ -3 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 4 \\ 1 \end{bmatrix} \right\rangle
                         \]
-                        ここで \(A=\begin{bmatrix} 1 & 0 \\ -3 & 4 \\ 0 & 1 \end{bmatrix}\) とおくと、\(\operatorname{rank}A=2\) より \(\begin{bmatrix} 1 \\ -3 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 4 \\ 1 \end{bmatrix}\) は線形独立である。
-                        <p></p>
-                        したがって \(W\) の基底として \(\left\{ \begin{bmatrix} 1 \\ -3 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 4 \\ 1 \end{bmatrix} \right\}\) がとれる。よって \(\dim W=2\) である。
                     </div>
+                    <p>
+                        ここで 
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{rank}\begin{bmatrix} 1 & 0 \\ -3 & 4 \\ 0 & 1 \end{bmatrix}=2
+                        \]
+                    </div>
+                    <p>
+                        より、\(\begin{bmatrix} 1 \\ -3 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 4 \\ 1 \end{bmatrix}\) は線形独立である。
+                        したがって \(W\) の基底として
+                    </p>
+                    <div class="math">
+                        \[
+                        \left\{ \begin{bmatrix} 1 \\ -3 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 4 \\ 1 \end{bmatrix} \right\}
+                        \]
+                    </div>
+                    <p>
+                        がとれる。
+                        よって \(\dim W=2\) である。
+                    </p>
                 </details>
-                <p></p>
-                <div class="ex">
-                    <div>問題２</div>
-                    \(\mathbb{R}^3\) の部分空間
-                    \[
-                    W=\left\langle \begin{bmatrix} 2 \\ 3 \\ -1 \end{bmatrix},\begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix},\begin{bmatrix} -1 \\ -1 \\ 1 \end{bmatrix},\begin{bmatrix} 0 \\ -1 \\ 1 \end{bmatrix} \right\rangle
-                    \]
-                    の基底を一組および次元 \(\dim W\) を求めよ。
-                </div>
+                <figure class="ex-practice">
+                    <figcaption>問題２</figcaption>
+                    <p class="indent">
+                        \(\mathbb{R}^3\) の部分空間
+                    </p>
+                    <div class="math">
+                        \[
+                        W=\left\langle \begin{bmatrix} 2 \\ 3 \\ -1 \end{bmatrix},\begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix},\begin{bmatrix} -1 \\ -1 \\ 1 \end{bmatrix},\begin{bmatrix} 0 \\ -1 \\ 1 \end{bmatrix} \right\rangle
+                        \]
+                    </div>
+                    <p>
+                        の基底を一組および次元 \(\dim W\) を求めよ。
+                    </p>
+                </figure>
                 <details class="ans">
                     <summary>解答</summary>
-                    <div>
-                        \(A=\begin{bmatrix} 2 & 1 & -1 & 0 \\ 3 & 2 & -1 & -1 \\ -1 & 0 & 1 & 1 \end{bmatrix}\) とおく。\(A\) を行基本変形すると
+                    <p>
+                        \(A=\begin{bmatrix} 2 & 1 & -1 & 0 \\ 3 & 2 & -1 & -1 \\ -1 & 0 & 1 & 1 \end{bmatrix}\) とおく。
+                        \(A\) を行基本変形すると
+                    </p>
+                    <div class="math">
                         \[
                         A=\begin{bmatrix} 2 & 1 & -1 & 0 \\ 3 & 2 & -1 & -1 \\ -1 & 0 & 1 & 1 \end{bmatrix}
                         \to\begin{bmatrix} 1 & 0 & -1 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}
                         \]
-                        よって \(A\) の簡約階段化行列の主番号は \(1,2,4\) であるので
-                        <p></p>
-                        \(W\) の基底として \(\left\{ \begin{bmatrix} 2 \\ 3 \\ -1 \end{bmatrix},\begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ -1 \\ 1 \end{bmatrix} \right\}\) がとれる。よって \(\dim W=3\) である。
                     </div>
+                    <p>
+                        よって \(A\) の簡約階段化行列の主番号は \(1,2,4\) であるので、\(W\) の基底として
+                    </p>
+                    <div class="math">
+                        \[
+                        \left\{ \begin{bmatrix} 2 \\ 3 \\ -1 \end{bmatrix},\begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ -1 \\ 1 \end{bmatrix} \right\}
+                        \]
+                    </div>
+                    <p>
+                        がとれる。
+                        よって \(\dim W=3\) である。
+                    </p>
                 </details>
-                <p></p>
-                <div class="ex">
-                    <div>問題３</div>
-                    \(a\in\mathbb{R}\) とする。次の \(\mathbb{R}^3\) の３つのベクトル
-                    \[
-                    \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix},\begin{bmatrix} a \\ 1 \\ -2 \end{bmatrix},\begin{bmatrix} 1 \\ a \\ 2 \end{bmatrix}
-                    \]
-                    が \(\mathbb{R}^3\) の基底となるための \(a\) の条件を求めよ。
-                </div>
+                <figure class="ex-practice">
+                    <figcaption>問題３</figcaption>
+                    <p class="indent">
+                        \(a\in\mathbb{R}\) とする。
+                        次の \(\mathbb{R}^3\) の３つのベクトル
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix},\begin{bmatrix} a \\ 1 \\ -2 \end{bmatrix},\begin{bmatrix} 1 \\ a \\ 2 \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        が \(\mathbb{R}^3\) の基底となるための \(a\) の条件を求めよ。
+                    </p>
+                </figure>
                 <details class="ans">
                     <summary>解答</summary>
-                    <div>
+                    <p>
                         求める条件は
+                    </p>
+                    <div class="math">
                         \[
                         k_1\begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix}+k_2\begin{bmatrix} a \\ 1 \\ -2 \end{bmatrix}+k_3\begin{bmatrix} 1 \\ a \\ 2 \end{bmatrix}=\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
                         \]
+                    </div>
+                    <p>
                         を満たす \(k_1,k_2,k_3\in\mathbb{R}\) が自明な解しかもたないことである。
+                    </p>
+                    <div class="math">
                         \[
                         \begin{bmatrix} 1 & a & 1 \\ 2 & 1 & a \\ -1 & -2 & 2 \end{bmatrix}
                         \begin{bmatrix} k_1 \\ k_2 \\ k_3 \end{bmatrix}
                         =\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
                         \]
+                    </div>
+                    <p>
                         より、行列 \(\begin{bmatrix} 1 & a & 1 \\ 2 & 1 & a \\ -1 & -2 & 2 \end{bmatrix}\) の逆行列が存在すればよいから
+                    </p>
+                    <div class="math">
                         \[
                         \begin{vmatrix} 1 & a & 1 \\ 2 & 1 & a \\ -1 & -2 & 2 \end{vmatrix}
                         =-a^2-2a+3=-(a-1)(a+3)\neq0
                         \]
-                        よって \(a\neq1,-3\)
                     </div>
+                    <p>
+                        よって \(a\neq1,-3\)
+                    </p>
                 </details>
             </section>
         </main>
