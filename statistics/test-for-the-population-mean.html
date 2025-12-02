@@ -3,127 +3,83 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>母平均の検定</title>
+        <title>母平均の区間推定・検定</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+        <script src="../js/mathjax.js"></script> 
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>母平均の検定</h1>
+            <h1>母平均の推定・検定</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>母平均の検定（母分散が既知の場合）</h2>
-                <section>
-                    <h3>帰無仮説を定める</h3>
-                    <p class="indent">
-                        ある母集団の母平均 \(\mu\) がある特定の値 \(\mu_0\) に等しいといえるかどうかを検定します。
-                        ここでは、母集団は正規母集団 \(N(\mu,\sigma^2)\) であると仮定します。
-                        帰無仮説 \(H_0\) は次のようになります。
-                    </p>
-                    <div class="math">
-                        \[
-                        H_0:\mu=\mu_0
-                        \]
-                    </div>
-                </section>
-                <section>
-                    <h3>対立仮説を定める</h3>
-                    <p class="indent">
-                        対立仮説を次の３種類から一つ選びます。
-                    </p>
-                    <ul>
-                        <li><p>\(H_1:\mu\neq\mu_0\) （両側検定）</p></li>
-                        <li><p>\(H_1:\mu\gt\mu_0\) （右側検定）</p></li>
-                        <li><p>\(H_1:\mu\lt\mu_0\) （左側検定）</p></li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>有意水準を定める</h3>
-                    <p class="indent">
-                        有意水準 \(\alpha\) を定めます。
-                        \(\alpha=0.05\) や \(\alpha=0.01\) などとします。
-                    </p>
-                </section>
-                <section>
-                    <h3>検定統計量を選ぶ</h3>
-                    <p class="indent">
-                        正規母集団 \(N(\mu,\sigma^2)\) から抽出した \(n\) 個の無作為標本を \(X_1,X_2,\cdots,X_{n}\) とします。
-                    </p>
-                    <p class="indent">
-                        帰無仮説 \(H_0\) が正しい（母平均は \(\mu_0\) である）と仮定すると
-                    </p>
-                    <div class="math">
-                        \[
-                        X_1,X_2,\cdots,X_{n}\sim N(\mu_0,\sigma^2)
-                        \]
-                    </div>
-                    <p>
-                        となります。
-                    </p>
-                    <p class="indent">
-                        母平均 \(\mu_0\) からのずれを調べるには、母平均の不偏推定量である標本平均
-                    </p>
-                    <div class="math">
-                        \[
-                        \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
-                        \]
-                    </div>
-                    <p>
-                        を用いるのが自然です。
-                        このとき
-                    </p>
-                    <div class="math">
-                        \[
-                        \overline{X}\sim N\left(\mu_0,~\frac{\sigma^2}{n}\right)
-                        \]
-                    </div>
-                    <p>
-                        となります。標準正規分布表を用いるために、\(\overline{X}\) を標準化したもの
-                    </p>
-                    <div class="math">
-                        \[
-                        Z=\frac{\overline{X}-\mu_0}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
-                        \]
-                    </div>
-                    <p>
-                        を検定統計量とします。
-                        標準正規分布に従う検定統計量を用いた検定を<strong> \(Z\) 検定</strong>といいます。
-                    </p>
-                </section>
+                <h2>母平均の検定統計量（母分散が既知）</h2>
+                <p class="indent">
+                    母平均の区間推定と検定を行うためと統計量を作成します。
+                </p>
+                <p class="indent">
+                    正規母集団 \(N(\mu,\sigma^2)\) から \(n\) 個の無作為標本
+                </p>
+                <div class="math">
+                    \[
+                    X_1,X_2,\cdots,X_{n}\sim N(\mu,\sigma^2)
+                    \]
+                </div>
+                <p>
+                    を抽出します。
+                    母平均 \(\mu\) からのずれを調べるには、母平均の不偏推定量である標本平均
+                </p>
+                <div class="math">
+                    \[
+                    \overline{X}=\frac{1}{n}\sum_{i=1}^nX_i
+                    \]
+                </div>
+                <p>
+                    を用いるのが自然です。
+                    このとき
+                </p>
+                <div class="math">
+                    \[
+                    \overline{X}\sim N\left(\mu,~\frac{\sigma^2}{n}\right)
+                    \]
+                </div>
+                <p>
+                    となります。
+                    標準正規分布表を用いるために、\(\overline{X}\) を標準化して
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
+                    \]
+                </div>
+                <p>
+                    という統計量を得ます。
+                    この \(Z\) により、母分散が既知の場合の母平均の区間推定と検定が行えます。
+                </p>
             </section>
             <section id="2">
-                <h2>母平均の検定（母分散が未知の場合）</h2>
+                <h2>母平均の検定統計量（母分散が未知）</h2>
                 <p class="indent">
-                    帰無仮説、対立仮説、有意水準の定め方は、母分散が既知の場合と同様です。
-                    しかし、母分散が既知の場合と同様に、検定統計量を
+                    母分散 \(\sigma^2\) がわからない場合を考えます。
+                    このとき
                 </p>
                 <div class="math">
                     \[
-                    Z=\frac{\overline{X}-\mu_0}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
+                    Z=\frac{\overline{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
                     \]
                 </div>
                 <p>
-                    としてしまうと、未知の \(\sigma^2\) を含んでいるため、\(Z\) の実現値が計算できません。
-                    そこで、母分散 \(\sigma^2\) の不偏推定量である不偏分散
+                    は、未知の \(\sigma^2\) を含んでいるため、\(Z\) の実現値が計算できません。
+                    そこで、母分散 \(\sigma^2\) の不偏推定量である不偏分散 \(U^2\) で代用した新しい統計量
                 </p>
                 <div class="math">
                     \[
-                    U^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2
+                    T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}}\sim N(0,1)
                     \]
                 </div>
                 <p>
-                    を \(\sigma^2\) の代わりに用います。
-                    \(Z\) の \(\sigma^2\) を \(U^2\) にした新しい量を \(T\) とすると
-                </p>
-                <div class="indent">
-                    \[
-                    T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}}
-                    \]
-                </div>
-                <p class="indent">
-                    この \(T\) が従う分布を考えます。
+                    を考えます。
+                    この \(T\) が従う分布を調べます。
                     不偏分散に関して次のことが成り立ちます。
                 </p>
                 <div class="math">
@@ -149,7 +105,6 @@
                     =\frac{\frac{\overline{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}}}{\frac{\sqrt{\frac{U^2}{n}}}{\sqrt{\frac{\sigma^2}{n}}}}
                     =\frac{Z}{\sqrt{\frac{U^2}{\sigma^2}}}
                     =\frac{Z}{\sqrt{\frac{\frac{(n-1)U^2}{\sigma^2}}{n-1}}}
-                    =\frac{Z}{\sqrt{\frac{W}{n-1}}}
                     \]
                 </div>
                 <p>
@@ -161,26 +116,35 @@
                     \]
                 </div>
                 <p>
-                    となり、この \(T\) が分散が未知の場合の母平均の検定統計量となります。
-                    \(t\) 分布に従う検定統計量を用いた検定を<strong> \(t\) 検定</strong>といいます。
+                    という統計量を得ます。
+                    この \(T\) により、母分散が未知の場合の母平均の区間推定と検定が行えます。
                 </p>
             </section>
             <section id="3">
-                <h2>例題</h2>
+                <h2>母平均の区間推定の例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>母平均の検定の例題</h2>
                 <figure class="ex-problem">
                     <figcaption>例題</figcaption>
                     <p class="indent">
                         あるカフェでは、\(1\) 杯のコーヒーは平均 \(200~\mathrm{mL}\) 注がれるように設定されいる。
-                        しかし最近、「量が少ない気がする」とお客様から苦情が出てきた。
-                        そこで、ランダムに \(25\) 杯を計測したところ、標本平均は \(197.3~\mathrm{mL}\) であった。
-                        \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えるか、以下の場合において、有意水準 \(1\%\) で判断せよ。
+                        しかし「量が少ない気がする」とお客様から苦情が出てきた。
+                        そこでランダムに \(25\) 杯を計測したところ、標本平均は \(197.3~\mathrm{mL}\) であった。
+                        このとき、\(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えるか。以下の各場合において、有意水準 \(1\%\) で判断せよ。
                     </p>
                     <ol>
                         <li>母標準偏差が既知で \(5~\mathrm{mL}\) である場合</li>
                         <li>母分散が未知の場合</li>
                     </ol>
                 </figure>
-                <p>
+                <p class="indent">
                     母平均を \(\mu\) として、次のように仮説を立てます。
                 </p>
                 <p class="center">
@@ -189,6 +153,18 @@
                 </p>
                 <p>
                     よって、左側検定を行います。
+                    \(H_0\) が正しいと仮定して進めます。
+                    すなわち
+                </p>
+                <div class="math">
+                    \[
+                    \mu=200
+                    \]
+                </div>
+                <p>
+                    と仮定します。
+                </p>
+                <p>
                     有意水準 \(\alpha\) は \(1\%\) と与えられているので
                     \[
                     \alpha=0.01
@@ -198,27 +174,11 @@
                 <ol>
                     <li>
                         <p>
-                            母平均は \(\sigma^2=5^2\) と既知なので、\(H_0\) が正しいと仮定すると、無作為標本 \(X_1,X_2,\cdots,X_{25}\) は
+                            母分散は \(\sigma^2=5^2\) と既知なので、母平均の検定統計量は
                         </p>
                         <div class="math">
                             \[
-                            X_1,X_2,\cdots,X_{25}\sim N(200,5^2)
-                            \]
-                        </div>
-                        <p>
-                            であり、標本平均 \(\overline{X}\) は
-                        </p>
-                        <div class="math">
-                            \[
-                            \overline{X}\sim N\left(200,~\frac{5^2}{25}\right)
-                            \]
-                        </div>
-                        <p>
-                            となります。これを標準化することで、検定統計量は
-                        </p>
-                        <div class="math">
-                            \[
-                            Z=\frac{\overline{X}-200}{\frac{5}{\sqrt{25}}}\sim N(0,1)
+                            Z=\frac{\overline{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}}=\frac{\overline{X}-200}{\frac{5}{\sqrt{25}}}\sim N(0,1)
                             \]
                         </div>
                         <p>
@@ -226,7 +186,7 @@
                         </p>
                         <p>
                             左側検定で、有意水準 \(\alpha=0.01\) より、\(N(0,1)\) の下側 \(1\%\) 点 \(-z_{0.01}\) を求めます。
-                            棄却域は
+                            棄却域 \(R\) は
                         </p>
                         <div class="math">
                             \[
@@ -242,14 +202,65 @@
                             \]
                         </div>
                         <p>
-                            であり、これは棄却域 \(R\) に含まれます。
-                            よって、帰無仮説 \(H_0\) を棄却し、対立仮説 \(H_1\) を採択します。
-                            \(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えます。
+                            です。
+                            よって
+                        </p>
+                        <div class="math">
+                            \[
+                            z\in R
+                            \]
+                        </div>
+                        <p>
+                            であるから、\(H_0\) を棄却して \(H_1\) を採択します。
+                            したがって、\(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えます。
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            母分散 \(\sigma^2\) が未知なので、母平均の検定統計量は
+                        </p>
+                        <div class="math">
+                            \[
+                            T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}} \sim t(n-1)
+                            \]
+                        </div>
+                        <p>
+                            となります。
+                        </p>
+                        <p>
+                            左側検定で、有意水準 \(\alpha=0.01\) より、\(t(n-1)\) の下側 \(1\%\) 点 \(-t_{0.01}\) を求めます。
+                            棄却域 \(R\) は
+                        </p>
+                        <div class="math">
+                            \[
+                            R=(-\infty,]
+                            \]
+                        </div>
+                        <p>
+                            \(Z\) の実現値 \(z\) は
+                        </p>
+                        <div class="math">
+                            \[
+                            t=\frac{197.3-200}{\frac{u}{\sqrt{25}}}=
+                            \]
+                        </div>
+                        <p>
+                            です。
+                            よって
+                        </p>
+                        <div class="math">
+                            \[
+                            t\in R
+                            \]
+                        </div>
+                        <p>
+                            であるから、\(H_0\) を棄却して \(H_1\) を採択します。
+                            したがって、\(1\) 杯のコーヒーの量の平均は \(200~\mathrm{mL}\) より少ないと言えます。
                         </p>
                     </li>
                 </ol>
             </section>
-            <section id="4">
+            <section id="5">
                 <h2>例題（p値）</h2>
                 <p class="indent">
                     今度は先ほどの例題をp値を使って行います。
