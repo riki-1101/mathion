@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>母分散の区間推定と検定</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>母分散の区間推定と検定</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>母分散の検定統計量</h2>
+                <p class="indent">
+                    母分散の区間推定と検定を行うための統計量を作成します。
+                </p>
+                <p class="indent">
+                    正規母集団 \(N(\mu,\sigma^2)\) から \(n\) 個の無作為標本
+                </p>
+                <div class="math">
+                    \[
+                    X_1,X_2,\cdots,X_{n}\sim N(\mu,\sigma^2)
+                    \]
+                </div>
+                <p>
+                    を抽出します。母分散 \(\sigma^2\) からのずれを調べるには、母分散の不偏推定量である不偏分散
+                </p>
+                <div class="math">
+                    \[
+                    U^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2
+                    \]
+                </div>
+                <p>
+                    を用いるのが自然です。
+                    しかし、これは従う分布が不明であり、区間推定、検定が行えません。
+                    そこで、次のように変形します。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    U^2&=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2\\
+                    &=\frac{1}{n-1}\sum_{i=1}^n\{(X_i-\mu)-(\overline{X}-\mu)\}^2\\
+                    &=\frac{1}{n-1}\sum_{i=1}^n\{(X_i-\mu)^2-2(X_i-\mu)(\overline{X}-\mu)+(\overline{X}-\mu)^2\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)\sum_{i=1}^n(X_i-\mu)+\sum_{i=1}^n(\overline{X}-\mu)^2\right\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)(n\overline{X}-n\mu)+n(\overline{X}-\mu)^2\right\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2n(\overline{X}-\mu)^2+n(\overline{X}-\mu)^2\right\}\\
+                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-n(\overline{X}-\mu)^2\right\}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    U^2=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-n(\overline{X}-\mu)^2\right\}
+                    \]
+                </div>
+                <p>
+                    が成り立ち、この両辺に \(\displaystyle\frac{n-1}{\sigma^2}\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n-1)S^2}{\sigma^2}=\sum_{i=1}^n{\left(\frac{X_i-\mu}{\sigma}\right)}^2-{\left(\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\right)}^2
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \frac{X_i-\mu}{\sigma}\sim N(0,1),\quad\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0,1)
+                    \]
+                </div>
+                <p>
+                    より
+                </p>
+                <div class="math">
+                    \[
+                    \sum_{i=1}^n{\left(\frac{X_i-\mu}{\sigma}\right)}^2\sim \chi^2(n),~~~~~{\left(\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\right)}^2\sim\chi^2(1)
+                    \]
+                </div>
+                <p>
+                    となります。
+                    カイ二乗分布の自由度の加法性より
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    この統計量により、母分散の区間推定と検定が行えます。
+                </p>
+            </section>
+            <section id="3">
+                <h2>母分散の検定の例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        あるネジ工場では、ネジの直径のばらつき（分散）が \(0.01~\mathrm{mm^2}\) 以下であることを品質基準にしている。
+                        ランダムに \(20\) 本のネジを測定したところ、標本分散は \(0.018~\mathrm{mm^2}\) だった。
+                        ばらつきは許容範囲を超えているか、有意水準 \(5\%\) で判断せよ。
+                    </p>
+                </figure>
+                <h3>1. 帰無仮説・対立仮説を立てる</h3>
+                <p>
+                    母分散を \(\sigma^2\) として、次のように仮説を立てます。
+                </p>
+                <span class="center"><p>
+                    帰無仮説 \(H_0:\sigma^2\le0.01\)<br>
+                    対立仮説 \(H_1:\sigma\gt0.01\)
+                </p></span>
+                <p>
+                    よって、右側検定を行います。
+                </p>
+                <h3>2. 検定統計量を計算する</h3>
+                <p>
+                    検定統計量を
+                    \[
+                    \chi^2=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)
+                    \]
+                    とすると、\(\chi^2\) の実現値 \(\chi^2_0\) は
+                    \[
+                    \chi^2_0=\frac{(20-1)\cdot0.018^2}{0.01}=34.2
+                    \]
+                    となります。
+                </p>
+                <h3>3. 有意水準を定める</h3>
+                <p>
+                    本問では有意水準 \(\alpha\) は \(5\%\) と与えられているので
+                    \[
+                    \alpha=0.05
+                    \]
+                    です。
+                </p>
+                <h3>4. 棄却域を求める</h3>
+                <p>
+                    上側 \(\alpha\%\) 点を求めます。<br>
+                    自由度 \(19\) の上側 \(5\%\) 点とは
+                    \[
+                    P(\chi^2\ge \chi^2_{0.05}(19))=0.05
+                    \]
+                    となるような \(\chi^2_{0.05}(19)\) です。<br>
+                    カイ二乗分布のパーセント点表より
+                    \[
+                    \chi^2_{0.05}(19)=30.14
+                    \]
+                    とわかります。<br>
+                    したがって、棄却域は
+                    \[
+                    \chi^2\gt30.14
+                    \]
+                    となります。
+                </p>
+                <h3>検定統計量の実現値が棄却域に入るかを見る</h3>
+                <p>
+                    検定統計量の実現値は
+                    \[
+                    \chi^2_0=34.2
+                    \]
+                    であり、これは棄却域
+                    \[
+                    \chi^2\gt30.14
+                    \]
+                    に入ります。<br>
+                    よって、帰無仮説 \(H_0\) を棄却し、対立仮説 \(H_1\) を採択します。<br>
+                    ネジの直径のばらつきは \(0.01~\mathrm{mm^2}\) を超えていると言えます。<br>
+                    このように、p値法のときと同じ結論が得られます。
+                </p>
+            </section>                
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
