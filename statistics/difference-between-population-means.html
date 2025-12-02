@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>母平均の差の区間推定と検定</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script> 
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>母平均の差の区間推定と検定</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>母分散が既知の場合</h2>
+                <p class="indent">
+                    2つの母集団を考えます。
+                    それぞれの母平均に差があるかを検定します。
+                </p>
+                <p>
+                    ２つの母集団を \(N(\mu_X,\sigma_X^2),~N(\mu_Y,\sigma_Y^2)\) とします。
+                    それぞれ無作為標本を抽出します。
+                </p>
+                <div class="math">
+                    \[
+                    X_1,X_2,\cdots,X_{n_X} \sim N(\mu_X,\sigma_X^2)
+                    \]
+                    \[
+                    Y_1,Y_2,\cdots,Y_{n_Y} \sim N(\mu_Y,\sigma_Y^2)
+                    \]
+                </div>
+                <p>
+                    それぞれの標本平均は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    \overline{X}=\frac{1}{n_X}\sum_{i=1}^{n_X}X_i, \quad \overline{Y}=\frac{1}{n_Y}\sum_{i=1}^{n_Y}Y_i
+                    \]
+                </div>
+                <p>
+                    正規分布の再生成より
+                </p>
+                <div class="math">
+                    \[
+                    \overline{X}-\overline{Y}\sim N\left(\mu_X-\mu_Y,~\frac{\sigma_X^2}{n_X}+\frac{\sigma_Y^2}{n_Y}\right)
+                    \]
+                </div>
+                <p>
+                    これを標準化すると
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_X^2}{n_X}+\frac{\sigma_Y^2}{n_Y}}}\sim N(0,1)
+                    \]
+                </div>
+                <p>
+                    これが検定統計量となります。
+                </p>
+            </section>
+            <section id="2">
+                <h2>母分散が未知で等しい場合</h2>
+                <p class="indent">
+                    母分散 \(\sigma_X^2,\sigma_Y^2\) はともに未知で、\(\sigma_X^2=\sigma_Y^2\) と仮定できる場合を考えます。
+                </p>
+                <div class="math">
+                    \[
+                    \sigma^2=\sigma_X^2=\sigma_Y^2
+                    \]
+                </div>
+                <p>
+                    とすると、統計量 \(Z\) は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_X^2}{n_X}+\frac{\sigma_Y^2}{n_Y}}}=\frac{\overline{X}-\overline{Y}}{\sqrt{\sigma^2}\sqrt{\frac{1}{n_X}+\frac{1}{n_Y}}}
+                    \]
+                </div>
+                <p>
+                    ここで、\(\sigma\) は未知なので \(\sigma\) の不偏推定量 \(\hat{\sigma}\) で代用したもの
+                </p>
+                <div class="math">
+                    \[
+                    T=\frac{\overline{X}-\overline{Y}}{\sqrt{\hat{\sigma}^2}\sqrt{\frac{1}{n_X}+\frac{1}{n_Y}}}
+                    \]
+                </div>
+                <p>
+                    を考えます。
+                </p>
+                <p class="indent">
+                    次の事実を用います。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n_X-1)U_X^2}{\sigma_X^2}\sim\chi^2(n_X-1), \quad \frac{(n_Y-1)U_Y^2}{\sigma_Y^2}\sim\chi^2(n_Y-1)
+                    \]
+                </div>
+                <p>
+                    これらの和をとると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n_X-1)U_X^2}{\sigma_X^2}+\frac{(n_Y-1)U_Y^2}{\sigma_Y^2}=\frac{(n_X-1)U_X^2+(n_Y-1)U_Y^2}{\sigma^2}
+                    \]
+                </div>
+                <p>
+                    カイ二乗分布の性質より
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n_X-1)U_X^2+(n_Y-1)U_Y^2}{\sigma^2}\sim \chi^2(n_X+n_Y-2)
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                </p>
+                <p class="indent">
+                    カイ二乗分布に従う確率変数の期待値は自由度であるから
+                </p>
+                <div class="math">
+                    \[
+                    E\left[\frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{\sigma^2}\right]=n_A+n_B-2
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    E\left[\frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{n_A+n_B-2}\right]=\sigma^2
+                    \]
+                </div>
+                <p>
+                    です。
+                    不偏推定量の定義 \(E[\hat{\sigma}^2]=\sigma^2\) から
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\sigma}^2=\frac{(n_A-1)U_A^2+(n_B-1)U_B^2}{n_A+n_B-2}
+                    \]
+                </div>
+                <p>
+                    とわかります。
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    T=\frac{\overline{X}-\overline{Y}}{\sqrt{\frac{(n_X-1)U_X^2+(n_Y-1)U_Y^2}{n_X+n_Y-2}}\sqrt{\frac{1}{n_X}+\frac{1}{n_Y}}} \sim t(n_A+n_B-2)
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>母分散が未知で等しくない場合</h2>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

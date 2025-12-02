@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>仮説検定</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+        <script src="../js/mathjax.js"></script> 
     </head>
     <body>
         <header id="header"></header>
@@ -27,11 +26,15 @@
                     <h3>仮説を定める</h3>
                     <p class="indent">
                         検定の対象となる母数 \(\theta\) が特定の値 \(\theta_0\) であるという仮説を
+                    </p>
+                    <div class="math">
                         \[
                         H_0:\theta=\theta_0
                         \]
+                    </div>
+                    <p>
                         と表し、この仮説 \(H_0\) を<strong>帰無仮説</strong>といいます。
-                        この \(H_0\) を否定するかしないかを判断することが、仮説検定の目的です。
+                        この \(H_0\) が実験者が否定したい仮説です。
                     </p>
                     <p class="indent">
                         帰無仮説 \(H_0\) が正しくないことを主張するための仮説 \(H_1\) を<strong>対立仮説</strong>といいます。
@@ -42,16 +45,20 @@
                         <li><p>\(H_1:\theta\gt\theta_0\) （右側検定）</p></li>
                         <li><p>\(H_1:\theta\lt\theta_0\) （左側検定）</p></li>
                     </ul>
+                    <p class="indent">
+                        仮説検定は、まず帰無仮説 \(H_0\) が正しいと仮定します。
+                        そのまま議論を進めたとき、その状況は確率的にあり得ないとなれば、\(H_0\) が間違っていたと判断し、\(H_1\) が正しいとする、という流れです。
+                    </p>
                 </section>
                 <section>
                     <h3>有意水準を定める</h3>
                     <p class="indent">
-                        帰無仮説 \(H_0\) が本当は正しいのに、\(H_0\) が誤りだと判断してしまう確率を<strong>有意水準</strong>（危険率）といい、\(\alpha\) で表します。
+                        帰無仮説 \(H_0\) が本当は正しいのに、\(H_0\) が誤りだと判断してしまう確率を<strong>有意水準（危険率）</strong>といい、\(\alpha\) で表します。
                         この \(\alpha\) の値は事前に定めます。一般的に \(\alpha=0.05~~(5\%)\) 、\(\alpha=0.01~~(1\%)\) とすることが多いです。
                     </p>
                 </section>
                 <section>
-                    <h3>検定統計量を選び、棄却域を求める</h3>
+                    <h3>検定統計量を選び、分布から棄却域を求める</h3>
                     <p class="indent">
                         母集団から \(n\) 個の無作為標本 \(X_1,X_2,\cdots,X_{n}\) を抽出します。
                         この無作為標本に対して、確率分布がわかる適当な統計量
@@ -62,7 +69,7 @@
                         \]
                     </div>
                     <p>
-                        を選びます。このような、検定に用いる統計量を<strong>検定統計量</strong>といいます。
+                        を選びます。検定に用いる統計量を<strong>検定統計量</strong>といいます。
                     </p>
                     <p class="indent">
                         帰無仮説 \(H_0\) が正しいと仮定した上で、検定統計量 \(T\) が従う分布を決定します。
@@ -81,7 +88,7 @@
                     </div>
                     <p>
                         を求めます。
-                        この値が棄却域 \(R\) に含まれるかどうかを見ます。
+                        この値が棄却域 \(R\) に含まれるか調べます。
                         棄却域 \(R\) に入るということは、それだけ珍しい値である（怪しい）ということです。
                         したがって
                     </p>
@@ -112,10 +119,10 @@
                     <figure class="box">
                         <figcaption>仮説検定の流れ</figcaption>
                         <ol>
-                            <li>仮説を定める</li>
+                            <li>帰無仮説と対立仮説を定めて、帰無仮説が正しいと仮定する</li>
                             <li>有意水準を定める</li>
-                            <li>検定統計量を選び、棄却域を求める</li>
-                            <li>帰無仮説が棄却されるか判断する</li>
+                            <li>検定統計量を選び、その分布から棄却域を求める</li>
+                            <li>検定統計量の実現値が棄却域に含まれるかを判断する</li>
                         </ol>
                     </figure>
                 </section>
