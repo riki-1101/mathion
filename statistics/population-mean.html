@@ -10,7 +10,7 @@
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>母平均の推定・検定</h1>
+            <h1>母平均の区間推定・検定</h1>
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>母平均の検定統計量（母分散が既知）</h2>
@@ -128,6 +128,46 @@
                         
                     </p>
                 </figure>
+                <p class="indent">
+                    母分散が既知の場合の母平均の区間推定を行うので、次の統計量を用います。
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\overline{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}}\sim N(0,1)
+                    \]
+                </div>
+                <p class="indent">
+                    \(N(0,1)\) の上側 \(100\alpha\) %点を \(z_{U(\alpha)}\) 、下側 \(100\alpha\) %点を \(z_{L(\alpha)}\) とするとき
+                </p>
+                <div class="math">
+                    \[
+                    P\left(z_{L\left(\frac{\alpha}{2}\right)}\le Z\le z_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    となるような \(z_{U\left(\frac{\alpha}{2}\right)},~z_{L\left(\frac{\alpha}{2}\right)}\) を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    P\left(z_{L\left(\frac{\alpha}{2}\right)}\le \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\le z_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    これを \(\mu\) について整理すると
+                </p>
+                <div class="math">
+                    \[
+                    P\left(\overline{X}-z_{U\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}}\le\mu\le\overline{X}-z_{L\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    したがって、母平均 \(\mu\) の \(100(1-\alpha)\) ％信頼区間は、\(\overline{X}\) の実現値を \(\overline{x}\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \left[\overline{x}-z_{U\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}},~~~\overline{x}-z_{L\left(\frac{\alpha}{2}\right)}\cdot\frac{\sigma}{\sqrt{n}}\right]
+                    \]
+                </div>
             </section>
             <section id="4">
                 <h2>母平均の検定の例題</h2>
