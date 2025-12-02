@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>区間推定</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>区間推定</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>区間推定の定義</h2>
+                <p class="indent">
+                    点推定では、母数を1点（1つの値）で推定しましたが、区間推定では、母数が含まれていると考えられる区間を推定します。
+                    未知母数 \(\theta\) に対して
+                </p>
+                <div class="math">
+                    \[
+                    P(Q_1 \le \theta \le Q_2) = 1 - \alpha
+                    \]
+                </div>
+                <p>
+                    を満たすような確率変数 \(Q_1, Q_2\) を考えます。
+                    このときの \(1 - \alpha\) を<strong>信頼水準（信頼係数）</strong>と呼びます。
+                    \(Q_1, Q_2\) の実現値をそれぞれ \(q_1, q_2\) とすると、区間 \([q_1, q_2]\) を母数 \(\theta\) に対する<strong>\(100(1-\alpha)\%\) 信頼区間</strong>といいます。
+                    また、\(q_1\) を<strong>信頼下限</strong>、\(q_2\) を<strong>信頼上限</strong>と呼びます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>区間推定の手順</h2>
+                <p class="indent">
+                    母数 \(\theta\) の区間推定を行うには、まず母数 \(\theta\) を含み、分布が \(\theta\) に依存しないような統計量
+                </p>
+                <div class="math">
+                    \[
+                    T(X_1,X_2,\cdots,X_n;\theta)
+                    \]
+                </div>
+                <p>
+                    を見つけます。
+                    信頼水準が \(1 - \alpha\) のとき、
+                    \(T\) が従う分布の上側 \(100\alpha\%\) 点を \(t_{U(\alpha)}\) 、下側 \(100\alpha\%\) 点を \(t_{L(\alpha)}\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    P\left(t_{L\left(\frac{\alpha}{2}\right)}\le T\le t_{U\left(\frac{\alpha}{2}\right)}\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    となります。
+                    この不等式を \(\theta\) について解くと
+                </p>
+                <div class="math">
+                    \[
+                    P\left(Q_1 \le \theta \le Q_2\right) = 1 - \alpha
+                    \]
+                </div>
+                <p>
+                    という形が得られます。
+                    \(Q_1,Q_2\) の実現値がそれぞれ \(q_1,q_2\) であるとき、区間 \([q_1, q_2]\) が母数 \(\theta\) に対する \(100(1-\alpha)\%\) 信頼区間となります。
+                </p>
+            </section>
+            <h2 id="ex">演習問題</h2>
+            <figure class="ex-practice">
+                <figcaption>問題</figcaption>
+                
+            </figure>
+            <details class="ans">
+                <summary>解答</summary>
+                
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
