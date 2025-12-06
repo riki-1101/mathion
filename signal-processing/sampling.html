@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>標本化</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>標本化</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>標本化とは</h2>
+                <p class="indent">
+                    連続時間信号を離散時間信号へ変換することを<strong>標本化（サンプリング）</strong>といいます。
+                    連続して流れる時間軸を一定の間隔で区切り、その瞬間の値だけを取り出して並べていく操作です。
+                </p>
+            </section>
+            <section id="2">
+                <h2>サンプル値信号</h2>
+                <figure class="def">
+                    <figcaption>定義（サンプリング周期・サンプリング周波数）</figcaption>
+                    <p class="indent">
+                        サンプリングを行う時間間隔を<strong>サンプリング周期</strong>という。
+                        また、\(1\) 秒間あたりのサンプリングの回数を<strong>サンプリング周波数</strong>という。
+                    </p>
+                    <p class="indent">
+                        サンプリング周期 \(T_s\) とサンプリング周波数 \(f_s\) には次の関係がある。
+                    </p>
+                    <div class="math">
+                        \[
+                        f_s=\frac{1}{T_s}
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    単位インパルス信号 \(\delta(t)\) を間隔 \(T_s\) 並べた信号
+                </p>
+                <div class="math">
+                    \[
+                    s(t)=\sum_{n=-\infty}^\infty \delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    を<strong>インパルス列</strong>といいます。
+                </p>
+                <p class="indent">
+                    連続信号 \(x(t)\) をサンプリング周期 \(T_s\) でサンプリングした連続信号 \(x_s(t)\) は
+                </p>
+                <div class="math">
+                    \[
+                    x_s(t)=x(t)s(t)=\sum_{n=-\infty}^\infty x(t)\delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    と書けて、これは<strong>サンプル列信号</strong>と呼ばれます。
+                    この式は単位インパルス信号 \(\delta(t)\) の性質から
+                </p>
+                <div class="math">
+                    \[
+                    x_s(t)=\sum_{n=-\infty}^\infty x(nT_s)\delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    と書き換えられます。
+                    ここで \(x(nT_s)\) を
+                </p>
+                <div class="math">
+                    \[
+                    x[n]:=x(nT_s)
+                    \]
+                </div>
+                <p>
+                    と書き、これを<strong>サンプル値信号</strong>と呼びます。
+                </p>
+            </section>
+            <section id="3">
+                <h2></h2>
+                <p class="indent">
+                    時間間隔 \(T_s\) で並ぶインパルス列
+                </p>
+                <div class="math">
+                    \[
+                    s(t)=\sum_{n=-\infty}^\infty \delta(t-nT_s)
+                    \]
+                </div>
+                <p>
+                    は周期 \(T_s\) の周期関数と考えることができます。
+                    したがって、\(s(t)\) はフーリエ級数展開が可能です。
+                </p>
+                <p class="indent">
+                    \(s(t)\) の複素フーリエ係数 \(c_k\) は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    c_k&=\frac{1}{T_s}\int_{-\frac{T_s}{2}}^{\frac{T_s}{2}}s(t)e^{-j\frac{2\pi}{T_s}kt}dt\\
+                    &=\frac{1}{T_s}\int_{-\frac{T_s}{2}}^{\frac{T_s}{2}}\sum_{n=-\infty}^\infty \delta(t-nT_s)e^{-j\frac{2\pi}{T_s}kt}dt\\
+                    &=\frac{1}{T_s}\int_{-\frac{T_s}{2}}^{\frac{T_s}{2}}\delta(t)e^{-j\frac{2\pi}{T_s}kt}dt\\
+                    &=\frac{1}{T_s}e^{-j\frac{2\pi}{T_s}k0}\\
+                    &=\frac{1}{T_s}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    なので、\(s(t)\) の複素フーリエ級数展開は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    s(t)&=\sum_{k=-\infty}^\infty c_ke^{j\frac{2\pi}{T_s}kt}\\
+                    &=\sum_{k=-\infty}^\infty \frac{1}{T_s}e^{j\frac{2\pi}{T_s}kt}\\
+                    &=\frac{1}{T_s}\sum_{k=-\infty}^\infty e^{j\frac{2\pi}{T_s}kt}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    となります。
+                    これをフーリエ変換すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    S(f)&=\mathscr{F}[s(t)]\\
+                    &=\int_{-\infty}^\infty s(t)e^{-j2\pi ft}dt\\
+                    &=\int_{-\infty}^\infty \frac{1}{T_s}\sum_{k=-\infty}^\infty e^{j\frac{2\pi}{T_s}kt}e^{-j2\pi ft}dt\\
+                    &=\frac{1}{T_s}\sum_{k=-\infty}^\infty\int_{-\infty}^\infty  e^{-j2\pi \left(f-\frac{k}{T_s}\right)t}dt\\
+                    &=\frac{1}{T_s}\sum_{k=-\infty}^\infty \delta\left(f-\frac{k}{T_s}\right)\\
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    x_s(t)=x(t)s(t)
+                    \]
+                </div>
+                <p>
+                    のフーリエ変換は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    X_s(f)&=X(f)*S(f)\\
+                    &=\int_{-\infty}^\infty X(f-\xi)S(\xi)d\xi\\
+                    &=\int_{-\infty}^\infty X(f-\xi)\frac{1}{T_s}\sum_{k=-\infty}^\infty \delta\left(\xi-\frac{k}{T_s}\right)d\xi\\
+                    &=\frac{1}{T_s}\sum_{k=-\infty}^\infty\int_{-\infty}^\infty X(f-\xi) \delta\left(\xi-\frac{k}{T_s}\right)d\xi\\
+                    &=\frac{1}{T_s}\sum_{k=-\infty}^\infty X\left(f-\frac{k}{T_s}\right)\\
+                    &=\frac{1}{T_s}\sum_{k=-\infty}^\infty X(f-kf_s) \quad \left(\because f_s=\frac{1}{T_s}\right)
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    となります。
+                    すなわち、サンプル列信号 \(x_s(t)\) のフーリエ変換 \(X_s(f)\) は、元の連続時間信号 \(x(t)\) のフーリエ変換 \(X(f)\) を平行移動したものを足し合わせたものだとわかります。
+                    また、周期がサンプリング周波数 \(f_s\) の周期関数であることがわかります。
+                </p>
+            </section>
+            <section id="4">
+                <h2>連続信号の復元</h2>
+                <p class="indent">
+                    サンプル列信号から、元の連続信号を復元することを考えます。
+                </p>
+                <div class="math">
+                    \[
+                    X_s(f)=\frac{1}{T_s}\sum_{k=-\infty}^\infty X(f-kf_s)
+                    \]
+                </div>
+                <p>
+                    \(X(f)\) が間隔 \(f_s\) で並びます。
+                    最大周波数を \(f_m\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    f_s \gt 2f_m
+                    \]
+                </div>
+                <p>
+                    となれば、各 \(X(f-kf_s)\) は重なりません。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（帯域制限）</figcaption>
+                    <p class="indent">
+                        信号 \(x(t)\) のフーリエ変換 \(X(f)\) をある有限の周波数範囲で完全に \(0\) にする、すなわち
+                    </p>
+                    <div class="math">
+                        \[
+                        X(f)=0 \quad (|f|\gt f_m)
+                        \]
+                    </div>
+                    <p>
+                        とする操作を<strong>帯域制限</strong>という。
+                        このとき、\(f_m\) は最大周波数である。
+                    </p>
+                </figure>
+                <p class="indent">
+                    帯域制限されているとき、最大周波数を \(f_m\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    f_s \gt 2f_m
+                    \]
+                </div>
+                <p>
+                    となるように \(f_s\) をとれば、各 \(X(f-kf_s)\) は重なりません。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
