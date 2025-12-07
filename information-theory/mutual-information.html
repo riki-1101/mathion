@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>相互情報量</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>相互情報量</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
             <h1>相互情報量</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">相互情報量とは</h2>
-            <div class="def">
-                <div>定義（相互情報量）</div>
-                2つの事象系 \(A,B\) に対して
-                \[
-                I(A;B):=H(A)-H(A|B)
-                \]
-                を \(A\) と \(B\) の相互情報量という。
-                <p></p>
-                また、右辺の \(H(A)\) を事前エントロピー、\(H(A|B)\) を事後エントロピーという。
-            </div>
-            <p></p>
-            <div class="article">
-                相互情報量 \(I(A;B)\) は \(B\) を知ることによる \(A\) の驚き具合の減少分を表す。
-                <p></p>
-                相互情報量に関して、次の不等式が成り立つ。
-                \[
-                0\le I(A;B)\le H(A)
-                \]
-            </div>
-            <p class="space"></p>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>例題</div>
+            <section id="1">
+                <h2>相互情報量とは</h2>
+                <figure class="def">
+                    <figcaption>定義（相互情報量）</figcaption>
+                    <p class="indent">
+                        2つの事象系 \(A,B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        I(A;B):=H(A)-H(A|B)
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) と \(B\) の<strong>相互情報量</strong>という。
+                        また、右辺の \(H(A)\) を<strong>事前エントロピー</strong>、\(H(A|B)\) を<strong>事後エントロピー</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    相互情報量 \(I(A;B)\) は \(B\) を知ることによる \(A\) の驚き具合の減少分を表します。
+                    相互情報量に関して、次の不等式が成り立ちます。
+                </p>
+                <div class="math">
+                    \[
+                    0\le I(A;B)\le H(A)
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
 
-            </div>
+                </figure>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
