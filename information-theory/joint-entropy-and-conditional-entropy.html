@@ -1,93 +1,124 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>結合エントロピーと条件付きエントロピー</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>結合エントロピーと条件付きエントロピー</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
             <h1>結合エントロピーと条件付きエントロピー</h1>
             <div id="table-of-contents"></div>
-            <h2 id="1">結合エントロピー</h2>
-            <div class="article">
-                2つの事象系 \(A,B\) を
-                \[
-                A=
-                \begin{bmatrix}
-                a_1 & a_2\\
-                P(a_1) & P(a_2)\\
-                \end{bmatrix},~~~~~
-                B=
-                \begin{bmatrix}
-                b_1 & b_2\\
-                P(b_1) & P(b_2)\\
-                \end{bmatrix}
-                \]
-                とするとき、\(A\) と \(B\) が同時に起こる事象を結合事象系といい
-                \[
-                AB=
-                \begin{bmatrix}
-                (a_1,~b_1) & (a_1,~b_2) & (a_2,~b_1) & (a_2,~b_2)\\
-                P(a_1,~b_1) & P(a_1,~b_2) & P(a_2,~b_1) & P(a_2,~b_2)\\
-                \end{bmatrix}
-                \]
-                と表す。
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（結合エントロピー）</div>
-                2つの完全事象系 \(A,B\) に対して
-                \[
-                H(AB)=-\sum_{a\in A,~b\in B}P(a,b)\log_2P(a,b)
-                \]
-                を \(A\) と \(B\) の結合エントロピーという。
-            </div>
-            <p class="space"></p>
-            <h2 id="2">条件付きエントロピー</h2>
-            <div class="article">
-                \(A=a\) とわかっているときの \(B\) のエントロピーは
-                \[
-                H(B|A=a)=-\sum_{b\in B}p(b|a)\log_2p(b|a)
-                \]
-            </div>
-            <p></p>
-            <div class="def">
-                <div>定義（条件付きエントロピー）</div>
-                2つの完全事象系 \(A,B\) に対して
-                \[
-                H(B|A)=-\sum_{a\in A}p(a)H(B|A=a)
-                \]
-                を \(A\) の元での \(B\) の条件付きエントロピーという。
-            </div>
-            <p class="space"></p>
-            <div class="ex-problem">
-                <div>例題</div>
-                曜日に関する事象系を \(A\) 、外食の有無に関する事象系を \(B\) とし
-                \[
-                A=\{\text{平日},~\text{休日}\},~~~B=\{\text{外食},~\text{内食}\}
-                \]
-                とする。
-                <p></p>
-                ある人の外食習慣を調べたところ、次のことがわかった。
-                <p></p>
-                ・平日に外食する確率は \(0.1\)<br>
-                ・平日に外食しない確率は \(0.6\)<br>
-                ・休日に外食する確率は \(0.2\)<br>
-                ・休日に外食しない確率は \(0.1\)
-                <p></p>
-                <ol>
-                    <li>結合エントロピー \(H(AB)\) を求めよ。</li>
-                    <li>条件付きエントロピー \(H(B|A)\) を求めよ。</li>
-                    <li>条件付きエントロピー \(H(A|B)\) を求めよ。</li>
-                </ol>
-            </div>
-            <p></p>
-            <div class="article">
+            <section id="1">
+                <h2>結合エントロピー</h2>
+                <p class="indent">
+                    2つの事象系 \(A,B\) を
+                </p>
+                <div class="math">
+                    \[
+                    A=
+                    \begin{bmatrix}
+                    a_1 & a_2\\
+                    P(a_1) & P(a_2)\\
+                    \end{bmatrix},
+                    \quad
+                    B=
+                    \begin{bmatrix}
+                    b_1 & b_2\\
+                    P(b_1) & P(b_2)\\
+                    \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    とするとき、\(A\) と \(B\) が同時に起こる事象を<strong>結合事象系</strong>といい
+                </p>
+                <div class="math">
+                    \[
+                    AB=
+                    \begin{bmatrix}
+                    (a_1,~b_1) & (a_1,~b_2) & (a_2,~b_1) & (a_2,~b_2)\\
+                    P(a_1,~b_1) & P(a_1,~b_2) & P(a_2,~b_1) & P(a_2,~b_2)\\
+                    \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    と表します。
+                    結合事象系のエントロピーは次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（結合エントロピー）</figcaption>
+                    <p class="indent">
+                        2つの完全事象系 \(A,B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                    H(AB)=-\sum_{a\in A,~b\in B}P(a,b)\log_2P(a,b)
+                    \]
+                    </div>
+                    <p>
+                        を \(A\) と \(B\) の<strong>結合エントロピー</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>条件付きエントロピー</h2>
+                <p>
+                    \(A=a\) とわかっているときの \(B\) のエントロピーは
+                </p>
+                <div class="math">
+                    \[
+                    H(B|A=a)=-\sum_{b\in B}P(b|a)\log_2P(b|a)
+                    \]
+                </div>
+                <figure class="def">
+                    <figcaption>定義（条件付きエントロピー）</figcaption>
+                    <p class="indent">
+                        2つの完全事象系 \(A,B\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        H(B|A)=-\sum_{a\in A}P(a)H(B|A=a)
+                        \]
+                    </div>
+                    <p>
+                        を \(A\) の元での \(B\) の<strong>条件付きエントロピー</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        曜日に関する事象系を \(A\) 、外食の有無に関する事象系を \(B\) とし
+                    </p>
+                    <div class="math">
+                        \[
+                        A=\{\text{平日},~\text{休日}\},~~~B=\{\text{外食},~\text{内食}\}
+                        \]
+                    </div>
+                    <p>
+                        とする。
+                        ある人の外食習慣を調べたところ、次のことがわかった。
+                    </p>
+                    <ul>
+                        <li>平日に外食する確率は \(0.1\)</li>
+                        <li>平日に外食しない確率は \(0.6\)</li>
+                        <li>休日に外食する確率は \(0.2\)</li>
+                        <li>休日に外食しない確率は \(0.1\)</li>
+                    </ul>
+                    <p>
+                        このとき、以下の問いに答えよ。
+                    </p>
+                    <ol>
+                        <li>結合エントロピー \(H(AB)\) を求めよ。</li>
+                        <li>条件付きエントロピー \(H(B|A)\) を求めよ。</li>
+                        <li>条件付きエントロピー \(H(A|B)\) を求めよ。</li>
+                    </ol>
+                </figure>
                 <ol>
                     <li>
                         まず、結合事象系は次のようになります。
@@ -107,13 +138,14 @@
                         \]
                     </li>
                 </ol>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
 
-            </div>
-            <h2 id="ex">演習問題</h2>
-            <div class="ex">
-                <div>例題</div>
-
-            </div>
+                </figure>
+            </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
