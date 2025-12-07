@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>複素フーリエ級数</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -33,10 +32,10 @@
                     \begin{align}
                     f(t)
                     &\sim a_0+\sum_{n=1}^\infty\left\{a_n\cdot\frac{e^{in\omega t}+e^{-in\omega t}}{2}+b_n\cdot\frac{e^{in\omega t}-e^{-in\omega t}}{2i}\right\}\\
-                    &\sim a_0+\sum_{n=1}^\infty\left\{a_n\cdot\frac{e^{in\omega t}+e^{-in\omega t}}{2}-b_n\cdot\frac{ie^{in\omega t}-ie^{-in\omega t}}{2}\right\}\\
-                    &\sim a_0+\sum_{n=1}^\infty\left\{\frac{a_n-ib_n}{2}e^{in\omega t}+\frac{a_n+ib_n}{2}e^{-in\omega t}\right\}\\
-                    &\sim a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=1}^\infty\frac{a_n+ib_n}{2}e^{-in\omega t}\\
-                    &\sim a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_{-n}+ib_{-n}}{2}e^{in\omega t}\\
+                    &= a_0+\sum_{n=1}^\infty\left\{a_n\cdot\frac{e^{in\omega t}+e^{-in\omega t}}{2}-b_n\cdot\frac{ie^{in\omega t}-ie^{-in\omega t}}{2}\right\}\\
+                    &= a_0+\sum_{n=1}^\infty\left\{\frac{a_n-ib_n}{2}e^{in\omega t}+\frac{a_n+ib_n}{2}e^{-in\omega t}\right\}\\
+                    &= a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=1}^\infty\frac{a_n+ib_n}{2}e^{-in\omega t}\\
+                    &= a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_{-n}+ib_{-n}}{2}e^{in\omega t}\\
                     \end{align}
                     \]
                 </div>
@@ -70,9 +69,9 @@
                     \begin{align}
                     f(t)
                     &\sim a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_n-ib_n}{2}e^{in\omega t}\\
-                    &\sim \frac{a_0-ib_0}{2}e^{i0\omega t}+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_n-ib_n}{2}e^{in\omega t}\\
-                    &\sim \sum_{n=-\infty}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}\\
-                    &\sim \sum_{n=-\infty}^\infty c_ne^{in\omega t}\quad \left(c_n:=\frac{a_n-ib_n}{2}\right)
+                    &= \frac{a_0-ib_0}{2}e^{i0\omega t}+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_n-ib_n}{2}e^{in\omega t}\\
+                    &= \sum_{n=-\infty}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}\\
+                    &= \sum_{n=-\infty}^\infty c_ne^{in\omega t}\quad \left(c_n:=\frac{a_n-ib_n}{2}\right)
                     \end{align}
                     \]
                 </div>
@@ -158,7 +157,7 @@
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                             
                 </figure>

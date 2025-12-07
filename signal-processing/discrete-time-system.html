@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>離散時間システム</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>離散時間システム</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>インパルス応答</h2>
+                <p class="indent">
+                    単位インパルス信号 \(\delta[n]\) をシステムに入力したときの出力を<strong>インパルス応答</strong>といい、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（インパルス応答）</figcaption>
+                    <p class="indent">
+                        システム \(\mathcal{S}\) と単位インパルス信号 \(\delta[n]\) に対して
+                    </p>
+                    <div class=math>
+                        \[
+                        h[n]:=\mathcal{S}\{\delta[n]\}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>インパルス応答</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>線形時不変離散システム</h2>
+                <p class="indent">
+                    任意の入力信号 \(x[n]\) は単位インパルス信号 \(\delta[n]\) を用いて
+                </p>
+                <div class="math">
+                    \[
+                    x[n]=\sum_{k=-\infty}^\infty x[k]\delta[n-k]
+                    \]
+                </div>
+                <p>
+                    と表せます。
+                </p>
+                <p class="indent">
+                    システム \(\mathcal{S}\) を線形時不変システムとするとき、入力信号 \(x[n]\) に対する出力信号 \(y[n]\) は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    y[n]&=\mathcal{S}\{x[n]\}\\
+                    &=\mathcal{S}\left\{\sum_{k=-\infty}^\infty x[k]\delta[n-k]\right\}\\
+                    &=\sum_{k=-\infty}^\infty x[k]\mathcal{S}\{\delta[n-k]\} \quad (\because \text{線形時不変システムの線形性})
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    ここで、インパルス応答を \(h[n]\) とすると、\(\mathcal{S}\) の時不変性より
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{S}\{\delta[n-k]\}=h[n-k]
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    y[n]&=\sum_{k=-\infty}^\infty x[k]\mathcal{S}\{\delta[n-k]\}\\
+                    &=\sum_{k=-\infty}^\infty x[k]h[n-k]\\
+                    &=x[n]*h[n]\\
+                    &=h[n]*x[n]
+                    \end{align}
+                    \]
+                </div>
+                <figure class="th">
+                    <figcaption>定理（線形時不変離散システムの入出力関係）</figcaption>
+                    <p class="indent">
+                        線形時不変システムにおいて、インパルス応答を \(h[n]\) とすると、入力信号 \(x[n]\) に対する出力信号 \(y[n]\) は
+                    </p>
+                    <div class="math">
+                        \[
+                        y[n]=h[n]*x[n]
+                        \]
+                    </div>
+                    <p>
+                        と表せる。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>伝達関数</h2>
+                <p class="indent">
+                    線形離散システムは、一般に以下の差分方程式で表すことができます。
+                </p>
+                <div class="math">
+                    \[
+                    a_0y[n]+a_1y[n-1]+\cdots+a_Ny[n-N]=b_0x[n]+b_1x[n-1]+\cdots+b_Mx[n-M]
+                    \]
+                </div>
+                <p>
+                    この両辺をz変換すると
+                </p>
+                <div class="math">
+                    \[
+                    a_0Y(z)+a_1z^{-1}Y(z)+\cdots+a_Nz^{-N}Y(z)=b_0X(z)+b_1z^{-1}X(z)+\cdots+b_Mz^{-M}X(z)
+                    \]
+                    \[
+                    (a_0+a_1z^{-1}+\cdots+a_Nz^{-N})Y(z)=(b_0+b_1z^{-1}+\cdots+b_Mz^{-M})X(z)
+                    \]
+                </div>
+                <p>
+                    このとき、\(X(z)\) と \(Y(z)\) の比
+                </p>
+                <div class="math">
+                    \[
+                    H(z):=\frac{Y(z)}{X(z)}=\frac{b_0+b_1z^{-1}+\cdots+b_Mz^{-M}}{a_0+a_1z^{-1}+\cdots+a_Nz^{-N}}
+                    \]
+                </div>
+                <p>
+                    を離散時間システムの<strong>伝達関数</strong>といいます。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

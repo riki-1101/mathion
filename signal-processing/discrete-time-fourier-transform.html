@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>離散時間フーリエ変換</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -16,17 +15,16 @@
             <section id="1">
                 <h2>フーリエ変換の離散化</h2>
                 <p class="indent">
-                    連続信号 \(x(t)\) をサンプリングする。
+                    連続信号 \(x(t)\) をサンプリングします。
                     サンプリング周期を \(T_s\) とすると、サンプリングした信号 \(x_s(t)\) は
                 </p>
-                <img src="" alt="img">
                 <div class="math">
                     \[
                     x_s(t)=\sum_{n=-\infty}^\infty x(t)\delta(t-nT_s)
                     \]
                 </div>
                 <p>
-                    と表される。
+                    と表されます。
                     これをフーリエ変換すると
                 </p>
                 <div class="math">
@@ -108,7 +106,7 @@
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                             
                 </figure>
