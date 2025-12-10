@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>2変数関数のテイラーの定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>2変数関数のテイラーの定理</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>テイラーの定理</h2>
+                <figure class="th">
+                    <figcaption>定理（2変数関数のテイラーの定理）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x,y)\) は区間 \([a,b]\) 上で \(C^{n}\) 級であるとする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        f(a+h,b+k)=\sum_{m=0}^{n-1}\frac{1}{m!}\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)^mf(a,b)+R_n,
+                        \]
+                        \[
+                        R_n=\frac{1}{n!}\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)^nf(a+\theta h,b+\theta k)
+                        \]
+                    </div>
+                    <p>
+                        を満たす \(\theta~(0\lt \theta\lt 1)\) が存在する。
+                        \(R_n\) は剰余項という。
+                    </p>
+                </figure>
+                <p>証明</p>
+                <p>
+                    関数 \(z=f(x,y)\) に対して、\(x,y\) を媒介変数 \(t\) と定数 \(a,b,h,k\) を用いて
+                </p>
+                <div class="math">
+                    \[
+                    x=a+ht,\quad y=b+kt
+                    \]
+                </div>
+                <p>
+                    とおくと
+                </p>
+                <div class="math">
+                    \[
+                    z=f(a+ht,b+kt)
+                    \]
+                </div>
+                <p>
+                    と書けて、これは \(t\) の1変数関数として見ることができます。
+                </p>
+                <div class="math">
+                    \[
+                    z(t)=f(a+ht,b+kt)
+                    \]
+                </div>
+                <p>
+                    \(z(t)\) を \(t\) で微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{dz}{dt}
+                    &=\frac{\partial z}{\partial x}\frac{dx}{dt}+\frac{\partial z}{\partial y}\frac{dy}{dt}\\
+                    &=\frac{\partial z}{\partial x}\frac{d}{dt}(a+ht)+\frac{\partial z}{\partial y}\frac{d}{dt}(b+kt)\\
+                    &=\frac{\partial z}{\partial x}h+\frac{\partial z}{\partial y}k\\
+                    &=h\frac{\partial z}{\partial x}+k\frac{\partial z}{\partial y}\\
+                    &=\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)z
+                    \end{align}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{d^2z}{dt^2}
+                    &=\frac{d}{dt}\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)z\\
+                    &=\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)\frac{dz}{dt}\\
+                    &=\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)z\\
+                    &=\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)^2z
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    同様にして
+                </p>
+                <div class="math">
+                    \[
+                    \frac{d^nz}{dt^n}=\left(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y}\right)^nz
+                    \]
+                </div>
+                <p>
+                    \(z(t)\) にマクローリンの定理を適用すると
+                </p>
+                <div class="math">
+                    \[
+                    z(t)=\sum_{m=0}^n\frac{1}{m!}\frac{d^mz(0)}{dt^m}t^n+R_{n+1}
+                    \]
+                </div>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

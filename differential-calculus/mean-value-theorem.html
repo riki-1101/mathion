@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>平均値の定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>平均値の定理</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ロルの定理</h2>
+                <p class="indent">
+                    平均値の定理の前に、まず<strong>ロルの定理</strong>について説明します。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（ロルの定理）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) は閉区間 \([a,b]\) 上で連続で、開区間 \((a,b)\) 上で微分可能であるとする。
+                        また、\(f(a)=f(b)\) であるとする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        f'(c)=0
+                        \]
+                    </div>
+                    <p>
+                        となる \(c\in (a,b)\) が、少なくとも１つ存在する。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>平均値の定理</h2>
+                <figure class="th">
+                    <figcaption>定理（平均値の定理）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) は閉区間 \([a,b]\) 上で連続で、開区間 \((a,b)\) 上で微分可能であるとする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        f'(c)=\frac{f(b)-f(a)}{b-a}
+                        \]
+                    </div>
+                    <p>
+                        となる \(c\in (a,b)\) が、少なくとも１つ存在する。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>コーシーの平均値の定理</h2>
+                <figure class="th">
+                    <figcaption>定理（コーシーの平均値の定理）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x),~g(x)\) は閉区間 \([a,b]\) 上で連続で、開区間 \((a,b)\) 上で微分可能であるとする。
+                        さらに、すべての \(x\in(a,b)\) に対して \(g'(x)\neq0\) であるとする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{f'(c)}{g'(c)}=\frac{f(b)-f(a)}{g(b)-g(a)}
+                        \]
+                    </div>
+                    <p>
+                        となる \(c\in (a,b)\) が、少なくとも１つ存在する。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
