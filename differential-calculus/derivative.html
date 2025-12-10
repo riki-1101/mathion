@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>導関数</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -17,19 +16,27 @@
                 <h2>導関数の定義</h2>
                 <figure class="def">
                     <figcaption>定義（導関数）</figcaption>
-                    <p>
+                    <p class="indent">
                         関数 \(f(x)\) が開区間 \(I\) 上で微分可能であるとき
+                    </p>
+                    <div class="math">
                         \[
-                        f'(x)=\lim_{\varDelta x\to0}\frac{f(x+\varDelta x)-f(x)}{\varDelta x}
+                        f'(x)=\lim_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)}{\Delta x}
                         \]
-                        で定まる関数 \(f'\) を \(f\) の導関数という。
+                    </div>
+                    <p>
+                        で定まる関数 \(f'(x)\) を \(f(x)\) の<strong>導関数</strong>という。
                     </p>
                 </figure>
-                <p>
+                <p class="indent">
                     導関数 \(f'(x)\) は \(y=f(x)\) のとき
+                </p>
+                <div class="math">
                     \[
-                    y',~~~\frac{dy}{dx},~~~\frac{d}{dx}f(x),~~~\frac{df}{dx}(x),~~~\{f(x)\}'
+                    y',\quad \frac{dy}{dx},\quad \frac{d}{dx}f(x),\quad \frac{df}{dx}(x),\quad \{f(x)\}'
                     \]
+                </div>
+                <p>
                     などとも書かれます。
                 </p>
             </section>
@@ -37,7 +44,9 @@
                 <h2>導関数の性質</h2>
                 <figure class="th">
                     <figcaption>定理（導関数の性質）</figcaption>
-                    <p>関数 \(f(x),~g(x)\) が微分可能であるとき</p>
+                    <p class="indent">
+                        関数 \(f(x),~g(x)\) が微分可能であるとき、次が成り立つ。
+                    </p>
                     <ol>
                         <li>\(\{kf(x)+lg(x)\}'=kf'(x)+lg'(x)~~~(k,l\in\mathbb{R})\)</li>
                         <li>\(\{f(x)g(x)\}'=f'(x)g(x)+f(x)g'(x)\)</li>
@@ -93,11 +102,15 @@
                 <h2>合成関数の微分法</h2>
                 <figure class="th">
                     <figcaption>定理（合成関数の微分法）</figcaption>
-                    <p>
+                    <p class="indent">
                         \(y=f(x)\) が \(x\) で微分可能であり、\(z=g(y)\) が \(y\) で微分可能であるならば、合成関数 \(z=g(f(x))\) も \(x\) で微分可能で
+                    </p>
+                    <div class="math">
                         \[
                         \frac{dz}{dx}=\frac{dz}{dy}\frac{dy}{dx}
                         \]
+                    </div>
+                    <p>
                         が成り立つ。
                     </p>
                 </figure>
@@ -106,36 +119,83 @@
                 <h2>逆関数の微分法</h2>
                 <figure class="th">
                     <figcaption>定理（合成関数の微分法）</figcaption>
-                    <p>
+                    <p class="indent">
                         開区間 \((a,b)\) で \(y=f(x)\) が微分可能で \(f'(x)\neq0\) ならば、\(x=f^{-1}(y)\) は開区間 \((f(a),f(b))\)（または \((f(b),f(a))\)）で微分可能で
+                    </p>
+                    <div class="math">
                         \[
                         \frac{dx}{dy}=\frac{1}{\frac{dy}{dx}}
                         \]
+                    </div>
+                    <p>
                         が成り立つ。
                     </p>
                 </figure>
             </section>
             <section id="5">
-                <h2>冪関数の導関数</h2>
+                <h2>種々の関数の導関数</h2>
                 <figure class="th">
                     <figcaption>定理（冪関数の導関数）</figcaption>
-                    \[
-                    (x^n)'=nx^{n-1}
-                    \]
+                    <div class="math">
+                        \[
+                        (x^n)'=nx^{n-1}
+                        \]
+                    </div>
                 </figure>
                 <details class="pf">
                     <summary>証明</summary>
                     <div>
                     </div>
                 </details>
-            </section>
-            <section id="6">
-                <h2>三角関数の導関数</h2>
                 <figure class="th">
                 <figcaption>定理（三角関数の導関数）</figcaption>
-                    \[
-                    (\sin x)'=\cos x,~~~(\cos x)'=-\sin x,~~~(\tan x)'=\frac{1}{\cos^2x}
-                    \]
+                    <div class="math">
+                        \[
+                        (\sin x)'=\cos x,\quad (\cos x)'=-\sin x,\quad (\tan x)'=\frac{1}{\cos^2x}
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                    </div>
+                </details>
+                <figure class="th">
+                    <figcaption>定義（指数関数の導関数）</figcaption>
+                    <div class="math">
+                        \[
+                        (e^x)'=e^x,\quad (a^x)'=a^x\log a
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                        <ol>
+                        
+                        </ol>
+                    </div>
+                </details>
+                <figure class="th">
+                    <figcaption>定義（対数関数の導関数）</figcaption>
+                    <div class="math">
+                        \[
+                        (\log x)'=\frac{1}{x},\quad (\log|x|)'=\frac{1}{x}
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                    </div>
+                </details>
+                <figure class="th">
+                    <figcaption>定義（双曲線関数の導関数）</figcaption>
+                    <div class="math">
+                        \[
+                        (\cosh x)'=\sinh x,\quad (\sinh x)'=\cosh x,\quad (\tanh x)'=\frac{1}{\cosh^2x}
+                        \]
+                    </div>
                 </figure>
                 <details class="pf">
                     <summary>証明</summary>
@@ -143,61 +203,12 @@
                     </div>
                 </details>
             </section>
-            <section id="7"></section>
-            <h2>指数関数の導関数</h2>
-            <div class="th">
-                <div>定義（指数関数の導関数）</div>
-                \[
-                (e^x)'=e^x,~~~(a^x)'=a^x\log a
-                \]
-            </div>
-            <details class="pf">
-                <summary>証明</summary>
-                <div>
-                    <ol>
-                    
-                    </ol>
-                </div>
-            </details>
-            <p class="space"></p>
-            <h2>対数関数の導関数</h2>
-            <div class="th">
-                <div>定義（対数関数の導関数）</div>
-                \[
-                (\log x)'=\frac{1}{x},~~~(\log|x|)'=\frac{1}{x}
-                \]
-            </div>
-            <details class="pf">
-                <summary>証明</summary>
-                <div>
-                    <ol>
-                    
-                    </ol>
-                </div>
-            </details>
-            <p class="space"></p>
-            <h2>双曲線関数の導関数</h2>
-            <div class="th">
-                <div>定義（双曲線関数の導関数）</div>
-                \[
-                (\cosh x)'=\sinh x,~~~(\sinh x)'=\cosh x,~~~(\tanh x)'=\frac{1}{\cosh^2x}
-                \]
-            </div>
-            <details class="pf">
-                <summary>証明</summary>
-                <div>
-                    <ol>
-                    
-                    </ol>
-                </div>
-            </details>
-            <p class="space"></p>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題１</figcaption>
-                    <p>
-                        \(f(x)=\log(\sin x)\) の導関数 \(f'(x)\) を導関数の定義に従って求めよ。<br>
+                    <p class="indent">
+                        \(f(x)=\log(\sin x)\) の導関数 \(f'(x)\) を導関数の定義に従って求めよ。
                         ただし、\(\displaystyle\lim_{x\to0}(\cos x)^{\frac{1}{x}}=1\) は用いてよい。
                     </p>
                 </figure>
@@ -219,10 +230,11 @@
                         \]
                     </div>
                 </details>
-                <p></p>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題２</figcaption>
-                    <p>次の関数を微分せよ。</p>
+                    <p class="indent">
+                        次の関数を微分せよ。
+                    </p>
                 </figure>
                 <details class="ans">
                     <summary>解答</summary>
