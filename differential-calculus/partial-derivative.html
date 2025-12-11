@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>偏微分係数と偏導関数</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -22,11 +21,11 @@
                     </p>
                     <div class="math">
                         \[
-                        \lim_{\varDelta x\to0}\frac{f(a+\varDelta x,b)-f(a,b)}{\varDelta x}
+                        \lim_{\Delta x\to0}\frac{f(a+\Delta x,b)-f(a,b)}{\Delta x}
                         \]
                     </div>
                     <p>
-                        が存在するとき、\(f\) は点 \((a,b)\) で<strong> \(x\) に関して偏微分可能</strong>であるという。
+                        が存在するとき、\(f(x,y)\) は点 \((a,b)\) で<strong> \(x\) に関して偏微分可能</strong>であるという。
                         このとき、その値を
                     </p>
                     <div class="math">
@@ -35,18 +34,18 @@
                         \]
                     </div>
                     <p>
-                        などと書き、\(f\) の点 \((a,b)\) における<strong> \(x\) に関する偏微分係数</strong>という。
+                        などと書き、\(f(x,y)\) の点 \((a,b)\) における<strong> \(x\) に関する偏微分係数</strong>という。
                     </p>
                     <p class="indent">
                         同様に、極限
                     </p>
                     <div class="math">
                         \[
-                        \lim_{\varDelta y\to0}\frac{f(a,b+\varDelta y)-f(a,b)}{\varDelta y}
+                        \lim_{\Delta y\to0}\frac{f(a,b+\Delta y)-f(a,b)}{\Delta y}
                         \]
                     </div>
                     <p>
-                        が存在するとき、\(f\) は点 \((a,b)\) で<strong> \(y\) に関して偏微分可能</strong>であるという。
+                        が存在するとき、\(f(x,y)\) は点 \((a,b)\) で<strong> \(y\) に関して偏微分可能</strong>であるという。
                         このとき、その値を
                     </p>
                     <div class="math">
@@ -55,10 +54,10 @@
                         \]
                     </div>
                     <p>
-                        などと書き、\(f\) の点 \((a,b)\) における<strong> \(y\) に関する偏微分係数</strong>という。
+                        などと書き、\(f(x,y)\) の点 \((a,b)\) における<strong> \(y\) に関する偏微分係数</strong>という。
                     </p>
                     <p class="indent">
-                        また、\(f_x(a,b)\) と \(f_y(a,b)\) がともに存在するとき、\(f\) は点 \((a,b)\) で<strong>偏微分可能</strong>であるという。
+                        また、\(f_x(a,b)\) と \(f_y(a,b)\) がともに存在するとき、\(f(x,y)\) は点 \((a,b)\) で<strong>偏微分可能</strong>であるという。
                     </p>
                 </figure>
                 <p class="indent">
@@ -76,9 +75,9 @@
                 <div class="math">
                     \[
                     \begin{align}
-                    \lim_{\varDelta x\to0}\frac{f(2+\varDelta x,1)-f(2,1)}{\varDelta x}
-                    &=\lim_{\varDelta x\to0}\frac{(\varDelta x^2+4\varDelta x+5)-5}{\varDelta x}\\
-                    &=\lim_{\varDelta x\to0}(\varDelta x+4)\\
+                    \lim_{\Delta x\to0}\frac{f(2+\Delta x,1)-f(2,1)}{\Delta x}
+                    &=\lim_{\Delta x\to0}\frac{(\Delta x^2+4\Delta x+5)-5}{\Delta x}\\
+                    &=\lim_{\Delta x\to0}(\Delta x+4)\\
                     &=4
                     \end{align}
                     \]
@@ -92,9 +91,9 @@
                 <div class="math">
                     \[
                     \begin{align}
-                    \lim_{\varDelta y\to0}\frac{f(2,1+\varDelta y)-f(2,1)}{\varDelta y}
-                    &=\lim_{\varDelta y\to0}\frac{(\varDelta y^3+3\varDelta y^2+7\varDelta y+5)-5}{\varDelta y}\\
-                    &=\lim_{\varDelta y\to0}(\varDelta y^2+3\varDelta y+7)\\
+                    \lim_{\Delta y\to0}\frac{f(2,1+\Delta y)-f(2,1)}{\Delta y}
+                    &=\lim_{\Delta y\to0}\frac{(\Delta y^3+3\Delta y^2+7\Delta y+5)-5}{\Delta y}\\
+                    &=\lim_{\Delta y\to0}(\Delta y^2+3\Delta y+7)\\
                     &=7
                     \end{align}
                     \]
@@ -108,31 +107,36 @@
                 <figure class="def">
                     <figcaption>定義（偏導関数）</figcaption>
                     <p class="indent">
-                        関数 \(f(x,y)\) が領域 \(D\) 上の各点 \((x,y)\) で \(x\) に関して偏微分可能であるとき、\(f\) は \(D\) 上で \(x\) に関して偏微分可能であるという。
+                        関数 \(f(x,y)\) が領域 \(D\) 上の各点 \((x,y)\) で \(x\) に関して偏微分可能であるとき、\(f(x,y)\) は \(D\) 上で \(x\) に関して偏微分可能であるという。
                         このとき
                     </p>
                     <div class="math">
                         \[
-                        f_x(x,y)=\lim_{\varDelta x\to0}\frac{f(x+\varDelta x,y)-f(x,y)}{\varDelta x}
+                        f_x(x,y)=\lim_{\Delta x\to0}\frac{f(x+\Delta x,y)-f(x,y)}{\Delta x}
                         \]
                     </div>
                     <p>
-                        で定まる関数 \(f_x\) を \(f\) の \(x\) に関する<strong>偏導関数</strong>という。
+                        で定まる関数 \(f_x\) を \(f(x,y)\) の \(x\) に関する<strong>偏導関数</strong>という。
                     </p>
-                    また、\(y\) についての偏導関数 \(f_y\) も同様に定義する。
-                </div>
-                <p></p>
-                <div class="article">
+                    <p class="indent">
+                        また、\(y\) についての偏導関数 \(f_y\) も同様に定義する。
+                    </p>
+                </figure>
+                <p class="indent">
                     偏導関数 \(f_x(x,y)\) は \(z=f(x,y)\) のとき
+                </p>
+                <div class="math">
                     \[
                     \frac{\partial z}{\partial x},~~~\frac{\partial}{\partial x}f(x,y),~~~\frac{\partial f}{\partial x}(x,y)
                     \]
-                    などとも書かれる。
                 </div>
+                <p>
+                    などとも書かれる。
+                </p>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     <p class="indent">
                         次の関数を偏微分せよ。
