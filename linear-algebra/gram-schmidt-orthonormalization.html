@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>グラム・シュミットの正規直交化法</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>グラム・シュミットの正規直交化法</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>正規直交基底</h2>
+                <figure class="def">
+                    <figcaption>定義（直交基底・正規直交基底）</figcaption>
+                    <p class="indent">
+                        計量ベクトル空間 \(V\) の基底 \(\{\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\}\) は次の条件を満たすとき、\(V\) の<strong>直交基底</strong>という。
+                    </p>
+                    <div class="math">
+                        \[
+                        1\le i,j\le n,~i\neq j ~\Longrightarrow~ \langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle = 0
+                        \]
+                    </div>
+                    <p class="indent">
+                        さらに、次の条件を満たす直交基底を \(V\) の<strong>正規直交基底</strong>という。
+                    </p>
+                    <div class="math">
+                        \[
+                        \|\boldsymbol{v}_i\|=1 \quad (i=1,2,\cdots,n)
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>グラム・シュミットの正規直交化法</h2>
+                <p>
+                    まず、\(\boldsymbol{v}_1'=\boldsymbol{v}_1\) とおきます。
+                </p>
+                <p>
+                    \(\boldsymbol{v}_2'=\boldsymbol{v}_2-x_{21}\boldsymbol{v}_1'\) とおき、\(\langle \boldsymbol{v}_2',\boldsymbol{v}_1' \rangle = 0\) を解いて \(x_{21}\) を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\langle \boldsymbol{v}_2',\boldsymbol{v}_1' \rangle = 0\\
+                    &\Longleftrightarrow \langle \boldsymbol{v}_2-x_{21}\boldsymbol{v}_1',\boldsymbol{v}_1' \rangle = 0\\
+                    &\Longleftrightarrow \langle \boldsymbol{v}_2,\boldsymbol{v}_1' \rangle -x_{21} \|\boldsymbol{v}_1'\|^2 = 0\\
+                    &\Longleftrightarrow x_{21}=\frac{\langle \boldsymbol{v}_2,\boldsymbol{v}_1' \rangle}{\|\boldsymbol{v}_1'\|^2}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{v}_2'=\boldsymbol{v}_2-\frac{\langle \boldsymbol{v}_2,\boldsymbol{v}_1' \rangle}{\|\boldsymbol{v}_1'\|^2}\boldsymbol{v}_1'
+                    \]
+                </div>
+                <p>
+                    \(\boldsymbol{v}_3'=\boldsymbol{v}_3-x_{31}\boldsymbol{v}_1'-x_{32}\boldsymbol{v}_2'\) とおき、\(\langle \boldsymbol{v}_3',\boldsymbol{v}_1' \rangle = 0,~\langle \boldsymbol{v}_3',\boldsymbol{v}_2' \rangle = 0\) を解いて \(x_{31},x_{32}\) を求めます。
+                </p>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{v}_3'=\boldsymbol{v}_3-\frac{\langle \boldsymbol{v}_3,\boldsymbol{v}_1' \rangle}{\|\boldsymbol{v}_1'\|^2}\boldsymbol{v}_1'-\frac{\langle \boldsymbol{v}_3,\boldsymbol{v}_2' \rangle}{\|\boldsymbol{v}_2'\|^2}\boldsymbol{v}_2'
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>重積分の変数変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>重積分の変数変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ヤコビアン</h2>
+                <figure class="def">
+                    <figcaption>定義（ヤコビアン）</figcaption>
+                    <p class="indent">
+                        2変数 \(x,y\) と \(C^1\) 級関数 \(\phi(u,v),\psi(u,v)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        x=\phi(u,v),\quad y=\psi(u,v)
+                        \]
+                    </div>
+                    <p>
+                        という変数変換を定めるとき、行列式
+                    </p>
+                    <div class="math">
+                        \[
+                        J:=\frac{\partial (x,y)}{\partial (u,v)}=
+                        \begin{vmatrix}
+                        x_u & x_v\\
+                        y_u & y_v
+                        \end{vmatrix}
+                        =
+                        \begin{vmatrix}
+                        \phi_u(u,v) & \phi_v(u,v)\\
+                        \psi_u(u,v) & \psi_v(u,v)
+                        \end{vmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を写像 \((u,v)\mapsto (x,y)\) の<strong>ヤコビアン</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>重積分の変数変換</h2>
+                <figure class="th">
+                    <figcaption>定理（重積分の変数変換）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x,y)\) は領域 \(D\) 上で連続とする。
+                        \(C^1\) 級関数 \(\phi(u,v),\psi(u,v)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        x=\phi(u,v),\quad y=\psi(u,v)
+                        \]
+                    </div>
+                    <p>
+                        という変数変換を考える。
+                        この変換によって、\(D\) は \(uv\) 平面上の領域 \(E\) に対応するとする。
+                        この変換のヤコビアンを \(J\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        \iint_Df(x,y)dxdy = \iint_Ef(\phi(u,v),\psi(u,v))|J|dudv
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
