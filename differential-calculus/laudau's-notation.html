@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ランダウの記号</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ランダウの記号</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ランダウの記号の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（ランダウの漸近記法）</figcaption>
+                    <p class="indent">
+                        \(f(x),g(x)\) を \(x=a\) の近傍で定義されている関数とし、\(g(x)\neq0\) とする。
+                    </p>
+                    <div class="math">
+                        \[
+                        \limsup_{x\to a}\left|\frac{f(x)}{g(x)}\right|\lt\infty
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(x\to a\) において、\(f(x)\) は \(g(x)\) によって<strong>押さえられる</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        f(x)=O(g(x)) \quad (x\to a)
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                    <p class="math">
+                        また
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{x\to a}\left|\frac{f(x)}{g(x)}\right|=0
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(x\to a\) において、\(f(x)\) は \(g(x)\) に比べて<strong>無視できるほど小さい</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        f(x)=o(g(x)) \quad (x\to a)
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+                <p class="indent">
+                    例えば
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{x\to0}\frac{\sin x}{x}=1
+                    \]
+                </div>
+                <p>
+                    なので
+                </p>
+                <div class="math">
+                    \[
+                    \sin x=O(x)~~~(x\to0)
+                    \]
+                </div>
+                <p>
+                    です。
+                    これは \(x\to0\) において \(\sin x\) は \(x\) によって押さえられることを意味します。
+                </p>
+            </section>
+            <section id="2">
+                <h2>ランダウの記号の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（ランダウの記号の性質）</figcaption>
+                    <ol>
+                        <li>\(x^mo(x^n)=o(x^{m+n})\)</li>
+                        <li>\(o(x^m)o(x^n)=o(x^{m+n})\)</li>
+                        <li>\(\)</li>
+                    </ol>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
