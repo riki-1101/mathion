@@ -6,10 +6,15 @@
 
 body {
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", sans-serif;
-    font-size: medium;
     margin: 70px 0 0 0;
     padding: 0;
+    font-size: large;
     background-color: aliceblue;
+}
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
 }
 
 
@@ -60,7 +65,7 @@ ol li:before {
     left: 0;
     top: 0;
     width: 2em;        /* 2桁番号でも収まる幅 */
-    text-align: right; /* 右寄せにして見やすく */
+    text-align: center;
 }
 
 
@@ -68,7 +73,6 @@ ol li:before {
 :root {
     scroll-padding-top: 80px;
 }
-
 
 
 /* ヘッダーcss */
@@ -371,7 +375,7 @@ footer {
 /* figure全体 */
 #contents figure {
     margin: 1em 0;
-    padding: 1em 1.2em;
+    padding: 1em;
     border: 1px solid gray;
     border-radius: 4px;
     overflow-x: auto;
@@ -392,7 +396,7 @@ footer {
 
 /* 定義用 */
 .def {
-    background-color: #fff4e0; /* 柔らかいオレンジ系 */
+    background-color: #fff4e0;
 }
 .def p {
     margin: 0;
@@ -401,7 +405,7 @@ footer {
 
 /* 定理用 */
 .th {
-    background-color: #e0f7ff; /* 柔らかい青系 */
+    background-color: #e0f7ff;
 }
 .th p {
     margin: 0;
@@ -410,7 +414,7 @@ footer {
 
 /* 例用 */
 .ex {
-    background-color: #e0f7ff; /* 柔らかい青系 */
+    background-color: #e0f7ff;
 }
 .ex p {
     margin: 0;
@@ -431,13 +435,12 @@ footer {
     cursor: pointer;
     list-style: none; /* デフォルトの▶マークを消す */
     position: relative;
-    padding-left: 1.2em;
+    padding-left: 2em;
 }
 .pf summary::before {  /* summary の前にアイコン（▶ / ▼）をつける */
     content: "▶";
     position: absolute;
     left: 0;
-    transition: transform 0.2s ease;
 }
 .pf[open] summary::before {  /* 開いたときに矢印を下向きに */
     content: "▼";
@@ -475,13 +478,12 @@ footer {
     cursor: pointer;
     list-style: none; /* デフォルトの▶マークを消す */
     position: relative;
-    padding-left: 1.2em;
+    padding-left: 2em;
 }
 .ans summary::before {  /* summary の前にアイコン（▶ / ▼）をつける */
     content: "▶";
     position: absolute;
     left: 0;
-    transition: transform 0.2s ease;
 }
 .ans[open] summary::before {  /* 開いたときに矢印を下向きに */
     content: "▼";
