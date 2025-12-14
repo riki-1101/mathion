@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>離散型確率分布</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -15,58 +14,117 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>離散型確率変数</h2>
-                <h3>確率変数の例</h3>
-                <p>
-                    サイコロを１回振るとき（\(\Omega=\{1,2,3,4,5,6\}\)）
-                </p>
-                <p>
-                    出る目が奇数なら１、偶数なら０を値とする確率変数
-                    \[
-                    X(\omega)=
-                    \begin{cases}
-                    1 & (\omega=1,~3,~5)\\
-                    0 & (\omega=2,~4,~6)
-                    \end{cases}
-                    \]
-                    確率 \(P(X=1)\) は確率変数 \(X\) が \(1\) という値を取る確率を表しています。
-                </p>
             </section>
             <section id="2">
                 <h2>確率質量関数</h2>
                 <figure class="def">
                     <figcaption>定義（確率質量関数）</figcaption>
-                    <p>
-                        離散型確率変数 \(X\) に対して、次の性質を満たす関数 \(f(x)\) を \(X\) の<strong>確率質量関数</strong>という。
+                    <p class="indent">
+                        離散型確率変数 \(X\) に対して、次の性質を満たす関数 \(f_X(x)\) を \(X\) の<strong>確率質量関数</strong>という。
                     </p>
                     <ol>
-                        <li>\(f(x)=P(X=x) \quad (x\in\mathbb{R}) \)</li>
-                        <li>\(\forall x\in\mathbb{R},~f(x)\ge0\)</li>
-                        <li>\(\displaystyle\sum_xf(x)=1\)</li>
+                        <li>\(f_X(x)=P(X=x) \quad (x\in\mathbb{R}) \)</li>
+                        <li>\(\forall x\in\mathbb{R},~f_X(x)\ge0\)</li>
+                        <li>\(\displaystyle\sum_xf_X(x)=1\)</li>
                     </ol>
                 </figure>
+                <p></p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        ある街角のコーヒースタンドでは、次の4種類のコーヒーを販売している。
+                        このお店では、苦味が強いコーヒーはあまり売れず、甘めのコーヒーほど売れやすい傾向がある。
+                        以下に、各コーヒーの種類と苦味の強さ（大きいほど苦味が強い）を示す。
+                    </p>
+                    <table>
+                        <thead>
+                            <tr><th>コーヒーの種類</th><th>苦味の強さ</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>カフェラテ</td><td>\(1\)</td></tr>
+                            <tr><td>カプチーノ</td><td>\(2\)</td></tr>
+                            <tr><td>アメリカーノ</td><td>\(3\)</td></tr>
+                            <tr><td>エスプレッソ</td><td>\(4\)</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="indent">
+                        苦味の強さを \(X\) とする。
+                        あるコーヒーが注文される確率は、苦味の強さの逆数に比例するとして、確率質量関数を定数 \(a\) を用いて次のように定めた。
+                    </p>
+                    <div class="math">
+                        \[
+                        f_X(x)=P(X=x)=\frac{a}{x} \quad (x=1,2,3,4)
+                        \]
+                    </div>
+                    <ol>
+                        <li>定数 \(a\) の値を求めよ。</li>
+                        <li>エスプレッソが注文される確率を求めよ。</li>
+                        <li>カフェラテまたはカプチーノが注文される確率を求めよ。</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>
+                            <p>
+                                \(\displaystyle\sum_xf_X(x)=1\) であるから
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                &\sum_{x=1}^4\frac{a}{x}=1\\
+                                &\Longleftrightarrow a\sum_{x=1}^4\frac{1}{x}=1\\
+                                &\Longleftrightarrow a\left(\frac{1}{1}+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)=1\\
+                                &\Longleftrightarrow a\cdot\frac{25}{12}=1\\
+                                &\Longleftrightarrow a=\frac{12}{25}
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <p>
+                                (1)より \(f_X(x)=\displaystyle\frac{12}{25x}\) である。
+                                求める確率は
+                            </p>
+                            <div class="math">
+                                \[
+                                f_X(4)=\frac{12}{25\cdot4}=\frac{3}{25}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <p>
+                                求める確率は
+                            </p>
+                            <div class="math">
+                                \[
+                                f_X(1)+f_X(2)=\frac{12}{25\cdot1}+\frac{12}{25\cdot2}=\frac{18}{25}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </details>
             </section>
             <section id="3">
                 <h2>離散型確率変数の累積分布関数</h2>
-                <p>
+                <p class="indent">
                     離散型確率変数の累積分布関数は次式で表されます。
                 </p>
                 <div class="math">
                     \[
-                    F(x)=P(X\le x)=\sum_{k\le x}f(k)
+                    F_X(x)=P(X\le x)=\sum_{k\le x}f(k)
                     \]
                 </div>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <div class="ex">
-                    <div>問題</div>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
                     
-                </div>
+                </figure>
                 <details class="ans">
                     <summary>解答</summary>
-                    <div>
-                        
-                    </div>
+                    
                 </details>
             </section>
         </main>

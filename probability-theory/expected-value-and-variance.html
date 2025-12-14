@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>期待値と分散</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -16,37 +15,37 @@
             <section id="1">
                 <h2>期待値</h2>
                 <p class="indent">
-                    期待値とは、確率変数がどのくらいの値をとるのかを示す指標です。
+                    <strong>期待値</strong>とは、確率変数がどのくらいの値をとるのかを示す指標です。
                 </p>
                 <figure class="def">
                     <figcaption>定義（離散型確率変数の期待値）</figcaption>
                     <p class="indent">
-                        離散型確率変数 \(X\) の確率質量関数を \(f(x)\) とする。
+                        離散型確率変数 \(X\) の確率質量関数を \(f_X(x)\) とする。
                         このとき、関数 \(g\) に対して
                     </p>
                     <div class="math">
                         \[
-                        E[g(X)]=\sum_xg(x)f(x)
+                        E[g(X)]:=\sum_xg(x)f_X(x)
                         \]
                     </div>
                     <p>
-                        を \(g(X)\) の期待値という。
+                        を \(g(X)\) の<strong>期待値</strong>という。
                     </p>
                 </figure>
                 <p></p>
                 <figure class="def">
                     <figcaption>定義（連続型確率変数の期待値）</figcaption>
                     <p class="indent">
-                        連続型確率変数 \(X\) の確率密度関数を \(f(x)\) とする。
+                        連続型確率変数 \(X\) の確率密度関数を \(f_X(x)\) とする。
                         このとき、関数 \(g\) に対して
                     </p>
                     <div class="math">
                         \[
-                        E[g(X)]=\int_{-\infty}^\infty g(x)f(x)dx
+                        E[g(X)]:=\int_{-\infty}^\infty g(x)f_X(x)dx
                         \]
                     </div>
                     <p>
-                        を \(g(X)\) の期待値という。
+                        を \(g(X)\) の<strong>期待値</strong>という。
                     </p>
                 </figure>
                 <p class="indent">
@@ -66,32 +65,30 @@
                 <details class="pf">
                     <summary>証明</summary>
                     <p>
-                        ・\(X\) が離散型確率変数の場合<br>
-                        \(X\) の確率質量関数を \(f(x)\) とすると
+                        \(X\) が離散型確率変数の場合、\(X\) の確率質量関数を \(f_X(x)\) とすると
                     </p>
                     <div class="math">
-                        \(
+                        \[
                         \begin{align}
-                        E[aX+b]&=\sum_{x}(ax+b)f(x)\\
-                        &=\sum_{x}(axf(x)+bf(x))\\
-                        &=a\sum_{x}xf(x)+b\sum_{x}f(x)\\
+                        E[aX+b]&=\sum_{x}(ax+b)f_X(x)\\
+                        &=\sum_{x}(axf_X(x)+bf_X(x))\\
+                        &=a\sum_{x}xf_X(x)+b\sum_{x}f_X(x)\\
                         &=aE[X]+b
                         \end{align}
-                        \)
+                        \]
                     </div>
                     <p>
-                        ・\(X\) が連続型確率変数の場合<br>
-                        \(X\) の確率密度関数を \(f(x)\) とすると
+                        \(X\) が連続型確率変数の場合、\(X\) の確率密度関数を \(f(x)\) とすると
                     </p>
                     <div class="math">
-                        \(
+                        \[
                         \begin{align}
-                        E[aX+b]&=\int_{-\infty}^\infty(ax+b)f(x)dx\\
-                        &=\int_{-\infty}^\infty(axf(x)+bf(x))dx\\
-                        &=a\int_{-\infty}^\infty xf(x)dx+b\int_{-\infty}^\infty f(x)dx\\
+                        E[aX+b]&=\int_{-\infty}^\infty(ax+b)f_X(x)dx\\
+                        &=\int_{-\infty}^\infty(axf_X(x)+bf_X(x))dx\\
+                        &=a\int_{-\infty}^\infty xf_X(x)dx+b\int_{-\infty}^\infty f_X(x)dx\\
                         &=aE[X]+b
                         \end{align}
-                        \)
+                        \]
                     </div>
                 </details>
             </section>
@@ -104,14 +101,14 @@
                     </p>
                     <div class="math">
                         \[
-                        V[X]=E[(X-E[X])^2]
+                        V[X]:=E[(X-E[X])^2]
                         \]
                     </div>
                     <p>
-                        を \(X\) の分散という。
+                        を \(X\) の<strong>分散</strong>という。
                     </p>
                     <p class="indent">
-                        また、分散の正の平方根 \(\sqrt{V[X]}\) を標準偏差という。
+                        また、分散の正の平方根 \(\sqrt{V[X]}\) を<strong>標準偏差</strong>という。
                     </p>
                 </figure>
                 <p class="indent">
@@ -132,19 +129,19 @@
                     <ol>
                         <li>
                             <div class="math">
-                                \(
+                                \[
                                 \begin{align}
                                 V[X]&=E\left[(X-E[X])^2\right]\\
                                 &=E[X^2-2E[X]X+E[X]^2]\\
                                 &=E[X^2]-2E[X]\cdot E[X]+E[X]^2\\
                                 &=E[X^2]-E[X]^2
                                 \end{align}
-                                \)
+                                \]
                             </div>
                         </li>
                         <li>
                             <div class="math">
-                                \(
+                                \[
                                 \begin{align}
                                 V[aX+b]&=E[(aX+b)^2]-E[aX+b]^2\\
                                 &=E[a^2X^2+2abX+b^2]-(aE[X]+b)^2\\
@@ -153,7 +150,7 @@
                                 &=a^2(E[X^2]-E[X]^2)\\
                                 &=a^2V[X]
                                 \end{align}
-                                \)
+                                \]
                             </div>
                         </li>
                     </ol>
@@ -161,7 +158,7 @@
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     
                 </figure>
