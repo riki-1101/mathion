@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>混合ガウスモデル</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>混合ガウスモデル</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>混合ガウスモデル</h2>
+                <figure class="def">
+                    <figcaption>定義（混合ガウスモデル）</figcaption>
+                    <p class="indent">
+                        \(K\) 個の多変量正規分布 \(\mathcal{N}(\boldsymbol{\mu}_k,\Sigma_k)~(k=1,2,\cdots,K)\) に対して、それぞれの確率密度関数を \(\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}_k,\Sigma_k)\) とする。
+                        このとき、重み
+                    </p>
+                    <div class="math">
+                        \[
+                        \pi_{k}\in[0,1],\quad \sum_{k=1}^K\pi_k=1
+                        \]
+                    </div>
+                    <p>
+                        を用いて
+                    </p>
+                    <div class="math">
+                        \[
+                        p(\boldsymbol{x})=\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}_k,\Sigma_k)
+                        \]
+                    </div>
+                    <p>
+                        という確率密度関数を定めるモデルを<strong>混合ガウスモデル</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
