@@ -340,7 +340,7 @@ footer {
     border-left: 8px solid darkblue;
 }
 #contents h2 {
-    margin: 20px 0;
+    margin: 1em 0;
     font-family: sans-serif;
     padding: 8px 14px;
     background-color: #e6f0ff;
@@ -374,7 +374,7 @@ footer {
 
 /* figure全体 */
 #contents figure {
-    margin: 1em 0;
+    margin: 1.5em 0;
     padding: 1em;
     border: 1px solid gray;
     border-radius: 4px;
