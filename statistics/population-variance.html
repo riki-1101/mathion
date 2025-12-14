@@ -100,6 +100,84 @@
             </section>
             <section id="2">
                 <h2>母分散の区間推定</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        ある学生が毎朝の通学時間（分）を \(20\) 日間記録し、その不偏分散は \(6.89~\text{分}^2\) だった。
+                        このとき、通学時間の母分散の \(95\%\) 信頼区間を求めよ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    母分散の区間推定なので、母分散を \(\sigma^2\) 、標本数を \(n\) 、不偏分散を \(U^2\) とした次の統計量を用います。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{(n-1)U^2}{\sigma^2}\sim\chi^2(n-1)
+                    \]
+                </div>
+                <p class="indent">
+                    分布 \(\chi^2(n-1)\) の上側 \(100\alpha\%\) 点を \(\chi^2_{U(\alpha)}(n-1)\) 、下側 \(100\alpha\%\) 点を \(\chi^2_{L(\alpha)}(n-1)\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    P\left(\chi^2_{L(\frac{\alpha}{2})}(n-1)\le\frac{(n-1)U^2}{\sigma^2}\le \chi^2_{U(\frac{\alpha}{2})}(n-1)\right)=1-\alpha
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    \(95\%\) 信頼区間を求めたいので、\(1-\alpha=0.95\) より \(\alpha=0.05\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    P\left(\chi^2_{L(0.025)}(n-1)\le\frac{(n-1)U^2}{\sigma^2}\le \chi^2_{U(0.025)}(n-1)\right)=0.95
+                    \]
+                </div>
+                <p>
+                    不等式を \(\sigma^2\) について解くと
+                </p>
+                <div class="math">
+                    \[
+                    P\left(\frac{(n-1)U^2}{\chi^2_{U(0.025)}(n-1)}\le\sigma^2\le\frac{(n-1)U^2}{\chi^2_{L(0.025)}(n-1)}\right)=0.95
+                    \]
+                </div>
+                <p>
+                    したがって、母分散 \(\sigma^2\) の \(95\%\) 信頼区間は
+                </p>
+                <div class="math">
+                    \[
+                    \left[\frac{(n-1)u^2}{\chi^2_{U(0.025)}(n-1)}, \frac{(n-1)u^2}{\chi^2_{L(0.025)}(n-1)}\right]
+                    \]
+                </div>
+                <p>
+                    となります。
+                    \(n=20\) 、\(u^2=6.89\) を代入すると
+                </p>
+                <div class="math">
+                    \[
+                    \left[\frac{19\cdot 6.89}{\chi^2_{U(0.025)}(19)}, \frac{19\cdot 6.89}{\chi^2_{L(0.025)}(19)}\right]
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \left[\frac{130.91}{\chi^2_{U(0.025)}(19)}, \frac{130.91}{\chi^2_{U(0.975)}(19)}\right]
+                    \]
+                </div>
+                <p>
+                    カイ二乗分布のパーセント点表より
+                </p>
+                <div class="math">
+                    \[
+                    \left[\frac{130.91}{32.85}, \frac{130.91}{8.91}\right]
+                    \]
+                </div>
+                <p>
+                    したがって、求める信頼区間は
+                </p>
+                <div class="math">
+                    \[
+                    [3.99, 14.69]
+                    \]
+                </div>
             </section>
             <section id="3">
                 <h2>母分散の検定</h2>
@@ -107,7 +185,7 @@
                     <figcaption>例題</figcaption>
                     <p class="indent">
                         あるネジ工場では、ネジの直径のばらつき（分散）が \(0.01~\mathrm{mm^2}\) 以下であることを品質基準にしている。
-                        ランダムに \(20\) 本のネジを測定したところ、標本分散は \(0.018~\mathrm{mm^2}\) だった。
+                        ランダムに \(20\) 本のネジを測定したところ、不偏分散は \(0.018~\mathrm{mm^2}\) だった。
                         このとき、ばらつきは許容範囲を超えていると言えるか。
                         有意水準 \(5\%\) で判断せよ。
                     </p>
@@ -133,7 +211,7 @@
                     と仮定します。
                 </p>
                 <p class="indent">
-                    本問では有意水準 \(\alpha\) は \(5\%\) と与えられているので
+                    有意水準 \(\alpha\) は \(5\%\) と与えられているので
                 </p>
                 <div class="math">
                     \[
@@ -143,7 +221,7 @@
                 <p>
                     です。
                 </p>
-                <p>
+                <p class="indent">
                     母分散の検定統計量は
                 </p>
                 <div class="math">
@@ -155,12 +233,12 @@
                     となります。
                 </p>
                 <p>
-                    右側検定なので、\(\chi^2(19)\) の上側 \(5\%\) 点 \(\chi^2_{0.05}(19)\) を求めます。
+                    右側検定なので、\(\chi^2(19)\) の上側 \(5\%\) 点 \(\chi^2_{U(0.05)}(19)\) を求めます。
                     カイ二乗分布のパーセント点表より
                 </p>
                 <div class="math">
                     \[
-                    \chi^2_{0.05}(19)=30.14
+                    \chi^2_{U(0.05)}(19)=30.14
                     \]
                 </div>
                 <p>
