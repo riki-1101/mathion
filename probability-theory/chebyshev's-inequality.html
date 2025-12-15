@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>チェビシェフの不等式</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -71,8 +70,8 @@
                     </ol>
                 </details>
                 <p class="indent">
-                    例えば、ある非負の確率変数 \(X\) に対して、\(P(X\ge20)\) が知りたいとします。<br>
-                    しかし、\(X\) が従う確率分布がわかりません。<br>
+                    例えば、ある非負の確率変数 \(X\) に対して、\(P(X\ge20)\) が知りたいとします。
+                    しかし、\(X\) が従う確率分布がわかりません。
                     一方で、期待値 が \(E[X]=5\) とわかっていれば、マルコフの不等式より
                 </p>
                 <div class="math">
@@ -83,8 +82,8 @@
                 <p>
                     のように、\(X\) が \(20\) 以上の値を取る確率は \(25\%\) 以下であると評価できます。
                 </p>
-                <p>
-                    このように、マルコフの不等式は、分布はわからないが期待値がわかっているとき、確率をざっくり上から見積もることができます。
+                <p class="indent">
+                    このように、マルコフの不等式は、分布がわからなくても期待値がわかれば、確率をざっくり上から見積もることができます。
                 </p>
             </section>
             <section id="2">
@@ -103,6 +102,35 @@
                         が成り立つ。
                     </p>
                 </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        \((X-\mu)^2\ge0\) と \(k^2\sigma^2\gt0\) に対して、マルコフの不等式より
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        P((X-\mu)^2\ge k^2\sigma^2)
+                        &\le\frac{E[(X-\mu)^2]}{k^2\sigma^2}\\
+                        &=\frac{V[X]}{k^2\sigma^2}\\
+                        &=\frac{\sigma^2}{k^2\sigma^2}\\
+                        &=\frac{1}{k^2}
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        したがって
+                    </p>
+                    <div class="math">
+                        \[
+                        P(|X-\mu|\ge k\sigma)\le\frac{1}{k^2}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                    </ol>
+                </details>
                 <p class="indent">
                     また、\(\varepsilon=k\sigma\) とおいたもの
                 </p>
