@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>連立一次方程式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>連立一次方程式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>連立一次方程式の行列表現</h2>
+                <figure class="def">
+                    <figcaption>定義（係数行列・拡大係数行列）</figcaption>
+                    <p class="indent">
+                        連立一次方程式
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{cases}
+                        a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1\\
+                        a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2\\
+                        \quad\vdots\\
+                        a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n=b_m
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        に対して、係数を並べた行列
+                    </p>
+                    <div class="math">
+                        \[
+                        A=
+                        \begin{bmatrix}
+                        a_{11} & a_{12} & \cdots & a_{1n} \\
+                        a_{21} & a_{22} & \cdots & a_{2n} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        a_{m1} & a_{m2} & \cdots & a_{mn}
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>係数行列</strong>という。
+                        このとき、ベクトル \(\boldsymbol{x},\boldsymbol{b}\) を
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{x}=
+                        \begin{bmatrix}
+                        x_1 \\ x_2 \\ \vdots \\ x_n
+                        \end{bmatrix}
+                        ,\quad
+                        \boldsymbol{b}=
+                        \begin{bmatrix}
+                        b_1 \\ b_2 \\ \vdots \\ b_n
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        とおくと、連立一次方程式は
+                    </p>
+                    <div class="math">
+                        \[
+                        A\boldsymbol{x}=\boldsymbol{b}
+                        \]
+                    </div>
+                    <p>
+                        と表せる。
+                        また、\(A\) と \(\boldsymbol{b}\) を合わせた行列
+                    </p>
+                    <div vlass="math">
+                        \[
+                        (A|\boldsymbol{b})=
+                        \left[
+                        \begin{array}{cccc|c}
+                        a_{11} & a_{12} & \cdots & a_{1n} & b_1\\
+                        a_{21} & a_{22} & \cdots & a_{2n} & b_2\\
+                        \vdots & \vdots & \ddots & \vdots & \vdots\\
+                        a_{m1} & a_{m2} & \cdots & a_{mn} & b_m
+                        \end{array}
+                        \right]
+                        \]
+                    </div>
+                    <p>
+                        を<strong>拡大係数行列</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>連立一次方程式の解の分類</h2>
+                <figure class="th">
+                    <figcaption>定理（連立一次方程式の解の分類）</figcaption>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>クラメールの公式</h2>
+                <figure class="th">
+                    <figcaption>定理（クラメールの公式）</figcaption>
+                    <p class="indent">
+                        解 \(x_i\) は \(A\) の第 \(i\) 列を \(\boldsymbol{b}\) で置き換えた行列の行列式を用いて
+                    </p>
+                    <div class="math">
+                        \[
+                        x_i=\frac{1}{\det A}
+                        \begin{vmatrix}
+                        a_{11} & \cdots & a_{1.i-1} & b_1 & a_{1.i+1} & \cdots & a_{1n}\\
+                        a_{21} & \cdots & a_{2.i-1} & b_2 & a_{2.i+1} & \cdots & a_{2n}\\
+                        \vdots & & \vdots & \vdots & \vdots & & \vdots\\
+                        a_{n1} & \cdots & a_{n.i-1} & b_1 & a_{n.i+1} & \cdots & a_{nn}
+                        \end{vmatrix}
+                        \]
+                    </div>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
