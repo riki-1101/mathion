@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>漸近展開</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>漸近展開</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>漸近展開の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（漸近関数列）</figcaption>
+                    <p class="indent">
+                        関数列 \(\{\phi_n(x)\}\) が条件
+                    </p>
+                    <div class="math">
+                        \[
+                        \phi_{n+1}(x)=o(\phi_n(x)) \quad (x\to a)
+                        \]
+                    </div>
+                    <p>
+                        を満たすとき、\(\{\phi_n(x)\}\) を \(x\to a\) での<strong>漸近関数列</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    つまり、\(x\to a\) において \(\phi_{n+1}(x)\) は \(\phi_n(x)\) に比べて無視できるほど小さいということです。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（漸近展開）</figcaption>
+                    <p class="indent">
+                        \(f(x)\) を区間 \(I\) 上で定義された関数とする。
+                        任意の \(a\in I\) 、漸近関数列 \(\{\phi_n(x)\}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(x)=\sum_{k=0}^n\phi_k(x)+o(\phi_n(x)) \quad (x\to a)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(f\) は \(x\to a\) において \(\{\phi_n(x)\}\) に関して<strong>漸近展開可能</strong>であるといい
+                    </p>
+                    <div class="math">
+                        \[
+                    f(x)\sim\sum_{n=0}^\infty\phi_n(x) \quad (x\to a)
+                    \]
+                    </div>
+                    <p>
+                        を \(f(x)\) の \(x\to a\) における \(\{\phi_n(x)\}\) に関する<strong>漸近展開</strong>、右辺を<strong>漸近級数</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
