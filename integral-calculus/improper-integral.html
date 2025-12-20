@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>広義積分</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>広義積分</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>有界でない関数の積分</h2>
+                <figure class="def">
+                    <figcaption>定義（広義積分）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) は区間 \((a,b]\) で連続で、\(a\) の近くで有界でないとする。
+                        任意の \(c\in(a,b)\) に対して、\(f(x)\) は区間 \([c,b]\) 上で有界かつ可積分であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \int_a^b f(x)dx:=\lim_{c\to a+0}\int_c^b f(x)dx
+                        \]
+                    </div>
+                    <p>
+                        とし、この極限が有限値に収束するならば、\(f(x)\) は区間 \((a,b]\) 上で<strong>広義積分可能</strong>であるという。
+                    </p>
+                    <p class="indent">
+                        また、\(f\) が \([a,b)\) で連続で、\(b\) の近くで有界でないとき
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        定積分 \(\displaystyle\int_0^1\log xdx\) を求めよ。
+                        ただし、\(\displaystyle\lim_{x\to0}x\log x=0\) を用いてよい。
+                    </p>
+                </figure>
+                <p class="indent">
+                    被積分関数は \(x=0\) の近くで有界でないから、この積分は広義積分です。
+                    \(a\in(0,1)\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \int_a^1\log xdx&=[x\log x-x]_a^1\\
+                    &=-1-a\log a+a
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{a\to+0}\int_a^1\log xdx=-1
+                    \]
+                </div>
+                <p>
+                    であるから、広義積分可能であり
+                </p>
+                <div class="math">
+                    \[
+                    \int_0^1\log xdx=-1
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>無限区間での積分</h2>
+                <figure class="def">
+                    <figcaption>定義（広義積分）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) は区間 \([a,\infty)\) 上で連続であるとする。任意の \(R\gt a\) に対して、\([a,R]\) 上で可積分であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \int_a^\infty f(x)dx:=\lim_{R\to\infty}\int_a^R f(x)dx
+                        \]
+                    </div>
+                    <p>
+                        とし、この極限が有限値に収束するならば、\(f(x)\) は区間 \([a,\infty)\) 上で<strong>広義積分可能</strong>であるという。
+                    </p>
+                    <p class="indent">
+                        また、\(f(x)\) が 区間 \((-\infty,b]\) 上の連続関数である場合も同様に定義する。
+                    </p>
+                    <div class="math">
+                        \[
+                        \int_{-\infty}^b f(x)dx:=\lim_{R\to-\infty}\int_R^b f(x)dx
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <div class="article">
+                    積分
+                    \[
+                    \int_{-\infty}^\infty f(x)dx=\lim_{a\to{-\infty}}\lim_{b\to\infty}\int_a^b f(x)dx
+                    \]
+                    として計算しなければならない。
+                </div>
+                <p></p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        定積分 \(\displaystyle\int_0^\infty\frac{1}{(1+x)^3}dx\) を求めよ。
+                    </p>
+                </figure>
+                <p>
+                    \(R\gt0\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \int_0^R\frac{1}{(1+x)^3}dx
+                    &=\int_0^R(1+x)^{-3}dx\\
+                    &=\left[-\frac{1}{2}(1+x)^{-2}\right]_0^R\\
+                    &=-\frac{1}{2(1+R)^2}+\frac{1}{2}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{R\to\infty}\int_0^R\frac{1}{(1+x)^3}dx=\frac{1}{2}
+                    \]
+                </div>
+                <p>
+                    であるから、広義積分可能であり
+                </p>
+                <div class="math">
+                    \[
+                    \int_0^\infty\frac{1}{(1+x)^3}dx=\frac{1}{2}
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        次の積分を求めよ。
+                    </p>
+                    <ol>
+                        <li>\(\displaystyle\int_0^2\frac{1}{\sqrt{4-x^2}}dx\)</li>
+                        <li>\(\displaystyle\int_0^\infty xe^{-x^2}dx\)</li>
+                        <li>\(\displaystyle\int_{-\infty}^\infty\frac{1}{x^2+x+1}dx\)</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>
+                            <p>
+                                \(a\gt0\) とする。
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \int_0^a\frac{1}{\sqrt{4-x^2}}dx
+                                &=
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <p>
+                                \(R\gt0\) とする。
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \int_0^Rxe^{-x^2}dx
+                                &=-\frac{1}{2}\int_0^R(-x^2)'e^{-x^2}dx\\
+                                &=-\frac{1}{2}\left[e^{-x^2}\right]_0^R\\
+                                &=-\frac{1}{2}e^{-R^2}+\frac{1}{2}
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                よって
+                            </p>
+                            <div class="math">
+                                \[
+                                \lim_{R\to\infty}\int_0^Rxe^{-x^2}dx=\frac{1}{2}
+                                \]
+                            </div>
+                            <p>
+                                であるから、広義積分可能であり
+                            </p>
+                            <div class="math">
+                                \[
+                                \int_0^\infty xe^{-x^2}dx=\frac{1}{2}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <p>
+                                \(a,b\in\mathbb{R}~~(a\lt b)\) とする。
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \int_a^b\frac{1}{x^2+x+1}dx
+                                &=\int_a^b\frac{1}{\left(x+\frac{1}{2}\right)^2+\frac{3}{4}}dx\\
+                                &=\left[\frac{2}{\sqrt{3}}\arctan{\frac{2x+1}{\sqrt{3}}}\right]_a^b\\
+                                &=\frac{2}{\sqrt{3}}\left(\arctan{\frac{2b+1}{\sqrt{3}}}-\arctan{\frac{2a+1}{\sqrt{3}}}\right)
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                よって
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \lim_{a\to{-\infty}}\lim_{b\to\infty}\int_a^b\frac{1}{x^2+x+1}dx&=\frac{2}{\sqrt{3}}\left(\frac{\pi}{2}+\frac{\pi}{2}\right)\\
+                                &=\frac{2\pi}{\sqrt{3}}
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                であるから、広義積分可能であり
+                            </p>
+                            <div class="math">
+                                \[
+                                \int_{-\infty}^\infty\frac{1}{x^2+x+1}dx=\frac{2\pi}{\sqrt{3}}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
