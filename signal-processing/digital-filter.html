@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ディジタルフィルタ</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ディジタルフィルタ</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ディジタルフィルタの設計法</h2>
+                <p class="indent">
+                    ここでは、アナログフィルタからディジタルフィルタに変換する方法を学びます。
+                    方法には、インパルス不変法と双一次変換があります。
+                </p>
+            </section>
+            <section id="2">
+                <h2>インパルス不変法</h2>
+                <p class="indent">
+                    アナログフィルタの伝達関数を \(H_A(s)\) とし、部分分数分解をした結果が次のようになったとします。
+                </p>
+                <div class="math">
+                    \[
+                    H_A(s)=\sum_k\frac{a_k}{s-s_k}
+                    \]
+                </div>
+                <p>
+                    これを逆ラプラス変換すると
+                </p>
+                <div class="math">
+                    \[
+                    h_A(t)=\mathscr{L}^{-1}[H_A(s)]=\sum_ka_k\mathscr{L}^{-1}\left[\frac{1}{s-s_k}\right]
+                    =\sum_ka_ke^{s_kt}
+                    \]
+                </div>
+                <p>
+                    サンプリング周期 \(T_s\) でサンプリングすると
+                </p>
+                <div class="math">
+                    \[
+                    h[n]=h_A(nT_s)=\sum_ka_ke^{s_knT_s}
+                    \]
+                </div>
+                <p>
+                    これをz変換すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    H(z)&=\mathcal{Z}[h[n]]=\sum_{n=0}^\infty h[n]z^{-n}\\
+                    &=\sum_{n=0}^\infty \sum_ka_ke^{s_knT_s}z^{-n}\\
+                    &=\sum_ka_k\sum_{n=0}^\infty (e^{s_kT_s}z^{-1})^n\\
+                    &=\sum_k\frac{a_k}{1-e^{s_kT_s}z^{-1}}
+                    \end{align}
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>双一次変換</h2>
+                <p class="indent">
+                    アナログシステムで、入力信号を \(x(t)\) 、出力信号を \(y(t)\) として
+                </p>
+                <div class="math">
+                    \[
+                    y(t)=\int_0^tx(t)dt
+                    \]
+                </div>
+                <p>
+                    と表されるシステムを考えます。
+                    この両辺をラプラス変換すると
+                </p>
+                <div class="math">
+                    \[
+                    Y(s)=\frac{1}{s}X(s)
+                    \]
+                </div>
+                <p>
+                    となり、アナログの伝達関数 \(H_A(s)\) は
+                </p>
+                <div class="math">
+                    \[
+                    H_A(s)=\frac{Y(s)}{X(s)}=\frac{1}{s}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <p class="indent">
+                    このシステムを離散化するために、時間区間 \([nT_s,(n+1)T_s]\) で積分を考えます。
+                    台形則より
+                </p>
+                <div class="math">
+                    \[
+                    \int_{nT_s}^{(n+1)T_s}x(t)dt \approx \frac{T_s}{2}\{x(nT_s)+x((n+1)T_s)\}
+                    \]
+                </div>
+                <p>
+                    という近似を用います。
+                </p>
+                <div class="math">
+                    \[
+                    y((n+1)T_s)-y(nT_s) \approx \frac{T_s}{2}\{x(nT_s)+x((n+1)T_s)\}
+                    \]
+                </div>
+                <p>
+                    よって、\(x[n]=x(nT_s),~y[n]=y(nT_s)\) として、次の差分方程式を考えることにします。
+                </p>
+                <div class="math">
+                    \[
+                    y[n+1]-y[n] = \frac{T_s}{2}(x[n]+x[n+1])
+                    \]
+                </div>
+                <p>
+                    この両辺をz変換すると
+                </p>
+                <div class="math">
+                    \[
+                    zY(z)-Y(z) = \frac{T_s}{2}(X(z)+zX(z))
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    (z-1)Y(z) = \frac{T_s}{2}(1+z)X(z)
+                    \]
+                </div>
+                <p>
+                    よって、ディジタルの伝達関数 \(H_D(z)\) は
+                </p>
+                <div class="math">
+                    \[
+                    H_D(z)=\frac{Y(z)}{X(z)}=\frac{T_s}{2}\frac{1+z}{z-1}=\frac{T_s}{2}\frac{1+z^{-1}}{1-z^{-1}}
+                    \]
+                </div>
+                <p class="indent">
+                    アナログの伝達関数 \(H_A(s)\) とディジタルの伝達関数 \(H_D(z)\) が等しいとすると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{1}{s}=\frac{T_s}{2}\frac{1+z^{-1}}{1-z^{-1}}
+                    \]
+                </div>
+                <p>
+                    となり
+                </p>
+                <div class="math">
+                    \[
+                    s=\frac{2}{T_s}\frac{1-z^{-1}}{1+z^{-1}}
+                    \]
+                </div>
+                <p>
+                    という変換を得ます。
+                    これを<strong>双一次変換</strong>といいます。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

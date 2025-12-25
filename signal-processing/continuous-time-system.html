@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>連続時間システム</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>連続時間システム</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>インパルス応答</h2>
+                <p class="indent">
+                    単位インパルス信号 \(\delta(t)\) をシステムに入力したときの出力を<strong>インパルス応答</strong>といい、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（インパルス応答）</figcaption>
+                    <p class="indent">
+                        システム \(\mathcal{S}\) と単位インパルス信号 \(\delta(t)\) に対して
+                    </p>
+                    <div class=math>
+                        \[
+                        h(t):=\mathcal{S}\{\delta(t)\}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>インパルス応答</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>線形時不変システム</h2>
+                <p class="indent">
+                    任意の入力信号 \(x(t)\) は単位インパルス信号 \(\delta(t)\) を用いて
+                </p>
+                <div class="math">
+                    \[
+                    x(t)=\int_{-\infty}^\infty x(\tau)\delta(t-\tau)d\tau
+                    \]
+                </div>
+                <p>
+                    と表せます。
+                </p>
+                <p class="indent">
+                    システム \(\mathcal{S}\) を線形時不変システムとするとき、入力信号 \(x(t)\) に対する出力信号 \(y(t)\) は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    y(t)&=\mathcal{S}\{x(t)\}\\
+                    &=\mathcal{S}\left\{\int_{-\infty}^\infty x(\tau)\delta(t-\tau)d\tau\right\}\\
+                    &=\int_{-\infty}^\infty x(\tau)\mathcal{S}\{\delta(t-\tau)\}d\tau \quad (\because \text{線形時不変システムの線形性})
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    ここで、インパルス応答を \(h(t)\) とすると、\(\mathcal{S}\) の時不変性より
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{S}\{\delta(t-\tau)\}=h(t-\tau)
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    y(t)&=\int_{-\infty}^\infty x(\tau)\mathcal{S}\{\delta(t-\tau)\}d\tau\\
+                    &=\int_{-\infty}^\infty x(\tau)h(t-\tau)d\tau\\
+                    &=x(t)*h(t)\\
+                    &=h(t)*x(t)
+                    \end{align}
+                    \]
+                </div>
+                <figure class="th">
+                    <figcaption>定理（線形時不変システムの入出力関係）</figcaption>
+                    <p class="indent">
+                        線形時不変システムにおいて、インパルス応答を \(h(t)\) とすると、入力信号 \(x(t)\) に対する出力信号 \(y(t)\) は
+                    </p>
+                    <div class="math">
+                        \[
+                        y(t)=h(t)*x(t)
+                        \]
+                    </div>
+                    <p>
+                        と表せる。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>連続時間システムの伝達関数</h2>
+                <p class="indent">
+                    前節より、線形時不変システムでは、信号 \(x(t)\) を入力したときの出力信号 \(y(t)\) は、インパルス応答 \(h(t)\) を用いて
+                </p>
+                <div class="math">
+                    \[
+                    y(t)=h(t)*x(t)
+                    \]
+                </div>
+                <p>
+                    と表せることを学びました。
+                    この両辺をラプラス変換すると
+                </p>
+                <div class="math">
+                    \[
+                    Y(s)=H(s)X(s)
+                    \]
+                </div>
+                <p>
+                    となります。
+                    このとき
+                </p>
+                <div class="math">
+                    \[
+                    H(s)=\frac{Y(s)}{X(s)}
+                    \]
+                </div>
+                <p>
+                    を連続時間線形時不変システムの<strong>伝達関数</strong>といいます。
+                </p>
+            </section>
+            <section id="4">
+                <h2>周波数応答</h2>
+                <p class="indent">
+                    線形時不変（LTI）システムの伝達関数 \(H(s)\) に
+                </p>
+                <div class="math">
+                    \[
+                    H(s)=\mathscr{L}[h(t)]=\int_0^\infty h(t)e^{-st}dt
+                    \]
+                </div>
+                <p>
+                    と書けるので、\(s=j\omega\) を代入すると
+                </p>
+                <div class="math">
+                    \[
+                    H(j\omega)=\int_0^\infty h(t)e^{-j\omega t}dt
+                    \]
+                </div>
+                <p>
+                    となり、これは（因果信号の）フーリエ変換になっています。
+                    つまり、\(H(j\omega)\) を調べれば周波数解析が可能だということです。
+                    この \(H(j\omega)\) を<strong>周波数応答</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（周波数応答）</figcaption>
+                    <p class="indent">
+                        線形時不変システムの伝達関数 \(H(s)\) に対して、\(s=j\omega\) を代入したもの
+                    </p>
+                    <div class="math">
+                        \[
+                        H(j\omega)
+                        \]
+                    </div>
+                    <p>
+                        を<strong>周波数応答</strong>という。
+                    </p>
+                    <p class="indent">
+                        また、\(|H(j\omega)|\) を<strong>振幅特性</strong>といい、\(\angle H(j\omega)\) を<strong>位相特性</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="5">
+                <h2>群遅延</h2>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
