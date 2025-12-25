@@ -51,21 +51,19 @@
                 </p>
                 <figure class="def">
                     <figcaption>定義（正規化角周波数）</figcaption>
-                    <p>
-                        角周波数を \(\Omega\) とする。
-                        １サンプル当たりの位相変化量
+                    <p class="indent">
+                        角周波数を \(\Omega \;[\mathrm{rad/sec}]\) 、サンプリング周期を \(T_s \;[\mathrm{sec/sample}]\) とする。
+                        このとき、１サンプル当たりの位相変化量
                     </p>
                     <div class="math">
                         \[
-                        \omega = \Omega \cdot T_s
+                        \omega := \Omega T_s \;[\mathrm{rad/sample}]
                         \]
                     </div>
+                    <p>
+                        を<strong>正規化角周波数</strong>という。
+                    </p>
                 </figure>
-                <div class="math">
-                    \[
-                    \omega \;[\mathrm{rad/sample}] = \Omega \;[\mathrm{rad/sec}] \cdot T_s \;[\mathrm{sec/sample}] = \frac{\Omega}{F_s}
-                    \]
-                </div>
                 <p>
                     つまり、\(\omega\) は「連続時間の周波数 \(\Omega\) をサンプリング周波数 \(F_s = 1/T_s\) で割ったもの」であり、離散時間の世界で自然に使える周波数軸になります。
                 </p>
