@@ -3,64 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>線形回帰とは</title>
+        <title>線形回帰</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
         <main id="contents">
-            <h1>線形回帰とは</h1>
+            <h1>線形回帰</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>問題の定式化</h2>
+                <h2>線形回帰の定式化</h2>
                 <p class="indent">
                     データの個数を \(N\) とします。
-                    入力ベクトルを \(\boldsymbol{x}_n\in\mathbb{R}^D\) とし、これに対応する目標値を \(y_n\in\mathbb{R}\) として、データセット \(\mathcal{D}\) を次のように与えます。
+                    入力ベクトルを \(\boldsymbol{x}_i\in\mathbb{R}^d\) とし、これに対応する目標値を \(y_i\in\mathbb{R}\) として、データセット \(\mathcal{D}\) を与えます。
                 </p>
                 <div class="math">
                     \[
-                    \mathcal{D}=\{(\boldsymbol{x}_1,y_1),(\boldsymbol{x}_2,y_2),\cdots,(\boldsymbol{x}_N,y_N)\}
+                    \mathcal{D}=\{(\boldsymbol{x}_i,y_i) ~|~\boldsymbol{x}_i\in\mathbb{R}^d,~y_i\in\mathbb{R}\}_{i=1}^N
                     \]
                 </div>
-                <p>
-                    この \(\mathcal{D}\) から入力ベクトルを取り出して、入力の集合として
-                </p>
-                <div class="math">
-                    \[
-                    \mathcal{X}:=\{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_N\}
-                    \]
-                </div>
-                <p>
-                    を定めます。
-                    同様に、目標値の集合として
-                </p>
-                <div class="math">
-                    \[
-                    \mathcal{Y}:=\{y_1,y_2,\cdots,y_N\}
-                    \]
-                </div>
-                <p>
-                    を定めます。
-                </p>
                 <p>
                     次のモデルを考えます。
                 </p>
                 <div class="math">
                     \[
-                    y_n=f(\boldsymbol{x}_n)+\epsilon,\quad \epsilon\sim\mathcal{N}(0,\sigma^2)
+                    y_i=f(\boldsymbol{x}_i)+\varepsilon_i,~~~\varepsilon_i\sim\mathcal{N}(0,\sigma^2) \quad (i=1,\cdots,N)
                     \]
                 </div>
                 <p>
-                    これは、入力 \(\boldsymbol{x}_n\) に対する出力 \(y_n\) は、真の関数 \(f(\boldsymbol{x}_n)\) にノイズ（誤差）\(\epsilon\) を加えたものであるとするものです。
+                    これは、入力 \(\boldsymbol{x}_i\) に対する出力 \(y_i\) は、真の関数 \(f(\boldsymbol{x}_i)\) にノイズ（誤差）\(\varepsilon_i\) を加えたものであるとするものです。
                 </p>
                 <p>
                     このとき、正規分布の性質より
                 </p>
                 <div class="math">
                     \[
-                    y_n\sim\mathcal{N}(f(\boldsymbol{x}_n),\sigma^2)
+                    y_i\sim\mathcal{N}(f(\boldsymbol{x}_i),\sigma^2)
                     \]
                 </div>
                 <p>
@@ -69,11 +48,11 @@
                 <figure class="def">
                     <figcaption>定義（線形回帰）</figcaption>
                     <p class="indent">
-                        目的変数 \(y\) を予測するモデル関数 \(f(\boldsymbol{x})\) を
+                        目的変数 \(y\) を予測するモデル関数 \(f(\boldsymbol{x};\boldsymbol{\theta})\) を
                     </p>
                     <div class="math">
                         \[
-                        f(\boldsymbol{x}_n)=\boldsymbol{x}_n^\top\boldsymbol{\theta}
+                        f(\boldsymbol{x}_i;\boldsymbol{\theta})=\boldsymbol{x}_i^\top\boldsymbol{\theta}
                         \]
                     </div>
                     <p>
@@ -81,7 +60,7 @@
                     </p>
                     <div class="math">
                         \[
-                        y_n=\boldsymbol{x}_n^\top\boldsymbol{\theta}+\epsilon
+                        y_i=\boldsymbol{x}_i^\top\boldsymbol{\theta}+\varepsilon_i
                         \]
                     </div>
                     <p>
@@ -92,9 +71,78 @@
                     
                 </p>
             </section>
+            <section id="2">
+                <h2>線形回帰の勾配降下法</h2>
+                <p class="indent">
+                    線形回帰では、損失として<strong>二乗誤差損失</strong>を用います。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    l_i(y_i,f(\boldsymbol{x}_i;\boldsymbol{w}))
+                    &=(y_i-f(\boldsymbol{x}_i;\boldsymbol{w}))^2\\
+                    &=(y_i-\boldsymbol{x}_i^\top\boldsymbol{w})^2
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    損失関数は平均損失として
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    L(\boldsymbol{w})
+                    &=\frac{1}{N}\sum_{i=1}^N l_i(y_i,f(\boldsymbol{x}_i;\boldsymbol{w}))\\
+                    &=\frac{1}{N}\sum_{i=1}^N (y_i-\boldsymbol{x}_i^\top\boldsymbol{w})^2
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    と定義します。
+                </p>
+                <p class="indent">
+                    上記の損失関数は、データ行列 \(X\) と 出力ベクトル \(\boldsymbol{y}\) を
+                </p>
+                <div class="math">
+                    \[
+                    X=
+                    \begin{bmatrix} \boldsymbol{x}_1^\top \\ \boldsymbol{x}_2^\top \\ \vdots \\ \boldsymbol{x}_n^\top \end{bmatrix}
+                    ,\quad
+                    \boldsymbol{y}=
+                    \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    と定めることで
+                </p>
+                <div class="math">
+                    \[
+                    L(\boldsymbol{w})=\frac{1}{N} \|\boldsymbol{y}-X\boldsymbol{w}\|^2
+                    \]
+                </div>
+                <p>
+                    と簡単な形で表せます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    L(\boldsymbol{w})=\frac{1}{N}(\boldsymbol{y}-X\boldsymbol{w})^\top (\boldsymbol{y}-X\boldsymbol{w})
+                    \end{align}
+                    \]
+                </div>
+                <div class="math"></div>
+                <p class="indent">
+                    したがって、勾配降下法における更新式は
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{w} \gets \boldsymbol{w}-\eta\cdot\frac{2}{N}X^\top(X\boldsymbol{w}-\boldsymbol{y})
+                    \]
+                </div>
+            </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                 </figure>
                 <details class="ans">
