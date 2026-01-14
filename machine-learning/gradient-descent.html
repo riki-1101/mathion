@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>勾配降下法</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>勾配降下法</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>勾配降下法の定義</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（勾配降下法）</figcaption>
+                    <p class="indent">
+                        データセット \(\mathcal{D}\) が
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{D}=\{(\boldsymbol{x}_i,y_i)~|~\boldsymbol{x}_i\in\mathbb{R}^d,~y_i\in\mathbb{R}\}_{i=1}^N
+                        \]
+                    </div>
+                    <p>
+                        で与えられ、パラメータを \(\boldsymbol{\theta}\in\mathbb{R}^d\) としてモデル関数 \(f(\boldsymbol{x}_i;\boldsymbol{\theta})\) を定める。
+                        損失関数を
+                    </p>
+                    <div class="math">
+                        \[
+                        l_i(y_i,f(\boldsymbol{x}_i;\boldsymbol{\theta})) \quad (i=1,\cdots,N)
+                        \]
+                    </div>
+                    <p>
+                        として、平均損失
+                    </p>
+                    <div class="math">
+                        \[
+                        L(\boldsymbol{\theta})=\frac{1}{N}\sum_{i=1}^N l_i(y_i,f(\boldsymbol{x}_i;\boldsymbol{\theta}))
+                        \]
+                    </div>
+                    <p>
+                        を考える。
+                        学習率を \(\eta\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{\theta}\gets\boldsymbol{\theta}-\eta\nabla L(\boldsymbol{\theta})
+                        \]
+                    </div>
+                    <p>
+                        と \(\boldsymbol{\theta}\) を更新する手法を<strong>勾配降下法</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
