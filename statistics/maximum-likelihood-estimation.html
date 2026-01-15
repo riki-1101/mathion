@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>最尤推定法</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -14,43 +13,94 @@
             <h1>最尤推定法</h1>
             <div id="table-of-contents"></div>
             <section id="1">
+                <h2>尤度関数</h2>
+                <figure class="def">
+                    <figcaption>定義（尤度関数）</figcaption>
+                    <p class="indent">
+                        \(\boldsymbol{X}=\begin{bmatrix} X_1 & X_2 & \cdots & X_n \end{bmatrix}^\top\) をパラメータ \(\boldsymbol{\theta}\) をもつ母集団分布からの無作為標本とし、\(\boldsymbol{X}\) の確率質量（密度）関数を \(f_{\boldsymbol{X}}(\boldsymbol{x};\theta)\) とする。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        L(\boldsymbol{\theta} \mid \boldsymbol{x}):=f_{\boldsymbol{X}}(\boldsymbol{x};\theta)
+                        \]
+                    </div>
+                    <p>
+                        を \(\boldsymbol{\theta}\) の<strong>尤度関数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    また、各 \(X_i\) は独立同一分布に従うので、\(X_i\) の確率質量（密度）関数を \(f_{X_i}(x_i;\boldsymbol{\theta})\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    f_{\boldsymbol{X}}(\boldsymbol{x};\boldsymbol{\theta})=\prod_{i=1}^nf_{X_i}(x_i;\boldsymbol{\theta})
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    これにより、尤度関数は
+                </p>
+                <div class="math">
+                    \[
+                    L(\boldsymbol{\theta} \mid \boldsymbol{x})=\prod_{i=1}^nf_{X_i}(x_i;\boldsymbol{\theta})
+                    \]
+                </div>
+                <p>
+                    と書けます。
+                </p>
+                <p class="indent">
+                    尤度関数は積の形で与えられることが多いため、計算を簡単にする目的で、その対数をとった関数をよく考えます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（対数尤度関数）</figcaption>
+                    <p class="indent">
+                        尤度関数 \(L(\boldsymbol{\theta} \mid \boldsymbol{x})\) に対して
+                    </p>
+                    <div class="math">
+                    \[
+                    \ell(\boldsymbol{\theta}\mid \boldsymbol{x}):= \log L(\boldsymbol{\theta}\mid \boldsymbol{x})
+                    \]
+                    </div>
+
+                    <p>
+                        を <strong>対数尤度関数</strong> という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    特に、各 \(X_i\) が独立同一分布に従う場合には、
+                </p>
+                <div class="math">
+                    \[
+                    \ell(\boldsymbol{\theta}\mid \boldsymbol{x})
+                    = \sum_{i=1}^n \log f_{X_i}(x_i;\boldsymbol{\theta})
+                    \]
+                </div>
+                <p>
+                    と書けます。
+                </p>
+            </section>
+            <section id="2">
                 <h2>最尤推定法</h2>
                 <figure class="def">
-                    <figcaption>定義（最尤法）</figcaption>
+                    <figcaption>定義（最尤推定値）</figcaption>
                     <p class="indent">
-                        \(X_1,X_2,\cdots,X_n\) を母数 \(\theta\) をもつ母集団分布からの無作為標本とし、この母集団分布の確率質量（密度）関数を \(f(x;\theta)\) とする。
-                        このとき、\(X_1,X_2,\cdots,X_n\) の同時確率質量（密度）関数
+                        尤度関数 \(L(\boldsymbol{\theta} \mid \boldsymbol{x})\) に対して
                     </p>
                     <div class="math">
                         \[
-                        L(\theta)=\prod_{i=1}^nf(x_i;\theta)
+                        \hat{\boldsymbol{\theta}}_{\mathrm{ML}}=\operatorname*{arg max}_{\boldsymbol{\theta}}L(\boldsymbol{\theta} \mid \boldsymbol{x})
                         \]
                     </div>
                     <p>
-                        を母数 \(\theta\) の<strong>尤度関数</strong>という。このとき
-                    </p>
-                    <div class="math">
-                        \[
-                        L(\hat{\theta})=\max_{\theta}L(\theta)
-                        \]
-                    </div>
-                    <p>
-                        となる \(\hat{\theta}\) 、すなわち
-                    </p>
-                    <div class="math">
-                        \[
-                        \hat{\theta}=\operatorname*{arg max}_{\theta}L(\theta)
-                        \]
-                    </div>
-                    <p>
-                        を母数 \(\theta\) の<strong>最尤推定値</strong>という。
+                        を \(\boldsymbol{\theta}\) の<strong>最尤推定値</strong>という。
                         また、最尤推定値の実現値を確率変数に置き換えたものを<strong>最尤推定量</strong>という。
                     </p>
                 </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     
                 </figure>
