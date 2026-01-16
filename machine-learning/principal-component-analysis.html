@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>主成分分析</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>主成分分析</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>主成分分析の概要</h2>
+                <p class="indent">
+                    
+                </p>
+            </section>
+            <section id="2">
+                <h2>主成分分析の理論</h2>
+                <p>
+                    データを
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{x}_i=
+                    \begin{bmatrix}
+                    x_{i1} \\ x_{i2} \\ \vdots \\ x_{id}
+                    \end{bmatrix}
+                    \in\mathbb{R}^d
+                    \quad (i=1,2,\cdots,N)
+                    \]
+                </div>
+                <p>
+                    とします。
+                </p>
+                <p>
+                    平均ベクトルを
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{\mu}=\frac{1}{N}\sum_{i=1}^N\boldsymbol{x}_i
+                    \]
+                </div>
+                <p>
+                    とします。
+                    中心化したデータは
+                </p>
+                <div class="math">
+                    \[
+                    \tilde{\boldsymbol{x}}_i=\boldsymbol{x}_i-\boldsymbol{\mu}
+                    \]
+                </div>
+                <p>
+                    中心化したデータ行列は
+                </p>
+                <div class="math">
+                    \[
+                    \tilde{\boldsymbol{X}}=
+                    \]
+                </div>
+                <p>
+                    \(\tilde{\boldsymbol{X}}\boldsymbol{w}\) の分散 \(S_{\tilde{\boldsymbol{X}}\boldsymbol{w}}^2\) を考えます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    S_{\tilde{\boldsymbol{X}}\boldsymbol{w}}^2
+                    &=\frac{1}{N}\|\tilde{\boldsymbol{X}}\boldsymbol{w}\|^2 \\
+                    &=\frac{1}{N}(\tilde{\boldsymbol{X}}\boldsymbol{w})^\top(\tilde{\boldsymbol{X}}\boldsymbol{w}) \\
+                    &=\frac{1}{N}\boldsymbol{w}^\top \tilde{\boldsymbol{X}}^\top \tilde{\boldsymbol{X}}\boldsymbol{w} \\
+                    &=\boldsymbol{w}^\top \left(\frac{1}{N}\tilde{\boldsymbol{X}}^\top \tilde{\boldsymbol{X}}\right)\boldsymbol{w}
+                    \end{align}
+                    \]
+                </div>
+                <figure class="th">
+                    <figcaption>最適化問題</figcaption>
+                    <div class="math">
+                        \[
+                        \max_{\boldsymbol{w}}\boldsymbol{w}^\top \hat{\Sigma}_X\boldsymbol{w}
+                        \quad \text{subject to} \quad \|\boldsymbol{w}\|=1
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    条件付き最適化問題なので、<strong>ラグランジュの未定乗数法</strong>を使います。
+                    ラグランジュ関数 \(\mathcal{L}\) は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{L}(\boldsymbol{w},\lambda)=\boldsymbol{w}^\top \hat{\Sigma}_X\boldsymbol{w}-\lambda(\boldsymbol{w}^\top\boldsymbol{w}-1)
+                    \]
+                </div>
+                <p>
+                    \(\mathcal{L}(\boldsymbol{w},\lambda)\) を \(\boldsymbol{w}\) で偏微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{\partial\mathcal{L}}{\partial\boldsymbol{w}}
+                    &=\frac{\partial}{\partial\boldsymbol{w}}\{\boldsymbol{w}^\top \hat{\Sigma}_X\boldsymbol{w}-\lambda(\boldsymbol{w}^\top\boldsymbol{w}-1)\}\\
+                    &=\frac{\partial}{\partial\boldsymbol{w}}(\boldsymbol{w}^\top \hat{\Sigma}_X\boldsymbol{w})-\lambda\frac{\partial}{\partial\boldsymbol{w}}(\boldsymbol{w}^\top\boldsymbol{w})\\
+                    &=(\hat{\Sigma}_X+\hat{\Sigma}_X^\top)\boldsymbol{w}-\lambda(2\boldsymbol{w})\\
+                    &=2\hat{\Sigma}_X\boldsymbol{w}-2\lambda\boldsymbol{w} \quad (\because \hat{\Sigma}_X^\top=\hat{\Sigma}_X)
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    \(\dfrac{\partial\mathcal{L}}{\partial\boldsymbol{w}}=\boldsymbol{0}\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\frac{\partial\mathcal{L}}{\partial\boldsymbol{w}}=\boldsymbol{0}\\
+                    &\Longleftrightarrow 2\hat{\Sigma}_X\boldsymbol{w}-2\lambda\boldsymbol{w}=\boldsymbol{0}\\
+                    &\Longleftrightarrow \hat{\Sigma}_X\boldsymbol{w}=\lambda\boldsymbol{w}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって、求める \(\boldsymbol{w}\) は \(\hat{\Sigma}_X\) の固有ベクトルであることがわかりました。
+                    続いて、この固有値問題を解きます。
+                </p>
+                <div class="math">
+                    \[
+                    \det(\hat{\Sigma}_X-\lambda E)=0
+                    \]
+                </div>
+                <p>
+                    この固有方程式を解くことで、固有値 \(\lambda\) を求めます。
+                </p>
+                <div class="math">
+                    \[
+                    \lambda=\lambda_1,\lambda_2,\cdots
+                    \]
+                </div>
+                <p>
+                    ここで、ある固有値 \(\lambda_i\) に対して \(\hat{\Sigma}_X\boldsymbol{w}=\lambda_i\boldsymbol{w}\) より
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{w}^\top \hat{\Sigma}_X\boldsymbol{w}
+                    =\boldsymbol{w}^\top \lambda_i\boldsymbol{w}
+                    =\lambda_i(\boldsymbol{w}^\top\boldsymbol{w})
+                    =\lambda_i\|\boldsymbol{w}\|^2
+                    =\lambda_i
+                    \]
+                </div>
+                <p>
+                    となるので
+                </p>
+                <div class="math">
+                    \[
+                    \max_{\boldsymbol{w}}\boldsymbol{w}^\top \hat{\Sigma}_X\boldsymbol{w}
+                    \quad \text{subject to} \quad \|\boldsymbol{w}\|=1
+                    \]
+                </div>
+                <p>
+                    は
+                </p>
+                <div class="math">
+                    \[
+                    \max_i\lambda_i
+                    \]
+                </div>
+                <p>
+                    に等しいことがわかりました。
+                    すなわち、固有値の中で最大の固有値に対応する固有ベクトルが、求める \(\boldsymbol{w}\) となります。
+                </p>
+                <p>
+                    ここで求まった \(\boldsymbol{w}\) が第１主成分です。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
