@@ -41,40 +41,58 @@
                 </p>
                 <div class="math">
                     \[
-                    \boldsymbol{\mu}=\frac{1}{N}\sum_{i=1}^N\boldsymbol{x}_i
+                    \boldsymbol{\mu}=\frac{1}{N}\sum_{i=1}^N\boldsymbol{x}_i \in \mathbb{R}^d
                     \]
                 </div>
                 <p>
                     とします。
-                    中心化したデータは
+                </p>
+                <p>
+                    データを中心化したデータ行列は
                 </p>
                 <div class="math">
                     \[
-                    \tilde{\boldsymbol{x}}_i=\boldsymbol{x}_i-\boldsymbol{\mu}
+                    \tilde{X}=X-\boldsymbol{1}\boldsymbol{\mu}^\top
                     \]
                 </div>
                 <p>
-                    中心化したデータ行列は
+                    となります。
+                </p>
+                <p class="indent">
+                    データ行列の各データをある単位ベクトル \(\boldsymbol{w}\) の方向に射影するとき
                 </p>
                 <div class="math">
                     \[
-                    \tilde{\boldsymbol{X}}=
+                    \tilde{X}\boldsymbol{w}
                     \]
                 </div>
                 <p>
-                    \(\tilde{\boldsymbol{X}}\boldsymbol{w}\) の分散 \(S_{\tilde{\boldsymbol{X}}\boldsymbol{w}}^2\) を考えます。
+                    \(\tilde{X}\boldsymbol{w}\) の分散 \(S_{\tilde{X}\boldsymbol{w}}^2\) を考えます。
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    S_{\tilde{\boldsymbol{X}}\boldsymbol{w}}^2
-                    &=\frac{1}{N}\|\tilde{\boldsymbol{X}}\boldsymbol{w}\|^2 \\
-                    &=\frac{1}{N}(\tilde{\boldsymbol{X}}\boldsymbol{w})^\top(\tilde{\boldsymbol{X}}\boldsymbol{w}) \\
-                    &=\frac{1}{N}\boldsymbol{w}^\top \tilde{\boldsymbol{X}}^\top \tilde{\boldsymbol{X}}\boldsymbol{w} \\
-                    &=\boldsymbol{w}^\top \left(\frac{1}{N}\tilde{\boldsymbol{X}}^\top \tilde{\boldsymbol{X}}\right)\boldsymbol{w}
+                    S_{\tilde{X}\boldsymbol{w}}^2
+                    &=\frac{1}{N}\|\tilde{X}\boldsymbol{w}-0\|^2 \\
+                    &=\frac{1}{N}\|\tilde{X}\boldsymbol{w}\|^2 \\
+                    &=\frac{1}{N}(\tilde{X}\boldsymbol{w})^\top(\tilde{X}\boldsymbol{w}) \\
+                    &=\frac{1}{N}\boldsymbol{w}^\top \tilde{X}^\top \tilde{X}\boldsymbol{w} \\
+                    &=\boldsymbol{w}^\top \left(\frac{1}{N}\tilde{X}^\top \tilde{X}\right)\boldsymbol{w}
                     \end{align}
                     \]
                 </div>
+                <p class="indent">
+                    ここで、\(\dfrac{1}{N}\tilde{X}^\top \tilde{X}\) は標本分散共分散行列 \(\hat{\Sigma}_X\) なので
+                </p>
+                <div class="math">
+                    \[
+                    S_{\tilde{X}\boldsymbol{w}}^2=\boldsymbol{w}^\top \hat{\Sigma}_X \boldsymbol{w}
+                    \]
+                </div>
+                <p>
+                    と書けます。
+                    これを \(\|\boldsymbol{w}\|=1\)（単位ベクトル）という条件の下で、最大化することを考えます。
+                </p>
                 <figure class="th">
                     <figcaption>最適化問題</figcaption>
                     <div class="math">
