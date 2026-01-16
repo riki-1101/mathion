@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>相関係数・相関行列</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>相関係数・相関行列</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>相関係数</h2>
+                <p class="indent">
+                    共分散は単位がついたままの値なので、値そのものの大きさは比較しにくいです。
+                    そこで、共分散を標準化したものとして、<strong>相関係数</strong>を定義します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（相関係数）</figcaption>
+                    <p class="indent">
+                        2つの確率変数 \(X,Y\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \rho[X,Y]=\frac{\operatorname{Cov}[X,Y]}{\sqrt{V[X]V[Y]}}
+                        \]
+                    </div>
+                    <p>
+                        を \(X,Y\) の<strong>相関係数</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（相関係数の値域）</figcaption>
+                    <p class="indent">
+                        相関係数 \(\rho[X,Y]\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        -1\le \rho[X,Y]\le1
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    
+                </details>
+            </section>
+            <section id="2">
+                <h2>相関行列</h2>
+                <figure class="def">
+                    <figcaption>定義（相関行列）</figcaption>
+                    <p class="indent">
+                        確率ベクトル \(\boldsymbol{X}=\begin{bmatrix} X_1 & X_2 & \cdots & X_n \end{bmatrix}^\top\) に対して、各 \(X_i,X_j\) の相関係数 \(\rho_{X_iX_j}\) を並べた行列
+                    </p>
+                    <div class="math">
+                        \[
+                        R=
+                        \begin{bmatrix}
+                        \rho_{X_1X_1} & \rho_{X_1X_2} & \cdots & \rho_{X_1X_n}\\
+                        \rho_{X_2X_1} & \rho_{X_2X_2} & \cdots & \rho_{X_2X_n}\\
+                        \vdots & \vdots & \ddots & \vdots\\
+                        \rho_{X_nX_1} & \rho_{X_nX_2} & \cdots & \rho_{X_nX_n}
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を \(\boldsymbol{X}\) の<strong>相関行列</strong>という。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
