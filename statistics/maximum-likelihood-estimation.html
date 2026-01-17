@@ -17,12 +17,12 @@
                 <figure class="def">
                     <figcaption>定義（尤度関数）</figcaption>
                     <p class="indent">
-                        \(\boldsymbol{X}=\begin{bmatrix} X_1 & X_2 & \cdots & X_n \end{bmatrix}^\top\) をパラメータ \(\boldsymbol{\theta}\) をもつ母集団分布からの無作為標本とし、\(\boldsymbol{X}\) の確率質量（密度）関数を \(f_{\boldsymbol{X}}(\boldsymbol{x};\theta)\) とする。
-                        このとき
+                        パラメータ \(\boldsymbol{\theta}\) をもつ母集団分布からの無作為標本を \(\boldsymbol{X}=\begin{bmatrix} X_1 & X_2 & \cdots & X_n \end{bmatrix}^\top\) とする。
+                        \(\boldsymbol{X}\) の確率質量（密度）関数を \(f_{\boldsymbol{X}}(\boldsymbol{x};\boldsymbol{\theta})\) とするとき
                     </p>
                     <div class="math">
                         \[
-                        L(\boldsymbol{\theta} \mid \boldsymbol{x}):=f_{\boldsymbol{X}}(\boldsymbol{x};\theta)
+                        L(\boldsymbol{\theta} \mid \boldsymbol{x}):=f_{\boldsymbol{X}}(\boldsymbol{x};\boldsymbol{\theta})
                         \]
                     </div>
                     <p>
@@ -30,7 +30,7 @@
                     </p>
                 </figure>
                 <p class="indent">
-                    また、各 \(X_i\) は独立同一分布に従うので、\(X_i\) の確率質量（密度）関数を \(f_{X_i}(x_i;\boldsymbol{\theta})\) とすると
+                    各 \(X_i\) は独立同一分布に従うので、\(X_i\) の確率質量（密度）関数を \(f_{X_i}(x_i;\boldsymbol{\theta})\) とすると
                 </p>
                 <div class="math">
                     \[
@@ -89,7 +89,7 @@
                     </p>
                     <div class="math">
                         \[
-                        \hat{\boldsymbol{\theta}}_{\mathrm{ML}}=\operatorname*{arg max}_{\boldsymbol{\theta}}L(\boldsymbol{\theta} \mid \boldsymbol{x})
+                        \hat{\boldsymbol{\theta}}_{\mathrm{ML}}=\operatorname*{arg max\;}_{\boldsymbol{\theta}} L(\boldsymbol{\theta} \mid \boldsymbol{x})
                         \]
                     </div>
                     <p>
@@ -97,6 +97,49 @@
                         また、最尤推定値の実現値を確率変数に置き換えたものを<strong>最尤推定量</strong>という。
                     </p>
                 </figure>
+            </section>
+            <section id="3">
+                <h2>スコア関数</h2>
+                <figure class="def">
+                    <figcaption>定義（スコア関数）</figcaption>
+                    <p class="indent">
+                        尤度関数 \(L(\boldsymbol{\theta} \mid \boldsymbol{x})\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{\partial}{\partial\boldsymbol{\theta}}\log L(\boldsymbol{\theta} \mid \boldsymbol{x})
+                        \]
+                    </div>
+                    <p>
+                        を<strong>スコア関数</strong>という。
+                    </p>
+                </figure>
+                <figure class="th">
+                    <figcaption>定理（スコア関数の期待値）</figcaption>
+                    <div class="math">
+                        \[
+                        \mathbb{E}_{\boldsymbol{X}}\left[\frac{\partial}{\partial\boldsymbol{\theta}}\log L(\boldsymbol{\theta} \mid \boldsymbol{X}) \right]=\boldsymbol{0}
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \mathbb{E}_{\boldsymbol{X}}\left[\frac{\partial}{\partial\boldsymbol{\theta}}\log L(\boldsymbol{\theta} \mid \boldsymbol{X}) \right]
+                        &=\int_{-\infty}^\infty \frac{\partial}{\partial\boldsymbol{\theta}}\log L(\boldsymbol{\theta} \mid \boldsymbol{x}) f_{\boldsymbol{X}}(\boldsymbol{x} ; \boldsymbol{\theta}) d\boldsymbol{x} \\
+                        &=\int_{-\infty}^\infty \frac{1}{L(\boldsymbol{\theta} \mid \boldsymbol{x})}\frac{\partial}{\partial\boldsymbol{\theta}} L(\boldsymbol{\theta} \mid \boldsymbol{x})f_{\boldsymbol{X}}(\boldsymbol{x} ; \boldsymbol{\theta}) d\boldsymbol{x} \\
+                        &=\int_{-\infty}^\infty \frac{1}{f_{\boldsymbol{X}}(\boldsymbol{x} ; \boldsymbol{\theta})}\frac{\partial}{\partial\boldsymbol{\theta}} L(\boldsymbol{\theta} \mid \boldsymbol{x})f_{\boldsymbol{X}}(\boldsymbol{x} ; \boldsymbol{\theta}) d\boldsymbol{x} \\
+                        &=\int_{-\infty}^\infty \frac{\partial}{\partial\boldsymbol{\theta}} L(\boldsymbol{\theta} \mid \boldsymbol{x}) d\boldsymbol{x} \\
+                        &=\frac{\partial}{\partial\boldsymbol{\theta}} \int_{-\infty}^\infty L(\boldsymbol{\theta} \mid \boldsymbol{x}) d\boldsymbol{x} \\
+                        &=\frac{\partial}{\partial\boldsymbol{\theta}} \int_{-\infty}^\infty f_{\boldsymbol{X}}(\boldsymbol{x} ; \boldsymbol{\theta}) d\boldsymbol{x} \\
+                        &=\frac{\partial}{\partial\boldsymbol{\theta}} 1 \\
+                        &=\boldsymbol{0}
+                        \end{align}
+                        \]
+                    </div>
+                </details>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>

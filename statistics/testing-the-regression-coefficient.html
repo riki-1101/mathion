@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>回帰係数の検定</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>回帰係数の検定</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>回帰係数の検定とは</h2>
+                <p class="indent">
+                    回帰分析では、目的変数を \(y\) として、説明変数 \(\boldsymbol{x}\) と回帰係数 \(\boldsymbol{\beta}\) を
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{x}=\begin{bmatrix} 1 \\ x_1 \\ x_2 \\ \vdots \\ x_d\end{bmatrix}
+                    ,\quad
+                    \boldsymbol{\beta}=\begin{bmatrix} \beta_0 \\ \beta_1 \\ \beta_2 \\ \vdots \\ \beta_d\end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    と定めるとき
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    y&=\boldsymbol{x}^\top\boldsymbol{\beta}+\varepsilon\\
+                    &=\beta_0+\beta_1x_1+\beta_2x_2+\cdots+\beta_dx_d+\varepsilon
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    というモデルを考えます。
+                </p>
+                <p class="indent">
+                    回帰係数の検定は、「説明変数 \(x_j\) は本当に \(y\) に影響していると言えるだろうか」を統計的に確かめる検定です。
+                </p>
+            </section>
+            <section id="2">
+                <h2>検定統計量の導出</h2>
+                <p class="indent">
+                    
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{y}=X\boldsymbol{\beta}+\boldsymbol{\varepsilon}
+                    ,\quad \boldsymbol{\varepsilon}\sim\mathcal{N}(\boldsymbol{0},\sigma^2I)
+                    \]
+                </div>
+                <p>
+                    最小二乗解は
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\boldsymbol{\beta}}=(X^\top X)^{-1}X^\top\boldsymbol{y}
+                    \]
+                </div>
+                <p>
+                    これにモデル式に代入すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \hat{\boldsymbol{\beta}}&=(X^\top X)^{-1}X^\top(X\boldsymbol{\beta}+\boldsymbol{\varepsilon})\\
+                    &=(X^\top X)^{-1}X^\top X\boldsymbol{\beta}+(X^\top X)^{-1}X^\top\boldsymbol{\varepsilon}\\
+                    &=\boldsymbol{\beta}+(X^\top X)^{-1}X^\top\boldsymbol{\varepsilon}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(\boldsymbol{\varepsilon}\sim\mathcal{N}(\boldsymbol{0},\sigma^2I)\) より、正規分布の性質から
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\boldsymbol{\beta}}\sim\mathcal{N}(\boldsymbol{\beta},\{(X^\top X)^{-1}X^\top\}\sigma^2I\{(X^\top X)^{-1}X^\top\}^\top)
+                    \]
+                </div>
+                <p>
+                    分散を整理すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\{(X^\top X)^{-1}X^\top\}\sigma^2I\{(X^\top X)^{-1}X^\top\}^\top\\
+                    &=\sigma^2\{(X^\top X)^{-1}X^\top\}\{(X^\top X)^{-1}X^\top\}^\top\\
+                    &=\sigma^2\{(X^\top X)^{-1}X^\top\}\{X(X^\top X)^{-1}\}\\
+                    &=\sigma^2\{(X^\top X)^{-1}X^\top X\}(X^\top X)^{-1}\\
+                    &=\sigma^2(X^\top X)^{-1}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\boldsymbol{\beta}}\sim\mathcal{N}(\boldsymbol{\beta},\sigma^2(X^\top X)^{-1})
+                    \]
+                </div>
+                <p>
+                    成分ごとに見ると、第 \(j\) 成分は
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\beta}_j\sim\mathcal{N}(\beta_j,\sigma^2[(X^\top X)^{-1}]_{jj})
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <p class="indent">
+                    このとき
+                </p>
+                <div class="math">
+                    \[
+                    Z=\frac{\hat{\beta}_j-\beta_j}{\sigma\sqrt{[(X^\top X)^{-1}]_{jj}}} \sim \mathcal{N}(0,1)
+                    \]
+                </div>
+                <p>
+                    となりますが、\(\sigma^2\) が未知なので、代わりに \(\sigma^2\) の不偏推定量を用います。
+                    分散の \(\sigma^2\) の不偏推定量 \(\hat{\sigma}^2\) は
+                </p>
+                <div class="math">
+                    \[
+                    \hat{\sigma}^2=\frac{1}{N-d-1}\|\hat{\boldsymbol{\varepsilon}}\|^2
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    T=\frac{\hat{\beta}_j-\beta_j}{\hat{\sigma}\sqrt{[(X^\top X)^{-1}]_{jj}}} \sim t(N-d-1)
+                    \]
+                </div>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
