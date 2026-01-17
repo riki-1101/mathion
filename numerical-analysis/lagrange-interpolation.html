@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ラグランジュ補間</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>ラグランジュ補間</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ラグランジュ補間</h2>
+                <p class="indent">
+                    <strong>ラグランジュ補間</strong>とは、与えられた有限個の点をすべて通る多項式を、明示的な形で作る方法です。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ラグランジュ補間多項式）</figcaption>
+                    <p class="indent">
+                        \(n+1\) 個の点 \((x_0,y_0),(x_1,y_1),\cdots,(x_n,y_n)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        L_i(x)=\prod_{\substack{j=0 \\ j\neq i}}^n\frac{x-x_j}{x_i-x_j}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>ラグランジュ多項式</strong>という。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        P_n(x)=\sum_{i=0}^nL_i(x)y_i
+                        \]
+                    </div>
+                    <p>
+                        を<strong>ラグランジュ補間多項式</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    ラグランジュ多項式は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    L_i(x)
+                    &=\prod_{\substack{j=0 \\ j\neq i}}^n\frac{x_i-x_j}{x_i-x_j} \\
+                    &=\frac{(x-x_0)\cdots(x-x_{i-1})(x-x_{i+1})\cdots(x-x_n)}{(x_i-x_0)\cdots(x_i-x_{i-1})(x_i-x_{i+1})\cdots(x_i-x_n)}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    なので
+                </p>
+                <div class="math">
+                    \[
+                    L_i(x_k)=
+                    \begin{cases}
+                    1 & (k=i) \\
+                    0 & (k\neq i)
+                    \end{cases}
+                    \]
+                </div>
+                <p>
+                    となります。
+                    よって \(x=x_k\) のとき、ラグランジュ補間多項式は
+                </p>
+                <div class="math">
+                    \[
+                    P_n(x_k)=\sum_{i=0}^nL_i(x_k)y_i=L_k(x_k)y_k=y_k
+                    \]
+                </div>
+                <p>
+                    となり、すべての点を通ることがわかります。
+                </p>
+            </section>
+            <section id="2">
+                <h2>ラグランジュ補間の誤差</h2>
+                <figure class="th">
+                    <figcaption>定理（ラグランジュ補間の誤差）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) が区間 \((x_0,x_n)\) で \(n+1\) 回微分可能であるとする。
+                        このとき、ラグランジュ補間多項式 \(P_n(x)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(x)-P_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\prod_{i=0}^n(x-x_i)
+                        \]
+                    </div>
+                    <p>
+                        を満たす \(\xi\in(x_0,x_n)\) が存在する。
+                    </p>
+                </figure>
+                <p class="indent">
+                    数式の意味を分解して整理してみます。
+                </p>
+                <div class="math">
+                    \[
+                    \prod_{i=0}^n(x-x_i)
+                    \]
+                </div>
+                <p>
+                    は、補間点 \(x=x_i\) では必ず \(0\) になり、補間点から離れるほど大きくなりやすいことを表しています。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{f^{(n+1)}(\xi)}{(n+1)!}
+                    \]
+                </div>
+                <p>
+                    は、関数の滑らかさを表し、高階微分が大きい関数ほど誤差も大きくなりやすいことを示しています。
+                </p>
+            </section>
+            <section id="3">
+                <h2>ルンゲ現象</h2>
+                <p class="indent">
+                    次数を大きくすると、端点付近で \(\displaystyle\prod_{i=0}^n(x-x_i)\) の値が急激に大きくなり、補間が発散することがあります。
+                    これを<strong>ルンゲ現象</strong>といいます。
+                </p>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
