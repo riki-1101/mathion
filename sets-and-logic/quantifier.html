@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>論理演算子と量化記号</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>論理演算子と量化記号</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>否定</h2>
+                <figure class="def">
+                    <figcaption>定義（否定）</figcaption>
+                    <p class="indent">
+                        条件 \(P\) に対して、「\(P\) でない」を
+                    </p>
+                    <div class="math">
+                        \[
+                        \neg P
+                        \]
+                    </div>
+                    <p>
+                        と書き、\(P\) の<strong>否定</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    例えば
+                </p>
+                <div class="math">
+                    \[
+                    P: \text{ \(x\) は偶数である}
+                    \]
+                </div>
+                <p>
+                    とすると
+                </p><div class="math">
+                    \[
+                    \neg P: \text{ \(x\) は奇数である}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+            </section>
+            <section id="2">
+                <h2>論理積と論理和</h2>
+                <figure class="def">
+                    <figcaption>定義（論理積）</figcaption>
+                    <p class="indent">
+                        条件 \(P,Q\) に対して、「\(P\) かつ \(Q\) である」を
+                    </p>
+                    <div class="math">
+                        \[
+                        P\land Q
+                        \]
+                    </div>
+                    <p>
+                        と書き、\(P\) と \(Q\) の<strong>論理積</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（論理和）</figcaption>
+                    <p class="indent">
+                        条件 \(P,Q\) に対して、「\(P\) または \(Q\) である」を
+                    </p>
+                    <div class="math">
+                        \[
+                        P\lor Q
+                        \]
+                    </div>
+                    <p>
+                        と書き、\(P\) と \(Q\) の<strong>論理和</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>量化記号</h2>
+                <h3>全称記号</h3>
+                <p class="indent">
+                    「すべての」を意味する「all」の頭文字Aを逆さにした記号
+                </p>
+                <div class="math">
+                    \[
+                    \forall
+                    \]
+                </div>
+                <p>
+                    を<strong>全称記号</strong>といいます。
+                    例えば
+                </p>
+                <div class="math">
+                    \[
+                    \forall x\in\mathbb{R}
+                    \]
+                </div>
+                <p>
+                    と書くと、「すべての（任意の）実数 \(x\) に対して」を意味します。
+                </p>
+                <p></p>
+                <h3>存在記号</h3>
+                <p class="indent">
+                    「存在する」を意味する「exist」の頭文字Eを逆さにした記号
+                </p>
+                <div class="math">
+                    \[
+                    \exists
+                    \]
+                </div>
+                <p>
+                    を<strong>存在記号</strong>という。
+                    例えば
+                </p>
+                <div class="math">
+                    \[
+                    \exists x\in\mathbb{R}
+                    \]
+                </div>
+                <p>
+                    と書くと、「ある実数 \(x\) が存在して」を意味します。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        次の命題を論理式で表し、その真偽を調べよ。
+                    </p>
+                    <ol>
+                        <li>すべての実数 \(x\) に対して、</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
