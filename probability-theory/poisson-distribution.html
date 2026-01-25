@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ポアソン分布</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -41,7 +40,9 @@
                     \]
                 </div>
                 <p>
-                    となります。しかし、これを直接計算するのは現実的ではありません。このように \(n\) が大きく、\(p\) が小さい場合、二項分布は扱いにくいです。
+                    となります。
+                    しかし、これを直接計算するのは現実的ではありません。
+                    このように \(n\) が非常に大きく、\(p\) が非常に小さい場合、二項分布では扱いにくいです。
                 </p>
                 <p class="indent">
                     そこで、二項分布の確率質量関数
@@ -56,11 +57,14 @@
                 </p>
                 <div class="math">
                     \[
-                    \lambda=np~~\Longleftrightarrow~~p=\frac{\lambda}{n}
+                    \lambda:=np~~\Longleftrightarrow~~p=\frac{\lambda}{n}
                     \]
                 </div>
                 <p>
                     とすると、\(n\to\infty\) のとき \(p\to0\) となります。
+                </p>
+                <p class="indent">
+                    \(P(X=k)\) において、\(n\to\infty\) の極限を考えてみます。
                 </p>
                 <div class="math">
                     \[
@@ -70,12 +74,13 @@
                     &=\lim_{n\to\infty}\frac{n!}{(n-k)!k!}\left(\frac{\lambda}{n}\right)^k\left(1-\frac{\lambda}{n}\right)^{n-k}\\
                     &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\cdot\frac{n(n-1)\cdots(n-k+1)}{n^k}\left(1-\frac{\lambda}{n}\right)^n\left(1-\frac{\lambda}{n}\right)^{-k}\\
                     &=\lim_{n\to\infty}\frac{\lambda^k}{k!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{k-1}{n}\right)\left\{\left(1-\frac{\lambda}{n}\right)^{-\frac{n}{\lambda}}\right\}^{-\lambda}\left(1-\frac{\lambda}{n}\right)^{-k}\\
+                    &=\frac{\lambda^k}{k!}(1-0)\cdots(1-0)e^{-\lambda}(1-0)^{-k}\\
                     &=\frac{\lambda^k}{k!}e^{-\lambda}
                     \end{align}
                     \]
                 </div>
-                <p>
-                    つまり、\(n\) が大きく、\(p\) が小さいとき、\(\lambda=np\) として
+                <p class="indent">
+                    つまり、\(n\) が非常に大きく、\(p\) が非常に小さいとき、\(\lambda=np\) として
                 </p>
                 <div class="math">
                     \[
@@ -83,7 +88,8 @@
                     \]
                 </div>
                 <p>
-                    と近似できることがわかりました。このことから、次の分布を定義します。
+                    と近似できることがわかりました。
+                    このことから、次の分布を定義します。
                 </p>
                 <figure class="def">
                     <figcaption>定義（ポアソン分布）</figcaption>
@@ -92,7 +98,7 @@
                         </p>
                         <div class="math">
                             \[
-                            f(x)=\frac{\lambda^x}{x!}e^{-\lambda}~~~(x\in\mathbb{Z}_{\ge0})\\
+                            f(x)=\frac{\lambda^x}{x!}e^{-\lambda} \quad (x=0,1,2,\cdots)\\
                             \]
                         </div>
                         <p>
@@ -107,6 +113,10 @@
                             と表す。
                         </p>
                 </figure>
+                <p class="indent">
+                    \(\lambda=2\) でのポアソン分布 \(Po(2)\) は下のグラフのようになります。
+                </p>
+                <img src="img/poisson-distribution.svg" alt="ポアソン分布">
             </section>
             <section id="2">
                 <h2>ポアソン分布の期待値と分散</h2>
@@ -117,17 +127,37 @@
                     </p>
                     <div class="math">
                         \[
-                        E[X]=\lambda,~~~~~V[X]=\lambda
+                        E[X]=\lambda,\quad V[X]=\lambda
                         \]
                     </div>
                 </figure>
             </section>
+            <section id="3">
+                <h2>ポアソン分布の再生性</h2>
+                <figure class="th">
+                    <figcaption>定理（ポアソン分布の再生性）</figcaption>
+                    <p class="indent">
+                        確率変数 \(X_1\sim Po(\lambda_1),~X_2\sim Po(\lambda_2)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        X_1+X_2\sim Po(\lambda_1+\lambda_2)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+            </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     <p class="indent">
-                        \(1\%\) の確率で当たりが出るくじがある。このくじに \(100\) 回挑戦するとき、当たりが少なくとも１回出る確率を求めよ。また、ポアソン分布での近似を使った確率を求めよ。ただし、引いたくじはもとに戻すものとする。
+                        \(1\%\) の確率で当たりが出るくじがある。
+                        このくじに \(100\) 回挑戦するとき、当たりが少なくとも１回出る確率を求めよ。
+                        また、ポアソン分布での近似を使った確率を求めよ。
+                        ただし、引いたくじはもとに戻すものとする。
                     </p>
                 </figure>
                 <details class="ans">
