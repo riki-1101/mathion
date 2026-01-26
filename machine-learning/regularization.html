@@ -78,6 +78,29 @@
                     L1正則化では、重要でない特徴量の係数をゼロにすること（特徴量選択）ができます。
                 </p>
             </section>
+            <section id="4">
+                <h2>エラスティックネット</h2>
+                <p class="indent">
+                    L1正則化項とL2正則化項の両方を用いた正則化を<strong>エラスティックネット</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（エラスティックネット）</figcaption>
+                    <p class="indent">
+                        \(\alpha\in[0,1]\) として、正則化項 \(R(\boldsymbol{\theta})\) を
+                    </p>
+                    <div class="math">
+                        \[
+                        R(\boldsymbol{\theta})=\alpha\|\boldsymbol{\theta}\|_1+(1-\alpha)\|\boldsymbol{\theta}\|_2^2
+                        \]
+                    </div>
+                    <p>
+                        とする正則化を<strong>エラスティックネット</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    
+                </p>
+            </section>
             <section id="ex">
                 <h2>演習問題</h2>
                 <figure class="ex-practice">
