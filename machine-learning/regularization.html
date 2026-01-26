@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>正則化</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>正則化</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>正則化とは</h2>
+                <p class="indent">
+                    <strong>正則化</strong>とは、機械学習モデルが訓練データに過剰に適合する<strong>過学習</strong>を防ぐ代表的な手法の一つです。
+                </p>
+                <p class="indent">
+                    損失関数 \(L(\boldsymbol{\theta})\) に<strong>正則化項</strong>と呼ばれる項 \(R(\boldsymbol{\theta})\) を加えたもの
+                </p>
+                <div class="math">
+                    \[
+                    L(\boldsymbol{\theta})+\lambda R(\boldsymbol{\theta})
+                    \]
+                </div>
+                <p>
+                    を考えます。
+                    \(\lambda~(\gt0)\) は正則化の強さを表します。
+                </p>
+            </section>
+            <section id="2">
+                <h2>L2正則化</h2>
+                <p class="indent">
+                    L2ノルムの二乗を用いた正則化を<strong>L2正則化</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（L2正則化）</figcaption>
+                    <p class="indent">
+                        正則化項 \(R(\boldsymbol{\theta})\) を
+                    </p>
+                    <div class="math">
+                        \[
+                        R(\boldsymbol{\theta})=\|\boldsymbol{\theta}\|_2^2
+                        =\sum_j\theta_j^2
+                        \]
+                    </div>
+                    <p>
+                        とする正則化を<strong>L2正則化</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    L2正則化では、パラメータが全体的に小さくなる方向に引っ張られます。
+                </p>
+            </section>
+            <section id="3">
+                <h2>L1正則化</h2>
+                <p class="indent">
+                    L1ノルムを用いた正則化を<strong>L1正則化</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（L1正則化）</figcaption>
+                    <p class="indent">
+                        正則化項 \(R(\boldsymbol{\theta})\) を
+                    </p>
+                    <div class="math">
+                        \[
+                        R(\boldsymbol{\theta})=\|\boldsymbol{\theta}\|_1
+                        =\sum_j|\theta_j|
+                        \]
+                    </div>
+                    <p>
+                        とする正則化を<strong>L1正則化</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    L1正則化では、重要でない特徴量の係数をゼロにすること（特徴量選択）ができます。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
