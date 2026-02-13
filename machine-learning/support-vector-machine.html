@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>サポートベクターマシン</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <main id="contents">
+            <h1>サポートベクターマシン</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>サポートベクターマシンの概要</h2>
+                <p class="indent">
+                    
+                </p>
+            </section>
+            <section id="2">
+                <h2>サポートベクターマシンの理論</h2>
+                <p class="indent">
+                    データを \(\{\boldsymbol{x}_i\in\mathbb{R}^d\}_{i=1}^N\) とします。
+                    このデータを2つのクラス \(K_1,K_2\) に分類することを考えます。
+                </p>
+                <p class="indent">
+                    分類方法は、超平面 \(\boldsymbol{w}^\top\boldsymbol{x}+b=0\) を境に分けて
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{x}_i\in K_1 \Longleftrightarrow \boldsymbol{w}^\top\boldsymbol{x}_i+b \gt 0
+                    \]
+                    \[
+                    \boldsymbol{x}_i\in K_2 \Longleftrightarrow \boldsymbol{w}^\top\boldsymbol{x}_i+b \lt 0
+                    \]
+                </div>
+                <p>
+                    とします。
+                </p>
+                <p class="indent">
+                    ここで、<strong>ラベル変数</strong>という新たな変数を導入します。
+                </p>
+                <div class="math">
+                    \[
+                    y_i=
+                    \begin{cases}
+                    1 & (\boldsymbol{x}_i\in K_1) \\
+                    -1 & (\boldsymbol{x}_i\in K_2)
+                    \end{cases}
+                    \]
+                </div>
+                <p class="indent">
+                    サポートベクターマシンの目的は、マージンを最大化することです。
+                    データ点 \(\boldsymbol{x}_i\) と超平面 \(\boldsymbol{w}^\top\boldsymbol{x}+b=0\) の距離は
+                </p>
+                <div class="math">
+                    \[
+                    \frac{|\boldsymbol{w}^\top\boldsymbol{x}_i+b|}{\|\boldsymbol{w}\|_2}
+                    \]
+                </div>
+                <p>
+                    と表せます。
+                    これにラベル変数 \(y_i\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{y_i|\boldsymbol{w}^\top\boldsymbol{x}_i+b|}{\|\boldsymbol{w}\|}
+                    \]
+                </div>
+                <p>
+                    となりますが
+                </p>
+                <p>
+                    \(\boldsymbol{x}_i\in K_1\) のとき、\(y_i=1,~\boldsymbol{w}^\top\boldsymbol{x}_i+b \gt 0\) より
+                </p>
+                <div class="math">
+                    \[
+                    y_i|\boldsymbol{w}^\top\boldsymbol{x}_i+b|
+                    =1\cdot (\boldsymbol{w}^\top\boldsymbol{x}_i+b)
+                    =\boldsymbol{w}^\top\boldsymbol{x}_i+b
+                    \]
+                </div>
+                <p>
+                    \(\boldsymbol{x}_i\in K_2\) のとき、\(y_i=-1,~\boldsymbol{w}^\top\boldsymbol{x}_i+b \lt 0\) より
+                </p>
+                <div class="math">
+                    \[
+                    y_i|\boldsymbol{w}^\top\boldsymbol{x}_i+b|
+                    =-1\cdot \{-(\boldsymbol{w}^\top\boldsymbol{x}_i+b)\}
+                    =\boldsymbol{w}^\top\boldsymbol{x}_i+b
+                    \]
+                </div>
+                <p>
+                    であるため
+                </p>
+                <div class="math">
+                    \[
+                    \frac{y_i|\boldsymbol{w}^\top\boldsymbol{x}_i+b|}{\|\boldsymbol{w}\|}
+                    =\frac{y_i(\boldsymbol{w}^\top\boldsymbol{x}_i+b)}{\|\boldsymbol{w}\|}
+                    \]
+                </div>
+                <p>
+                    となり、絶対値を外すことができます。
+                </p>
+                <p>
+                    マージンは、データと超平面の距離のうち最小のものなので、次式で表されます。
+                </p>
+                <div class="math">
+                    \[
+                    \min_{i} \frac{y_i(\boldsymbol{w}^\top\boldsymbol{x}_i+b)}{\|\boldsymbol{w}\|} \quad (i=1,2,\cdots,N)
+                    \]
+                </div>
+                <p>
+                    これをパラメータ \(\boldsymbol{w},b\) のもとで最大化すればよいので、考える問題は次のようになります。
+                </p>
+                <figure class="th">
+                    <figcaption>最適化問題（マージン最大化）</figcaption>
+                    <div class="math">
+                        \[
+                        \max_{\boldsymbol{w},b} \left\{ \min_{i} \frac{y_i(\boldsymbol{w}^\top\boldsymbol{x}_i+b)}{\|\boldsymbol{w}\|} \right\} \quad (i=1,2,\cdots,N)
+                        \]
+                    </div>
+                </figure>
+                <p>
+                    この問題を変形して簡単にします。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\max_{\boldsymbol{w},b} \left\{ \min_{i} \frac{y_i(\boldsymbol{w}^\top\boldsymbol{x}_i+b)}{\|\boldsymbol{w}\|} \right\} \\
+                    &\Longleftrightarrow \max_{\boldsymbol{w},b} \left[ \frac{1}{\|\boldsymbol{w}\|} \left\{ \min_{i} y_i(\boldsymbol{w}^\top\boldsymbol{x}_i+b) \right\} \right] \\
+                    &\Longleftrightarrow \max_{\boldsymbol{w},b,m} \frac{m}{\|\boldsymbol{w}\|} \quad \text{subject to} \quad y_i(\boldsymbol{w}^\top\boldsymbol{x}_i+b) \ge m \\
+                    &\Longleftrightarrow \max_{\boldsymbol{w},b,m} \frac{m}{\|\boldsymbol{w}\|} \quad \text{subject to} \quad y_i\left(\frac{\boldsymbol{w}^\top}{m}\boldsymbol{x}_i+\frac{b}{m}\right) \ge 1 \\
+                    &\Longleftrightarrow \begin{cases}
+                                         \displaystyle \max_{\boldsymbol{w},b,m} \frac{m}{\|\boldsymbol{w}\|} \quad \text{subject to} \quad y_i\left(\frac{\boldsymbol{w}^\top}{m}\boldsymbol{x}_i+\frac{b}{m}\right) \ge 1 \\
+                                         \displaystyle \tilde{\boldsymbol{w}}=\frac{\boldsymbol{w}}{m},~\tilde{b}=\frac{b}{m}
+                                         \end{cases} \\
+                    &\Longleftrightarrow \max_{\tilde{\boldsymbol{w}},\tilde{b},m} \frac{m}{\|m\tilde{\boldsymbol{w}}\|} \quad \text{subject to} \quad y_i(\tilde{\boldsymbol{w}}^\top\boldsymbol{x}_i+\tilde{b}) \ge 1 \\
+                    &\Longleftrightarrow \max_{\tilde{\boldsymbol{w}},\tilde{b}} \frac{1}{\|\tilde{\boldsymbol{w}}\|} \quad \text{subject to} \quad y_i(\tilde{\boldsymbol{w}}^\top\boldsymbol{x}_i+\tilde{b}) \ge 1 \\
+                    &\Longleftrightarrow \min_{\tilde{\boldsymbol{w}},\tilde{b}} \|\tilde{\boldsymbol{w}}\| \quad \text{subject to} \quad y_i(\tilde{\boldsymbol{w}}^\top\boldsymbol{x}_i+\tilde{b}) \ge 1
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    計算しやすくするために少し書き換えると、次のようになります。
+                </p>
+                <figure class="th">
+                    <figcaption>最適化問題（マージン最大化）</figcaption>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        &\min_{\boldsymbol{w},b}\frac{1}{2}\|\boldsymbol{w}\|^2\\
+                        &\text{subject to}\quad y_i(\boldsymbol{w}^\top\boldsymbol{x}_i+b)\ge1 \quad (i=1,2,\cdots,N)
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+                
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
