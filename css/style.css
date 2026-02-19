@@ -8,12 +8,12 @@ body {
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", sans-serif;
     margin: 70px 0 0 0;
     padding: 0;
-    font-size: large;
+    font-size: medium;
     background-color: aliceblue;
 }
 @media (max-width: 600px) {
     body {
-        font-size: 14px;
+        font-size: small;
     }
 }
 
@@ -290,9 +290,69 @@ footer {
 }
 
 
+
+/* コンテンツ */
+
+/* 初期状態（スマホなど） */
+
 #contents {
     width: 100%;
-    padding: 1px 1em 2em 1em;
+    padding: 1px 1em ;
+}
+
+.sidebar {
+  display: none;
+}
+
+/* 横画面のとき */
+@media (orientation: landscape) {
+
+    #sidebar {
+        display: block;
+        position: fixed;
+        top: 70px;          /* headerの高さ */
+        right: 0;
+        width: 30%;
+        height: calc(100vh - 70px);
+        background-color: whitesmoke;
+        padding: 20px;
+        overflow-y: auto;
+        border-left: 1px solid #ccc;
+    }
+
+    /* サイドメニューの目次 */
+    #sidebar-toc {
+        width: 90%;
+        margin: 2em auto;
+        padding: 1.5em 2em;
+        background-color: whitesmoke;
+        border: 1px solid #d0d7de;
+        border-radius: 8px;
+        color: #333;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
+    #sidebar-toc figcaption {
+        font-family: sans-serif;
+        border-left: 5px solid darkblue;
+        padding-left: 12px;
+    }
+    #sidebar-toc ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    #sidebar-toc li {
+        padding: 6px 0;
+        border-bottom: 1px dashed #ccc;
+        font-family: sans-serif;
+    }
+    #sidebar-toc li:last-child {
+        border-bottom: none;
+    }
+
+    #contents {
+        width: 70%;  /* サイドバー分あける */
+    }
 }
 
 #table-of-contents {
@@ -561,7 +621,7 @@ pre.output {
 
 table {
     width: 95%;
-    margin: auto;
+    margin: 1.5em auto;
     text-align: center;
     border-collapse: collapse;
     border-spacing: 0;
