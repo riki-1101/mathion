@@ -9,13 +9,14 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>母平均の区間推定・検定</h1>
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>母平均の検定統計量（母分散が既知）</h2>
                 <p class="indent">
-                    母平均の区間推定と検定を行うためと統計量を作成します。
+                    母平均の区間推定と検定を行うための統計量を作成します。
                 </p>
                 <p class="indent">
                     正規母集団 \(N(\mu,\sigma^2)\) から \(n\) 個の無作為標本
@@ -74,7 +75,7 @@
                 </p>
                 <div class="math">
                     \[
-                    T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}}\sim N(0,1)
+                    T=\frac{\overline{X}-\mu}{\sqrt{\frac{U^2}{n}}}
                     \]
                 </div>
                 <p>
@@ -116,7 +117,7 @@
                     \]
                 </div>
                 <p>
-                    という統計量を得ます。
+                    が成り立ちます。
                     この \(T\) により、母分散が未知の場合の母平均の区間推定と検定が行えます。
                 </p>
             </section>
@@ -145,7 +146,8 @@
                     \]
                 </div>
                 <p>
-                    となるような \(z_{U\left(\frac{\alpha}{2}\right)},~z_{L\left(\frac{\alpha}{2}\right)}\) を求めます。
+                    が成り立ちます。
+                    つまり
                 </p>
                 <div class="math">
                     \[
@@ -432,6 +434,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
