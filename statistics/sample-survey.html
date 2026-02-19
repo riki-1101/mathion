@@ -5,35 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>標本調査</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>標本調査</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>統計調査の手法</h2>
+                <h2>統計調査の方法</h2>
                 <p class="indent">
                     調査対象全体の集合を<strong>母集団</strong>といい、母集団が従う確率分布を<strong>母集団分布</strong>といいます。
-                    母集団分布の特徴を表す量を<strong>母数</strong>（パラメータ）といいます。
+                    母集団分布の特徴を表す量を<strong>母数（パラメータ）</strong>といいます。
                     特に、母集団分布の平均を<strong>母平均</strong>、分散を<strong>母分散</strong>、標準偏差を<strong>母標準偏差</strong>といいます。
                     これらの母数について調べるには２通りの方法があります。
                 </p>
                 <p class="indent">
                     まず、<strong>全数調査</strong>です。
-                    全数調査とは、母集団に属するすべての個体を対象として調査する手法です。
+                    全数調査とは、母集団に属するすべての個体を対象として調査する方法です。
                     全数調査を行えば母集団分布を正確に特定できますが、母集団全体を調査することは困難であることが多いです。
                 </p>
                 <p class="indent">
                     もう一つは<strong>標本調査</strong>です。
-                    標本調査とは、母集団に属する一部の個体から全体の状況を推測する手法です。
+                    標本調査とは、母集団に属する一部の個体から全体の状況を推測する方法です。
                     これからはこの標本調査について詳しく見ていきます。
                 </p>
             </section>
             <section id="2">
-                <h2>標本抽出</h2>
+                <h2>標本と実現値</h2>
                 <p class="indent">
                     標本調査において、母集団から取り出された要素の集合を<strong>標本</strong>といい、母集団から標本を取り出すことを<strong>標本抽出</strong>といいます。
                     また、抽出した標本の個数を<strong>標本の大きさ</strong>といいます。
@@ -157,69 +157,100 @@
                 </section>
             </section>
             <section id="4">
+                <h2>系統誤差と偶然誤差</h2>
+                <p class="indent">
+                    <strong>系統誤差</strong>とは、測定機器や測定環境、測定者などが原因で測定値が偏る誤差のことです。
+                    何度測定しても同じ傾向（バイアス）が残るという特徴があります。
+                </p>
+                <p class="indent">
+                    <strong>偶然誤差</strong>とは、測定毎にランダムにばらつく誤差のことです。
+                    これは観測数を増やして平均をとることで消すことができます。
+                </p>
+            </section>
+            <section id="5">
                 <h2>標本誤差と非標本誤差</h2>
                 <p class="indent">
                     標本調査の結果が真の値からずれてしまう原因は、大きく分けて<strong>標本誤差</strong>と<strong>非標本誤差</strong>の2つがあります。
                 </p>
-                <section>
-                    <h3>標本誤差</h3>
-                    <p class="indent">
-                        <strong>標本誤差</strong>とは、標本を使って母集団を推測するときに、標本の選び方や偶然性によって生じる誤差のことです。
-                        標本誤差には次の特徴があります。
-                    </p>
-                    <figure class="box">
-                        <ul>
-                            <li><p>無作為抽出でも必ず発生する</p></li>
-                            <li><p>標本の大きさを増やすと小さくできる</p></li>
-                            <li><p>数学的に評価できる</p></li>
-                        </ul>
-                    </figure>
-                    <p class="indent">
-                        例えば、「母平均が本当は \(50\) なのに、抽出した標本では平均が \(48\) だった」といったものです。
-                    </p>
-                </section>
-                <section>
-                    <h3>非標本誤差</h3>
-                    <p class="indent">
-                        <strong>非標本誤差</strong>とは、標本の偶然性以外で生じる誤差であり、調査設計やデータ収集の過程で発生します。
-                        非標本誤差には次の特徴があります。
-                    </p>
-                    <figure class="box">
-                        <ul>
-                            <li><p>標本の大きさを増やしても減らせない</p></li>
-                            <li><p>設計の工夫や実施方法の改善が必要</p></li>
-                            <li><p>推定や修正が難しいことが多い</p></li>
-                        </ul>
-                    </figure>
-                    <p class="indent">
-                        主な原因として以下のことが挙げられます。
-                    </p>
+                <p class="indent">
+                    <strong>標本誤差</strong>とは、標本を使って母集団を推測するときに、標本の選び方や偶然性によって生じる誤差のことです。
+                    例えば、「母平均が本当は \(50\) なのに、抽出した標本では平均が \(48\) だった」というものです。
+                    標本誤差には次の特徴があります。
+                </p>
+                <figure class="box">
+                    <figcaption>標本誤差の特徴</figcaption>
                     <ul>
-                        <li><p>
-                            <strong>カバレッジ誤差</strong><br>
-                            … 調査対象から一部の集団が漏れている、重複している
-                        </p></li>
-                        <li><p>
-                            <strong>非回答誤差</strong><br>
-                            … 回答してくれない人が偏っている
-                        </p></li>
-                        <li><p>
-                            <strong>測定誤差</strong><br>
-                            … 記入ミス、インタビュー時の誘導、機器の不正確さ
-                        </p></li>
-                        <li><p>
-                            <strong>処理誤差</strong><br>
-                            … データの入力や集計のミス
-                        </p></li>
+                        <li><p>無作為抽出でも必ず発生する</p></li>
+                        <li><p>標本の大きさを増やすと小さくできる</p></li>
+                        <li><p>数学的に評価できる</p></li>
                     </ul>
-                    <p class="indent">
-                        例えば、「ネット利用者しか対象になっていない」、「回答者が嘘をついた」、「集計時に数値の桁を間違えた」といったものです。
-                    </p>
-                </section>
+                </figure>
+                <p class="indent">
+                    <strong>非標本誤差</strong>とは、標本の偶然性以外で生じる誤差であり、調査設計やデータ収集の過程で発生します。
+                    例えば、「ネット利用者しか対象になっていない」「回答者が嘘をついた」「集計時に数値の桁を間違えた」というものです。
+                    非標本誤差には次の特徴があります。
+                </p>
+                <figure class="box">
+                    <figcaption>非標本誤差の特徴</figcaption>
+                    <ul>
+                        <li><p>標本の大きさを増やしても減らせない</p></li>
+                        <li><p>設計の工夫や実施方法の改善が必要</p></li>
+                        <li><p>推定や修正が難しいことが多い</p></li>
+                    </ul>
+                </figure>
+                <p class="indent">
+                    主な原因として以下のことが挙げられます。
+                </p>
+                <ul>
+                    <li><p>
+                        <strong>カバレッジ誤差</strong><br>
+                        … 調査対象から一部の集団が漏れている、重複している
+                    </p></li>
+                    <li><p>
+                        <strong>非回答誤差</strong><br>
+                        … 回答してくれない人が偏っている
+                    </p></li>
+                    <li><p>
+                        <strong>測定誤差</strong><br>
+                        … 記入ミス、インタビュー時の誘導、機器の不正確さ
+                    </p></li>
+                    <li><p>
+                        <strong>処理誤差</strong><br>
+                        … データの入力や集計のミス
+                    </p></li>
+                </ul>
+            </section>
+            <section id="6">
+                <h2>フィッシャーの3原則</h2>
+                <p class="indent">
+                    誤差を小さくするための原則として、統計学者<strong>ロナルド・フィッシャー</strong>が提唱した3つの原則があります。
+                    これは<strong>フィッシャーの3原則</strong>と呼ばれ、次のようなものです。
+                </p>
+                <figure class="box">
+                    <figcaption>フィッシャーの3原則</figcaption>
+                    <ul>
+                        <li>反復</li>
+                        <li>無作為化</li>
+                        <li>局所管理</li>
+                    </ul>
+                </figure>
+                <p class="indent">
+                    <strong>反復</strong>とは、同じ条件で実験を複数回繰り返すことです。
+                </p>
+                <p class="indent">
+                    <strong>無作為化</strong>とは、実験の順番や測定場所などをランダムに決めることです。
+                    実験者の主観的な偏りを排除し、客観的な比較を可能にします。
+                </p>
+                <p class="indent">
+                    <strong>局所管理</strong>とは、場所や時間といった系統誤差が生じる要因を、あらかじめブロックに区切って、その中で比較することです。
+                </p>
+                <p class="indent">
+                    また、フィッシャーの3原則をすべて満たす実験計画を<strong>乱塊法</strong>といいます。
+                </p>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     
                 </figure>
@@ -231,6 +262,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

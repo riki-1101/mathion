@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>適合度の検定</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>適合度の検定</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>適合度の検定の考え方</h2>
+                <p class="indent">
+                    <strong>適合度の検定</strong>は「観測されたデータが、仮定した確率分布に従うといえるか」を調べるための検定です。
+                    帰無仮説 \(H_0\) と対立仮説 \(H_1\) は次のように設定します。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    H_0 &: \text{データは仮定した分布に従っている}\\
+                    H_1 &: \text{データは仮定した分布に従っていない}
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    カテゴリが \(k\) 個あり、仮定した分布の未知パラメータが \(r\) 個あるとき
+                </p>
+                <div class="math">
+                    \[
+                    \chi^2=\sum_{i=1}^k\frac{(O_i-E_i)^2}{E_i}\sim\chi^2(k-r-1)
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>適合度の検定の理論</h2>
+                <p class="indent">
+                    \(k\) 個のカテゴリ \(A_1,A_2,\cdots,A_k\) があるとき、観測度数と理論確率（仮定した分布での確率）での期待度数をまとめると下表のようになったとします。
+                </p>
+                <table>
+                    <tr><th>カテゴリ</th><th>\(A_1\)</th><th>\(A_2\)</th><th>\(\cdots\)</th><th>\(A_k\)</th><th>合計</th></tr>
+                    <tr><th>観測度数</th><td>\(O_1\)</td><td>\(O_2\)</td><td>\(\cdots\)</td><td>\(O_k\)</td><td>\(n\)</td></tr>
+                    <tr><th>期待度数</th><td>\(E_1\)</td><td>\(E_2\)</td><td>\(\cdots\)</td><td>\(E_k\)</td><td>\(n\)</td></tr>
+                </table>
+                <p class="indent">
+                    ここで、期待度数は
+                </p>
+                <div class="math">
+                    \[
+                    E_i=nP(A_i) \quad (i=1,2,\cdots,k)
+                    \]
+                </div>
+                <p>
+                    で計算されます。
+                </p>
+                <p class="indent">
+                    仮定した確率分布の未知パラメータの個数を \(r\) とすると、\(n\) が十分大きいとき
+                </p>
+                <div class="math">
+                    \[
+                    \chi^2=\sum_{i=1}^k\frac{(O_i-E_i)^2}{E_i}\sim\chi^2(k-r-1)
+                    \]
+                </div>
+                <p>
+                    が近似的に成り立ちます。
+                </p>
+                <p>
+                    未知パラメータとは、例えばポアソン分布 \(Po(\lambda)\) を仮定したとき、\(\lambda\) が事前に与えられた場合は \(r=0\) となり、\(\lambda\) の推定が必要な場合は \(r=1\) となります。
+                </p>
+            </section>
+            <section id="3">
+                <h2>ポアソン分布を仮定する適合度の検定</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        あるコールセンターで、1時間あたりの電話着信件数を100時間観測し、次のデータが得られた。
+                    </p>
+                    <table class="fixed-table">
+                        <tr><th>着信件数</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th><th>\(4\)</th><th>\(5\) 以上</th><th>計</th></tr>
+                        <tr><th>観測度数</th><td>\(8\)</td><td>\(20\)</td><td>\(31\)</td><td>\(26\)</td><td>\(12\)</td><td>\(3\)</td><td>\(100\)</td></tr>
+                    </table>
+                    <p>
+                        このデータは推定した平均のポアソン分布に従っているといえるか、有意水準 \(5\%\) で検定せよ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    平均の推定量は標本平均なので、標本平均を求めると
+                </p>
+                <div class="math">
+                    \[
+                    \overline{x}=\frac{0\cdot8+1\cdot20+2\cdot31+3\cdot26+4\cdot12+5\cdot3}{100}=2.23
+                    \]
+                </div>
+                <p class="indent">
+                    着信件数を \(X\) として、次のように仮説を定めます。
+                </p>
+                <div class="math">
+                    \[
+                    H_0:X~ はポアソン分布 ~Po(2.23)~ に従う
+                    \]
+                </div>
+                <p class="indent">
+                    帰無仮説 \(H_0\) が正しいと仮定すると
+                </p>
+                <div class="math">
+                    \[
+                    P(X=k)=\frac{2.23^k}{k!}e^{-2.23}
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                    これを \(k=1,2,\cdots,5\) においてそれぞれ計算すると
+                </p>
+                <table class="fixed-table">
+                    <tr><th>\(k\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th><th>\(4\)</th><th>\(5\)</th></tr>
+                    <tr><th>\(P(X=k)\)</th><td>\(0.108\)</td><td>\(0.240\)</td><td>\(0.267\)</td><td>\(0.199\)</td><td>\(0.111\)</td><td>\(0.049\)</td></tr>
+                </table>
+                <p>
+                    期待度数 \(E_k=100\cdot P(X=k)\) を計算して表にまとめると次のようになります。
+                </p>
+                <table class="fixed-table">
+                    <tr><th>\(k\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th><th>\(4\)</th><th>\(5\)</th></tr>
+                    <tr><th>観測度数</th><td>\(8\)</td><td>\(20\)</td><td>\(31\)</td><td>\(26\)</td><td>\(12\)</td><td>\(3\)</td></tr>
+                    <tr><th>期待度数</th><td>\(10.8\)</td><td>\(24.0\)</td><td>\(26.7\)</td><td>\(19.9\)</td><td>\(11.1\)</td><td>\(4.9\)</td></tr>
+                </table>
+                <p>
+                    カテゴリが6個あり、未知パラメータが1つあるので、自由度は \(6-1-1=4\) となります。
+                </p>
+                <div class="math">
+                    \[
+                    \chi^2=\sum_{i=0}^5\frac{(O_i-E_i)^2}{E_i}\sim\chi^2(4)
+                    \]
+                </div>
+                <p>
+                    棄却域 \(R\) は
+                </p>
+                <div class="math">
+                    \[
+                    R=\left[\chi^2_{U(0.05)}(4),\infty\right) = [9.49,\infty)
+                    \]
+                </div>
+                <p>
+                    検定統計量の実現値を計算すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \chi^2_0&=\frac{(8-10.8)^2}{10.8}+\frac{(20-24.0)^2}{24.0}+\frac{(31-26.7)^2}{26.7}+\frac{(26-19.9)^2}{19.9}+\frac{(12-11.1)^2}{11.1}+\frac{(3-4.9)^2}{4.9} \\
+                    &=\frac{7.84}{10.8}+\frac{16}{24.0}+\frac{18.49}{26.7}+\frac{37.21}{19.9}+\frac{0.81}{11.1}+\frac{3.61}{4.9} \\
+                    &=0.726+0.667+0.693+1.870+0.073+0.737 \\
+                    &=4.766
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって \(\chi^2_0\notin R\) であるので、\(H_0\) は棄却されません。
+                    したがって、\(X\) は推定した平均のポアソン分布に従わないとはいえません。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>主成分分析</h1>
             <div id="table-of-contents"></div>
@@ -17,6 +18,36 @@
                 <p class="indent">
                     
                 </p>
+                <figure class="th">
+                    <figcaption>手順（主成分分析）</figcaption>
+                    <p class="indent">
+                        データ行列 \(X\) に対して以下の順に処理を行う。
+                    </p>
+                    <ol>
+                        <li>
+                            \(X\) を中心化する
+                            <div class="math">
+                                \[
+                                \tilde{X}=X-\boldsymbol{1}\boldsymbol{\mu}^\top
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \(X\) の標本分散共分散行列 \(\hat{\Sigma}_X\) を求める
+                            <div class="math">
+                                \[
+                                \hat{\Sigma}_X=\frac{1}{N}\tilde{X}^\top \tilde{X}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \(\hat{\Sigma}_X\) の固有値 \(\lambda\) とその固有ベクトル \(\boldsymbol{w}_\lambda\) を求める
+                        </li>
+                    </ol>
+                    <p>
+                        このとき、固有値が大きい順に、その固有ベクトルが主成分に対応する。
+                    </p>
+                </figure>
             </section>
             <section id="2">
                 <h2>主成分分析の理論</h2>
@@ -204,6 +235,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

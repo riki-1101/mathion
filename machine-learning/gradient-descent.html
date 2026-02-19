@@ -9,16 +9,38 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>勾配降下法</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>勾配降下法の定義</h2>
+                <h2>勾配降下法とは</h2>
                 <p class="indent">
                     パラメータの最適化手法の一つである<strong>勾配降下法</strong>を紹介します。
                 </p>
                 <figure class="def">
                     <figcaption>定義（勾配降下法）</figcaption>
+                    <p class="indent">
+                        パラメータ \(\boldsymbol{\theta}\) の損失関数を \(L(\boldsymbol{\theta})\) 、学習率を \(\eta\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{\theta}\gets\boldsymbol{\theta}-\eta\nabla L(\boldsymbol{\theta})
+                        \]
+                    </div>
+                    <p>
+                        と \(\boldsymbol{\theta}\) を更新する手法を<strong>勾配降下法</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    勾配降下法には<strong>バッチ勾配降下法</strong>、<strong>確率的勾配降下法</strong>、<strong>ミニバッチ勾配降下法</strong>の3種類があります。
+                    以下ではこれらについて説明します。
+                </p>
+            </section>
+            <section id="2">
+                <h2>バッチ勾配降下法</h2>
+                <figure class="def">
+                    <figcaption>定義（バッチ勾配降下法）</figcaption>
                     <p class="indent">
                         データセット \(\mathcal{D}\) が
                     </p>
@@ -29,7 +51,7 @@
                     </div>
                     <p>
                         で与えられ、パラメータを \(\boldsymbol{\theta}\in\mathbb{R}^d\) としてモデル関数 \(f(\boldsymbol{x}_i;\boldsymbol{\theta})\) を定める。
-                        損失関数を
+                        1データあたりの損失を
                     </p>
                     <div class="math">
                         \[
@@ -54,7 +76,77 @@
                         \]
                     </div>
                     <p>
-                        と \(\boldsymbol{\theta}\) を更新する手法を<strong>勾配降下法</strong>という。
+                        と \(\boldsymbol{\theta}\) を更新する手法を<strong>バッチ勾配降下法</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>確率的勾配降下法</h2>
+                <figure class="def">
+                    <figcaption>定義（確率的勾配降下法）</figcaption>
+                    <p class="indent">
+                        データセット \(\mathcal{D}\) が
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{D}=\{(\boldsymbol{x}_i,y_i)~|~\boldsymbol{x}_i\in\mathbb{R}^d,~y_i\in\mathbb{R}\}_{i=1}^N
+                        \]
+                    </div>
+                    <p>
+                        で与えられ、パラメータを \(\boldsymbol{\theta}\in\mathbb{R}^d\) としてモデル関数 \(f(\boldsymbol{x}_i;\boldsymbol{\theta})\) を定める。
+                        1データあたりの損失を
+                    </p>
+                    <div class="math">
+                        \[
+                        l_i(\boldsymbol{w})=l_i(y_i,f(\boldsymbol{x}_i;\boldsymbol{\theta})) \quad (i=1,\cdots,N)
+                        \]
+                    </div>
+                    <p>
+                        とする。
+                        学習率を \(\eta\) とするとき、ランダムに \(i\) を選んで
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{\theta}\gets\boldsymbol{\theta}-\eta\nabla l_i(\boldsymbol{w})
+                        \]
+                    </div>
+                    <p>
+                        と \(\boldsymbol{\theta}\) を更新する手法を<strong>確率的勾配降下法</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>ミニバッチ勾配降下法</h2>
+                <figure class="def">
+                    <figcaption>定義（ミニバッチ勾配降下法）</figcaption>
+                    <p class="indent">
+                        データセット \(\mathcal{D}\) が
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{D}=\{(\boldsymbol{x}_i,y_i)~|~\boldsymbol{x}_i\in\mathbb{R}^d,~y_i\in\mathbb{R}\}_{i=1}^N
+                        \]
+                    </div>
+                    <p>
+                        で与えられ、パラメータを \(\boldsymbol{\theta}\in\mathbb{R}^d\) としてモデル関数 \(f(\boldsymbol{x}_i;\boldsymbol{\theta})\) を定める。
+                        1データあたりの損失を
+                    </p>
+                    <div class="math">
+                        \[
+                        l_i(\boldsymbol{w})=l_i(y_i,f(\boldsymbol{x}_i;\boldsymbol{\theta})) \quad (i=1,\cdots,N)
+                        \]
+                    </div>
+                    <p>
+                        とする。
+                        学習率を \(\eta\) とするとき、\(N\) 個のデータから \(B\) 個のデータを選んで
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{\theta}\gets\boldsymbol{\theta}-\eta \frac{1}{B}\sum_{i\in\mathcal{B}}\nabla l_i(\boldsymbol{w})
+                        \]
+                    </div>
+                    <p>
+                        と \(\boldsymbol{\theta}\) を更新する手法を<strong>ミニバッチ勾配降下法</strong>という。
                     </p>
                 </figure>
             </section>
@@ -71,6 +163,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ロジスティック回帰</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>ロジスティック回帰</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ロジスティック回帰の概要</h2>
+                <p class="indent">
+                    <strong>ロジスティック回帰</strong>とは、「\(0\) か \(1\) か」や「Yes か No か」のような<strong>二値分類</strong>を行うための統計モデルです。
+                    名前に「回帰」とありますが、実際は分類問題でよく使われます。
+                </p>
+                <p class="indent">
+                    例えば、次のような判定ができます。
+                </p>
+                <ul>
+                    <li>メールがスパムかスパムでないか</li>
+                    <li>試験に合格するか合格しないか</li>
+                    <li>ある商品を買うか買わないか</li>
+                </ul>
+            </section>
+            <section id="2">
+                <h2>ロジスティック回帰の理論</h2>
+                <p class="indent">
+                    入力データを
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{x}_i=
+                    \begin{bmatrix}
+                    x_{i1} \\ x_{i2} \\ \vdots \\ x_{id}
+                    \end{bmatrix}
+                    \in\mathbb{R}^d
+                    \quad (i=1,2,\cdots,N)
+                    \]
+                </div>
+                <p>
+                    とし、対応する出力を
+                </p>
+                <div class="math">
+                    \[
+                    y_i\in\{0,1\} \quad (i=1,2,\cdots,N)
+                    \]
+                </div>
+                <p>
+                    とします。
+                </p>
+                <p>
+                    入力データの集合 \(\mathcal{X}\) と出力値の集合 \(\mathcal{Y}\) は
+                </p>
+                <div clss="math">
+                    \[
+                    \mathcal{X}=\{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_N\}
+                    ,\quad
+                    \mathcal{Y}=\{y_1,y_2,\cdots,y_N\}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <p class="indent">
+                    説明変数 \(\boldsymbol{x}\in\mathbb{R}^d\) とパラメータ（重み） \(\boldsymbol{w}\in\mathbb{R}^d\) を
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{w}=
+                    \begin{bmatrix}
+                    w_1 \\ w_2 \\ \vdots \\ w_d
+                    \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    として
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{w}^\top\boldsymbol{x}_i=w_1x_{i1}+w_2x_{i2}+\cdots+w_dx_{id}
+                    \]
+                </div>
+                <p>
+                    を考えます。
+                    しかし、このままだと値は実数全体 \((-\infty,\infty)\) をとるので、この値域が \([0,1]\) になるように変換する必要があります。
+                </p>
+                <p class="indent">
+                    そこで、次の関数を考えます。
+                </p>
+                <div class="math">
+                    \[
+                    \sigma(x)=\frac{1}{1+e^{-x}}
+                    \]
+                </div>
+                <p>
+                    この関数は<strong>シグモイド関数</strong>と呼ばれ、出力は必ず \(0\) から \(1\) の範囲に収まります。
+                </p>
+                <p class="indent">
+                    シグモイド関数に \(\boldsymbol{w}^\top\boldsymbol{x}_i\) を代入すると
+                </p>
+                <div class="math">
+                    \[
+                    \sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)=\frac{1}{1+e^{-\boldsymbol{w}^\top\boldsymbol{x}_i}}
+                    \]
+                </div>
+                <p>
+                    となり、これが \(y_i=1\) となる確率に対応します。
+                    つまり
+                </p>
+                <div class="math">
+                    \[
+                    P(y_i=1\,|\,\boldsymbol{x}_i)=\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>損失関数</h2>
+                <div class="math">
+                    \[
+                    \{y_i\,|\,\boldsymbol{x}_i,\boldsymbol{w}\}\sim \mathrm{Bernoulli}(\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i))
+                    \]
+                </div>
+                <p>
+                    なので、尤度は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    P(\mathcal{Y}\,|\,\mathcal{X},\boldsymbol{w})
+                    &=\prod_{i=1}^N P(y_i\,|\,\boldsymbol{x}_i,\boldsymbol{w})\\
+                    &=\prod_{i=1}^N \{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}^{y_i}\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}^{1-y_i}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    負の対数尤度を考えると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &-\log P(\mathcal{Y}\,|\,\mathcal{X},\boldsymbol{w})\\
+                    &=-\sum_{i=1}^N \log \left[ \{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}^{y_i}\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}^{1-y_i} \right]\\
+                    &=-\sum_{i=1}^N \left[ y_i\log \{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}+(1-y_i)\log\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\} \right]
+                    \end{align}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    l(\boldsymbol{w}):=-\sum_{i=1}^N \left[ y_i\log \{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}+(1-y_i)\log\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\} \right]
+                    \]
+                </div>
+                <p>
+                    この最小値を求めたいです。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{\partial l(\boldsymbol{w})}{\partial\boldsymbol{w}}
+                    &=-\frac{\partial}{\partial\boldsymbol{w}}\sum_{i=1}^N \left[ y_i\log \{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}+(1-y_i)\log\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\} \right]\\
+                    &=-\sum_{i=1}^N \frac{\partial}{\partial\boldsymbol{w}} \left[ y_i\log \{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}+(1-y_i)\log\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\} \right]\\
+                    &=-\sum_{i=1}^N \left\{ y_i \frac{\sigma_{\boldsymbol{w}}(\boldsymbol{w}^\top\boldsymbol{x}_i)}{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)}+(1-y_i)\frac{-\sigma_{\boldsymbol{w}}(\boldsymbol{w}^\top\boldsymbol{x}_i)}{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)} \right\}\\
+                    &=-\sum_{i=1}^N \left\{ y_i \frac{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}\boldsymbol{x}_i}{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)}-(1-y_i)\frac{\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}\boldsymbol{x}_i}{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)} \right\}\\
+                    &=-\sum_{i=1}^N \left\{ y_i \{1-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\}\boldsymbol{x}_i-(1-y_i)\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)\boldsymbol{x}_i \right\}\\
+                    &=-\sum_{i=1}^N \left\{ y_i-y_i\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i)+y_i\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i) \right\}\boldsymbol{x}_i\\
+                    &=-\sum_{i=1}^N \left\{ y_i-\sigma(\boldsymbol{w}^\top\boldsymbol{x}_i) \right\}\boldsymbol{x}_i\\
+                    &=\sum_{i=1}^N \left\{ \sigma(\boldsymbol{w}^\top\boldsymbol{x}_i) - y_i \right\}\boldsymbol{x}_i
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって、パラメータの更新式は次のようになります。
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{w}\gets\boldsymbol{w}-\eta\sum_{i=1}^N \left\{ \sigma(\boldsymbol{w}^\top\boldsymbol{x}_i) - y_i \right\}\boldsymbol{x}_i
+                    \]
+                </div>
+                <p class="indent">
+                    また、データ行列
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{X}=
+                    \begin{bmatrix}
+                    \boldsymbol{x}_1^\top \\
+                    \boldsymbol{x}_2^\top \\
+                    \vdots \\
+                    \boldsymbol{x}_N^\top
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    x_{11} & x_{12} & \cdots & x_{1d} \\
+                    x_{21} & x_{22} & \cdots & x_{2d} \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    x_{N1} & x_{N2} & \cdots & x_{Nd}
+                    \end{bmatrix}
+                    \in\mathbb{R}^{N\times d}
+                    \]
+                </div>
+                <p>
+                    と出力ベクトル
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{y}=
+                    \begin{bmatrix}
+                    y_1 \\ y_2 \\ \vdots \\ y_N
+                    \end{bmatrix}
+                    \in\mathbb{R}^{N}
+                    \]
+                </div>
+                <p>
+                    を用いると、次のようにも書けます。
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{w}\gets\boldsymbol{w}-\eta \boldsymbol{X}^\top(\sigma(\boldsymbol{X}\boldsymbol{w}) - \boldsymbol{y})
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
