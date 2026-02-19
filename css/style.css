@@ -285,8 +285,8 @@ footer {
     padding: 1px 2em ;
 }
 
-.sidebar {
-  display: none;
+#sidebar {
+    display: none;
 }
 
 /* 横画面のとき */
