@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>勾配ベクトルとヘッセ行列</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>勾配ベクトルとヘッセ行列</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>勾配ベクトル</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（勾配ベクトル）</figcaption>
+                    <p class="indent">
+                        関数 \(f(\boldsymbol{x})=f(x_1,\cdots,x_n)\) が \(f\) の定義域上の点 \(\boldsymbol{a}\) で偏微分可能であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \nabla f(\boldsymbol{a}):=\begin{bmatrix} f_{x_1}(\boldsymbol{a}) \\ \vdots \\ f_{x_n}(\boldsymbol{a}) \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を \(f\) の点 \(\boldsymbol{a}\) における<strong>勾配ベクトル</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    記号 \(\nabla\) はナブラと読みます。
+                    また、\(\nabla f(\boldsymbol{a})\) は \(\operatorname{grad}f(\boldsymbol{a})\) とも書かれます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>ヘッセ行列</h2>
+                <p class="indent">
+                    関数 \(f\) のある点での2階偏微分係数を並べた行列を<strong>ヘッセ行列</strong>といい、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ヘッセ行列）</figcaption>
+                    <p class="indent">
+                        関数 \(f(\boldsymbol{x})=f(x_1,\cdots,x_n)\) が \(f\) の定義域上の点 \(\boldsymbol{a}\) で2階偏微分可能であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \nabla^2 f(\boldsymbol{a}):=
+                        \begin{bmatrix}
+                        f_{x_1x_1}(\boldsymbol{a}) & \cdots & f_{x_1x_n}(\boldsymbol{a}) \\
+                        \vdots & \ddots & \vdots \\
+                        f_{x_nx_1}(\boldsymbol{a}) & \cdots & f_{x_nx_n}(\boldsymbol{a})
+                        \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        を \(f\) の点 \(\boldsymbol{a}\) における<strong>ヘッセ行列</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    \(\nabla^2 f(\boldsymbol{a})\) は \(H_f(\boldsymbol{a})\) とも書かれます。
+                </p>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

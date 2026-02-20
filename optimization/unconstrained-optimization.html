@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>制約なし非線形最適化問題</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>制約なし非線形最適化問題</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>制約なし非線形最適化問題</h2>
+                <p class="indent">
+                    次の問題を解くことを考えます。
+                </p>
+                <figure class="th">
+                    <figcaption>最適化問題（制約なし非線形最適化問題）</figcaption>
+                    <p class="indent">
+                        \(f:\mathbb{R}^n\to\mathbb{R}\) は微分可能な関数とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \min_{\boldsymbol{x}}f(\boldsymbol{x})
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>大域的最適解と局所的最適解</h2>
+                <figure class="def">
+                    <figcaption>定義（大域的最適解）</figcaption>
+                    <p class="indent">
+                        関数 \(f:\mathbb{R}^n\to\mathbb{R}\) と \(\boldsymbol{x}^*\in\mathbb{R}^n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \forall \boldsymbol{x}\in\mathbb{R}^n,\quad f(\boldsymbol{x}) \ge f(\boldsymbol{x}^*)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(\boldsymbol{x}^*\) を<strong>大域的最小解</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（局所的最適解）</figcaption>
+                    <p class="indent">
+                        関数 \(f:\mathbb{R}^n\to\mathbb{R}\) と \(\boldsymbol{x}^*\in\mathbb{R}^n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \forall \boldsymbol{x}\in N(\boldsymbol{x}^*),\quad f(\boldsymbol{x}) \ge f(\boldsymbol{x}^*)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(\boldsymbol{x}^*\) を<strong>局所的最小解</strong>という。
+                        ただし、\(N(\boldsymbol{x}^*)\) は \(\boldsymbol{x}^*\) の近傍を表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>最適性条件</h2>
+                <p class="indent">
+                    局所的最適解であるための必要条件として、次のものがあります。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（1次の最適性条件）</figcaption>
+                    <p class="indent">
+                        多変数関数 \(f(\boldsymbol{x})\) に対して、点 \(\boldsymbol{x}^*\) が局所的最適解ならば、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \nabla f(\boldsymbol{x}^*)=\boldsymbol{0}
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>反復法のアルゴリズム</h2>
+                <figure class="th">
+                    <figcaption>アルゴリズム（反復法）</figcaption>
+                    <ol>
+                        <li>初期解 \(\boldsymbol{x}_0\in\mathbb{R}^n\) を定め、\(k=0\) とする。</li>
+                        <li>停止条件を満たしていれば \(\boldsymbol{x}_k\) を出力する。</li>
+                        <li>探索方向 \(\boldsymbol{d}_k\in\mathbb{R}^n\) を定める。</li>
+                        <li>ステップ幅 \(\alpha_k\gt0\) を定める。</li>
+                        <li>\(\boldsymbol{x}_{k+1}=\boldsymbol{x}_k+\alpha_k\boldsymbol{d}_k\) と更新する。</li>
+                        <li>\(k\gets k+1\) として (2) に戻る。</li>
+                    </ol>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
