@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>AdaBoost</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>AdaBoost</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>AdaBoostの概要</h2>
+                <figure class="th">
+                    <figcaption>アルゴリズム（AdaBoost）</figcaption>
+                    <p class="math">
+                        次のような2値分類のデータセットを考える。
+                    </p>
+                    <div class="math">
+                        \[
+                        \{(\boldsymbol{x}_i,y_i) \mid \boldsymbol{x}_i\in\mathbb{R}^d,y_i\in\{1,-1\}\}_{i=1}^N
+                        \]
+                    </div>
+                    <p>
+                        各データ \(\boldsymbol{x}_i\) の重み係数を初期化する。
+                    </p>
+                    <div class="math">
+                        \[
+                        w_i^{(1)}=\frac{1}{N} \quad (i=1,2,\cdots,N)
+                        \]
+                    </div>
+                    <p>
+                        以下の操作を \(m=1,2\cdots,M\) で繰り返す。
+                    </p>
+                    <ol>
+                        <li>
+                            弱学習器 \(f_m(\boldsymbol{x})\) を学習する。
+                            <div class="math">
+                                \[
+                                f_m(\boldsymbol{x})=\operatorname*{arg min\;}_{f(\boldsymbol{x})}\sum_{i=1}^Nw_i^{(m)}1(y_i\neq f(\boldsymbol{x}_i))
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            弱学習器 \(f_m(\boldsymbol{x})\) の誤判定率を計算する。
+                            <div class="math">
+                                \[
+                                \varepsilon_m=\sum_{i:y_i\neq f_m(\boldsymbol{x}_i)}w_i^{(m)}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            弱学習器 \(f_m(\boldsymbol{x})\) の信頼度を計算する。
+                            <div class="math">
+                                \[
+                                \alpha_m=\frac{1}{2}\log\left(\frac{1-\varepsilon_m}{\varepsilon_m}\right)
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            データの重み係数を更新する。
+                            <div class="math">
+                                \[
+                                w_i^{(m+1)}=w_i^{(m)}e^{-\alpha_my_if_m(\boldsymbol{x}_i)} \quad (i=1,2,\cdots,N)
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            データの重みを正規化する。
+                            <div class="math">
+                                \[
+                                w_i^{(m+1)}\gets\frac{w_i^{(m+1)}}{\displaystyle\sum_{i=1}^Nw_i^{(m+1)}} \quad (i=1,2,\cdots,N)
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                    <p>
+                        最終的に次を出力する。
+                    </p>
+                    <div class="math">
+                        \[
+                        F(\boldsymbol{x}_i)=\operatorname{sgn}\left(\sum_{m=1}^M\alpha_mf_m(\boldsymbol{x}_i)\right) \quad (i=1,2,\cdots,N)
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>AdaBoostの理論</h2>
+                <p></p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
