@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>2次形式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>2次形式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>2次形式の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（2次形式）</figcaption>
+                    <p class="indent">
+                        実数係数の多項式で、すべての項が2次であるものを<strong>2次形式</strong>という。
+                        \(n\) 変数の2次形式は次のように表される。
+                    </p>
+                    <div class="math">
+                        \[
+                        \sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j \quad (a_{ij} \in \mathbb{R})
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>2次形式の行列表現</h2>
+                <p class="indent">
+                    任意の2次形式は、行列を用いて表すことができます。
+                </p>
+                <p>
+                    ベクトル \(\boldsymbol{x}\) と正方行列 \(A\) を
+                </p>
+                <div class="math">
+                    \[
+                    \boldsymbol{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
+                    ,\quad
+                    A = \begin{bmatrix}
+                        a_{11} & a_{12} & \cdots & a_{1n} \\
+                        a_{21} & a_{22} & \cdots & a_{2n} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        a_{n1} & a_{n2} & \cdots & a_{nn} \\
+                        \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    と定めるとき
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \boldsymbol{x}^\top A \boldsymbol{x}
+                    &=\begin{bmatrix} x_1 & x_2 & \cdots & x_n \end{bmatrix}
+                    \begin{bmatrix}
+                    a_{11} & a_{12} & \cdots & a_{1n} \\
+                    a_{21} & a_{22} & \cdots & a_{2n} \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    a_{n1} & a_{n2} & \cdots & a_{nn} \\
+                    \end{bmatrix}
+                    \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \\
+                    &=\begin{bmatrix} x_1 & x_2 & \cdots & x_n \end{bmatrix}
+                    \begin{bmatrix} \sum_{j=1}^na_{1j}x_j \\ \sum_{j=1}^na_{2j}x_j \\ \vdots \\ \sum_{j=1}^na_{nj}x_j \end{bmatrix} \\
+                    &=\sum_{i=1}^n\left(x_i\sum_{j=1}^na_{ij}x_j\right) \\
+                    &=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    上記では一般の正方行列に対して示しましたが、2次形式は対称行列を用いて表すことができます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（2次形式と対称行列）</figcaption>
+                    <p class="indent">
+                        任意の2次形式は対称行列を用いて表せる。
+                        \(A\) を \(n\) 対称行列、\(\boldsymbol{x}\in\mathbb{R}^n\) とすると、2次形式は
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{x}^\top A \boldsymbol{x}
+                        \]
+                    </div>
+                    <p>
+                        と書ける。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
