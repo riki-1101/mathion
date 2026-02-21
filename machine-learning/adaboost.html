@@ -91,16 +91,105 @@
             <section id="2">
                 <h2>AdaBoostの理論</h2>
                 <p></p>
-            </section>
-            <section id="ex">
-                <h2>演習問題</h2>
-                <figure class="ex-practice">
-                    <figcaption>問題</figcaption>
-                </figure>
-                <details class="ans">
-                    <summary>解答</summary>
-                    
-                </details>
+                <div class="math">
+                    \[
+                    F_M(\boldsymbol{x})=\sum_{m=1}^M\alpha_mf_m(\boldsymbol{x}_i)
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    F_m(\boldsymbol{x})=F_{m-1}(\boldsymbol{x}_i)+\alpha_mf_m(\boldsymbol{x}_i)
+                    \]
+                </div>
+                <p>
+                    指数損失により、次の平均損失を損失関数とする。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    L
+                    &=\frac{1}{N}\sum_{i=1}^Ne^{-y_iF_m(\boldsymbol{x}_i)} \\
+                    &=\frac{1}{N}\sum_{i=1}^Ne^{-y_i\{F_{m-1}+\alpha_mf_m(\boldsymbol{x}_i)\}} \\
+                    &=\frac{1}{N}\sum_{i=1}^Ne^{-y_iF_{m-1}}e^{-y_i\alpha_mf_m(\boldsymbol{x}_i)}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    w_i^{(1)}=\frac{1}{N}, \quad w_i^{(m)}=\frac{1}{N}e^{-y_iF_{m-1}(\boldsymbol{x}_i)}
+                    \]
+                </div>
+                <p>
+                    とすると
+                </p>
+                <div class="math">
+                    \[
+                    L=\sum_{i=1}^Nw_i^{(m)}e^{-y_i\alpha_mf_m(\boldsymbol{x}_i)}
+                    \]
+                </div>
+                <p>
+                    正しく分類できたとき、すなわち \(y_i=f_m(\boldsymbol{x}_i)\) であるとき
+                </p>
+                <div class="math">
+                    \[
+                    y_if_m(\boldsymbol{x}_i)=1
+                    \]
+                </div>
+                <p>
+                    誤って分類されたとき、すなわち \(y_i \neq f_m(\boldsymbol{x}_i)\) であるとき
+                </p>
+                <div class="math">
+                    \[
+                    y_if_m(\boldsymbol{x}_i)=-1
+                    \]
+                </div>
+                <p>
+                    となるので、これらで和を分けると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    L&=\sum_{i=1}^Nw_i^{(m)}e^{-y_i\alpha_mf_m(\boldsymbol{x}_i)} \\
+                    &=\sum_{\substack{1\le i\le N \\ y_i=f_m(\boldsymbol{x}_i)}}w_i^{(m)}e^{-\alpha_m} + \sum_{\substack{1\le i\le N \\ y_i\neq f_m(\boldsymbol{x}_i)}}w_i^{(m)}e^{\alpha_m} \\
+                    &=(1-\varepsilon)e^{-\alpha_m} + \varepsilon e^{\alpha_m} \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    このとき
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\frac{\partial L}{\partial\alpha_m}=0 \\
+                    \\
+                    &\Longleftrightarrow -(1-\varepsilon)e^{-\alpha_m} + \varepsilon e^{\alpha_m} = 0 \\
+                    \\
+                    &\Longleftrightarrow e^{2\alpha_m} = \frac{1-\varepsilon}{\varepsilon} \\
+                    \\
+                    &\Longleftrightarrow 2\alpha_m = \log\left(\frac{1-\varepsilon}{\varepsilon}\right) \\
+                    \\
+                    &\Longleftrightarrow \alpha_m = \frac{1}{2}\log\left(\frac{1-\varepsilon}{\varepsilon}\right) \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    また、\(w_i^{(m)}=\dfrac{1}{N}e^{-y_iF_{m-1}(\boldsymbol{x}_i)}\) より
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    w_i^{(m+1)}
+                    &=\frac{1}{N}e^{-y_iF_{m}(\boldsymbol{x}_i)} \\
+                    &=\frac{1}{N}e^{-y_i\{F_{m-1}(\boldsymbol{x}_i)+\alpha_mf_m(\boldsymbol{x}_i)\}} \\
+                    &=\frac{1}{N}e^{-y_iF_{m-1}(\boldsymbol{x}_i)}e^{-y_i\alpha_mf_m(\boldsymbol{x}_i)} \\
+                    &=w_i^{(m)}e^{-y_i\alpha_mf_m(\boldsymbol{x}_i)}
+                    \end{align}
+                    \]
+                </div>
             </section>
         </main>
         <footer id="footer"></footer>
