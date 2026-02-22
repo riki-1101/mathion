@@ -290,6 +290,10 @@ footer {
 /* 横画面のとき */
 @media (orientation: landscape) {
 
+    #contents {
+        width: 70%;  /* サイドバー分あける */
+    }
+    
     #sidebar {
         display: block;
         position: fixed;
@@ -333,12 +337,8 @@ footer {
         border-bottom: none;
     }
     #sidebar-toc a {
-    color: black;
-    display: block;
-}
-
-    #contents {
-        width: 70%;  /* サイドバー分あける */
+        color: black;
+        display: block;
     }
 }
 
