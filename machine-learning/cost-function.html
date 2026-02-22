@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>損失関数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>損失関数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>損失関数とは</h2>
+                <p class="indent">
+                    データセットが \(\{(\boldsymbol{x}_i,y_i)\}_{i=1}^N\) と与えられたとします。
+                    \(\boldsymbol{x}_i\) は説明変数で、\(y_i\) は目的変数です。
+                    モデル（予測器）を、パラメータ \(\boldsymbol{\theta}\) を用いて \(f(\boldsymbol{x} ; \boldsymbol{\theta})\) とすると、\(y_i\) の予測値 \(\hat{y}_i\) は次式で与えられます。
+                </p>
+                <div class="math">
+                    \[
+                    \hat{y}_i=f(\boldsymbol{x}_i ; \boldsymbol{\theta}) \quad (i=1,\cdots,N)
+                    \]
+                </div>
+                <p class="indent">
+                    パラメータ \(\boldsymbol{\theta}\) を、できるだけ \(y_i\) と \(\hat{y}_i\) が等しくなるように定めたいです。
+                    そこで、 \(y_i\) と \(\hat{y}_i\) の誤差を表す関数を考えます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（損失関数）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\) とその予測 \(\hat{y}=f(\boldsymbol{x} ; \boldsymbol{\theta})\) との誤差を表す関数
+                    </p>
+                    <div class="math">
+                        \[
+                        L(y,\hat{y}) \quad (\ge0)
+                        \]
+                    </div>
+                    <p>
+                        を<strong>損失関数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    この損失関数を最小化するような \(\boldsymbol{\theta}\) を求める最適化問題を考えます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>回帰の損失関数</h2>
+                <p class="indent">
+                    ここでは、回帰で用いられる損失関数をいくつか紹介します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（二乗損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\) とその予測値 \(\hat{y}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) = \frac{1}{2}(y-\hat{y})^2
+                        \]
+                    </div>
+                    <p>
+                        を<strong>二乗損失</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（絶対損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\) とその予測値 \(\hat{y}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) = |y-\hat{y}|
+                        \]
+                    </div>
+                    <p>
+                        を<strong>絶対損失</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（ε感度損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\) とその予測値 \(\hat{y}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) = \max\{|y-\hat{y}|-\epsilon,0\}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>ε感度損失</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（フーバー損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\) とその予測値 \(\hat{y}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) =
+                        \begin{cases}
+                        \dfrac{1}{2}(y-\hat{y})^2 & (|y-\hat{y}| \le \alpha) \\
+                        \alpha|y-\hat{y}|-\dfrac{1}{2}\alpha^2 & (|y-\hat{y}| \gt \alpha)
+                        \end{cases}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>フーバー損失</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>分類の損失関数</h2>
+                <div class="math">
+                    \[
+                    \ell(y,\hat{y}) =
+                    \begin{cases}
+                    0 & (y\hat{y} \gt 0) \\
+                    1 & (y\hat{y} \lt 0)
+                    \end{cases}
+                    \]
+                </div>
+                <p>
+                    これを<strong>0-1損失</strong>といいます。
+                    しかし、これは不連続で非凸なので学習に用いるには都合が悪いです。
+                    そこで、連続で凸となる別の関数を損失として使用します。
+                </p>
+                <p class="indent">
+                    ここでは、分類で用いられる損失関数をいくつか紹介します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（指数損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\in\{-1,+1\}\) とその予測値 \(\hat{y}\in\mathbb{R}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) = e^{-y\hat{y}}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>指数損失</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（ロジスティック損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\in\{-1,+1\}\) とその予測値 \(\hat{y}\in\mathbb{R}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) = \log(1+e^{-y\hat{y}})
+                        \]
+                    </div>
+                    <p>
+                        を<strong>ロジスティック損失</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（ヒンジ損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\in\{-1,+1\}\) とその予測値 \(\hat{y}\in\mathbb{R}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) = \max\{1-y\hat{y},0\}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>ヒンジ損失</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（交差エントロピー損失）</figcaption>
+                    <p class="indent">
+                        目的変数 \(y\in\{0,1\}\) とその予測値 \(\hat{y}\in(0,1)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \ell(y,\hat{y}) = -y\log\hat{y}-(1-y)\log(1-\hat{y})
+                        \]
+                    </div>
+                    <p>
+                        を<strong>交差エントロピー損失</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
