@@ -175,30 +175,30 @@ footer {
 }
 
 
-#homeimg {
-    padding: 2vw;
-    font-size: 2em;
-}
-
 
 /* ホーム画面 */
 #home {
     width: 100%;
-    padding: 1px 2em 10px 2em;
+}
+#home img {
+    width: 100%;
+    pointer-events: none;
+}
+#home section {
+    margin: 4em 2em;
 }
 #home h2 {
-    margin: 0 15px;
     border-bottom: 2px solid black;
     font-size: 2em;
+    margin: 0;
 }
 #home ul {
     list-style: none;
     padding-left: 0;
-    margin: 0 15px;
 }
 #home ul li {
     border-bottom: 1px solid gray;
-    height: 100px;
+    height: 8em;
 }
 #home ul li a figure {
     margin: 0;
@@ -208,11 +208,11 @@ footer {
     height: 100%;  /* 高さを100%にして中央揃えを確実にする */
 }
 #home ul li a figure .img {
-    width: 55%;
+    width: 60%;
     display: flex;
     justify-content: center;  /* 横方向に中央揃え */
     align-items: center;  /* 縦方向に中央揃え */
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 #home ul li a figure figcaption {
     display: flex;
