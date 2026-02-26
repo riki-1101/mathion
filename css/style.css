@@ -180,7 +180,19 @@ footer {
 #home {
     width: 100%;
 }
-#home img {
+#home #home_img {
+    position: relative;
+}
+#home #home_img p {
+    position: absolute;
+    color: white;
+    font-size: 5vw;
+    top: 50%;
+    left: 5%;
+    margin: 0;
+    padding: 0;
+}
+#home #home_img img {
     width: 100%;
     pointer-events: none;
 }
