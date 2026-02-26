@@ -9,82 +9,90 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>結合エントロピーと条件付きエントロピー</h1>
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>結合エントロピー</h2>
                 <p class="indent">
-                    2つの事象系 \(A,B\) を
-                </p>
-                <div class="math">
-                    \[
-                    A=
-                    \begin{bmatrix}
-                    a_1 & a_2\\
-                    P(a_1) & P(a_2)\\
-                    \end{bmatrix},
-                    \quad
-                    B=
-                    \begin{bmatrix}
-                    b_1 & b_2\\
-                    P(b_1) & P(b_2)\\
-                    \end{bmatrix}
-                    \]
-                </div>
-                <p>
-                    とするとき、\(A\) と \(B\) が同時に起こる事象を<strong>結合事象系</strong>といい
-                </p>
-                <div class="math">
-                    \[
-                    AB=
-                    \begin{bmatrix}
-                    (a_1,~b_1) & (a_1,~b_2) & (a_2,~b_1) & (a_2,~b_2)\\
-                    P(a_1,~b_1) & P(a_1,~b_2) & P(a_2,~b_1) & P(a_2,~b_2)\\
-                    \end{bmatrix}
-                    \]
-                </div>
-                <p>
-                    と表します。
-                    結合事象系のエントロピーは次のように定義されます。
+                    <strong>結合エントロピー</strong>は、2つの確率変数 \(X,Y\) に対して定義され、\(X\) と \(Y\) を同時に知らないときの不確実性を表す量です。
                 </p>
                 <figure class="def">
                     <figcaption>定義（結合エントロピー）</figcaption>
                     <p class="indent">
-                        2つの完全事象系 \(A,B\) に対して
+                        2つの確率変数 \(X,Y\) に対して
                     </p>
                     <div class="math">
                         \[
-                    H(AB)=-\sum_{a\in A,~b\in B}P(a,b)\log_2P(a,b)
-                    \]
+                        p(x,y)=P(X=x,~Y=y)
+                        \]
                     </div>
                     <p>
-                        を \(A\) と \(B\) の<strong>結合エントロピー</strong>という。
+                        とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        H(X,Y)=-\sum_{x}\sum_{y}p(x,y)\log_2p(x,y)
+                        \]
+                    </div>
+                    <p>
+                        を \(X\) と \(Y\) の<strong>結合エントロピー</strong>という。
                     </p>
                 </figure>
             </section>
             <section id="2">
                 <h2>条件付きエントロピー</h2>
-                <p>
-                    \(A=a\) とわかっているときの \(B\) のエントロピーは
+                <p class="indent">
+                    2つの確率変数 \(X,Y\) があり、\(X=x\) とわかっているときの \(Y\) のエントロピー
                 </p>
                 <div class="math">
                     \[
-                    H(B|A=a)=-\sum_{b\in B}P(b|a)\log_2P(b|a)
+                    H(Y \mid X=x)=-\sum_{y}p(y \mid x)\log_2p(y \mid x)
                     \]
                 </div>
+                <p>
+                    を考えます。
+                    ただし、\(p(y \mid x)=P(Y \mid X=x)\) です。
+                    このエントロピー \(H(Y \mid X=x)\) は \(x\) の値によるため、\(x\) について平均化すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\sum_xp(x)H(Y \mid X=x)\\
+                    &=-\sum_xp(x)\sum_{y}p(y \mid x)\log_2p(y \mid x) \\
+                    &=-\sum_x\sum_{y}p(x)p(y \mid x)\log_2p(y \mid x) \\
+                    &=-\sum_x\sum_{y}p(x,y)\log_2p(y \mid x)
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    が得られます。
+                    これを<strong>条件付きエントロピー</strong>といい、次のように定義されます。
+                </p>
                 <figure class="def">
                     <figcaption>定義（条件付きエントロピー）</figcaption>
                     <p class="indent">
-                        2つの完全事象系 \(A,B\) に対して
+                        2つの確率変数 \(X,Y\) に対して
                     </p>
                     <div class="math">
                         \[
-                        H(B|A)=-\sum_{a\in A}P(a)H(B|A=a)
+                        p(x,y)=P(X=x,~Y=y)
+                        \]
+                        \[
+                        p(y \mid x)=P(Y=y \mid X=x)
                         \]
                     </div>
                     <p>
-                        を \(A\) の元での \(B\) の<strong>条件付きエントロピー</strong>という。
+                        とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        H(Y \mid X)=-\sum_{x}p(x,y)\log_2p(y \mid x)
+                        \]
+                    </div>
+                    <p>
+                        を \(X\) の元での \(Y\) の<strong>条件付きエントロピー</strong>という。
                     </p>
                 </figure>
             </section>
@@ -149,6 +157,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

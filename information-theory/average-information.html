@@ -9,27 +9,48 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>平均情報量（エントロピー）</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>平均情報量とは</h2>
-                <p></p>
+                <h2>平均情報量の定義</h2>
+                <p class="indent">
+                    情報量の期待値を<strong>平均情報量（エントロピー）</strong>といい、次のように定義されます。
+                </p>
                 <figure class="def">
                     <figcaption>定義（平均情報量）</figcaption>
                     <p class="indent">
-                        完全事象系 \(A\) に対して
+                        確率変数 \(X\) に対して
                     </p>
                     <div class="math">
                         \[
-                        H(A)=\sum_{A_i\in A}P(A_i)I(A_i)=-\sum_{A_i\in A}P(A_i)\log_2P(A_i) \quad [\mathrm{bit}]
+                        H(X)=E[I(X)] \quad [\mathrm{bit}]
                         \]
                     </div>
                     <p>
-                        を \(A\) の<strong>平均情報量（エントロピー）</strong>という。
+                        を \(X\) の<strong>平均情報量（エントロピー）</strong>という。
                     </p>
                 </figure>
-                <p></p>
+                <p>
+                    \(X\) が離散型確率変数の場合、確率質量関数 \(p(x)\) によって
+                </p>
+                <div class="math">
+                    \[
+                    H(X)=\sum_{x}p(x)I(x)=-\sum_{x}p(x)\log p(x)
+                    \]
+                </div>
+                <p>
+                    \(X\) が連続型確率変数の場合、確率密度関数 \(p(x)\) によって
+                </p>
+                <div class="math">
+                    \[
+                    H(X)=\int_{X}p(x)I(x)dx=-\int_{X}p(x)\log p(x)dx
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
                 <figure class="ex-problem">
                     <figcaption>例題</figcaption>
                     <p class="indent">
@@ -37,57 +58,87 @@
                         この天気の平均情報量を求めよ。（小数第2位まで）
                     </p>
                 </figure>
-                <details class="ans">
-                    <summary>解答</summary>
-                    <div class="math">
-                        \[
-                        H=P(A)I(A)+P(B)I(B)+P(C)I(C)
-                        \]
-                    </div>
-                </details>
-            </section>
-            <section id="2">
-                <h2>最大エントロピー</h2>
-                <p class="indent">
-                    平均情報量（エントロピー）の最大値を<strong>最大エントロピー</strong>といいます。
-                </p>
-                <p></p>
-                <h3>2元事象系の最大エントロピー</h3>
-                <p class="indent">
-                    表が出る確率が \(p\) であるコインを1回投げるときの、最大エントロピーを考えてみる。
-                    このとき、事象系は次のようになる。
-                </p>
-                <div class="math">
-                    \[
-                    X=
-                    \begin{bmatrix}
-                    \text{表} & \text{裏}\\
-                    p & 1-p
-                    \end{bmatrix}
-                    \]
-                </div>
                 <p>
-                    エントロピーは
+                    天気を \(X\) とすると
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    H(X)&=-\sum_{x\in X}P(x)\log_2P(x)\\
+                    H(X)&=E[I(X)] \\
+                    &=\sum_{x}p(x)I(x) \\
+                    &=-\sum_{x}p(x)\log_2p(x) \\
+                    &=-\frac{200}{365}\log_2\frac{200}{365}-\frac{60}{365}\log_2\frac{60}{365}-\frac{5}{365}\log_2\frac{5}{365}
+                    \end{align}
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>エントロピー関数</h2>
+                <p class="indent">
+                    2値をとる確率変数 \(X\in\{x_1,x_2\}\) を考え、確率質量関数を
+                </p>
+                <div class="math">
+                    \[
+                    p(x)=
+                    \begin{cases}
+                    p & (x=x_1) \\
+                    1-p & (x=x_2)
+                    \end{cases}
+                    \quad (p\in[0,1])
+                    \]
+                </div>
+                <p>
+                    とします。
+                    このとき \(X\) のエントロピーは
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    H(X)&=-\sum_{x}p(x)\log_2p(x) \\
+                    &=-p(x_1)\log_2p(x_1)-p(x_2)\log_2p(x_2) \\
                     &=-p\log_2p-(1-p)\log_2(1-p)
                     \end{align}
                     \]
                 </div>
                 <p>
-                    となります。
-                    この最大値を求めます。
+                    となり、これは \(p\) の1変数関数と見ることができます。
+                    この関数を<strong>エントロピー関数</strong>といい、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（エントロピー関数）</figcaption>
+                    <p class="indent">
+                        確率 \(p\in[0,1]\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathcal{H}(p):=-p\log_2p-(1-p)\log_2(1-p)
+                        \]
+                    </div>
+                    <p>
+                        を<strong>エントロピー関数</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>最大エントロピー</h2>
+                <p class="indent">
+                    エントロピー関数
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{H}(p)=-p\log_2p-(1-p)\log_2(1-p)
+                    \]
+                </div>
+                <p>
+                    の最大値を考えます。
                 </p>
                 <p class="indent">
-                    \(H\) を \(p\) で微分すると
+                    \(\mathcal{H}(p)\) を \(p\) で微分すると
                 </p>
                 <div class="math">
                     \[
                     \begin{align}
-                    \frac{dH}{dp}
+                    \frac{d\mathcal{H}}{dp}
                     &=-\log_2p-\frac{1}{\log2}+\log_2(1-p)+\frac{1}{\log2}\\
                     &=-\log_2p+\log_2(1-p)
                     \end{align}
@@ -99,7 +150,7 @@
                 <div class="math">
                     \[
                     \begin{align}
-                    \frac{dH}{dp}=0&\Longleftrightarrow\log_2p=\log_2(1-p)\\
+                    \frac{d\mathcal{H}}{dp}=0&\Longleftrightarrow\log_2p=\log_2(1-p)\\
                     &\Longleftrightarrow p=1-p\\
                     &\Longleftrightarrow p=\frac{1}{2}
                     \end{align}
@@ -110,14 +161,13 @@
                 </p>
                 <table>
                     <tr><td>\(p\)</td><td>\(0\)</td><td>\(\cdots\)</td><td>\(\displaystyle\frac{1}{2}\)</td><td>\(\cdots\)</td><td>\(1\)</td></tr>
-                    <tr><td>\(\dfrac{dH}{dp}\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+                    <tr><td>\(\dfrac{d\mathcal{H}}{dp}\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
                     <tr><td>\(H\)</td><td>\(0\)</td><td>↗</td><td>\(1\)</td><td>↘</td><td>\(0\)</td></tr>
                 </table>
                 <p class="indent">
-                    したがって、\(H\) は \(p=\displaystyle\frac{1}{2}\) で最大値 \(1\) をとります。
-                    つまり、エントロピーが最大になるのは表、裏が出る確率が等確率であるときです。
+                    したがって、\(\mathcal{H}(p)\) は \(p=\displaystyle\frac{1}{2}\) で最大値 \(1\) をとります。
+                    つまり、エントロピーが最大になるのは、事象が等確率で現れるときです。
                 </p>
-                <h3>\(n\) 元事象系の最大エントロピー</h3>
                 <p class="indent">
                     一般に、\(n\) 元事象系のエントロピーが最大となるのは、\(n\) 個の事象の生起確率が等確率で \(\displaystyle\frac{1}{n}\) であるときです。
                 </p>
@@ -133,47 +183,6 @@
                     </div>
                     <p>
                         で与えられる。
-                    </p>
-                </figure>
-            </section>
-            <section id="3">
-                <h2>エントロピー関数</h2>
-                <p class="indent">
-                    2元事象系
-                </p>
-                <div class="math">
-                    \[
-                    X=
-                    \begin{bmatrix}
-                    x_1 & x_2\\
-                    p & 1-p
-                    \end{bmatrix}
-                    \]
-                </div>
-                <p>
-                    のエントロピー
-                </p>
-                <div class="math">
-                    \[
-                    H(X)=-p\log_2p-(1-p)\log_2(1-p)
-                    \]
-                </div>
-                <p>
-                    は確率 \(p\) の1変数関数と見ることができます。
-                    これを<strong>エントロピー関数</strong>といい、次のように定義されます。
-                </p>
-                <figure class="def">
-                    <figcaption>定義（エントロピー関数）</figcaption>
-                    <p class="indent">
-                        確率 \(p\in[0,1]\) に対して
-                    </p>
-                    <div class="math">
-                        \[
-                        \mathcal{H}(p):=-p\log_2p-(1-p)\log_2(1-p)
-                        \]
-                    </div>
-                    <p>
-                        を<strong>エントロピー関数</strong>という。
                     </p>
                 </figure>
             </section>
@@ -225,6 +234,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

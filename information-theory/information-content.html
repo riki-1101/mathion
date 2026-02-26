@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>自己情報量</h1>
             <div id="table-of-contents"></div>
@@ -86,15 +87,15 @@
                 <figure class="def">
                     <figcaption>定義（自己情報量）</figcaption>
                     <p class="indent">
-                        事象 \(A\) に対して
+                        \(X\) を確率変数とし、\(p(x)=P(X=x)\) とするとき
                     </p>
                     <div class="math">
                         \[
-                        I(A):=-\log_2P(A) \quad [\mathrm{bit}]
+                        I(x):=-\log_2p(x) \quad [\mathrm{bit}]
                         \]
                     </div>
                     <p>
-                        を事象 \(A\) の<strong>自己情報量</strong>という。
+                        を事象 \(\{X=x\}\) の<strong>自己情報量</strong>という。
                     </p>
                 </figure>
                 <p class="indent">
@@ -171,6 +172,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
