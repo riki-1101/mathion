@@ -5,58 +5,71 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>定積分（リーマン積分）</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>定積分</h1>
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>リーマン積分の定義</h2>
-                <p>
-                    関数 \(f(x)\) は閉区間 \([a,b]\) 上で有界であるとします。<br>
+                <p class="indent">
+                    関数 \(f(x)\) は閉区間 \([a,b]\) 上で有界であるとします。
                     まず、閉区間の「分割」という概念を定義します。
                 </p>
                 <figure class="def">
                     <figcaption>定義（分割）</figcaption>
-                    <p>
+                    <p class="indent">
                         閉区間 \([a,b]\) に属する点列 \(x_0,x_1,x_2,\cdots,x_n\) を
+                    </p>
+                    <div class="math">
                         \[
                         a=x_0\lt x_1\lt x_2\lt\cdots\lt x_n=b
                         \]
+                    </div>
+                    <p>
                         となるようにとり、区間 \([a,b]\) を以下のような小さい閉区間
+                    </p>
+                    <div class="math">
                         \[
                         [x_0,x_1],~[x_1,x_2],~\cdots,~[x_{n-1},x_n]
                         \]
-                        に分けることを分割という。このような分割を
+                    </div>
+                    <p>
+                        に分けることを分割という。
+                        このような分割を
+                    </p>
+                    <div class="math">
                         \[
                         \varDelta:a=x_0\lt x_1\lt x_2\lt\cdots\lt x_n=b
                         \]
+                    </div>
+                    <p>
                         と表す。
                     </p>
                 </figure>
-                <p>次に、分割の大きさについて定義します。</p>
+                <p class="indent">
+                    次に、分割の大きさを定義します。
+                </p>
                 <figure class="def">
                     <figcaption>定義（分割の大きさ）</figcaption>
-                    <p>
-                        分割
-                        \[
-                        \varDelta:a=x_0\lt x_1\lt x_2\lt\cdots\lt x_n=b
-                        \]
-                        に対して、各小区間 \([x_{i-1},x_i]\) の長さ \(x_i-x_{i-1}\) を考える。<br>
-                        この中で最も長いもの、すなわち
+                    <p class="indent">
+                        分割 \(\varDelta\) における各小区間 \([x_{i-1},x_i]\) の長さ \(x_i-x_{i-1}\) に対し
+                    </p>
+                    <div class="math">
                         \[
                         |\varDelta|=\max_{1\le i\le n}(x_i-x_{i-1})
                         \]
+                    </div>
+                    <p>
                         を分割 \(\varDelta\) の大きさという。
                     </p>
                 </figure>
-                <p>
-                    この「分割の大きさ」は、分割の中で最も長い小区間の長さを表します。
-                    つまり、どれくらい細かく分けたかを見るための目安になり、
-                    \(|\varDelta|\) が小さいと、より細かく区間を分けたということです。
+                <p class="indent">
+                    分割の中で最も長い小区間の長さが分割の大きさです。
+                    どれくらい細かく分けたかの目安になり、\(|\varDelta|\) が小さいと、より細かく区間を分けたということです。
                 </p>
                 <figure class="def">
                     <figcaption>定義（リーマン和）</figcaption>
@@ -100,7 +113,7 @@
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     <p>\(\displaystyle\int_{0}^{1}x^2dx\) を求めよ。</p>
                 </figure>
@@ -149,6 +162,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

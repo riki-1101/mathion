@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>微分積分学の基本定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>微分積分学の基本定理</h1>
+            <div id="table-of-contents"></div>
+            <section>
+                <h2>積分の平均値の定理</h2>
+                <figure class="th">
+                    <figcaption>定理（積分に関する平均値の定理）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) が閉区間 \([a,b]\) 上で連続ならば、ある \(c\in[a,b]\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{1}{b-a}\int_a^bf(x)dx=f(c)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <h3>証明</h3>
+                <p>
+                    \(f(x)\) は閉区間 \([a,b]\) 上で連続なので、最大値・最小値の定理より
+                </p>
+                <div class="math">
+                    \[
+                    M:=\max_{x\in[a,b]}f(x),\quad m:=\min_{x\in[a,b]}f(x)
+                    \]
+                </div>
+                <p>
+                    が存在する。
+                    したがって、任意の \(x\in[a,b]\) に対して
+                </p>
+                <div class="math">
+                    \[
+                    m\le f(x)\le M
+                    \]
+                </div>
+                <p>
+                    であって
+                </p>
+                <div class="math">
+                    \[
+                    \int_a^bmdx\lt\int_a^bf(x)dx\lt\int_a^bMdx
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    m(b-a)\lt\int_a^bf(x)dx\lt M(b-a)
+                    \]
+                </div>
+                <p>
+                    両辺を \(b-a\neq0\) で割ると
+                </p>
+                <div class="math">
+                    \[
+                    m\lt\frac{1}{b-a}\int_a^bf(x)dx\lt M
+                    \]
+                </div>
+                <p>
+                    ここで、\(\alpha,\beta\in[a,b]\) として
+                </p>
+                <div class="math">
+                    \[
+                    M=f(\alpha),~~~m=f(\beta)
+                    \]
+                </div>
+                <p>
+                    とする。
+                    中間値の定理より、ある \(c\in[a,b]\) が存在して
+                </p>
+                <div class="math">
+                    \[
+                    \frac{1}{b-a}\int_a^bf(x)dx=f(c)
+                    \]
+                </div>
+                <p>
+                    が成り立つ。
+                </p>
+            </section>
+            <section id="1">
+                <h2>微分積分学の第一基本定理</h2>
+                <figure class="th">
+                    <figcaption>定理（微分積分学の第一基本定理）</figcaption>
+                    <p class="indent">
+                        関数 \(f(x)\) は区間 \(I\) 上で連続であるとし、\(a,x\in I\) とする。
+                        このとき、\(f(x)\) の不定積分 \(\displaystyle\int_a^xf(t)dt\) は微分可能で
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{d}{dx}\int_a^xf(t)dt=f(x)
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    この定理は「連続関数において、不定積分と原始関数は等しい」ということを主張しています。
+                </p>
+                <h3>証明</h3>
+                <p>
+                    不定積分 \(\displaystyle\int_a^xf(t)dt\) を \(x\) について微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{d}{dx}\int_a^xf(t)dt
+                    &=\lim_{\varDelta x\to0}\frac{1}{\varDelta x}\left(\int_a^{x+\varDelta x}f(t)dt-\int_a^xf(t)dt\right)\\
+                    &=\lim_{\varDelta x\to0}\frac{1}{\varDelta x}\left(\int_x^af(t)dt+\int_a^{x+\varDelta x}f(t)dt\right)\\
+                    &=\lim_{\varDelta x\to0}\frac{1}{\varDelta x}\int_x^{x+\varDelta x}f(t)dt\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(f\) は区間 \(I\) 上で連続なので、区間 \([x,x+\varDelta x]\) 上でも連続である。<br>
+                    積分に関する平均値の定理より、ある \(c\in[x,x+\varDelta x]\) が存在して
+                </p>
+                <div class="math">
+                    \[
+                    \int_x^{x+\varDelta x}f(t)dt=f(c)(x+\varDelta x-x)=f(c)\varDelta x
+                    \]
+                </div>
+                <p>
+                    したがって
+                    \[
+                    \frac{1}{\varDelta x}\int_x^{x+\varDelta x}f(t)dt=f(c)
+                    \]
+                    \(c\in[x,x+\varDelta x]\) より
+                    \[
+                    \lim_{\varDelta x\to0}\frac{1}{\varDelta x}\int_x^{x+\varDelta x}f(t)dt=\lim_{\varDelta x\to0}f(c)=f(x)
+                    \]
+                    となるので
+                    \[
+                    \frac{d}{dx}\int_a^xf(t)dt=f(x)
+                    \]
+                    が成り立つ。
+                </p>
+            </section>
+            <section id="2">
+                <h2>微分積分学の第二基本定理</h2>
+                <figure class="th">
+                    <figcaption>定理（微分積分学の第二基本定理）</figcaption>
+                    <p>
+                        関数 \(f(x)\) が区間 \(I\) 上でリーマン可積分で、\(f\) の原始関数 \(F\) が存在するとき、\(a,b\in I\) として
+                        \[
+                        \int_a^bf(x)dx=F(b)-F(a)
+                        \]
+                        が成り立つ。
+                    </p>
+                </figure>
+                <h3>証明</h3>
+
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
