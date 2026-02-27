@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>逆写像と合成写像</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>逆写像と合成写像</h1>
             <div id="table-of-contents"></div>
@@ -18,7 +18,7 @@
                 <figure class="def">
                     <figcaption>定義（逆写像）</figcaption>
                     <p class="indent">
-                        写像 \(f:X\to Y\) が全単射であるとき
+                        写像 \(f:X\to Y\) が全単射であるとき、写像
                     </p>
                     <div class="math">
                         \[
@@ -36,7 +36,7 @@
                     <figcaption>定理（逆写像の性質）</figcaption>
                     <ol>
                         <li>\(f\) と \(f^{-1}\) とでは、定義域と値域が入れ替わる。</li>
-                        <li>2つのグラフ \(G(f),~G(f^{-1})\) は、直線 \(y=x\) に関して対称である。</li>
+                        <li>2つのグラフ \(G(f),G(f^{-1})\) は、直線 \(y=x\) に関して対称である。</li>
                     </ol>
                 </figure>
             </section>
@@ -77,7 +77,7 @@
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                     <p class="indent">
                         次の写像の逆写像は存在するか。
@@ -98,6 +98,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
