@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>数列の発散</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>数列の発散</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>数列の正の無限大への発散</h2>
+                <figure class="def">
+                    <figcaption>定義（数列の正の無限大への発散）</figcaption>
+                    <p class="indent">
+                        数列 \(\{a_n\}_{n=1}^\infty\) を考える。
+                        任意の \(R\gt0\) に対して、ある自然数 \(N\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        n\ge N ~\Longrightarrow~ a_n\gt R
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(\{a_n\}_{n=1}^\infty\) は<strong>正の無限大に発散する</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}a_n=\infty
+                        \]
+                    </div>
+                    <p>
+                        あるいは
+                    </p>
+                    <div class="math">
+                        \[
+                        a_n\to\infty \quad (n\to\infty)
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+                <p>
+                    論理式で書くと
+                </p>
+                <div class="math">
+                    \[
+                    \forall R\gt0,~\exists N\in\mathbb{N},~\forall n\in\mathbb{N}:(n\ge N\Longrightarrow a_n\gt R)
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の数列の極限を証明せよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}\sqrt{n}=\infty
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    まず、任意の正の実数として、\(R\) を定めます。
+                    この \(R\) に対して、ある自然数 \(N\) を考えるので、\(N\) は \(R\) の式になります。
+                    示したい式は
+                </p>
+                <div class="math">
+                    \[
+                    n\ge N\Longrightarrow\sqrt{n}\gt R
+                    \]
+                </div>
+                <p>
+                    です。
+                    つまり \(n\ge N\) のとき
+                </p>
+                <div class="math">
+                    \[
+                    a_n=\sqrt{n}\ge\sqrt{N}\gt\cdots\gt R
+                    \]
+                </div>
+                <p>
+                    と言えるように、\(N\) を決めればよいです。
+                </p>
+                <div class="math">
+                    \[
+                    \sqrt{N}\gt R
+                    \]
+                </div>
+                <p>
+                    つまり
+                </p>
+                <div class="math">
+                    \[
+                    N\gt R^2
+                    \]
+                </div>
+                <p>
+                    となるような \(N\) として
+                </p>
+                <div class="math">
+                    \[
+                    N=[R^2]+1
+                    \]
+                </div>
+                <p>
+                    が考えられます。
+                </p>
+                <p>
+                    〈解答〉
+                </p>
+                <p>
+                    任意の \(R\gt0\) に対して、自然数
+                </p>
+                <div class="math">
+                    \[
+                    N=[R^2]+1
+                    \]
+                </div>
+                <p>
+                    を取ると、\(n\ge N\) について
+                </p>
+                <div class="math">
+                    \[
+                    \sqrt{n}\ge\sqrt{N}=\sqrt{[R^2]+1}\gt R
+                    \]
+                </div>
+                <p>
+                    が成り立つ。
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{n\to\infty}\sqrt{n}=\infty
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>数列の負の無限大への発散</h2>
+                <figure class="def">
+                    <figcaption>定義（数列の負の無限大への発散）</figcaption>
+                    <p class="indent">
+                        数列 \(\{a_n\}_{n=1}^\infty\) を考える。
+                        任意の \(R\gt0\) に対して、ある自然数 \(N\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        n\ge N\Longrightarrow a_n\lt -R
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(\{a_n\}_{n=1}^\infty\) は<strong>負の無限大に発散する</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}a_n=-\infty
+                        \]
+                    </div>
+                    <p>
+                        あるいは
+                    </p>
+                    <div class="math">
+                        \[
+                        a_n\to-\infty \quad (n\to\infty)
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+                <p class="indent">
+                    論理式で書くと
+                </p>
+                <div class="math">
+                    \[
+                    \forall R\gt0,~\exists N\in\mathbb{N},~\forall n\in\mathbb{N}:(n\ge N\Longrightarrow a_n\lt -R)
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の数列の極限を証明せよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}(-n^3)=-\infty
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    まず、任意の正の実数として、\(R\) を定めます。
+                    この \(R\) に対して、ある自然数 \(N\) を考えるので、\(N\) は \(R\) の式になります。
+                    示したい式は
+                </p>
+                <div class="math">
+                    \[
+                    n\ge N\Longrightarrow -n^3\lt -R
+                    \]
+                </div>
+                <p>
+                    です。
+                    つまり \(n\ge N\) のとき
+                </p>
+                <div class="math">
+                    \[
+                    a_n=-n^3\le -N^3\lt\cdots\lt -R
+                    \]
+                </div>
+                <p>
+                    と言えるように、\(N\) を決めればよいです。
+                </p>
+                <div class="math">
+                    \[
+                    -N^3\lt -R
+                    \]
+                </div>
+                <p>
+                    つまり
+                </p>
+                <div class="math">
+                    \[
+                    N\gt \sqrt[3]{R}
+                    \]
+                </div>
+                <p>
+                    となるような \(N\) として
+                </p>
+                <div class="math">
+                    \[
+                    N=\left[\sqrt[3]{R}\right]+1
+                    \]
+                </div>
+                <p>
+                    が考えられます。
+                </p>
+                <p>
+                    〈解答〉
+                </p>
+                <p>
+                    任意の \(R\gt0\) に対して、自然数
+                </p>
+                <div class="math">
+                    \[
+                    N=\left[\sqrt[3]{R}\right]+1
+                    \]
+                </div>
+                <p>
+                    を取ると、\(n\ge N\) について
+                </p>
+                <div class="math">
+                    \[
+                    -n^3\le -N^3=-\left(\left[\sqrt[3]{R}\right]+1\right)^3\lt-\left(\sqrt[3]{R}\right)^3=-R
+                    \]
+                </div>
+                <p>
+                    が成り立つ。
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{n\to\infty}(-n^3)=-\infty
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>数列の振動</h2>
+                <figure class="def">
+                    <figcaption>定義（数列の振動）</figcaption>
+                    <p class="indent">
+                        数列 \(\{a_n\}\) が収束せず、正の無限大のも負の無限大にも発散しないとき、\(\{a_n\}\) は<strong>振動する</strong>という。
+                    </p>
+                </figure>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の数列は振動することを証明せよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        a_n=(-2)^n
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    数列が振動することを示すには「収束しない」「正の無限大に発散しない」「負の無限大に発散しない」という、この３つを示せばよい。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <div>
+
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

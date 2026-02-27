@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>はさみうちの原理と追い出しの原理（数列）</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>はさみうちの原理と追い出しの原理（数列）</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>はさみうちの原理</h2>
+                <figure class="th">
+                    <figcaption>定理（はさみうちの原理）</figcaption>
+                    <p class="indent">
+                        数列 \(\{a_n\},\{b_n\},\{c_n\}\) がすべての \(n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        a_n\le c_n\le b_n
+                        \]
+                    </div>
+                    <p>
+                        を満たしており
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha
+                        \]
+                    </div>
+                    <p>
+                        であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}c_n=\alpha
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        \(a_n\le c_n\le b_n\) であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        a_n-\alpha\le c_n-\alpha\le b_n-\alpha~\cdots~\text{①}
+                        \]
+                    </div>
+                    <p>
+                        また、\(\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha\) であるから、
+                        任意の \(\varepsilon\gt0\) に対し、それぞれある自然数 \(N_1,N_2\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        n\ge N_1 ~&\Longrightarrow~ |a_n-\alpha|\lt\varepsilon \\
+                        n\ge N_2 ~&\Longrightarrow~ |b_n-\alpha|\lt\varepsilon
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        となる。
+                        ここで、\(N=\max\{N_1,N_2\}\) とすると、\(n\ge N\) のとき
+                    </p>
+                    <div class="math">
+                        \[
+                        |a_n-\alpha|\lt\varepsilon,\quad |b_n-\alpha|\lt\varepsilon
+                        \]
+                    </div>
+                    <p>
+                        がともに成り立つ。
+                        すなわち
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        &-\varepsilon\lt a_n-\alpha\lt\varepsilon~\cdots~\text{②} \\
+                        &-\varepsilon\lt b_n-\alpha\lt\varepsilon~\cdots~\text{③}
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        ①、②、③より
+                    </p>
+                    <div class="math">
+                        \[
+                        -\varepsilon\lt c_n-\alpha\lt\varepsilon
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                        したがって
+                    </p>
+                    <div class="math">
+                        \[
+                        n\ge N\Longrightarrow |c_n-\alpha|\lt\varepsilon
+                        \]
+                    </div>
+                    <p>
+                        となるので
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}c_n=\alpha
+                        \]
+                    </div>
+                </details>
+            </section>
+            <section id="2">
+                <h2>追い出しの原理</h2>
+                <figure class="th">
+                    <figcaption>定理（追い出しの原理）</figcaption>
+                    <p class="indent">
+                        数列 \(\{a_n\},\{b_n\}\) がすべての \(n\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        a_n\le b_n
+                        \]
+                    </div>
+                    <p>
+                        を満たしており
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}a_n=\infty
+                        \]
+                    </div>
+                    <p>
+                        であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}b_n=\infty
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        \(\displaystyle\lim_{n\to\infty}a_n=\infty\) であるから、任意の \(R\gt0\) に対し、ある自然数 \(N\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        n\ge N ~\Longrightarrow~ a_n\gt R
+                        \]
+                    </div> 
+                    <p>
+                        となる。
+                        ここで、\(a_n\le b_n\) であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        n\ge N ~\Longrightarrow~ b_n\gt R
+                        \]
+                    </div>
+                    <p>
+                        も成り立つ。
+                        したがって
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}a_n=\infty
+                        \]
+                    </div>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        次の数列の極限を求めよ。
+                    </p>
+                    <ol>
+                        <li>\(\displaystyle\lim_{n\to\infty}\frac{\sin(n\pi)}{n^2+1}\)</li>
+                        <li>\(\displaystyle\lim_{n\to\infty}\frac{[2^n]}{2^n}\)</li>
+                        <li>\(\displaystyle\lim_{n\to\infty}\frac{2^n}{n^2}\)</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>
+                            <p>
+                                \(-1\le\sin(n\pi)\le1\) より
+                            </p>
+                            <div class="math">
+                                \[
+                                -\frac{1}{n^2+1}\le\frac{\sin(n\pi)}{n^2+1}\le\frac{1}{n^2+1}
+                                \]
+                            </div>
+                            <p>
+                                ここで
+                            </p>
+                            <div class="math">
+                                \[
+                                \lim_{n\to\infty}\left(-\frac{1}{n^2+1}\right)=0,\quad \lim_{n\to\infty}\frac{1}{n^2+1}=0
+                                \]
+                            </div>
+                            <p>
+                                であるから、はさみうちの原理より
+                            </p>
+                            <div class="math">
+                                \[
+                                \lim_{n\to\infty}\frac{\sin(n\pi)}{n^2+1}=0
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \([2^n]\le2^n\lt[2^n]+1\Longleftrightarrow2^n-1\lt[2^n]\le2^n\) より
+                            \[
+                            1-\frac{1}{2^n}\lt\frac{[2^n]}{2^n}\le1
+                            \]
+                            ここで
+                            \[
+                            \lim_{n\to\infty}\left(1-\frac{1}{2^n}\right)=1
+                            \]
+                            であるから
+                            \[
+                            \lim_{n\to\infty}\frac{[2^n]}{2^n}=1
+                            \]
+                        </li>
+                        <li>
+                            
+                        </li>
+                    </ol>
+                </details>
+            </section>
+            
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

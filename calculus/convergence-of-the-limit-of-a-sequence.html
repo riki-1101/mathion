@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>数列の収束</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>数列の収束</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>数列の収束の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（数列の収束）</figcaption>
+                    <p class="indent">
+                        数列 \(\{a_n\}_{n=1}^\infty\) と \(\alpha\in\mathbb{R}\) を考える。
+                        任意の \(\varepsilon\gt0\) に対して、ある自然数 \(N\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        n\ge N ~\Longrightarrow~ |a_n-\alpha|\lt\varepsilon
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(\{a_n\}_{n=1}^\infty\) は \(\alpha\) に<strong>収束する</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}a_n=\alpha
+                        \]
+                    </div>
+                    <p>
+                        あるいは
+                    </p>
+                    <div class="math">
+                        \[
+                        a_n\to\alpha\quad(n\to\infty)
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                        このとき \(\alpha\) を \(\{a_n\}_{n=1}^\infty\) の<strong>極限</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    論理式で書くと
+                </p>
+                <div class="math">
+                    \[
+                    \forall\varepsilon\gt0,~\exists N\in\mathbb{N},~\forall n\in\mathbb{N}:(n\ge N\Longrightarrow |a_n-\alpha|\lt\varepsilon)
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の数列の極限を証明せよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}\frac{(-1)^n}{n}=0\
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    まず、任意の正の実数として、\(\varepsilon\) を定めます。
+                    この \(\varepsilon\) に対して、ある自然数 \(N\) を考えるので、\(N\) は \(\varepsilon\) の式になります。
+                </p>
+                <div class="math">
+                    \[
+                    |a_n-\alpha|=\left|\frac{(-1)^n}{n}-0\right|=\left|\frac{(-1)^n}{n}\right|=\frac{1}{n}
+                    \]
+                </div>
+                <p>
+                    より、示したい式は
+                </p>
+                <div class="math">
+                    \[
+                    n\ge N ~\Longrightarrow~ \frac{1}{n}\lt\varepsilon
+                    \]
+                </div>
+                <p>
+                    です。
+                    つまり \(n\ge N\) のとき
+                </p>
+                <div class="math">
+                    \[
+                    |a_n-\alpha|=\frac{1}{n}\le\frac{1}{N}\lt\cdots\lt\varepsilon
+                    \]
+                </div>
+                <p>
+                    と言えるように、\(N\) を決めればよいです。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{1}{N}\lt\varepsilon
+                    \]
+                </div>
+                <p>
+                    つまり
+                </p>
+                <div class="math">
+                    \[
+                    N\gt\frac{1}{\varepsilon}
+                    \]
+                </div>
+                <p>
+                    となるような \(N\) として
+                </p>
+                <div class="math">
+                    \[
+                    N=\left[\frac{1}{\varepsilon}\right]+1
+                    \]
+                </div>
+                <p>
+                    が考えられます。
+                </p>
+                <p>〈解答〉</p>
+                <p class="indent">
+                    任意の \(\varepsilon\gt0\) に対して、自然数
+                </p>
+                <div class="math">
+                    \[
+                    N=\left[\frac{1}{\varepsilon}\right]+1
+                    \]
+                </div>
+                <p>
+                    を取ると、\(n\ge N\) について
+                </p>
+                <div class="math">
+                    \[
+                    \left|\frac{(-1)^n}{n}-0\right|=\left|\frac{(-1)^n}{n}\right|=\frac{1}{n}\le\frac{1}{N}\lt\varepsilon
+                    \]
+                </div>
+                <p>
+                    が成り立つ。
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{n\to\infty}\frac{(-1)^n}{n}=0
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>数列の極限の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（数列の極限の性質）</figcaption>
+                    <p class="indent">
+                        数列 \(\{a_n\}_{n=1}^\infty,\{b_n\}_{n=1}^\infty\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}a_n=\alpha,\quad \lim_{n\to\infty}b_n=\beta
+                        \]
+                    </div>
+                    <p>
+                        であるとき、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(\displaystyle\lim_{n\to\infty}(a_n+b_n)=\alpha+\beta\)</li>
+                        <li>\(\displaystyle\lim_{n\to\infty}a_nb_n=\alpha\beta\)</li>
+                        <li>\(\displaystyle\lim_{n\to\infty}\frac{a_n}{b_n}=\frac{\alpha}{\beta}\quad(\beta\neq0)\)</li>
+                    </ol>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <ol>
+                        <li>
+                            <p>
+                                仮定より、任意の \(\varepsilon\gt0\) に対し、ある \(N_1,N_2\in\mathbb{N}\) が存在して
+                            </p>
+                            <div class="math">
+                                \[
+                                n\ge N_1\Longrightarrow |a_n-\alpha|\lt\frac{\varepsilon}{2}, \quad n\ge N_2\Longrightarrow |b_n-\beta|\lt\frac{\varepsilon}{2}
+                                \]
+                            </div>
+                            <p>
+                                となる。
+                                ここで、\(N=\max\{N_1,N_2\}\) とすると、\(n\ge N\) に対し
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                |(a_n+b_n)-(\alpha+\beta)|
+                                &=|(a_n-\alpha)+(b_n-\beta)|\\
+                                &\le|a_n-\alpha|+|b_n-\beta| \quad (\because \text{三角不等式})\\
+                                &\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                が成り立つ。
+                                したがって
+                            </p>
+                            <div class="math">
+                                \[
+                                \lim_{n\to\infty}(a_n+b_n)=\alpha+\beta
+                                \]
+                            </div>
+                            <p>
+                                である。
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                仮定より、任意の \(\varepsilon\gt0\) に対し、ある \(N_1,N_2\in\mathbb{N}\) が存在して
+                            </p>
+                            <div class="math">
+                                \[
+                                n\ge N_1\Longrightarrow |a_n-\alpha|\lt\varepsilon, \quad n\ge N_2\Longrightarrow |b_n-\beta|\lt\varepsilon
+                                \]
+                            </div>
+                            <p>
+                                となる。
+                                ここで、\(N=\max\{N_1,N_2\}\) とすると、\(n\ge N\) に対し
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                |a_nb_n-\alpha\beta|&=|(a_n-\alpha)b_n+\alpha(b_n-\beta)|\\
+                                &\le|a_n-\alpha||b_n|+|\alpha||b_n-\beta| \quad (\because \text{三角不等式})\\
+                                &=|a_n-\alpha||(b_n-\beta)+\beta|+|\alpha||b_n-\beta|\\
+                                &\le|a_n-\alpha|(|b_n-\beta|+|\beta|)+|\alpha||b_n-\beta| \quad (\because \text{三角不等式})\\
+                                &=|a_n-\alpha||b_n-\beta|+|\beta||a_n-\alpha|+|\alpha||b_n-\beta|
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <p>
+                                仮定より、
+                            </p>
+                        </li>
+                    </ol>
+                </details>
+            </section>
+            
+            <p class="space"></p>
+            <h2 id="ex">演習問題</h2>
+            <div class="ex">
+                <div>問題</div>
+                
+            </div>
+            <details class="ans">
+                <summary>解答</summary>
+                <div>
+
+                </div>
+            </details>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
