@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>有界集合と上限・下限</h1>
             <div id="table-of-contents"></div>
@@ -70,15 +71,31 @@
                     <p class="indent">
                         \(A\) を空でない実数 \(\mathbb{R}\) の集合とする。
                     </p>
-                    <p>
-                        \(A\) の上界の最小値を \(A\) の<strong>上限（最小上界）</strong>といい、\(\sup A \) と書く。
+                    <p class="indent">
+                        \(A\) の上界の最小値を \(A\) の<strong>上限（最小上界）</strong>といい
                     </p>
+                    <div class="math">
+                        \[
+                        \sup A
+                        \]
+                    </div>
                     <p>
-                        \(A\) の下界の最大値を \(A\) の<strong>下限（最大下界）</strong>といい、\(\inf A \) と書く。
+                        と書く。
+                    </p>
+                    <p class="indent">
+                        \(A\) の下界の最大値を \(A\) の<strong>下限（最大下界）</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \inf A
+                        \]
+                    </div>
+                    <p>
+                        と書く。
                     </p>
                 </figure>
-                <p>
-                    \(f(x)=x\) を \(x\lt 1\) で考えると、最大値は存在しないが、上限は存在して \(1\) である。
+                <p class="indent">
+                    例えば、\(f(x)=x\) を \(x\lt 1\) で考えると、最大値は存在しませんが、上限は存在して \(1\) となります。
                 </p>
             </section>
             <section id="ex">
@@ -108,6 +125,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

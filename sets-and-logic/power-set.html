@@ -9,13 +9,14 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>べき集合</h1>
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>べき集合の定義</h2>
                 <p class="indent">
-                    ある集合の部分集合全体の集合をべき集合といいます。
+                    ある集合の部分集合全体からなる集合を<strong>べき集合</strong>といいます。
                 </p>
                 <figure class="def">
                     <figcaption>定義（べき集合）</figcaption>
@@ -24,7 +25,7 @@
                     </p>
                     <div class="math">
                         \[
-                        2^A:=\{B~|~B\subset A\}
+                        2^A:=\{B \mid B\subset A\}
                         \]
                     </div>
                     <p>
@@ -32,18 +33,22 @@
                         べき集合 \(2^A\) は \(\mathcal{P}(A)\) とも書かれる。
                     </p>
                 </figure>
-                <p class="indent">
-                    例えば、\(A=\{a,b\}\) のべき集合は次のようになります。
-                </p>
-                <div class="math">
-                    \[
-                    2^A=\{\emptyset,~\{a\},~\{b\},~\{a,b\}\}
-                    \]
-                </div>
+                <figure class="ex">
+                    <figcaption>例</figcaption>
+                    <p class="indent">
+                        集合 \(A=\{a,b\}\) のべき集合は
+                    </p>
+                    <div class="math">
+                        \[
+                        2^A=\{\emptyset,~\{a\},~\{b\},~\{a,b\}\}
+                        \]
+                    </div>
+                </figure>
             </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

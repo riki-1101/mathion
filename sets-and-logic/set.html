@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>集合の定義と記法</h1>
             <div id="table-of-contents"></div>
@@ -30,7 +31,9 @@
                     </div>
                     <p>
                         と書き、\(a\) は \(A\) に<strong>属する</strong>という。
-                        また、\(a\) が \(A\) の要素でないことは
+                    </p>
+                    <p class="indent">
+                        また、\(a\) が集合 \(A\) の要素でないとき
                     </p>
                     <div class="math">
                         \[
@@ -38,7 +41,7 @@
                         \]
                     </div>
                     <p>
-                        と表す。
+                        と書き、\(a\) は \(A\) に<strong>属さない</strong>という。
                     </p>
                 </figure>
             </section>
@@ -48,12 +51,12 @@
                     数の集合には、以下のように特別な記号を用いるものがあります。
                 </p>
                 <figure class="box">
-                    <p>\(\mathbb{N}:=\text{自然数全体の集合}\)</p>
-                    <p>\(\mathbb{Z}:=\text{整数全体の集合}\)</p>
-                    <p>\(\mathbb{Q}:=\text{有理数全体の集合}\)</p>
-                    <p>\(\mathbb{R}:=\text{実数全体の集合}\)</p>
-                    <p>\(\mathbb{C}:=\text{複素数全体の集合}\)</p>
-                    <p>\(\mathbb{H}:=\text{四元数全体の集合}\)</p>
+                    <p>\(\mathbb{N}:=\textbf{自然数全体の集合}\)</p>
+                    <p>\(\mathbb{Z}:=\textbf{整数全体の集合}\)</p>
+                    <p>\(\mathbb{Q}:=\textbf{有理数全体の集合}\)</p>
+                    <p>\(\mathbb{R}:=\textbf{実数全体の集合}\)</p>
+                    <p>\(\mathbb{C}:=\textbf{複素数全体の集合}\)</p>
+                    <p>\(\mathbb{H}:=\textbf{四元数全体の集合}\)</p>
                 </figure>
             </section>
             <section id="3">
@@ -84,7 +87,7 @@
                     </p>
                     <div class="math">
                         \[
-                        \{x\in X~|~P(x)\}
+                        \{x\in X \mid P(x)\}
                         \]
                     </div>
                     <p>
@@ -96,7 +99,7 @@
                     </p>
                     <div class="math">
                         \[
-                        \{x~|~P(x)\}
+                        \{x \mid P(x)\}
                         \]
                     </div>
                     <p>
@@ -104,38 +107,46 @@
                     </p>
                 </figure>
                 <p class="indent">
-                    以下に内包的記法の例を示します。
+                    以下に内包的記法による集合の例を示します。
                 </p>
-                <p>
-                    ・2以上7未満の実数の集合
-                </p>
-                <div class="math">
-                    \[
-                    \{x\in\mathbb{R}~|~2\le x\lt7\}
-                    \]
-                </div>
-                <p>
-                    ・5以下の自然数の集合
-                </p>
-                <div class="math">
-                    \[
-                    \{x\in\mathbb{N}~|~x\le5\}
-                    \]
-                </div>
+                <figure class="ex">
+                    <figcaption>例</figcaption>
+                    <ol>
+                        <li>
+                            \(2\) 以上 \(7\) 未満の実数の集合
+                            <div class="math">
+                                \[
+                                \{x\in\mathbb{R} \mid 2\le x\lt7\}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \(5\) 以下の自然数の集合
+                            <div class="math">
+                                \[
+                                \{x\in\mathbb{N} \mid x\le5\}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </figure>
             </section>
             <section id="4">
                 <h2>空集合</h2>
-                <p class="indent">
-                    要素を一つも持たない集合を空集合といい
-                </p>
-                <div class="math">
-                    \[
-                    \phi, \quad \emptyset, \quad \varnothing, \quad \{\}
-                    \]
-                </div>
-                <p>
-                    などで表します。
-                </p>
+                <figure class="def">
+                    <figcaption>定義（空集合）</figcaption>
+                    <p class="indent">
+                        要素を一つも持たない集合を<strong>空集合</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \phi, \quad \emptyset, \quad \varnothing, \quad \{\}
+                        \]
+                    </div>
+                    <p>
+                        などで表す。
+                    </p>
+                </figure>
             </section>
             <section id="5">
                 <h2>部分集合</h2>
@@ -158,15 +169,18 @@
                 </p>
                 <div class="math">
                     \[
-                    X=\{x\in\mathbb{R}~|~-5\le x\lt4\}
+                    \begin{align}
+                    X&=\{x\in\mathbb{R} \mid -5\le x\lt4\} \\
+                    Y&=\{x\in\mathbb{R} \mid 1\le x\le2\}
+                    \end{align}
                     \]
                 </div>
                 <p>
-                    とすると
+                    であるとき
                 </p>
                 <div class="math">
                     \[
-                    \{x\in\mathbb{R}~|~1\le x\le2\}\subset X
+                    Y\subset X
                     \]
                 </div>
                 <p>
@@ -186,8 +200,8 @@
             </section>
             <section id="6">
                 <h2>集合の相等</h2>
-                <p class="math">
-                    ２つの集合の要素が完全に一致しているとき、それらの集合は等しいといいます。
+                <p class="indent">
+                    ２つの集合の要素が完全に一致しているとき、それらの集合は<strong>等しい</strong>といいます。
                 </p>
                 <figure class="def">
                     <figcaption>定義（等しい集合）</figcaption>
@@ -207,6 +221,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
