@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>リプシッツ連続</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>リプシッツ連続</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>リプシッツ連続の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（リプシッツ連続）</figcaption>
+                    <p class="indent">
+                        関数 \(f:\mathbb{R}^n\to\mathbb{R}\) に対して、ある \(L\gt0\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        |f(\boldsymbol{x})-f(\boldsymbol{y})| \le L\|\boldsymbol{x}-\boldsymbol{y}\|
+                        \]
+                    </div>
+                    <p>
+                        が成り立つとき、\(f\) は<strong>リプシッツ連続</strong>であるという。
+                    </p>
+                </figure>
+                <p class="indent">
+                    特に、\(f\) が同じ空間の写像であり、リプシッツ連続で \(L\lt 1\) であるものは<strong>縮小写像</strong>と呼ばれます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>\(C^1\) 級とリプシッツ連続</h2>
+                <figure class="th">
+                    <figcaption>定理（\(C^1\) 級とリプシッツ連続の関係）</figcaption>
+                    <p class="indent">
+                        関数 \(f\) が \(C^1\) 級であるとき、\(f\) はリプシッツ連続である。
+                    </p>
+                </figure>
+                
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
