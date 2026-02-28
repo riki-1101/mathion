@@ -20,25 +20,42 @@
                 </p>
                 <figure class="def">
                     <figcaption>定義（過剰和・不足和）</figcaption>
-                    <p>
-                        関数 \(f(x)\) は閉区間 \([a,b]\) 上で有界であるとする。<br>
+                    <p class="indent">
+                        \(f(x)\) は閉区間 \([a,b]\) 上で有界な関数とする。
                         区間 \([a,b]\) の分割
+                    </p>
+                    <div class="math">
                         \[
-                        \varDelta:a=x_0\lt x_1\lt x_2\lt\cdots\lt x_n=b
+                        \varDelta:a=x_0\lt x_1\lt\cdots\lt x_n=b
                         \]
-                        に対して、各小区間 \([x_{i-1},x_i]\) における関数 \(f(x)\) の上限、下限を
+                    </div>
+                    <p>
+                        に対して、各小区間 \([x_{i-1},x_i]\) における \(f(x)\) の上限と下限をそれぞれ
+                    </p>
+                    <div class="math">
                         \[
-                        M_i=\sup_{x\in[x_{i-1},x_i]}f(x),~~~m_i=\inf_{x\in[x_{i-1},x_i]}f(x)
+                        M_i=\sup_{x\in[x_{i-1},x_i]}f(x),\quad m_i=\inf_{x\in[x_{i-1},x_i]}f(x)
                         \]
-                        とする。このとき
+                    </div>
+                    <p>
+                        とする。
+                        このとき
+                    </p>
+                    <div class="math">
                         \[
                         U(f,\varDelta):=\sum_{i=1}^nM_i(x_i-x_{i-1})
                         \]
-                        を過剰和といい
+                    </div>
+                    <p>
+                        を<strong>過剰和</strong>といい
+                    </p>
+                    <div class="math">
                         \[
                         L(f,\varDelta):=\sum_{i=1}^nm_i(x_i-x_{i-1})
                         \]
-                        を不足和という。
+                    </div>
+                    <p>
+                        を<strong>不足和</strong>という。
                     </p>
                 </figure>
             </section>
@@ -46,13 +63,15 @@
                 <h2>ダルブーの定理</h2>
                 <figure class="def">
                     <figcaption>定理（ダルブーの定理）</figcaption>
-                    <p>
+                    <div class="math">
                         \[
                         \lim_{|\varDelta|\to0}U(f,\varDelta)=\inf_{\varDelta}U(f,\varDelta)
                         \]
                         \[
                         \lim_{|\varDelta|\to0}L(f,\varDelta)=\sup_{\varDelta}L(f,\varDelta)
                         \]
+                    </div>
+                    <p>
                         が成り立つ。
                     </p>
                 </figure>
@@ -61,23 +80,33 @@
                 <h2>リーマン積分可能性</h2>
                 <figure class="def">
                     <figcaption>定理（リーマン積分可能なための必要十分条件）</figcaption>
-                    <p>
+                    <p class="indent">
                         閉区間 \([a,b]\) の分割を
+                    </p>
+                    <div class="math">
                         \[
-                        \varDelta:a=x_0\lt x_1\lt x_2\lt\cdots\lt x_n=b
+                        \varDelta:a=x_0\lt x_1\lt\cdots\lt x_n=b
                         \]
-                        とする。<br>
-                        関数 \(f(x)\) が区間 \([a,b]\) 上でリーマン積分可能であるための必要十分条件は<br>
+                    </div>
+                    <p>
+                        とする。
+                        関数 \(f(x)\) が \([a,b]\) 上でリーマン積分可能であるための必要十分条件は
+                    </p>
+                    <div class="math">
                         \[
                         \inf_{\varDelta}U(f,\varDelta)=\sup_{\varDelta}L(f,\varDelta)
                         \]
+                    </div>
+                    <p>
                         となることである。
                     </p>
                 </figure>
                 <p></p>
                 <figure class="th">
                     <figcaption>定理（単調関数のリーマン積分可能性）</figcaption>
-                    <p>閉区間 \(I\) 上の単調関数は、\(I\) 上でリーマン積分可能である。</p>
+                    <p class="indent">
+                        閉区間 \(I\) 上の単調関数は、\(I\) 上でリーマン積分可能である。
+                    </p>
                 </figure>
                 <details class="pf">
                     <summary>証明</summary>
@@ -88,7 +117,9 @@
                 <p></p>
                 <figure class="th">
                     <figcaption>定理（連続関数のリーマン積分可能性）</figcaption>
-                    <p>閉区間 \(I\) 上の連続関数は、\(I\) 上でリーマン積分可能である。</p>
+                    <p class="indent">
+                        閉区間 \(I\) 上の連続関数は、\(I\) 上でリーマン積分可能である。
+                    </p>
                 </figure>
                 <details class="pf">
                     <summary>証明</summary>
@@ -105,9 +136,7 @@
                 </figure>
                 <details class="ans">
                     <summary>解答</summary>
-                    <p>
-                        
-                    </p>
+                    
                 </details>
             </section>
         </main>
