@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>独立性の検定</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>独立性の検定</h1>
             <div id="table-of-contents"></div>
@@ -51,23 +51,27 @@
                         <tr><th></th><th>\(B_1\)</th><th>\(B_2\)</th><th>\(\cdots\)</th><th>\(B_m\)</th><th>合計</th></tr>
                     </thead>
                     <tbody>
-                        <tr><th>\(A_1\)</th><td>\(X_{11}\)</td><td>\(X_{12}\)</td><td>\(\cdots\)</td><td>\(X_{1m}\)</td><td>\(X_{1\cdot}\)</td></tr>
-                        <tr><th>\(A_2\)</th><td>\(X_{21}\)</td><td>\(X_{22}\)</td><td>\(\cdots\)</td><td>\(X_{2m}\)</td><td>\(X_{2\cdot}\)</td></tr>
+                        <tr><th>\(A_1\)</th><td>\(O_{11}\)</td><td>\(O_{12}\)</td><td>\(\cdots\)</td><td>\(O_{1m}\)</td><td>\(X_{1\cdot}\)</td></tr>
+                        <tr><th>\(A_2\)</th><td>\(O_{21}\)</td><td>\(O_{22}\)</td><td>\(\cdots\)</td><td>\(O_{2m}\)</td><td>\(X_{2\cdot}\)</td></tr>
                         <tr><th>\(\vdots\)</th><td>\(\vdots\)</td><td>\(\vdots\)</td><td>\(\ddots\)</td><td>\(\vdots\)</td><td>\(\vdots\)</td></tr>
-                        <tr><th>\(A_l\)</th><td>\(X_{l1}\)</td><td>\(X_{l2}\)</td><td>\(\cdots\)</td><td>\(X_{lm}\)</td><td>\(X_{l\cdot}\)</td></tr>
+                        <tr><th>\(A_l\)</th><td>\(O_{l1}\)</td><td>\(O_{l2}\)</td><td>\(\cdots\)</td><td>\(O_{lm}\)</td><td>\(X_{l\cdot}\)</td></tr>
                         <tr><th>合計</th><td>\(X_{\cdot 1}\)</td><td>\(X_{\cdot 2}\)</td><td>\(\cdots\)</td><td>\(X_{\cdot m}\)</td><td>\(n\)</td></tr>
                     </tbody>
                 </table>
                 <p class="indent">
                     独立性の検定では、次のように仮説を立てます。
                 </p>
-                <ul>
-                    <li>帰無仮説 \( H_0 \)：２つの変数は<strong>独立である</strong></li>
-                    <li>対立仮説 \( H_1 \)：２つの変数は<strong>独立でない</strong></li>
-                </ul>
+                <div class="math">
+                    \[
+                    H_0 : 2\textbf{つの変数}~ A_i,B_j ~\textbf{は独立である}
+                    \]
+                    \[
+                    H_1 : 2\textbf{つの変数}~ A_i,B_j ~\textbf{は独立でない}
+                    \]
+                </div>
                 <p class="indent">
                     \(H_0\) が正しいと仮定します。
-                    つまり、２つの変数は確率的に独立であり
+                    つまり、\(A_i,B_j\) は確率的に独立であり
                 </p>
                 <div class="math">
                     \[
@@ -76,63 +80,61 @@
                 </div>
                 <p>
                     が成り立つとします。
-                    このとき、各セルの期待度数を求めます。
+                    このとき、各セルの期待度数は
                 </p>
                 <div class="math">
                     \[
-                    E_{ij}=nP(A_i\cap B_j)=nP(A_i)P(B_j)=\frac{X_{i\cdot}X_{\cdot j}}{n}
+                    E_{ij}=nP(A_i\cap B_j)=nP(A_i)P(B_j)
                     \]
                 </div>
-                <div class="math">
-                    \[
-                    P(A_i)=\frac{X_{i\cdot}}{n},\quad P(B_j)=\frac{X_{\cdot j}}{n}
-                    \]
-                </div>
+                <p>
+                    で計算されます。
+                </p>
                 <p class="indent">
-                    観測値 \( O_{ij} \) と期待度数 \( E_{ij} \) の差がどれくらい大きいかを測るために、次の<strong>カイ二乗統計量</strong>を計算します。
+                    \(P(A_i),P(B_j)\) の推定量をそれぞれ \(\hat{P}(A_i),\hat{P}(B_j)\) とすると
                 </p>
                 <div class="math">
                     \[
-                    \chi^2 = \sum_{i=1}^l\sum_{j=1}^m \dfrac{(O_{ij} - E_{ij})^2}{E_{ij}}
+                    \hat{P}(A_i)=\frac{X_{i\cdot}}{n},\quad \hat{P}(B_j)=\frac{X_{\cdot j}}{n}
                     \]
                 </div>
                 <p>
-                    各セルの期待度数 \(E_{ij}\) が十分大きい場合（一般に5以上）、次の定理により、カイ二乗統計量は近似的にカイ二乗分布に従います。
-                </p>
-                <figure class="th">
-                    <figcaption>定理（独立性の検定におけるカイ二乗統計量）</figcaption>
-                    <div class="math">
-                        \[
-                        \sum_{i=1}^l\sum_{j=1}^m \dfrac{\left(O_{ij} - \frac{X_{i\cdot}X_{\cdot j}}{n}\right)^2}{\frac{X_{i\cdot}X_{\cdot j}}{n}}
-                        \]
-                    </div>
-                    <p>
-                        は近似的に自由度 \((l-1)(m-1)\) のカイ二乗分布に従う。
-                    </p>
-                </figure>
-                <p>
-                    つまり、\(n\) が十分大きいとき
+                    なので、期待度数 \(E_{ij}\) の推定量は
                 </p>
                 <div class="math">
                     \[
-                    \chi^2=\sum_{i=1}^l\sum_{j=1}^m \dfrac{\left(O_{ij} - \frac{X_{i\cdot}X_{\cdot j}}{n}\right)^2}{\frac{X_{i\cdot}X_{\cdot j}}{n}}\sim \chi^2((l-1)(m-1))
+                    \hat{E}_{ij}=n\hat{P}(A_i)\hat{P}(B_j)=\frac{X_{i\cdot}X_{\cdot j}}{n}
                     \]
                 </div>
+                <p>
+                    となります。
+                </p>
+                <p class="indent">
+                    観測値 \( O_{ij} \) と期待度数 \( E_{ij} \) の差がどれくらい大きいかを測るために、<strong>カイ二乗統計量</strong>を計算します。
+                    \(n\) が十分大きいとき（各セルの期待度数 \(E_{ij}\) が5以上のとき）、近似的に
+                </p>
+                <div class="math">
+                    \[
+                    \chi^2 = \sum_{i=1}^l\sum_{j=1}^m \dfrac{(O_{ij} - \hat{E}_{ij})^2}{\hat{E}_{ij}} \sim \chi^2((l-1)(m-1))
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                </p>
                 <p class="indent">
                     独立であるときは観測度数 \(O_{ij}\) と期待度数 \(E_{ij}\) の差は小さくなり、\(\chi^2\) の値は小さくなります。
                     つまり、\(\chi^2\) が大きいほど観測度数 \(O_{ij}\) と期待度数 \(E_{ij}\) のずれが大きいことを意味するため、右側（大きい値の領域）を棄却域とする<strong>右側検定</strong>を行います。
                 </p>
                 <p class="indent">
-                    自由度 \((l-1)(m-1)\) のカイ二乗分布 \(\chi^2((l-1)(m-1))\) の上側 \(100\alpha\%\) 点を探します。
-                    これを \(\chi^2_{(l-1)(m-1)}(\alpha)\) とすると、棄却域は次のようになります。
+                    カイ二乗分布 \(\chi^2((l-1)(m-1))\) の上側 \(100\alpha\%\) 点を \(\chi^2_{U(\alpha)}((l-1)(m-1))\) とすると、棄却域 \(R\) は次のようになります。
                 </p>
                 <div class="math">
                     \[
-                    R=\left[\chi^2_{(l-1)(m-1)}(\alpha),~\infty\right)
+                    R=\left[\chi^2_{U(\alpha)}((l-1)(m-1)),~\infty\right)
                     \]
                 </div>
                 <p class="indent">
-                    計算したカイ二乗値が棄却域 \(R\) に入れば、帰無仮説 \(H_0\) を棄却し、「２つの変数の間に関係がある（２つの変数は独立でない）」と結論づけます。
+                    検定統計量の実現値が棄却域 \(R\) に入れば、帰無仮説 \(H_0\) を棄却し、「２つの変数の間に関係がある（２つの変数は独立でない）」と結論づけます。
                 </p>
             </section>
             <section id="3">
@@ -159,21 +161,15 @@
                     </p>
                 </figure>
                 <p class="indent">
-                    
+                    仮説を次のように定めます。
                 </p>
-
-                <table class="fixed-table">
-                    <thead>
-                        <tr><th></th><th>コーヒー派 \(B_1\)</th><th>紅茶派 \(B_2\)</th><th>合計</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><th>男性 \(A_1\)</th><td>\(O_{11}=30\)</td><td>\(O_{12}=20\)</td><td>\(X_{1\cdot}=50\)</td></tr>
-                        <tr><th>女性 \(A_2\)</th><td>\(O_{21}=10\)</td><td>\(O_{22}=40\)</td><td>\(X_{2\cdot}=50\)</td></tr>
-                        <tr><th>合計</th><td>\(X_{\cdot 1}=40\)</td><td>\(X_{\cdot 2}=60\)</td><td>\(n=100\)</td></tr>
-                    </tbody>
-                </table>
-                <p>
-                    セルごとに期待度数 \(E_{ij}\) を計算すると
+                <div class="math">
+                    \[
+                    H_0 : \textbf{性別と飲み物の好みは独立である}
+                    \]
+                </div>
+                <p class="indent">
+                    \(H_0\) が正しいとすると、各セルの期待度数の推定量 \(\hat{E}_{ij}\) は次の表のようになります。
                 </p>
                 <table class="fixed-table">
                     <thead>
@@ -186,15 +182,23 @@
                     </tbody>
                 </table>
                 <p>
-                    棄却域は
+                    自由度は \((2-1)(2-1)=1\) となります。
                 </p>
                 <div class="math">
                     \[
-                    R=\left[\chi^2_{1}(0.05),~\infty\right)=[3.841,~\infty)
+                    \chi^2 = \sum_{i=1}^2\sum_{j=1}^2 \dfrac{(O_{ij} - \hat{E}_{ij})^2}{\hat{E}_{ij}} \sim \chi^2(1)
                     \]
                 </div>
                 <p>
-                    検定統計量 \(\chi^2\) 実現値 \(\chi^2_0\) は
+                    棄却域 \(R\) は
+                </p>
+                <div class="math">
+                    \[
+                    R=\left[\chi^2_{U(0.05)}(1),~\infty\right)=[3.841,~\infty)
+                    \]
+                </div>
+                <p>
+                    検定統計量 \(\chi^2\) の実現値 \(\chi^2_0\) は
                 </p>
                 <div class="math">
                     \[
@@ -206,10 +210,14 @@
                     \end{align}
                     \]
                 </div>
+                <p>
+                    よって \(\chi^2_0\in R\) なので、\(H_0\) は棄却されます。
+                    したがって、性別と飲み物の好みは関係しているといえます。
+                </p>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                             
                 </figure>
@@ -221,6 +229,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
