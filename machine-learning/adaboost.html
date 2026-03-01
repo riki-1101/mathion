@@ -15,25 +15,32 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>AdaBoostの概要</h2>
+                <p class="indent">
+                    <strong>AdaBoost</strong>は、弱学習器を直列につなげ、前の分類器で誤分類されたデータの重みを大きくして次の分類器を作ることで、最終的に高性能な強学習器を生成するアンサンブル学習のアルゴリズムです。
+                    Adaは英語のAdaptive「適応的」を意味します。
+                </p>
+                <p class="indent">
+                    AdaBoostの学習アルゴリズムは次の通りです。
+                </p>
                 <figure class="th">
                     <figcaption>アルゴリズム（AdaBoost）</figcaption>
-                    <p class="math">
+                    <p class="indent">
                         次のような2値分類のデータセットを考える。
                     </p>
                     <div class="math">
                         \[
-                        \{(\boldsymbol{x}_i,y_i) \mid \boldsymbol{x}_i\in\mathbb{R}^d,y_i\in\{1,-1\}\}_{i=1}^N
+                        \{(\boldsymbol{x}_i,y_i) \mid \boldsymbol{x}_i\in\mathbb{R}^d,~y_i\in\{1,-1\}\}_{i=1}^N
                         \]
                     </div>
-                    <p>
-                        各データ \(\boldsymbol{x}_i\) の重み係数を初期化する。
+                    <p class="indent">
+                        各データ \(\boldsymbol{x}_i\) の重みを初期化する。
                     </p>
                     <div class="math">
                         \[
                         w_i^{(1)}=\frac{1}{N} \quad (i=1,\cdots,N)
                         \]
                     </div>
-                    <p>
+                    <p class="indent">
                         以下の操作を \(m=1,2\cdots,M\) で繰り返す。
                     </p>
                     <ol>
@@ -73,24 +80,34 @@
                             データの重みを正規化する。
                             <div class="math">
                                 \[
-                                w_i^{(m+1)}\gets\frac{w_i^{(m+1)}}{\displaystyle\sum_{i=1}^Nw_i^{(m+1)}} \quad (i=1,\cdots,N)
+                                w_i^{(m+1)}\gets\frac{w_i^{(m+1)}}{\displaystyle\sum_{j=1}^Nw_j^{(m+1)}} \quad (i=1,\cdots,N)
                                 \]
                             </div>
                         </li>
                     </ol>
-                    <p>
-                        最終的に次を出力する。
+                    <p class="indent">
+                        最終的に次の強学習器を得る。
                     </p>
                     <div class="math">
                         \[
-                        F(\boldsymbol{x}_i)=\operatorname{sgn}\left(\sum_{m=1}^M\alpha_mf_m(\boldsymbol{x}_i)\right) \quad (i=1,\cdots,N)
+                        F(\boldsymbol{x})=\sum_{m=1}^M\alpha_mf_m(\boldsymbol{x})
+                        \]
+                    </div>
+                    <p class="indent">
+                        分類の予測は次のようになる。
+                    </p>
+                    <div class="math">
+                        \[
+                        \hat{y}_i=\operatorname{sgn}F(\boldsymbol{x}_i) \quad (i=1,\cdots,N)
                         \]
                     </div>
                 </figure>
             </section>
             <section id="2">
                 <h2>AdaBoostの理論</h2>
-                <p></p>
+                <p class="indent">
+                    AdaBoostの導出を説明します。
+                </p>
                 <div class="math">
                     \[
                     F_M(\boldsymbol{x})=\sum_{m=1}^M\alpha_mf_m(\boldsymbol{x}_i)
