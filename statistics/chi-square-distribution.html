@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>カイ二乗分布</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script> 
+        <script src="../js/mathjax.js"></script> 
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>カイ二乗分布</h1>
             <div id="table-of-contents"></div>
@@ -40,7 +40,7 @@
                 <p class="indent">
                     \(X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)\) とすると
                 </p>
-                <div class="indent">
+                <div class="math">
                     \[
                     \frac{X_i-\mu}{\sigma}\sim N(0,1)
                     \]
@@ -74,6 +74,9 @@
             </section>
             <section id="3">
                 <h2>カイ二乗分布の期待値と分散</h2>
+                <p class="indent">
+                    カイ二乗分布の期待値は自由度に等しく、分散は自由度の \(2\) 倍に等しいです。
+                </p>
                 <figure class="th">
                     <figcaption>定理（カイ二乗分布の期待値と分散）</figcaption>
                     <p class="indent">
@@ -107,6 +110,27 @@
             </section>
             <section id="4">
                 <h2>カイ二乗分布に従う確率変数</h2>
+                <p class="indent">
+                    \(X_1,X_2,\cdots,X_n\sim N(\mu,\sigma^2)\) のとき、カイ二乗分布の定義から
+                </p>
+                <div class="math">
+                    \[
+                    \sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}\sim\chi^2(n)
+                    \]
+                </div>
+                <p>
+                    ですが、平均 \(\mu\) をその不偏推定量である標本平均 \(\overline{X}\) で代用したもの
+                </p>
+                <div class="math">
+                    \[
+                    \sum_{i=1}^n\frac{(X_i-\overline{X})^2}{\sigma^2}
+                    \]
+                </div>
+                <p>
+                    の従う分布を考えてみます。
+                    この確率変数は、標本から推定した \(\overline{X}\) を使用しているため、自由度は \(1\) つ下がると予想されます。
+                    実際に、次の事実が成り立ちます。
+                </p>
                 <figure class="th">
                     <figcaption>定理（カイ二乗分布に従う確率変数）</figcaption>
                     <p class="indent">
@@ -118,23 +142,54 @@
                         \]
                     </div>
                 </figure>
-                <div class="math">
-                    \[
-                    \begin{align}
-                    U^2&=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2\\
-                    &=\frac{1}{n-1}\sum_{i=1}^n\{(X_i-\mu)-(\overline{X}-\mu)\}^2\\
-                    &=\frac{1}{n-1}\sum_{i=1}^n\{(X_i-\mu)^2-2(X_i-\mu)(\overline{X}-\mu)+(\overline{X}-\mu)^2\}\\
-                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)\sum_{i=1}^n(X_i-\mu)+\sum_{i=1}^n(\overline{X}-\mu)^2\right\}\\
-                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)(n\overline{X}-n\mu)+n(\overline{X}-\mu)^2\right\}\\
-                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-2n(\overline{X}-\mu)^2+n(\overline{X}-\mu)^2\right\}\\
-                    &=\frac{1}{n-1}\left\{\sum_{i=1}^n(X_i-\mu)^2-n(\overline{X}-\mu)^2\right\}\\
-                    \end{align}
-                    \]
-                </div>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \frac{(n-1)U^2}{\sigma^2}
+                        &=\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\overline{X})^2\\
+                        &=\frac{1}{\sigma^2}\sum_{i=1}^n\{(X_i-\mu)-(\overline{X}-\mu)\}^2\\
+                        &=\frac{1}{\sigma^2}\sum_{i=1}^n\{(X_i-\mu)^2-2(X_i-\mu)(\overline{X}-\mu)+(\overline{X}-\mu)^2\}\\
+                        &=\frac{1}{\sigma^2}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)\sum_{i=1}^n(X_i-\mu)+\sum_{i=1}^n(\overline{X}-\mu)^2\right\}\\
+                        &=\frac{1}{\sigma^2}\left\{\sum_{i=1}^n(X_i-\mu)^2-2(\overline{X}-\mu)(n\overline{X}-n\mu)+n(\overline{X}-\mu)^2\right\}\\
+                        &=\frac{1}{\sigma^2}\left\{\sum_{i=1}^n(X_i-\mu)^2-2n(\overline{X}-\mu)^2+n(\overline{X}-\mu)^2\right\}\\
+                        &=\frac{1}{\sigma^2}\left\{\sum_{i=1}^n(X_i-\mu)^2-n(\overline{X}-\mu)^2\right\}\\
+                        &=\sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}-\frac{n(\overline{X}-\mu)^2}{\sigma^2} \\
+                        &=\sum_{i=1}^n{\left(\frac{X_i-\mu}{\sigma}\right)}^2-{\left(\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\right)}^2
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        ここで
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{X_i-\mu}{\sigma}\sim N(0,1),\quad \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0,1)
+                        \]
+                    </div>
+                    <p>
+                        より、カイ二乗分布の定義から
+                    </p>
+                    <div class="math">
+                        \[
+                        \sum_{i=1}^n{\left(\frac{X_i-\mu}{\sigma}\right)}^2\sim \chi^2(n),~~~~~{\left(\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\right)}^2\sim\chi^2(1)
+                        \]
+                    </div>
+                    <p>
+                        カイ二乗分布の自由度の加法性より
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{(n-1)U^2}{\sigma^2}\sim\chi^2(n-1)
+                        \]
+                    </div>
+                </details>
             </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
