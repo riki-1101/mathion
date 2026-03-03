@@ -9,11 +9,12 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>混合ガウスモデル</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>混合ガウスモデル</h2>
+                <h2>混合ガウスモデルの概要</h2>
                 <figure class="def">
                     <figcaption>定義（混合ガウスモデル）</figcaption>
                     <p class="indent">
@@ -30,13 +31,159 @@
                     </p>
                     <div class="math">
                         \[
-                        p(\boldsymbol{x})=\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}_k,\Sigma_k)
+                        p(\boldsymbol{x})=\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x} \mid \boldsymbol{\mu}_k,\Sigma_k)
                         \]
                     </div>
                     <p>
                         という確率密度関数を定めるモデルを<strong>混合ガウスモデル</strong>という。
                     </p>
                 </figure>
+            </section>
+            <section id="2">
+                <h2>EMアルゴリズム</h2>
+                <figure class="th">
+                    <figcaption>アルゴリズム（混合ガウスモデルのEMアルゴリズム）</figcaption>
+                    <p class="indent">
+                        パラメータ \(\boldsymbol{\mu}_k,\Sigma_k,\pi_k\) の初期値を定め、以下の操作を収束するまで繰り返す。
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>Eステップ</strong>
+                            <p>
+                                全データ点 \(\boldsymbol{x}_i\) に対して、負担率を計算する。
+                            </p>
+                            <div class="math">
+                                \[
+                                r_{ik}^{(t)}=\frac{\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)}{\displaystyle\sum_{j=1}^K\pi_j\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_j,\Sigma_j)} \quad (i=1,\cdots,N)
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Mステップ</strong>
+                            <p>
+                                \(\displaystyle N_k=\sum_{i=1}^Nr_{ik}\) とし、パラメータを更新する。
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \boldsymbol{\mu}_k &\gets \frac{1}{N_k}\sum_{i=1}^Nr_{ik}\\
+                                \Sigma_k &\gets \frac{1}{N_k}\sum_{i=1}^Nr_{ik}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)(\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\\
+                                \pi_k &\gets \frac{N_k}{N}
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>混合ガウスモデルの理論</h2>
+                <p class="indent">
+                    標本 \(\mathcal{X}=\{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_N\}\) が得られたとき、尤度は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    L(\boldsymbol{\theta} \mid \mathcal{X})
+                    &=\prod_{i=1}^Np(\boldsymbol{x}_i;\boldsymbol{\theta}) \\
+                    &=\prod_{i=1}^N\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    対数尤度は
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \ell(\boldsymbol{\theta} \mid \mathcal{X})
+                    &=\log L(\boldsymbol{\theta} \mid \mathcal{X}) \\
+                    &=\sum_{i=1}^N\log\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)
+                    \end{align}
+                    \]
+                </div>
+                <figure class="th">
+                    <figcaption>最適化問題</figcaption>
+                    <div class="math">
+                        \[
+                        \max_{\boldsymbol{\mu}_k,\Sigma_k}\sum_{i=1}^N\log\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k) \quad \text{s.t.} \quad \sum_{k=1}^K\pi_k=1
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    ラグランジュ関数は
+                </p>
+                <div class="math">
+                    \[
+                    \mathcal{L}(\boldsymbol{\mu}_k,\Sigma_k,\lambda)=\sum_{i=1}^N\log\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k) + \lambda\left(\sum_{k=1}^K\pi_k-1\right)
+                    \]
+                </div>
+                <p>
+                    となり、次の条件を考えます。
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\partial\mathcal{L}}{\partial\boldsymbol{\mu}_k}=\boldsymbol{0}^\top,\quad \frac{\partial\mathcal{L}}{\partial\Sigma_k}=O,\quad \sum_{k=1}^K\pi_k=1
+                    \]
+                </div>
+                <p>
+                    \(\dfrac{\partial\mathcal{L}}{\partial\boldsymbol{\mu}_k}=\boldsymbol{0}^\top\) について
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{\partial\mathcal{L}}{\partial\boldsymbol{\mu}_k}
+                    &=\frac{\partial}{\partial\boldsymbol{\mu}_k}\sum_{i=1}^N\log\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k) \\
+                    &=\sum_{i=1}^N\frac{\partial}{\partial\boldsymbol{\mu}_k}\log\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k) \\
+                    &=\sum_{i=1}^N \frac{\displaystyle\frac{\partial}{\partial\boldsymbol{\mu}_k}\sum_{k=1}^K\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)}{\displaystyle\sum_{j=1}^K\pi_j\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_j,\Sigma_j)} \\
+                    &=\sum_{i=1}^N \frac{\pi_k\dfrac{\partial}{\partial\boldsymbol{\mu}_k}\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)}{\displaystyle\sum_{j=1}^K\pi_j\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_j,\Sigma_j)} \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{\partial}{\partial\boldsymbol{\mu}_k} \mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)
+                    &=\frac{\partial}{\partial\boldsymbol{\mu}_k} \frac{1}{\sqrt{(2\pi)^d|\Sigma_k|}}e^{-\frac{1}{2}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\Sigma_k^{-1}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)} \\
+                    &=\frac{1}{\sqrt{(2\pi)^d|\Sigma_k|}} \frac{\partial}{\partial\boldsymbol{\mu}_k} e^{-\frac{1}{2}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\Sigma_k^{-1}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)} \\
+                    &=\frac{1}{\sqrt{(2\pi)^d|\Sigma_k|}} (\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\Sigma_k^{-1}e^{-\frac{1}{2}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\Sigma_k^{-1}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)} \\
+                    &=\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)(\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\Sigma_k^{-1}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    なので
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{\partial\mathcal{L}}{\partial\boldsymbol{\mu}_k}
+                    &=\sum_{i=1}^N \frac{\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)}{\displaystyle\sum_{j=1}^K\pi_j\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_j,\Sigma_j)}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\Sigma_k^{-1} \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <div class="math">
+                    \[
+                    r_{ik}:=\frac{\pi_k\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_k,\Sigma_k)}{\displaystyle\sum_{j=1}^K\pi_j\mathcal{N}(\boldsymbol{x}_i \mid \boldsymbol{\mu}_j,\Sigma_j)}
+                    \]
+                </div>
+                <p>
+                    とおくと
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \frac{\partial\mathcal{L}}{\partial\boldsymbol{\mu}_k}
+                    &=\sum_{i=1}^N r_{ik}(\boldsymbol{x}_i-\boldsymbol{\mu}_k)^\top\Sigma_k^{-1} \\
+                    \end{align}
+                    \]
+                </div>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
@@ -54,6 +201,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
