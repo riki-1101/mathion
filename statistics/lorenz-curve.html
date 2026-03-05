@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ローレンツ曲線</title>
+        <title>ローレンツ曲線とジニ係数</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax.js"></script>
     </head>
@@ -11,10 +11,10 @@
         <header id="header"></header>
         <aside id="sidebar"></aside>
         <main id="contents">
-            <h1>ローレンツ曲線</h1>
+            <h1>ローレンツ曲線とジニ係数</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>ローレンツ曲線とは</h2>
+                <h2>ローレンツ曲線</h2>
                 <p class="indent">
                     <strong>ローレンツ曲線</strong>は、分布の不平等さを視覚的に表すためのグラフです。
                     主に所得や資産の分布に対して用いられます。
@@ -71,6 +71,18 @@
                     例えば、5万個のデータに対して、小さい順に並べて1万個ずつ区切り、階級ごとに合計を求めます。
                     この各合計をデータとして累積相対度数を計算します。
                 </p>
+            </section>
+            <section id="2">
+                <h2>ジニ係数</h2>
+                <p class="indent">
+                    完全平等線とローレンツ曲線に囲まれた領域の面積の \(2\) 倍を<strong>ジニ係数</strong>といいます。
+                    ローレンツ曲線を \(f(x)\) とすると、次式で表されます。
+                </p>
+                <div class="math">
+                    \[
+                    \textbf{ジニ係数}=2\int_0^1\{x-f(x)\}dx
+                    \]
+                </div>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
