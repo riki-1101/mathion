@@ -3,35 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>>データの変換と標準化得点</title>
+        <title>データの変換と標準化得点</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
-            <h1>データの変換と標準化得点</h1>
+            <h1>データの変換</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>標準化得点</h2>
+                <h2>標準化</h2>
                 <figure class="def">
-                    <figcaption>定義（標準化得点）</figcaption>
+                    <figcaption>定義（標準化）</figcaption>
                     <p class="indent">
-                        \(n\) 個のデータ \(x_1,x_2,\cdots,x_n\) に対して
+                        データ \(x_1,x_2,\cdots,x_n\) に対して、平均 \(\overline{x}\) 、標準偏差 \(s_x\) によって
                     </p>
                     <div class="math">
                         \[
-                        z=\frac{x_i-\overline{x}}{s_x}
+                        z_i=\frac{x_i-\overline{x}}{s_x} \quad (i=1,2,\cdots,n)
                         \]
                     </div>
                     <p>
-                        をデータ \(x_i\) の<strong>標準化得点</strong>という。
+                        という変換を<strong>標準化</strong>といい、\(z_i\) をデータ \(x_i\) の<strong>標準化得点</strong>という。
                     </p>
                 </figure>
-            </section>
-            <section id="2">
-                <h2>偏差値得点</h2>
+                <p class="indent">
+                    偏差値は標準化得点を用いて定義されます。
+                </p>
                 <figure class="def">
                     <figcaption>定義（偏差値得点）</figcaption>
                     <p class="indent">
@@ -47,9 +47,26 @@
                     </p>
                 </figure>
             </section>
+            <section id="2">
+                <h2>正規化</h2>
+                <figure class="def">
+                    <figcaption>定義（正規化）</figcaption>
+                    <p class="indent">
+                        データ \(x_1,x_2,\cdots,x_n\) に対して、最大値 \(x_{\mathrm{max}}\) 、最小値 \(x_{\mathrm{min}}\) によって
+                    </p>
+                    <div class="math">
+                        \[
+                        x_{\mathrm{norm}}=\frac{x-x_{\mathrm{min}}}{x_{\mathrm{max}}-x_{\mathrm{min}}} \quad (i=1,2,\cdots,n)
+                        \]
+                    </div>
+                    <p>
+                        という変換を<strong>正規化</strong>という。
+                    </p>
+                </figure>
+            </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                             
                 </figure>
@@ -61,6 +78,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
