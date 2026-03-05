@@ -442,11 +442,15 @@ footer {
     font-size: 1.05em;
 }
 
-/* 共通のボックススタイル */
+/* リストボックス */
 .box {
-    border-radius: 6px;
-    padding: 0.8em 1em;
-    margin: 0.5em 0;
+    background-color: lightyellow;
+}
+.box ul {
+    padding-left: 1em;
+}
+.box ul li{
+    margin: 1em;
 }
 
 /* 定義用 */
