@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>同次形</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>同次形</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>同次形</h1>
             <div id="table-of-contents"></div>
@@ -19,30 +20,40 @@
                 \]
             </div>
             <p>
-                の形をした微分方程式を<strong>同次形</strong>という。
+                の形をした微分方程式を<strong>同次形</strong>といいます。
             </p>
             <section id="2">
                 <h2>同次形の解法</h2>
-                <div class="math">
-                    \[
-                    \frac{dy}{dx}=f\left(\frac{y}{x}\right)
-                    \]
-                </div>
-                <p>
-                    において \(\dfrac{y}{x}=u\) とおくと、\(y=ux\) であり
+                <p class="indent">
+                    同次形の微分方程式は、次の手順で解くことができます。
                 </p>
-                <div class="math">
-                    \[
-                    \begin{align}
-                    &\frac{d}{dx}(ux)=f(u)\\
-                    &\Longleftrightarrow x\frac{du}{dx}+u=f(u)\\
-                    &\Longleftrightarrow \frac{du}{dx}=\frac{f(u)-u}{x}
-                    \end{align}
-                    \]
-                </div>
-                <p>
-                    これは変数分離形です。
-                </p>
+                <figure class="th">
+                    <figcaption>解法（同次形）</figcaption>
+                    <div class="math">
+                        \[
+                        \frac{dy}{dx}=f\left(\frac{y}{x}\right)
+                        \]
+                    </div>
+                    <ol>
+                        <li>
+                            \(\dfrac{y}{x}=u~~(y=ux)\) とおく。
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                &\frac{d}{dx}(ux)=f(u)\\
+                                \\
+                                &\Longleftrightarrow \quad x\frac{du}{dx}+u=f(u)\\
+                                \\
+                                &\Longleftrightarrow \quad \frac{du}{dx}=\frac{f(u)-u}{x}
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            以降は変数分離形の解法に従う。
+                        </li>
+                    </ol>
+                </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
@@ -141,6 +152,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
