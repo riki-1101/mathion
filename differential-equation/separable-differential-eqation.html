@@ -27,37 +27,45 @@
             <section id="2">
                 <h2>変数分離形の解法</h2>
                 <p class="indent">
-                    変数分離形の微分方程式の解法を説明します。
+                    変数分離形の微分方程式は、次の手順で解くことができます。
                 </p>
-                <div class="math">
-                    \[
-                    \frac{dy}{dx}=f(x)g(y)
-                    \]
-                </div>
-                <p>
-                    \(g(y)\neq0\) のとき、両辺を \(g(y)\) で割ると
-                </p>
-                <div class="math">
-                    \[
-                    \frac{1}{g(y)}\frac{dy}{dx}=f(x)
-                    \]
-                </div>
-                <p>
-                    となります。
-                    この両辺を \(x\) で積分すると
-                </p>
-                <div class="math">
-                    \[
-                    \begin{align}
-                    &\int\frac{1}{g(y)}\frac{dy}{dx}dx=\int f(x)dx \\
-                    \\
-                    &\Longleftrightarrow \quad \int\frac{1}{g(y)}dy=\int f(x)dx
-                    \end{align}
-                    \]
-                </div>
-                <p>
-                    となり、両辺の積分をそれぞれ計算すれば解が求まります。
-                </p>
+                <figure class="th">
+                    <figcaption>解法（変数分離形）</figcaption>
+                    <div class="math">
+                        \[
+                        \frac{dy}{dx}=f(x)g(y)
+                        \]
+                    </div>
+                    <ol>
+                        <li>
+                            \(g(y)=0\) のときを考える。
+                        </li>
+                        <li>
+                            \(g(y)\neq0\) のとき、両辺を \(g(y)\) で割る。
+                            <div class="math">
+                                \[
+                                \frac{1}{g(y)}\frac{dy}{dx}=f(x)
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            両辺を \(x\) で積分する。
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                &\int\frac{1}{g(y)}\frac{dy}{dx}dx=\int f(x)dx \\
+                                \\
+                                &\Longleftrightarrow \quad \int\frac{1}{g(y)}dy=\int f(x)dx
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            両辺の積分をそれぞれ計算して解を求める。
+                        </li>
+                    </ol>
+                </figure>
+                
                 <p class="indent">
                     また、次のように形式的に理解することもできます。
                 </p>
