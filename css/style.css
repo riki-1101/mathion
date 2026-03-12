@@ -514,6 +514,12 @@ footer {
     padding: 0.2em 0;
 }
 
+/* 例題の解答例 */
+.ex-answer p {
+    margin: 0;
+    padding: 0.2em 0.5em;
+}
+
 /* 演習問題用 */
 .ex-practice {
     background-color: gainsboro;
