@@ -5,19 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>指数</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
-            <h1>指数</h1>
+            <h1>指数化</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2></h2>
+                <h2>時系列データの指数</h2>
                 <p class="indent">
                     
                 </p>
+                <figure class="def">
+                    <figcaption>定義（時系列データの指数）</figcaption>
+                    <p class="indent">
+                        時系列データ \(\{x_t\}_{t=0}^T\) に対して、基準時点を \(t=s\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        q_t=\frac{x_t}{x_s} \quad (t=0,\cdots,T)
+                        \]
+                    </div>
+                    <p>
+                        を時点 \(s\) を基準とする \(\{x_t\}_{t=0}^T\) の<strong>指数</strong>という。
+                    </p>
+                </figure>
             </section>
             <section id="2">
                 <h2>ラスパイレス指数</h2>
@@ -117,7 +131,7 @@
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                             
                 </figure>
@@ -129,6 +143,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

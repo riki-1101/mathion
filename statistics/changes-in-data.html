@@ -3,15 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>データの変化</title>
+        <title>変化率と伸び率</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
-            <h1>データの変化</h1>
+            <h1>変化率と伸び率</h1>
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>変化量</h2>
@@ -21,59 +21,80 @@
                 <figure class="def">
                     <figcaption>定義（差分）</figcaption>
                     <p class="indent">
-                        時系列データ \(\{y_t\}_{t\in T}\) に対して
+                        時系列データ \(\{x_t\}_{t=0}^T\) に対して
                     </p>
                     <div class="math">
                         \[
-                        \varDelta y_t=y_t-y_{t-1}
+                        \Delta x_t=x_t-x_{t-1} \quad (t=1,\cdots,T)
                         \]
                     </div>
                     <p>
-                        を<strong>差分</strong>と呼ぶ。
+                        を<strong>差分</strong>という。
                     </p>
                 </figure>
             </section>
             <section id="2">
-                <h2>変化率</h2>
+                <h2>変化率と伸び率</h2>
                 <p class="indent">
-                    ある時点の値が前の時点に比べて「何倍になったか」を示すのが変化率です。
+                    ある時点の値が、前の時点に比べて何倍になったかを調べるとき、<strong>変化率</strong>を使います。
                 </p>
                 <figure class="def">
                     <figcaption>定義（変化率）</figcaption>
                     <p class="indent">
-                        時系列データ \(\{y_t\}_{t\in T}\) に対して
+                        時系列データ \(\{x_t\}_{t=0}^T\) に対して
                     </p>
                     <div class="math">
                         \[
-                        \frac{y_t-y_{t-1}}{y_{t-1}}
+                        p_t=\frac{x_t-x_{t-1}}{x_{t-1}} \quad (t=1,\cdots,T)
                         \]
                     </div>
                     <p>
-                        を<strong>変化率</strong>と呼ぶ。
+                        を<strong>変化率</strong>という。
                     </p>
                 </figure>
-                <p></p>
                 <figure class="def">
-                    <figcaption>定義（幾何平均による平均変化率）</figcaption>
+                    <figcaption>定義（伸び率）</figcaption>
                     <p class="indent">
-                        時系列データ \(\{y_t\}_{t\in T}\) に対して
+                        時系列データ \(\{x_t\}_{t=0}^T\) に対して
                     </p>
                     <div class="math">
                         \[
-                        \left(\prod_{t=1}^N\frac{y_t}{y_{t-1}}\right)^{\frac{1}{N}}-1=\left(\frac{y_N}{y_0}\right)^{\frac{1}{N}}-1
+                        r_t=\frac{x_t}{x_{t-1}} \quad (t=1,\cdots,T)
                         \]
                     </div>
                     <p>
-                        を<strong>平均変化率</strong>と呼ぶ。
+                        を<strong>伸び率</strong>という。
                     </p>
                 </figure>
-            </section>
-            <section id="3">
-                <h2></h2>
+                <p class="indent">
+                    変化率 \(p_t\) と伸び率 \(r_t\) の定義から
+                </p>
+                <div class="math">
+                    \[
+                    p_t=r_t-1
+                    \]
+                </div>
+                <p>
+                    が成り立ちます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（平均伸び率）</figcaption>
+                    <p class="indent">
+                        時系列データ \(\{x_t\}_{t=0}^T\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        r_G=\left(\prod_{t=1}^T\frac{x_t}{x_{t-1}}\right)^{\frac{1}{T}}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>平均伸び率</strong>という。
+                    </p>
+                </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                             
                 </figure>
@@ -85,6 +106,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

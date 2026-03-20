@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>時系列データ</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>時系列データ</h1>
             <div id="table-of-contents"></div>
@@ -17,21 +17,21 @@
                 <h2>時系列データとは</h2>
                 <p class="indent">
                     時間の経過に沿って観測されたデータの列を<strong>時系列データ</strong>といいます。
-                    例えば、「毎年の売上高」、「毎月の気温」、「毎日の株価」などです。
+                    例えば、毎年の売上高、毎月の気温、毎日の株価などです。
                     数学的には以下のように定義されます。
                 </p>
                 <figure class="def">
                     <figcaption>定義（時系列データ）</figcaption>
                     <p class="indent">
-                        確率過程 \(\{Y_t\}_{t\in T}\) に対する観測データ
+                        確率過程 \(\{X_t\}_{t=0}^T\) に対する観測データ
                     </p>
                     <div class="math">
                         \[
-                        \{y_t\}_{t\in T}
+                        \{x_t\}_{t=0}^T
                         \]
                     </div>
                     <p>
-                        を<strong>時系列データ</strong>と呼ぶ。
+                        を<strong>時系列データ</strong>という。
                     </p>
                 </figure>
             </section>
@@ -40,28 +40,25 @@
                 <p class="indent">
                     時系列データには、次のような特徴や性質があります。
                 </p>
-                <ul>
-                    <li><strong>時間依存性</strong>
-                        <p>
+                <figure class="box">
+                    <figcaption>時系列データの特徴</figcaption>
+                    <ul>
+                        <li><strong>時間依存性</strong><br>
                             近い時刻のデータは互いに関連していることが多い。
-                        </p>
-                    </li>
-                    <li><strong>トレンド</strong>
-                        <p>
+                        </li>
+                        <li><strong>トレンド</strong><br>
                             長期的に増加または減少する傾向が存在する。
-                        </p>
-                    </li>
-                    <li><strong>季節性</strong>
-                        <p>
-                            一定の周期で繰り返すパターンが存在する（例：月次売上の季節変動）。
-                        </p>
-                    </li>
-                    <li><strong>不規則成分（ノイズ）</strong>
-                        <p>
-                            予測困難なランダムな変動。突発的なイベントや誤差により生じる。
-                        </p>
-                    </li>
-                </ul>
+                        </li>
+                        <li><strong>季節性</strong><br>
+                            一定の周期で繰り返すパターンが存在する。
+                        </li>
+                        <li><strong>不規則成分（ノイズ）</strong><br>
+                            予測困難なランダムな変動。
+                            突発的なイベントや誤差により生じる。
+                        </li>
+                    </ul>
+                </figure>
+                
                 <p class="indent">
                     時系列データは<strong>傾向変動</strong> \(T_t\) 、<strong>循環変動</strong> \(C_t\) 、<strong>季節変動</strong> \(S_t\) 、<strong>不規則変動</strong> \(I_t\) によって構成されると考えます。
                     これらを用いて、観測値 \(Y_t\) を表すモデルが作れます。
@@ -83,12 +80,9 @@
                     \]
                 </div>
             </section>
-            <section id="3">
-                <h2></h2>
-            </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題</figcaption>
                             
                 </figure>
@@ -100,6 +94,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
