@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>相関係数・相関行列</h1>
             <div id="table-of-contents"></div>
@@ -48,6 +49,32 @@
                     <summary>証明</summary>
                     
                 </details>
+                <figure class="th">
+                    <figcaption>定理（相関係数の性質）</figcaption>
+                    <p class="indent">
+                        確率変数 \(X,Y\) と \(a,b,c,d\in\mathbb{R}\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \rho[aX+b,cY+d] = \operatorname{sign}(ac)\rho[X,Y]
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \rho[aX+b,cY+d]
+                        &= \frac{\operatorname{Cov}[aX+b,cY+d]}{\sqrt{V[aX+b]V[cY+d]}} \\
+                        &= \frac{\operatorname{Cov}[aX,cY]}{\sqrt{V[aX]V[cY]}} \\
+                        &= \frac{ac\operatorname{Cov}[X,Y]}{\sqrt{a^2V[X]\cdot c^2V[Y]}} \\
+                        &= \frac{ac}{|ac|}\cdot\frac{\operatorname{Cov}[X,Y]}{\sqrt{V[X]V[Y]}} \\
+                        &= \operatorname{sign}(ac)\rho[X,Y] \\
+                        \end{align}
+                        \]
+                    </div>
+                </details>
             </section>
             <section id="2">
                 <h2>相関行列</h2>
@@ -75,6 +102,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
