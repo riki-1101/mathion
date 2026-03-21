@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>正規分布</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>正規分布</h1>
             <div id="table-of-contents"></div>
@@ -102,18 +102,34 @@
             </section>
             <section id="4">
                 <h2>離散型の確率分布の正規近似</h2>
-                <p>
-                    離散型の確率分布を連続型の確率分布に近似するとき、補正する必要があります。<br>
+                <p class="indent">
+                    離散型の確率分布を連続型の確率分布に近似するとき、補正する必要があります。
                     離散型確率変数 \(X\) が \(m\le X\le n~~~(m,n\in\mathbb{Z})\) となる確率を求めるとき
+                </p>
+                <div class="math">
                     \[
-                    P(m\le X\le n)=\sum_{x=m}^nP(X=x)=\sum_{x=m}^nP(X=x)\cdot1\fallingdotseq\int_{m+0.5}^{n+0.5}f(x)dx
+                    \begin{align}
+                    P(m\le X\le n) &= \sum_{x=m}^nP(X=x) \\
+                    &= \sum_{x=m}^nP(X=x)\cdot1 \\
+                    &\fallingdotseq\int_{m+0.5}^{n+0.5}f(x)dx
+                    \end{align}
                     \]
-                    であるから、\(X\) を連続型と近似する場合は \(P(m+0.5\le X\le n+0.5)\) を考えなければならない。
+                </div>
+                <p>
+                    であるから、\(X\) を連続型と近似する場合は
+                </p>
+                <div class="math">
+                    \[
+                    P(m+0.5\le X\le n+0.5)
+                    \]
+                </div>
+                <p>
+                    を考えなければなりません。
                 </p>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
-                <figure class="ex">
+                <figure class="ex-practice">
                     <figcaption>問題１</figcaption>
                     <p class="indent">
                         ある大学の男子の身長を調査したところ、平均 \(170\mathrm{cm}\)、標準偏差 \(5\mathrm{cm}\) の正規分布に従うことが分かった。以下の問いに答えよ。
@@ -127,15 +143,22 @@
                 <details class="ans">
                     <summary>解答</summary>
                     <p>
-                        身長の確率変数を \(X\) とすると、\(X\sim N(170,~5)\) である。<br>
-                        \(Z=\displaystyle\frac{X-170}{5}\) とおくと、\(Z\sim N(0,~1)\) となる。
+                        身長を \(X\) とすると、\(X\sim N(170,~5^2)\) であるから
                     </p>
+                    <div class="math">
+                        \[
+                        Z=\displaystyle\frac{X-170}{5}\sim N(0,~1)
+                        \]
+                    </div>
                     <ol>
                         <li>
                             <div class="math">
                                 \(\begin{align}
-                                P(X\ge 180)&=P\left(Z\ge \displaystyle\frac{180-170}{5}\right)=P(Z\ge 2)\\
-                                &=0.5-\Phi(2)=0.5-0.4772=0.0228
+                                P(X\ge 180)&=P\left(Z\ge \displaystyle\frac{180-170}{5}\right) \\
+                                &=P(Z\ge 2) \\
+                                &=0.5-\Phi(2) \\
+                                &=0.5-0.4772 \\
+                                &=0.0228
                                 \end{align}\)
                             </div>
                             <p>
@@ -182,6 +205,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
