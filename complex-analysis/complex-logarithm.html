@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>複素対数関数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>複素対数関数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>複素対数関数の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（複素数の対数）</figcaption>
+                    <p class="indent">
+                        複素数 \(w\neq0\) に対して、方程式 \(e^z=w\) の解を
+                    </p>
+                    <div class="math">
+                        \[
+                        \log w
+                        \]
+                    </div>
+                    <p>
+                        と書き、\(w\) の<strong>対数</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（複素対数関数）</figcaption>
+                    <p class="indent">
+                        任意の複素数 \(z\neq0\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \log z=\log|z|+i\arg z
+                        \]
+                    </div>
+                    <p>
+                        で定まる多価関数を<strong>複素対数関数</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>複素対数関数の主値</h2>
+                <figure class="def">
+                    <figcaption>定義（複素対数関数）</figcaption>
+                    <p class="indent">
+                        任意の複素数 \(z\neq0\) の偏角の主値を \(\operatorname{Arg}z\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Log}z=\log|z|+i\operatorname{Arg}z
+                        \]
+                    </div>
+                    <p>
+                        を \(\log z\) の<strong>主値</strong>という。
+                    </p>
+                    <p class="indent">
+                        偏角の主値としては \(-\pi\lt\operatorname{Arg}z\le\pi\) がよく用いられる。
+                    </p>
+                </figure>
+                <p class="indent">
+                    主値を用いると、複素対数関数は
+                </p>
+                <div class="math">
+                    \[
+                    \log z=\operatorname{Log}z+2m\pi i \quad (m\in\mathbb{Z})
+                    \]
+                </div>
+                <p>
+                    と書けます。
+                </p>
+            </section>
+            <section id="3">
+                <h2>複素対数関数の計算</h2>
+                <p class="indent">
+                    例題を解いてみましょう。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の複素対数関数の値と、その主値を求めよ。
+                        ただし、偏角の主値範囲は \(-\pi\lt\operatorname{Arg}z\le\pi\) とする。
+                    </p>
+                    <ol>
+                        <li>\(\log 1\)</li>
+                        <li>\(\log(-1)\)</li>
+                        <li>\(\log i\)</li>
+                        <li>\(\log(1+2i)\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
