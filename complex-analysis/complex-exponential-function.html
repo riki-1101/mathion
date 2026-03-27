@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>複素指数関数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>複素指数関数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>複素指数関数の定義</h2>
+                <p class="indent">
+                    <strong>オイラーの公式</strong>
+                </p>
+                <div class="math">
+                    \[
+                    e^{i\theta} = \cos\theta + i\sin\theta
+                    \]
+                </div>
+                <p>
+                    から
+                </p>
+                <div class="math">
+                    \[
+                    e^{x+yi}=e^{x}e^{iy}=e^x(\cos y+i\sin y)
+                    \]
+                </div>
+                <p>
+                    のように表せるため、これを<strong>複素指数関数</strong>として定義します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（複素指数関数）</figcaption>
+                    <p class="indent">
+                        複素数 \(z=x+yi~(x,y\in\mathbb{R})\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        e^z := e^x(\cos y+i\sin y)
+                        \]
+                    </div>
+                    <p>
+                        で定める関数を<strong>複素指数関数</strong>という。
+                        \(e^z\) は \(\exp z\) とも書く。
+                    </p>
+                </figure>
+                <p class="indent">
+                    定義から、複素指数関数 \(e^z\) は、絶対値が \(e^x\) で偏角が \(y\) である複素数です。
+                </p>
+            </section>
+            <section id="2">
+                <h2>複素指数関数の性質</h2>
+                <p class="indent">
+                    実関数の指数関数と同様に、複素指数関数においても<strong>指数法則</strong>が成り立ちます。
+                    また、複素指数関数には、実関数の指数関数にはなかった<strong>周期性</strong>があります。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（複素指数関数の性質）</figcaption>
+                    <p class="indent">
+                        \(z,w\in\mathbb{C}\) に対して、次が成り立つ。
+                    </p>
+                    <ol>
+                        <li>\(e^z\cdot e^w=e^{z+w}\)</li>
+                        <li>\(\dfrac{e^z}{e^w}=e^{z-w}\)</li>
+                        <li>\((e^z)^m=e^{mz} \quad (m\in\mathbb{Z})\)</li>
+                        <li>\(e^{z+2\pi i}=e^z\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>複素指数関数の計算</h2>
+                <p class="indent">
+                    例題を解いてみましょう。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の値を求めよ。
+                    </p>
+                    <ol>
+                        <li>\(e^{2+\frac{\pi}{3}i}\)</li>
+                        <li>\(e^{3-\frac{\pi}{4}i}\)</li>
+                        <li>\(e^{i\pi}\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
