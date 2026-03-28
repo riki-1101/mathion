@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>極形式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>極形式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>極形式の定義</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（極形式）</figcaption>
+                    <p class="indent">
+                        複素数 \(z=a+bi~(a,b\in\mathbb{R})\) に対して、\(\theta=\arctan\dfrac{y}{x}\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        z=r(\cos\theta+i\sin\theta) \quad (r\gt0)
+                        \]
+                    </div>
+                    <p>
+                        を \(z\) の<strong>極形式</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>偏角</h2>
+                <figure class="def">
+                    <figcaption>定義（偏角）</figcaption>
+                    <p class="indent">
+                        複素数 \(z=r(\cos\theta+i\sin\theta) ~(r\gt0)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \theta=\arg z
+                        \]
+                    </div>
+                    <p>
+                        と表し、これを \(z\) の<strong>偏角</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    ある１つの偏角を \(\theta\) とすると、一般に
+                </p>
+                <div class="math">
+                    \[
+                    \arg z=\theta+2m\pi \quad (m\in\mathbb{Z})
+                    \]
+                </div>
+                <p>
+                    と表されるため、偏角の範囲を限定することが多いです。
+                    例えば、\(-\pi\lt\arg z\le\pi\) や \(0\le\arg z\lt2\pi\) のように制限します。
+                    この指定した範囲内の偏角を<strong>主値</strong>といい、大文字で
+                </p>
+                <div class="math">
+                    \[
+                    \operatorname{Arg}z
+                    \]
+                </div>
+                <p>
+                    と書きます。
+                </p>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
