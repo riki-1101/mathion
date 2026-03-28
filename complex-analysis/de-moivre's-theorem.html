@@ -30,6 +30,58 @@
                     </p>
                 </figure>
             </section>
+            <section id="3">
+                <h2>ド・モアブルの定理による計算</h2>
+                <p class="indent">
+                    例題を解いてみましょう。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の値を求めよ。
+                    </p>
+                    <ol>
+                        <li>\((1+i)^{10}\)</li>
+                        <li>\((1-\sqrt{3}i)^5\)</li>
+                    </ol>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <ol>
+                        <li>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                (1+i)^{10} &= \left\{\sqrt{2}\left(\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}i\right)\right\}^{10} \\
+                                &= 2^5\left(\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}i\right)^{10} \\
+                                &= 32\left(\cos\frac{\pi}{4}+i\sin\frac{\pi}{4}\right)^{10} \\
+                                &= 32\left(\cos\frac{10\pi}{4}+i\sin\frac{10\pi}{4}\right) \\
+                                &= 32\left(\cos\frac{5\pi}{2}+i\sin\frac{5\pi}{2}\right) \\
+                                &= 32\left(\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}\right) \\
+                                &= 32(0+i) \\
+                                &= 32i
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                (1-\sqrt{3}i)^8 &= \left\{2\left(\frac{1}{2}-\frac{\sqrt{3}}{2}i\right)\right\}^8 \\
+                                &= 2^8\left(\frac{1}{2}-\frac{\sqrt{3}}{2}i\right)^8 \\
+                                &= 256\left(\cos\frac{5\pi}{3}+i\sin\frac{5\pi}{3}\right)^8 \\
+                                &= 256\left(\cos\frac{40\pi}{3}+i\sin\frac{40\pi}{3}\right) \\
+                                &= 256\left(\cos\frac{4\pi}{3}+i\sin\frac{4\pi}{3}\right) \\
+                                &= 256\left(-\frac{1}{2}-\frac{\sqrt{3}}{2}i\right) \\
+                                &= -128-128\sqrt{3}i
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </figure>
+            </section>
             <section id="ex">
                 <h2>演習問題</h2>
                 <figure class="ex-practice">
