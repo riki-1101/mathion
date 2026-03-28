@@ -5,24 +5,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>複素数</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/mathjax-config.js"></script>
-        <script src="../mathjax/es5/tex-mml-chtml.js"></script>
+        <script src="../js/mathjax.js"></script>
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>複素数</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>複素数の定義</h2>
+                <h2>虚数単位の導入</h2>
                 <p class="indent">
                     
                 </p>
                 <figure class="def">
+                    <figcaption>定義（虚数単位）</figcaption>
+                    <p class="indent">
+                        \(2\) 乗して \(-1\) となる数 \(i\) を
+                    </p>
+                    <div class="math">
+                        \[
+                        i^2=-1
+                        \]
+                    </div>
+                    <p>
+                        と定義し、\(i\) を<strong>虚数単位</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>複素数の定義</h2>
+                <figure class="def">
                     <figcaption>定義（複素数）</figcaption>
                     <p class="indent">
-                        \(i\) を虚数単位とする。
-                        このとき、\(a,b \in\mathbb{R}\) を用いて
+                        虚数単位 \(i\) と \(a,b \in\mathbb{R}\) を用いて
                     </p>
                     <div class="math">
                         \[
@@ -35,7 +51,7 @@
                     </p>
                     <div class="math">
                         \[
-                        \mathbb{C}:=\{a+bi~|~a,b\in\mathbb{R}\}
+                        \mathbb{C}:=\{a+bi \mid a,b\in\mathbb{R}\}
                         \]
                     </div>
                     <p>
@@ -46,7 +62,7 @@
                 <figure class="def">
                     <figcaption>定義（実部・虚部）</figcaption>
                     <p class="indent">
-                        複素数 \(z=a+bi\) に対し、実数 \(a\) を \(z\) の<strong>実部</strong>、実数 \(b\) を \(z\) の<strong>虚部</strong>といい、それぞれ
+                        複素数 \(z=a+bi~(a,b\in\mathbb{R})\) に対して、\(a\) を \(z\) の<strong>実部</strong>、\(b\) を \(z\) の<strong>虚部</strong>といい、それぞれ
                     </p>
                     <div class="math">
                         \[
@@ -57,11 +73,17 @@
                         と表す。
                     </p>
                 </figure>
+                <figure class="def">
+                    <figcaption>定義（純虚数）</figcaption>
+                    <p class="indent">
+                        実部が \(0\) である複素数 \(z=bi~(b\in\mathbb{R})\) を<strong>純虚数</strong>という。
+                    </p>
+                </figure>
             </section>
-            <section id="2">
+            <section id="3">
                 <h2>共役複素数</h2>
                 <p class="indent">
-                    虚部の符号が異なる数を共役複素数といいます。
+                    虚部の符号が異なる数を<strong>共役複素数</strong>といいます。
                 </p>
                 <figure class="def">
                     <figcaption>定義（共役複素数）</figcaption>
@@ -93,7 +115,7 @@
                     </ol>
                 </figure>
             </section>
-            <section id="3">
+            <section id="4">
                 <h2>複素数の絶対値</h2>
                 <figure class="def">
                     <figcaption>定義（複素数の絶対値）</figcaption>
@@ -127,6 +149,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
