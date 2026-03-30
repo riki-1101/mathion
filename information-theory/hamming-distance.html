@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ハミング距離</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>ハミング距離</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ハミング距離</h2>
+                <p class="indent">
+                    ハミング距離は符号語 \(\boldsymbol{x}\) と \(\boldsymbol{y}\) のビット列のうち、異なるビットの個数を表します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ハミング距離）</figcaption>
+                    <p class="indent">
+                        符号語 \(\boldsymbol{x},\boldsymbol{y}\) が
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{x}=\begin{bmatrix} x_1 & x_2 & \cdots & x_n \end{bmatrix}
+                        ,\quad
+                        \boldsymbol{y}=\begin{bmatrix} y_1 & y_2 & \cdots & y_n \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        d_H(\boldsymbol{x},\boldsymbol{y}):=\sum_{i=1}^n(x_i\oplus y_i)
+                        \]
+                    </div>
+                    <p>
+                        を \(\boldsymbol{x}\) と \(\boldsymbol{y}\) の<strong>ハミング距離</strong>という。
+                    </p>
+                </figure>
+                <figure class="ex">
+                    <figcaption>例</figcaption>
+                    <p>
+                        符号語
+                        \(
+                        \boldsymbol{x}=\begin{bmatrix} 0 & 0 & 1  & 1 \end{bmatrix},~
+                        \boldsymbol{y}=\begin{bmatrix} 0 & 1 & 1  & 0 \end{bmatrix}
+                        \)
+                        のハミング距離は
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        d_H(\boldsymbol{x},\boldsymbol{y})
+                        &=(0\oplus0)+(0\oplus1)+(1\oplus1)+(1\oplus0)\\
+                        &=0+1+0+1\\
+                        &=2
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>符号の最小距離</h2>
+                <p class="indent">
+                    符号に属する符号語の組において、最小のハミング距離を<strong>最小距離</strong>といい、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（最小距離）</figcaption>
+                    <p class="indent">
+                        符号 \(\mathcal{C}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        d_{\mathrm{min}}:=\min_{\substack{\boldsymbol{c}_1, \boldsymbol{c}_2 \in \mathcal{C} \\ \boldsymbol{c}_1 \neq \boldsymbol{c}_2}}d_H(\boldsymbol{c_1},\boldsymbol{c_2})
+                        \]
+                    </div>
+                    <p>
+                        を符号 \(\mathcal{C}\) の<strong>最小距離</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
