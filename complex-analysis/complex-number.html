@@ -108,12 +108,74 @@
                     <ol>
                         <li>\(\overline{(\overline{\alpha})}=\alpha\)</li>
                         <li>\(\overline{\alpha\pm\beta}=\overline{\alpha}\pm\overline{\beta}\)</li>
-                        <li>\(\overline{\alpha\beta}=\overline{\alpha}\overline{\beta}\)</li>
+                        <li>\(\overline{\alpha\beta}=\overline{\alpha}\cdot\overline{\beta}\)</li>
                         <li>\(\displaystyle\overline{\left(\frac{\alpha}{\beta}\right)}=\frac{\overline{\alpha}}{\overline{\beta}}\quad (\beta\neq0)\)</li>
                         <li>\(\operatorname{Re}\alpha=\displaystyle\frac{\alpha+\overline{\alpha}}{2}\)</li>
                         <li>\(\operatorname{Im}\alpha=\displaystyle\frac{\alpha-\overline{\alpha}}{2i}\)</li>
                     </ol>
                 </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        \(\alpha=a+bi,~\beta=c+di\) とする。
+                    </p>
+                    <ol>
+                        <li>
+                            \(
+                            \begin{align}
+                            \overline{(\overline{\alpha})}
+                            &= \overline{(\overline{a+bi})} \\
+                            &= \overline{a-bi} \\
+                            &= a+bi \\
+                            &= \alpha
+                            \end{align}
+                            \)
+                        </li>
+                        <li>
+                            \(
+                            \begin{align}
+                            \overline{\alpha\pm\beta}
+                            &= \overline{(a+bi)\pm(c+di)} \\
+                            &= \overline{(a \pm c) + (b \pm d)i} \\
+                            &= (a \pm c) - (b \pm d)i \\
+                            &= (a - bi) \pm (c - di) \\
+                            &= \overline{a + bi}\pm\overline{c+di} \\
+                            &= \overline{\alpha}\pm\overline{\beta}
+                            \end{align}
+                            \)
+                        </li>
+                        <li>
+                            \(
+                            \begin{align}
+                            \overline{\alpha\beta}
+                            &= \overline{(a+bi)(c+di)} \\
+                            &= \overline{(ac - bd) + (ad + bc)i} \\
+                            &= (ac - bd) - (ad + bc)i \\
+                            &= a(c - di) - b(d + ci) \\
+                            &= a(c - di) - bi(c - di) \\
+                            &= (a - bi)(c - di)\\
+                            &= \overline{a + bi}\cdot\overline{c+di} \\
+                            &= \overline{\alpha}\cdot\overline{\beta}
+                            \end{align}
+                            \)
+                        </li>
+                        <li>
+                            \(
+                            \begin{align}
+                            \overline{\left(\frac{\alpha}{\beta}\right)}
+                            &= \overline{\left(\frac{a+bi}{c+di}\right)} \\
+                            &= \overline{\left(\frac{(a+bi)(c-di)}{(c+di)(c-di)}\right)} \\
+                            &= \overline{\left(\frac{(a+bi)(c-di)}{c^2+d^2}\right)} \\
+                            &= a(c - di) - b(d + ci) \\
+                            &= a(c - di) - bi(c - di) \\
+                            &= (a - bi)(c - di)\\
+                            &= \overline{a + bi}\cdot\overline{c+di} \\
+                            &= \overline{\alpha}\cdot\overline{\beta}
+                            \end{align}
+                            \)
+                        </li>
+                    </ol>
+                </details>
             </section>
             <section id="4">
                 <h2>複素数の絶対値</h2>

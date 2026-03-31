@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>オイラーの公式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>オイラーの公式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>オイラーの公式</h2>
+                <p class="indent">
+                    \(e^x\) のマクローリン展開は
+                </p>
+                <div class="math">
+                    \[
+                    e^x = 1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+\cdots
+                    \]
+                </div>
+                <p>
+                    となります。
+                    この式に、形式的に \(x=i\theta~(\theta\in\mathbb{R})\) を代入してみます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    e^{ix} &= 1+\frac{1}{1!}(ix)+\frac{1}{2!}(ix)^2+\frac{1}{3!}(ix)^3+\frac{1}{4!}(ix)^4+\cdots \\
+                    &= 1+ix-\frac{1}{2!}x^2-i\frac{1}{3!}x^3+\frac{1}{4!}x^4+\cdots \\
+                    &= \left(1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-\cdots\right)+i\left(x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\cdots\right) \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで、\(\cos x, \sin x\) のマクローリン展開はそれぞれ
+                </p>
+                <div class="math">
+                    \[
+                    \cos x = 1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-\cdots
+                    \]
+                    \[
+                    \sin x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\cdots
+                    \]
+                </div>
+                <p>
+                    であることから、次式を得ます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（オイラーの公式）</figcaption>
+                    <p class="indent">
+                        虚数単位 \(i\) と \(\theta\in\mathbb{R}\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        e^{i\theta} = \cos\theta + i\sin\theta
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
