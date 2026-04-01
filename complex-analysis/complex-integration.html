@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>複素積分</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>複素積分</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/mathjax.js"></script>
     </head>
@@ -15,47 +15,20 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>複素積分の定義</h2>
-                <p>
-                    曲線
-                </p>
-                <div class="math">
-                    \[
-                    C : z(t)=x(t)+iy(t) \quad (a\le t\le b)
-                    \]
-                </div>
-                <p>
-                    を分割することを考えます。
-                </p>
-                <div class="math">
-                    \[
-                    a = t_0 \lt t_1 \lt \cdots \lt t_n = b
-                    \]
-                </div>
-                <p>
-                    となる点列 \(\{t_k\}_{k=0}^n\) を選びます。
-                    このとき、集合 \(\{z(t_k)\}_{k=0}^n\) を \(C\) の分割といいます。
-                </p>
+                <p class="indent"></p>
                 <figure class="def">
                     <figcaption>定義（複素積分）</figcaption>
                     <p class="indent">
-                        曲線 \(C : z(t)=x(t)+iy(t)~(a\le t\le b)\) を \(\{z(t_k)\}_{k=0}^n\) によって分割して
+                        曲線 \(C\) を点列 \(\{z_k\}_{k=0}^n\) によって \(n\) 個の曲線 \(C_1,C_2,\cdots,C_n\) に分割し、各 \(C_k\) に対して、\(C_k\) 内に代表点 \(\zeta_k\) を定める。
+                        このとき、複素関数 \(f(z)\) に対して、極限
                     </p>
                     <div class="math">
                         \[
-                        \zeta_k:=z(s_k) \quad (s_k\in[t_{k-1},t_k])
+                        \lim_{n\to\infty}\sum_{k=1}^nf(\zeta_k)(z_k-z_{k-1})
                         \]
                     </div>
                     <p>
-                        として代表点 \(\{\zeta_k\}\) を定める。
-                        このとき、極限
-                    </p>
-                    <div class="math">
-                        \[
-                        \lim_{n\to\infty}\sum_{k=1}^nf(z_k)\varDelta z_k
-                        \]
-                    </div>
-                    <p>
-                        が収束するならば
+                        が収束するならば、この極限値を
                     </p>
                     <div class="math">
                         \[
@@ -63,14 +36,10 @@
                         \]
                     </div>
                     <p>
-                        と書き、\(C\) に沿った \(f(z)\) の<strong>複素積分</strong>という。
-                        また、曲線 \(C\) を<strong>積分路</strong>という。
+                        と書き、<strong>積分路</strong>を \(C\) とする \(f(z)\) の<strong>複素積分</strong>という。
                     </p>
-                </figure>
-                <figure class="def">
-                    <figcaption>定義（周回積分）</figcaption>
                     <p class="indent">
-                        閉曲線 \(C\) に沿った \(f(z)\) の複素積分を<strong>周回積分</strong>といい
+                        特に、積分路 \(C\) が閉曲線である複素積分を<strong>周回積分</strong>といい
                     </p>
                     <div class="math">
                         \[
@@ -78,7 +47,7 @@
                         \]
                     </div>
                     <p>
-                        と表す。
+                        と書くことがある。
                     </p>
                 </figure>
             </section>
@@ -86,15 +55,45 @@
                 <h2>複素積分の性質</h2>
                 <figure class="th">
                     <figcaption>定理（複素積分の性質）</figcaption>
+                    <p class="indent">
+                        曲線 \(C\) 上で複素関数 \(f(z),g(z)\) に対して、次が成り立つ。
+                    </p>
                     <ol>
-                        <li>\(\displaystyle\int_C\{kf(z)+lg(z)\}dz=k\int_Cf(z)dz+l\int_Cg(z)dz\)</li>
+                        <li>
+                            \(k,l\in\mathbb{C}\) に対して<br>
+                            \(\displaystyle\int_C\{kf(z)+lg(z)\}dz=k\int_Cf(z)dz+l\int_Cg(z)dz\)
+                        </li>
                         <li>\(\displaystyle\int_{-C}f(z)dz=-\int_Cf(z)dz\)</li>
-                        <li>\(\displaystyle\int_{C_1+C_2}f(z)dz=\int_{C_1}f(z)dz+\int_{C_2}f(z)dz\)</li>
+                        <li>
+                            \(C=C_1+C_2\) のとき<br>
+                            \(\displaystyle\int_{C_1+C_2}f(z)dz=\int_{C_1}f(z)dz+\int_{C_2}f(z)dz\)
+                        </li>
                     </ol>
                 </figure>
             </section>
             <section id="3">
                 <h2>複素積分の計算</h2>
+                <p class="indent">
+                    積分路を \(C\) とする \(f(z)\) の複素積分
+                </p>
+                <div class="math">
+                    \[
+                    \int_Cf(z)dz
+                    \]
+                </div>
+                <p>
+                    は、曲線 \(C\) に沿った線積分なので、計算に関わるのは \(f(z)\) の \(C\) 上の値のみです。
+                    曲線 \(C\) のパラメータ表示が
+                </p>
+                <div class="math">
+                    \[
+                    C : z(t)=x(t)+iy(t) \quad (a\le t\le b)
+                    \]
+                </div>
+                <p>
+                    となるならば、\(z=z(t)\) を \(f(z)\) に代入することで、曲線上（1次元）に帰着することができます。
+                    このことから、次の公式が得られます。
+                </p>
                 <figure class="th">
                     <figcaption>定理（複素積分の計算公式）</figcaption>
                     <p class="indent">
