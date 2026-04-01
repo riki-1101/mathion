@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>複素積分</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>複素積分</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>複素積分の定義</h2>
+                <p>
+                    曲線
+                </p>
+                <div class="math">
+                    \[
+                    C : z(t)=x(t)+iy(t) \quad (a\le t\le b)
+                    \]
+                </div>
+                <p>
+                    を分割することを考えます。
+                </p>
+                <div class="math">
+                    \[
+                    a = t_0 \lt t_1 \lt \cdots \lt t_n = b
+                    \]
+                </div>
+                <p>
+                    となる点列 \(\{t_k\}_{k=0}^n\) を選びます。
+                    このとき、集合 \(\{z(t_k)\}_{k=0}^n\) を \(C\) の分割といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（複素積分）</figcaption>
+                    <p class="indent">
+                        曲線 \(C : z(t)=x(t)+iy(t)~(a\le t\le b)\) を \(\{z(t_k)\}_{k=0}^n\) によって分割して
+                    </p>
+                    <div class="math">
+                        \[
+                        \zeta_k:=z(s_k) \quad (s_k\in[t_{k-1},t_k])
+                        \]
+                    </div>
+                    <p>
+                        として代表点 \(\{\zeta_k\}\) を定める。
+                        このとき、極限
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}\sum_{k=1}^nf(z_k)\varDelta z_k
+                        \]
+                    </div>
+                    <p>
+                        が収束するならば
+                    </p>
+                    <div class="math">
+                        \[
+                        \int_Cf(z)dz
+                        \]
+                    </div>
+                    <p>
+                        と書き、\(C\) に沿った \(f(z)\) の<strong>複素積分</strong>という。
+                        また、曲線 \(C\) を<strong>積分路</strong>という。
+                    </p>
+                </figure>
+                <figure class="def">
+                    <figcaption>定義（周回積分）</figcaption>
+                    <p class="indent">
+                        閉曲線 \(C\) に沿った \(f(z)\) の複素積分を<strong>周回積分</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \oint_Cf(z)dz
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>複素積分の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（複素積分の性質）</figcaption>
+                    <ol>
+                        <li>\(\displaystyle\int_C\{kf(z)+lg(z)\}dz=k\int_Cf(z)dz+l\int_Cg(z)dz\)</li>
+                        <li>\(\displaystyle\int_{-C}f(z)dz=-\int_Cf(z)dz\)</li>
+                        <li>\(\displaystyle\int_{C_1+C_2}f(z)dz=\int_{C_1}f(z)dz+\int_{C_2}f(z)dz\)</li>
+                    </ol>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>複素積分の計算</h2>
+                <figure class="th">
+                    <figcaption>定理（複素積分の計算公式）</figcaption>
+                    <p class="indent">
+                        滑らかな曲線 \(C:z=z(t)~(a\le t\le b)\) 上で連続な関数 \(f(z)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \int_Cf(z)dz=\int_a^bf(z(t))\frac{dz}{dt}dt
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <figure class="th">
+                    <figcaption>定理（周回積分の基本公式）</figcaption>
+                    <p class="indent">
+                        \(C\) を \(\alpha\in\mathbb{C}\) を中心とする半径 \(r\) の円とする。
+                        \(m\in\mathbb{Z}\) とすると、\(r\) の値によらず次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \oint_C(z-\alpha)^mdz=\begin{cases} 0 & (m\neq -1) \\ 2\pi i & (m=-1) \end{cases}
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        積分路 \(C\) は \(z(t)=\alpha+re^{it}~(0\le t\le 2\pi)\) と表せる。
+                        このとき \(\displaystyle\frac{dz}{dt}=ire^{it}\) である。
+                    </p>
+                    <ol>
+                        <li>
+                            \(m\neq -1\) のとき
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \oint_C(z-\alpha)^mdz
+                                &= \int_0^{2\pi}(re^{it})^m\cdot ire^{it}dt \\
+                                &= ir^{m+1}\int_0^{2\pi}e^{i(m+1)t}dt \\
+                                &= ir^{m+1}\left[\frac{1}{i(m+1)}e^{i(m+1)t}\right]_0^{2\pi} \\
+                                &= 0
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \(m=-1\) のとき
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \oint_C(z-\alpha)^mdz
+                                &= \int_0^{2\pi}(re^{it})^{-1}\cdot ire^{it}dt \\
+                                &= \int_0^{2\pi}idt \\
+                                &= 2\pi i
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
