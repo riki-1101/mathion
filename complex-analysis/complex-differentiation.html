@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>複素微分</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>複素微分</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>複素微分の定義</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（複素関数の微分可能性）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) と定義域内の点 \(\alpha\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{z\to\alpha}\frac{f(z)-f(\alpha)}{z-\alpha}
+                        \]
+                    </div>
+                    <p>
+                        が存在するとき、\(f(z)\) は \(z=\alpha\) で<strong>微分可能</strong>であるという。
+                        また、この極限値を \(f'(\alpha)\) と書き、\(f\) の \(\alpha\) における<strong>微分係数</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    ここで \(z\to\alpha\) というのは、あらゆる方向から \(\alpha\) に近づけることを意味しており、極限値は方向によらず同じでなければなりません。
+                </p>
+                <p class="indent">
+                    また、\(\varDelta z=z-\alpha\) とおくと、同じ極限は
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{\Delta z\to0}\frac{f(\alpha+\Delta z)-f(\alpha)}{\Delta z}
+                    \]
+                </div>
+                <p>
+                    と書き換えることができます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>複素関数の導関数</h2>
+                <p class="indent">
+                    複素関数が、ある領域 \(D\) 上のすべての点で微分可能であるとき、\(D\) 上の各点に対応する微分係数の関数が定義できます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（複素関数の導関数）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) が領域 \(D\) 上で微分可能であるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{df}{dz}(z)=\lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}
+                        \]
+                    </div>
+                    <p>
+                        で定まる関数 \(\dfrac{df}{dz}(z)\) を \(f(z)\) の<strong>導関数</strong>という。
+                    </p>
+                </figure>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の複素関数の微分可能性を定義式により判定し、微分可能なら導関数を求めよ。
+                    </p>
+                    <ol>
+                        <li>\(f(z)=z^2\)</li>
+                        <li>\(g(z)=\overline{z}\)</li>
+                    </ol>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <ol>
+                        <li>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}
+                                &= \lim_{\Delta z\to0}\frac{(z+\Delta z)^2-z^2}{\Delta z} \\
+                                &= \lim_{\Delta z\to0}\frac{z^2+2z\Delta z+(\Delta z)^2-z^2}{\Delta z} \\
+                                &= \lim_{\Delta z\to0} (2z+\Delta z) \\
+                                &= 2z
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                よって \(f(z)\) は微分可能であり、導関数は
+                            </p>
+                            <div class="math">
+                                \[
+                                \frac{df}{dz}(z)=2z
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}
+                                &= \lim_{\Delta z\to0}\frac{\overline{z+\Delta z}-\overline{z}}{\Delta z} \\
+                                &= \lim_{\Delta z\to0}\frac{\overline{z}+\overline{\Delta z}-\overline{z}}{\Delta z} \\
+                                &= \lim_{\Delta z\to0}\frac{\overline{\Delta z}}{\Delta z}
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                ここで、\(\Delta z=re^{i\theta}~(r\gt0,~\theta\in\mathbb{R})\) とおくと、\(r\to0\) であり
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                \lim_{\Delta z\to0}\frac{\overline{\Delta z}}{\Delta z}
+                                &= \lim_{r\to0}\frac{\overline{re^{i\theta}}}{re^{i\theta}} \\
+                                &= \lim_{r\to0}\frac{re^{-i\theta}}{re^{i\theta}} \\
+                                &= \lim_{r\to0}e^{-2i\theta} \\
+                                &= e^{-2i\theta}
+                                \end{align}
+                                \]
+                            </div>
+                            <p>
+                                これは、\(\theta\) の定め方に依存するため、極限が一意に定まらない。
+                                よって \(g(z)\) は微分可能ではない。
+                            </p>
+                        </li>
+                    </ol>
+                </figure>
+            </section> 
+            <section>
+                <h2>正則性</h2>
+                <p class="indent">
+                    複素関数が、微分可能かつ導関数が連続であるとき、その複素関数は<strong>正則</strong>であるといいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（正則性）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) が領域 \(D\) 上で微分可能であり、かつ導関数 \(\dfrac{df}{dz}(z)\) が \(D\) 上で連続であるとき、\(f(z)\) は \(D\) 上で<strong>正則</strong>であるという。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
