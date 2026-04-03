@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>コーシーの積分公式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>コーシーの積分公式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>コーシーの積分公式</h2>
+                <figure class="th">
+                    <figcaption>定理（コーシーの積分公式）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) は単連結領域 \(D\) 内で正則とする。
+                        このとき、\(D\) 内の任意の単純閉曲線 \(C\) の内部の任意の点 \(\alpha\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(\alpha)=\frac{1}{2\pi i}\oint_C\frac{f(z)}{z-\alpha}dz
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        曲線 \(C_\varepsilon\) を \(\alpha\) を中心とする半径 \(\varepsilon\) の小円とする。
+                        曲線の結合 \(C+C_\varepsilon\) の内部で \(\dfrac{f(z)}{z-z_0}\) は正則なので、コーシーの積分定理より
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        &\oint_{C+C_\varepsilon}\frac{f(z)}{z-z_0}dz = 0 \\
+                        \\
+                        &\Longleftrightarrow \quad \oint_{C}\frac{f(z)}{z-z_0}dz + \oint_{C_\varepsilon}\frac{f(z)}{z-z_0}dz = 0
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        よって
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \oint_{C}\frac{f(z)}{z-z_0}dz
+                        &= -\oint_{C_\varepsilon}\frac{f(z)}{z-\alpha}dz \\
+                        &= \oint_{-C_\varepsilon}\frac{f(z)}{z-\alpha}dz
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        \(-C_\varepsilon\) をパラメータ表示すると
+                    </p>
+                    <div class="math">
+                        \[
+                        -C_\varepsilon : z(t)=\alpha+\varepsilon e^{it} \quad (0\le t\le 2\pi)
+                        \]
+                    </div>
+                    <p>
+                        なので
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \oint_{-C_\varepsilon}\frac{f(z)}{z-\alpha}dz
+                        &= \int_0^{2\pi}\frac{f(\alpha+\varepsilon e^{it})}{\varepsilon e^{it}}\cdot\varepsilon ie^{it}dt \\
+                        &= i\int_0^{2\pi}f(\alpha+\varepsilon e^{it})dt \\
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        ここで、\(\varepsilon\to0\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{\varepsilon\to 0}\oint_{C_\varepsilon}\frac{f(z)}{z-\alpha}dz=i\int_0^{2\pi}f(\alpha)dt=2\pi if(\alpha)
+                        \]
+                    </div>
+                    <p>
+                        したがって
+                    </p>
+                    <div class="math">
+                        \[
+                        \oint_C\frac{f(z)}{z-\alpha}dz=2\pi if(\alpha)
+                        \]
+                    </div>
+                    <p>
+                        であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        f(\alpha)=\frac{1}{2\pi i}\oint_C\frac{f(z)}{z-\alpha}dz
+                        \]
+                    </div>
+                </details>
+            </section>
+            <section id="2">
+                <h2>グルサの定理</h2>
+                <figure class="th">
+                    <figcaption>定理（グルサの定理）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) は単連結領域 \(D\) 内で正則とする。
+                        このとき、\(D\) 内の任意の単純閉曲線 \(C\) の内部の任意の点 \(\alpha\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f^{(n)}(\alpha)=\frac{n!}{2\pi i}\oint_C\frac{f(z)}{(z-\alpha)^{n+1}}dz
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div>
+                        
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
