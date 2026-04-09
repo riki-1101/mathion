@@ -16,8 +16,29 @@
             <section id="1">
                 <h2>極形式の定義</h2>
                 <p class="indent">
-                    
+                    \(z=a+bi~(a,b\in\mathbb{R})\) は \(|z|=r\) とし、実軸からの回転角を \(\theta\) とすると、下の図のように書けます。
                 </p>
+                <img src="img/polar-form.svg" alt="">
+                <p>
+                    このとき
+                </p>
+                <div class="math">
+                    \[
+                    \cos\theta=\frac{a}{\sqrt{a^2+b^2}},\quad \sin\theta=\frac{b}{\sqrt{a^2+b^2}}
+                    \]
+                </div>
+                <p>
+                    であることから
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    z&=a+bi \\
+                    &=\sqrt{a^2+b^2}\left(\frac{a}{\sqrt{a^2+b^2}}+\frac{b}{\sqrt{a^2+b^2}}i\right) \\
+                    &=r(\cos\theta+i\sin\theta)
+                    \end{align}
+                    \]
+                </div>
                 <figure class="def">
                     <figcaption>定義（極形式）</figcaption>
                     <p class="indent">
@@ -29,7 +50,7 @@
                         \]
                     </div>
                     <p>
-                        を \(z\) の<strong>極形式</strong>という。
+                        と表せて、これを \(z\) の<strong>極形式</strong>という。
                     </p>
                 </figure>
             </section>
@@ -58,9 +79,9 @@
                     \]
                 </div>
                 <p>
-                    と表されるため、偏角の範囲を限定することが多いです。
+                    と表されるため、偏角は範囲を限定することが多いです。
                     例えば、\(-\pi\lt\arg z\le\pi\) や \(0\le\arg z\lt2\pi\) のように制限します。
-                    この指定した範囲内の偏角を<strong>主値</strong>といい、大文字で
+                    範囲を \(-\pi\lt\arg z\le\pi\) と制限するとき、これを偏角の<strong>主値</strong>といい、大文字で
                 </p>
                 <div class="math">
                     \[
