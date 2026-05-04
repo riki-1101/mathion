@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>複素数列とその極限</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>複素数列とその極限</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>複素数列</h2>
+                <p class="indent">
+                    無限個の複素数を並べたもの
+                </p>
+                <div class="math">
+                    \[
+                    z_1,z_2,\cdots,z_n,\cdots
+                    \]
+                </div>
+                <p>
+                    を<strong>複素数列</strong>といい、\(\{z_n\}\) と表します。
+                    複素数列 \(\{z_n\}\) を構成する \(n\) 番目の項 \(z_n\) を<strong>第 \(n\) 項</strong>といい、特に最初の項 \(z_1\) を<strong>初項</strong>といいます。
+                </p>
+            </section>
+            <section id="2">
+                <h2>複素数列の収束</h2>
+                <p class="indent">
+                    複素数列 \(\{z_n\}\) に対して、\(n\) が大きくなるにつれて、ある複素数 \(\alpha\) に限りなく近づくとき、\(\{z_n\}\) は \(\alpha\) に<strong>収束する</strong>といいます。
+                    実数列のときと同様に、厳密には<strong>イプシロン・エヌ論法</strong>によって次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（複素数列の収束）</figcaption>
+                    <p class="indent">
+                        任意の \(\varepsilon\gt0\) に対して、ある自然数 \(N\) が存在して、\(n\ge N\) となるすべての自然数 \(n\) で
+                    </p>
+                    <div class="math">
+                        \[
+                        |z_n-\alpha|\lt\varepsilon
+                        \]
+                    </div>
+                    <p>
+                        となるとき、\(\{z_n\}\) は \(\alpha\) に<strong>収束する</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}z_n=\alpha ~~~\text{または}~~~ z_n\to\alpha~(n\to\infty)
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                        また、この \(\alpha\) を \(\{z_n\}\) の<strong>極限</strong>という。
+                    </p>
+                </figure>
+                <p class="indent">
+                    複素数列を実部と虚部に分解することにより、次が成り立ちます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（実数列のよる複素数列の収束）</figcaption>
+                    <p class="indent">
+                        複素数列 \(\{z_n\}\) の一般項が、実数列 \(\{x_n\},\{y_n\}\) を用いて
+                    </p>
+                    <div class="math">
+                        \[
+                        z_n=x_n+iy_n
+                        \]
+                    </div>
+                    <p>
+                        と表されるとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \lim_{n\to\infty}z_n=\lim_{n\to\infty}x_n+i\lim_{n\to\infty}y_n
+                        \]
+                    </div>
+                    <p>
+                        が成り立つ。
+                    </p>
+                </figure>
+                <p class="indent">
+                    上記の定理により、複素数列の極限は、実部と虚部のそれぞれの実数列の極限を考えればよく、実数列の極限の知識をそのまま使うことができます。
+                </p>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
