@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>べき関数のラプラス変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>べき関数のラプラス変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>べき関数のラプラス変換</h2>
+                <figure class="th">
+                    <figcaption>定理（べき関数のラプラス変換）</figcaption>
+                    <p class="indent">
+                        \(\alpha\in\mathbb{R}\) とするとき、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[t^\alpha]=\frac{\Gamma(\alpha+1)}{s^{\alpha+1}}
+                        \]
+                    </div>
+                    <p class="indent">
+                        特に、\(\alpha\) が自然数 \(n\in\mathbb{N}\) のとき、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[t^n]=\frac{n!}{s^{n+1}}
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    上記の式を導出します。
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}[t^\alpha] = \int_0^\infty t^\alpha e^{-st}dt \;\cdots\;(*)
+                    \]
+                </div>
+                <p>
+                    これは、特殊関数の一つであるガンマ関数
+                </p>
+                <div class="math">
+                    \[
+                    \Gamma(z) = \int_0^\infty t^{z-1} e^{-t}dt
+                    \]
+                </div>
+                <p>
+                    を用いることで求められます。
+                    \((*)\) において、\(u=st\) とおくと
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \int_0^\infty t^\alpha e^{-st}dt
+                    &= \int_0^\infty \left(\frac{u}{s}\right)^\alpha e^{-u}\frac{1}{s}du \\
+                    &= \frac{1}{s^{\alpha+1}}\int_0^\infty u^\alpha e^{-u}du \\
+                    &= \frac{1}{s^{\alpha+1}}\int_0^\infty u^{(\alpha+1)-1}e^{-u}du \\
+                    &= \frac{\Gamma(\alpha+1)}{s^{\alpha+1}} \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}[t^\alpha]=\frac{\Gamma(\alpha+1)}{s^{\alpha+1}}
+                    \]
+                </div>
+                <p>
+                    が得られます。
+                </p>
+                <p class="indent">
+                    また、自然数 \(n\in\mathbb{N}\) に対して
+                </p>
+                <div class="math">
+                    \[
+                    \Gamma(n+1)=n!
+                    \]
+                </div>
+                <p>
+                    が成り立つため、\(\alpha\) が自然数 \(n\in\mathbb{N}\) のとき
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}[t^n]=\frac{n!}{s^{n+1}}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+            </section>
+            <section id="">
+                <h2>べき関数のラプラス変換の計算例</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=
+                        \begin{cases}
+                        0 & (t \lt 0) \\
+                        t^2 & (t \ge 0)
+                        \end{cases}
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        F(s) &= \int_0^\infty t^2e^{-st}dt \\
+                        &= \left[-\frac{1}{s}t^2e^{-st}\right]_0^\infty + \int_0^\infty 2t\cdot\frac{1}{s}e^{-st}dt \\
+                        &= 0 + \frac{2}{s}\int_0^\infty te^{-st}dt \\
+                        &= \frac{2}{s}\left( \left[-\frac{1}{s}te^{-st}\right]_0^\infty + \int_0^\infty \frac{1}{s}e^{-st}dt \right) \\
+                        &= \frac{2}{s}\left( 0 + \left[-\frac{1}{s^2}e^{-st}\right]_0^\infty \right) \\
+                        &= \frac{2}{s^3} \quad (\operatorname{Re}s\gt0)
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p class="indent">
+                        自然数 \(n\) に対して、次式を数学的帰納法により証明せよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[t^n]=\frac{n!}{s^{n+1}}
+                        \]
+                    </div>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

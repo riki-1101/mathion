@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>コーシー・リーマンの方程式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>コーシー・リーマンの方程式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>コーシー・リーマンの方程式</h2>
+                <p class="indent">
+                    次の二つの方程式
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},\quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+                    \]
+                </div>
+                <p>
+                    を<strong>コーシー・リーマンの方程式</strong>といいます。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（コーシー・リーマンの方程式）</figcaption>
+                    <p class="indent">
+                        領域 \(D\subset\mathbb{C}\) 上の複素関数 \(f(z)\) が \(D\) 上で正則である必要十分条件は、\(f(z)\) の実部を \(u(x,y)\) 、虚部を \(v(x,y)\) とするとき、すなわち
+                    </p>
+                    <div class="math">
+                        \[
+                        f(z)=u(x,y)+iv(x,y)
+                        \]
+                    </div>
+                    <p>
+                        に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},\quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+                        \]
+                    </div>
+                    <p>
+                        が成り立つことである。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>コーシー・リーマンの方程式の導出</h2>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(z+\Delta z)
+                    &= u(x+\Delta x, y+\Delta y) + iv(x+\Delta x, y+\Delta y) \\
+                    \\
+                    &= \left\{ u(x,y) + \frac{\partial u}{\partial x}\Delta x + \frac{\partial u}{\partial y}\Delta y \right\} \\
+                    &\quad~ + i\left\{ v(x,y) + \frac{\partial v}{\partial x}\Delta x + \frac{\partial v}{\partial y}\Delta y \right\} \\
+                    &\quad~ + o(\Delta x,\Delta y) \quad (\Delta x\to0,~\Delta y\to0) \\
+                    \\
+                    &= u(x,y) + iv(x,y) \\
+                    &\quad~ +\left( \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} \right)\Delta x + \left( \frac{\partial u}{\partial y} + i\frac{\partial v}{\partial y} \right)\Delta y \\
+                    &\quad~ + o(\Delta x,\Delta y) \\
+                    \\
+                    &= f(z) + \left( \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} \right)\Delta x + \left( \frac{\partial u}{\partial y} + i\frac{\partial v}{\partial y} \right)\Delta y \\
+                    &\quad~ + o(\Delta x,\Delta y) \\
+                    \\
+                    &= f(z) + A\cdot\frac{\Delta z+\overline{\Delta z}}{2} + B\cdot\frac{\Delta z-\overline{\Delta z}}{2i} + o(\Delta z)
+                    \end{align}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}
+                    &= \lim_{\Delta z\to0}\frac{1}{\Delta z}\left( A\cdot\frac{\Delta z+\overline{\Delta z}}{2} + B\cdot\frac{\Delta z-\overline{\Delta z}}{2i} \right) \\
+                    &= \lim_{\Delta z\to0}\frac{1}{2}\left( A + A\frac{\overline{\Delta z}}{\Delta z} - Bi + Bi\frac{\overline{\Delta z}}{\Delta z} \right) \\
+                    &= \lim_{\Delta z\to0}\frac{1}{2}\left\{ (A-Bi) + (A+Bi)\frac{\overline{\Delta z}}{\Delta z} \right\} \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    この極限が存在するためには \(\dfrac{\overline{\Delta z}}{\Delta z}\) の係数が \(0\) となればよいので
+                </p>
+                <div class="math">
+                    \[
+                    A+Bi=0
+                    \]
+                </div>
+                <p>
+                    すなわち
+                </p>
+                <div class="math">
+                    \[
+                    \left( \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} \right) + i\left( \frac{\partial u}{\partial y} + i\frac{\partial v}{\partial y} \right) = 0
+                    \]
+                </div>
+                <p>
+                    整理すると
+                </p>
+                <div class="math">
+                    \[
+                    \left( \frac{\partial u}{\partial x} - \frac{\partial v}{\partial y} \right) + i\left( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right) = 0
+                    \]
+                </div>
+                <p>
+                    両辺の実部と虚部を比較して
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\partial u}{\partial x} - \frac{\partial v}{\partial y} = 0,\quad \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} = 0
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

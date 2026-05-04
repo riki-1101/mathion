@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>コーシーの積分定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>コーシーの積分定理</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>コーシーの積分定理</h2>
+                <p class="indent">
+                    <strong>コーシーの積分定理</strong>とは、「<strong>正則な複素関数の、交差していない閉曲線での周回積分は \(0\) である</strong>」と主張する強力な定理です。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（コーシーの積分定理）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) は \(\mathbb{C}\) 内の単連結領域 \(D\) 内で正則とする。
+                        このとき、\(D\) 内の単純閉曲線 \(C\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \oint_Cf(z)dz=0
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>コーシーの積分定理の証明</h2>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \oint_C f(z)dz
+                    &= \oint_C \{u(x,y)+iv(x,y)\}(dx+idy) \\
+                    &= \oint_C \{udx-vdy\} + i\oint_C \{vdx+udy\}
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    グリーンの定理より
+                </p>
+                <div class="math">
+                    \[
+                    \oint_C f(z)dz=\iint_D \left(-\frac{\partial u}{\partial y}-\frac{\partial v}{\partial x}\right)dxdy + i\iint_D \left(-\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x}\right)dxdy
+                    \]
+                </div>
+                <p>
+                    コーシー・リーマンの方程式より
+                </p>
+                <div class="math">
+                    \[
+                    \frac{\partial u}{\partial y}=\frac{\partial v}{\partial x},\quad \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}
+                    \]
+                </div>
+                <p>
+                    が成り立つので
+                </p>
+                <div class="math">
+                    \[
+                    \oint_C f(z)dz=\iint_D 0dxdy + i\iint_D 0dxdy=0
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>周回積分の公式</h2>
+                <figure class="th">
+                    <figcaption>定理（周回積分の公式）</figcaption>
+                    <p class="indent">
+                        任意の単純閉曲線 \(C\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \oint_C \frac{1}{z-\alpha}dz =
+                        \begin{cases}
+                        2\pi i & (\alpha~が~C~の内部にある)\\
+                        0 & (\alpha~が~C~の外部にある)
+                        \end{cases}
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                    <p>
+                        
+                    </p>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

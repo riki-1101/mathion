@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>複素フーリエ級数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>複素フーリエ級数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>複素フーリエ級数</h2>
+                <p class="indent">
+                    関数 \(f(t)\) のフーリエ級数は
+                </p>
+                <div class="math">
+                    \[
+                    f(t)\sim a_0+\sum_{n=1}^\infty\{a_n\cos(n\omega t)+b_n\sin(n\omega t)\}
+                    \]
+                </div>
+                <p>
+                    と表されました。
+                    ここで、三角関数はオイラーの公式によって
+                </p>
+                <div class="math">
+                    \[
+                    \cos(n\omega t)=\frac{e^{in\omega t}+e^{-in\omega t}}{2},\quad \sin(n\omega t)=\frac{e^{in\omega t}-e^{-in\omega t}}{2i}
+                    \]
+                </div>
+                <p>
+                    と表すことができます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(t)
+                    &\sim a_0+\sum_{n=1}^\infty\left\{a_n\cdot\frac{e^{in\omega t}+e^{-in\omega t}}{2}+b_n\cdot\frac{e^{in\omega t}-e^{-in\omega t}}{2i}\right\}\\
+                    &= a_0+\sum_{n=1}^\infty\left\{a_n\cdot\frac{e^{in\omega t}+e^{-in\omega t}}{2}-b_n\cdot\frac{ie^{in\omega t}-ie^{-in\omega t}}{2}\right\}\\
+                    &= a_0+\sum_{n=1}^\infty\left\{\frac{a_n-ib_n}{2}e^{in\omega t}+\frac{a_n+ib_n}{2}e^{-in\omega t}\right\}\\
+                    &= a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=1}^\infty\frac{a_n+ib_n}{2}e^{-in\omega t}\\
+                    &= a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_{-n}+ib_{-n}}{2}e^{in\omega t}\\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    a_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(n\omega t)dt\\
+                    b_n&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(n\omega t)dt
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    より
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    a_{-n}&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(-n\omega t)dt=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cos(n\omega t)dt=a_n\\
+                    b_{-n}&=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(-n\omega t)dt=-\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\sin(n\omega t)dt=-b_n
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    なので
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(t)
+                    &\sim a_0+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_n-ib_n}{2}e^{in\omega t}\\
+                    &= \frac{a_0-ib_0}{2}e^{i0\omega t}+\sum_{n=1}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}+\sum_{n=-\infty}^{-1}\frac{a_n-ib_n}{2}e^{in\omega t}\\
+                    &= \sum_{n=-\infty}^\infty\frac{a_n-ib_n}{2}e^{in\omega t}\\
+                    &= \sum_{n=-\infty}^\infty c_ne^{in\omega t}\quad \left(c_n:=\frac{a_n-ib_n}{2}\right)
+                    \end{align}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    c_n
+                    &=\frac{a_n-ib_n}{2}\\
+                    &=\frac{1}{2}\left\{\frac{2}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\cos(n\omega t)dt-i\frac{2}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\sin(n\omega t)dt\right\}\\
+                    &=\frac{1}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(t)\{\cos(n\omega t)dt-i\sin(n\omega t)\}dt\\
+                    &=\frac{1}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-in\omega t}dt
+                    \end{align}
+                    \]
+                </div>
+                <figure class="def">
+                    <figcaption>定義（複素フーリエ級数）</figcaption>
+                    <p class="indent">
+                        周期 \(T\) の周期信号 \(f(t)\) に対して、\(\omega=\dfrac{2\pi}{T}\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)\sim\sum_{n=-\infty}^\infty c_ne^{in\omega t}
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>複素フーリエ級数</strong>といい、\(c_n\) を<strong>複素フーリエ係数</strong>という。
+                        \(c_n\) は
+                    </p>
+                    <div class="math">
+                        \[
+                        c_n=\frac{1}{T}\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-in\omega t}dt
+                        \]
+                    </div>
+                    <p>
+                        と書ける。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>複素フーリエ級数のスペクトル</h2>
+                <figure class="def">
+                    <figcaption>定義（複素フーリエ級数の振幅スペクトル）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) の複素フーリエ級数
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)\sim\sum_{n=-\infty}^\infty c_ne^{in\omega t}
+                        \]
+                    </div>
+                    <p>
+                        に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        |c_n|=\frac{1}{T}\left|\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-in\omega t}dt\right|
+                        \]
+                    </div>
+                    <p>
+                        を<strong>振幅スペクトル</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section>
+                <h2>正規直交関数系による複素フーリエ級数の導出</h2>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(x)&\sim\sum_{n=-\infty}^\infty\left(f(t),\frac{e^{i\frac{2\pi}{T}nt}}{\sqrt{T}}\right)\frac{e^{i\frac{2\pi}{T}nx}}{\sqrt{T}}\\
+                    &=\frac{1}{T}\sum_{n=-\infty}^\infty\left(f(t),e^{i\frac{2\pi}{T}nt}\right)e^{i\frac{2\pi}{T}nx}\\
+                    &=\frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(t)e^{-i\frac{2\pi}{T}nt}dt\right)e^{i\frac{2\pi}{T}nx}
+                    \end{align}
+                    \]
+                </div>
+                <p class="indent">
+                    特に、\(T=2\pi\) のとき
+                </p>
+                <div class="math">
+                    \[
+                    f(x)\sim\frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\pi}^\pi f(t)e^{-int}dt\right)e^{inx}
+                    \]
+                </div>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

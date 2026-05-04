@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>微分のラプラス変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>微分のラプラス変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>微分のラプラス変換の公式</h2>
+                <figure class="th">
+                    <figcaption>定理（微分のラプラス変換）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) のラプラス変換を \(F(s)=\mathscr{L}\left[f(t)\right]\) とするとき、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}\left[f'(t)\right]=sF(s)-f(0)
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \mathscr{L}\left[f'(t)\right]
+                        &= \int_0^\infty f'(t)e^{-st}dt \\
+                        &= \left[f(t)e^{-st}\right]_0^\infty - \int_0^\infty f(t)(e^{-st})'dt \\
+                        &= 0-f(0) + s\int_0^\infty f(t)e^{-st}dt \\
+                        &=sF(s)-f(0)
+                        \end{align}
+                        \]
+                    </div>
+                </details>
+            </section>
+            <section id="2">
+                <h2>高階微分のラプラス変換</h2>
+                <p class="indent">
+                    一階微分のラプラス変換の公式
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}\left[f'(t)\right]=sF(s)-f(0)
+                    \]
+                </div>
+                <p>
+                    は、\(F(s)=\mathscr{L}\left[f(t)\right]\) なので
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}\left[f'(t)\right]=s\mathscr{L}\left[f(t)\right]-f(0)
+                    \]
+                </div>
+                <p>
+                    であることから、簡単に、高階微分のラプラス変換を導くことができます。
+                </p>
+                <p class="indent">
+                    例えば、二階微分のラプラス変換は次のように求められます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \mathscr{L}\left[f''(t)\right] &= s\mathscr{L}\left[f'(t)\right]-f'(0) \\
+                    &= s\{s\mathscr{L}\left[f(t)\right]-f(0)\}-f'(0) \\
+                    &= s^2\mathscr{L}\left[f(t)\right]-sf(0)-f'(0) \\
+                    &= s^2F(s)-sf(0)-f'(0)
+                    \end{align}
+                    \]
+                </div>
+            </section>
+            <section id="3">
+                <h2>ラプラス変換の計算例</h2>
+                
+                <figure class="ex-problem">
+                    <figcaption>例題1</figcaption>
+                    <p class="indent">
+                        次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=
+                        \begin{cases}
+                        0 & (t \lt 0) \\
+                        1 & (t \ge 0)
+                        \end{cases}
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        F(s) &= \int_0^\infty1\cdot e^{-st}dt \\
+                        &= \left[-\frac{1}{s}e^{-st}\right]_0^\infty \\
+                        &= \frac{1}{s} \quad (\operatorname{Re}s\gt0)
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

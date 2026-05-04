@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>三角関数のラプラス変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>三角関数のラプラス変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>三角関数のラプラス変換の導出</h2>
+                <figure class="th">
+                    <figcaption>定理（三角関数のラプラス変換）</figcaption>
+                    <p class="indent">
+                        \(\omega\in\mathbb{R}\) とするとき、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[\cos\omega t]=\frac{s}{s^2+\omega^2},
+                        \quad
+                        \mathscr{L}[\sin\omega t]=\frac{\omega}{s^2+\omega^2}
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    ラプラス変換の定義通りに計算しても上記の公式が得られますが、オイラーの公式を利用することで、より簡単に導出できます。
+                </p>
+                <p class="indent">
+                    オイラーの公式より
+                </p>
+                <div class="math">
+                    \[
+                    e^{i\omega t} = \cos\omega t+i\sin\omega t
+                    \]
+                </div>
+                <p>
+                    が成り立つため、まず \(e^{i\omega t}\) のラプラス変換を考えます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \mathscr{L}[e^{i\omega t}]
+                    &= \int_0^\infty e^{i\omega t}e^{-st}dt \\
+                    &= \int_0^\infty e^{-(s-i\omega)t}dt \\
+                    &= \left[-\frac{1}{s-i\omega}e^{-(s-i\omega)t}\right]_0^\infty \\
+                    &= \frac{1}{s-i\omega} \\
+                    &= \frac{s+i\omega}{(s-i\omega)(s+i\omega)} \\
+                    &= \frac{s}{s^2+\omega^2} + i\frac{\omega}{s^2+\omega^2} \;\cdots\; (1) \\
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    また、ラプラス変換の線形性より
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}[e^{i\omega t}] = \mathscr{L}[\cos\omega t] + i\mathscr{L}[\sin\omega t] \;\cdots\; (2)
+                    \]
+                </div>
+                <p>
+                    となります。
+                    よって、\((1),~(2)\) の実部と虚部を比較して
+                </p>
+                <div class="math">
+                    \[
+                    \mathscr{L}[\cos\omega t]=\frac{s}{s^2+\omega^2},
+                    \quad
+                    \mathscr{L}[\sin\omega t]=\frac{\omega}{s^2+\omega^2}
+                    \]
+                </div>
+                <p>
+                    を得ます。
+                </p>
+            </section>
+            <section id="">
+                <h2>三角関数のラプラス変換の存在</h2>
+                
+                <figure class="ex-problem">
+                    <figcaption>例題1</figcaption>
+                    <p class="indent">
+                        次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=
+                        \begin{cases}
+                        0 & (t \lt 0) \\
+                        1 & (t \ge 0)
+                        \end{cases}
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        F(s) &= \int_0^\infty1\cdot e^{-st}dt \\
+                        &= \left[-\frac{1}{s}e^{-st}\right]_0^\infty \\
+                        &= \frac{1}{s} \quad (\operatorname{Re}s\gt0)
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

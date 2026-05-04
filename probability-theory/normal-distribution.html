@@ -42,7 +42,7 @@
                 </figure>
             </section>
             <section id="2">
-                <h2>正規分布における確率の計算方法</h2>
+                <h2>正規分布での確率の計算</h2>
                 <p class="indent">
                     確率変数 \(X\sim N(\mu,\sigma^2)\) が \(a\) 以上 \(b\) 以下となる確率は
                 </p>
@@ -52,11 +52,16 @@
                     \]
                 </div>
                 <p>
-                    で与えられます。このままでは複雑なので
+                    で与えられます。
+                    このままでは複雑なので
+                </p>
+                <div class="math">
                     \[
                     Z=\frac{X-\mu}{\sigma},\quad z=\frac{x-\mu}{\sigma}
                     \]
-                    と変数変換すると
+                </div>
+                <p>
+                    という変数変換を考えると
                 </p>
                 <div class="math">
                     \[
@@ -68,28 +73,57 @@
                     \]
                 </div>
                 <p>
-                    となります。ここで
+                    となります。
+                    ここで
+                </p>
+                <div class="math">
                     \[
                     \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{z^2}{2}\right)
                     \]
-                    は標準正規分布の確率密度関数なので
-                    \[
-                    Z\sim N(0,1)
-                    \]
-                    であることがわかります。
+                </div>
+                <p>
+                    は標準正規分布 \(N(0,1)\) の確率密度関数です。
+                    つまり
                 </p>
-                <p class="indent">
-                    つまり、標準正規分布の上側確率
+                <div class="math">
+                    \[
+                    Z=\frac{X-\mu}{\sigma}\sim N(0,1)
+                    \]
+                </div>
+                <p>
+                    となることがわかります。
+                    標準正規分布の上側確率である
+                </p>
+                <div class="math">
                     \[
                     Q(z)=\int_z^\infty\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{t^2}{2}\right)dt
                     \]
-                    あるいは
+                </div>
+                <p>
+                    または
+                </p>
+                <div class="math">
                     \[
                     \Phi(z)=\int_0^z\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{t^2}{2}\right)dt
                     \]
-                    の値がわかれば、正規分布の確率が簡単に計算できます。
-                    この \(Q(z)\) または \(\Phi(z)\) の値の近似値を表にまとめたものが<strong>正規分布表</strong>です。
+                </div>
+                <p>
+                    値の近似値は、<strong>正規分布表</strong>という表にまとめられているため、そこから正規分布の確率が求められます。
                 </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        確率変数 \(X\sim N(20,5)\) に対して、次の確率を求めよ。
+                    </p>
+                    <ol>
+                        <li>
+                            \(P(10 \le X \le 15)\)
+                        </li>
+                        <li>
+                            \(P(X\gt30)\)
+                        </li>
+                    </ol>
+                </figure>
             </section>
             <section id="3">
                 <h2>二項分布の正規近似</h2>
@@ -132,7 +166,8 @@
                 <figure class="ex-practice">
                     <figcaption>問題１</figcaption>
                     <p class="indent">
-                        ある大学の男子の身長を調査したところ、平均 \(170\mathrm{cm}\)、標準偏差 \(5\mathrm{cm}\) の正規分布に従うことが分かった。以下の問いに答えよ。
+                        ある大学の男子の身長を調査したところ、平均 \(170\mathrm{cm}\)、標準偏差 \(5\mathrm{cm}\) の正規分布に従うことが分かった。
+                        以下の問いに答えよ。
                     </p>
                     <ol>
                         <li>身長 \(180\mathrm{cm}\) 以上の人は約何 \(\%\) いるか。</li>

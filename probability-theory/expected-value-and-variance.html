@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>期待値と分散</h1>
             <div id="table-of-contents"></div>
@@ -20,8 +21,7 @@
                 <figure class="def">
                     <figcaption>定義（離散型確率変数の期待値）</figcaption>
                     <p class="indent">
-                        離散型確率変数 \(X\) の確率質量関数を \(f_X(x)\) とする。
-                        このとき、関数 \(g\) に対して
+                        離散型確率変数 \(X\) の確率質量関数を \(f_X(x)\) とするとき、関数 \(g\) に対して
                     </p>
                     <div class="math">
                         \[
@@ -36,8 +36,7 @@
                 <figure class="def">
                     <figcaption>定義（連続型確率変数の期待値）</figcaption>
                     <p class="indent">
-                        連続型確率変数 \(X\) の確率密度関数を \(f_X(x)\) とする。
-                        このとき、関数 \(g\) に対して
+                        連続型確率変数 \(X\) の確率密度関数を \(f_X(x)\) とするとき、関数 \(g\) に対して
                     </p>
                     <div class="math">
                         \[
@@ -64,32 +63,40 @@
                 </figure>
                 <details class="pf">
                     <summary>証明</summary>
-                    <p>
-                        \(X\) が離散型確率変数の場合、\(X\) の確率質量関数を \(f_X(x)\) とすると
-                    </p>
-                    <div class="math">
-                        \[
-                        \begin{align}
-                        E[aX+b]&=\sum_{x}(ax+b)f_X(x)\\
-                        &=\sum_{x}(axf_X(x)+bf_X(x))\\
-                        &=a\sum_{x}xf_X(x)+b\sum_{x}f_X(x)\\
-                        &=aE[X]+b
-                        \end{align}
-                        \]
-                    </div>
-                    <p>
-                        \(X\) が連続型確率変数の場合、\(X\) の確率密度関数を \(f(x)\) とすると
-                    </p>
-                    <div class="math">
-                        \[
-                        \begin{align}
-                        E[aX+b]&=\int_{-\infty}^\infty(ax+b)f_X(x)dx\\
-                        &=\int_{-\infty}^\infty(axf_X(x)+bf_X(x))dx\\
-                        &=a\int_{-\infty}^\infty xf_X(x)dx+b\int_{-\infty}^\infty f_X(x)dx\\
-                        &=aE[X]+b
-                        \end{align}
-                        \]
-                    </div>
+                    <ol>
+                        <li>
+                            \(X\) が離散型確率変数の場合
+                            <p>
+                                \(X\) の確率質量関数を \(f_X(x)\) とすると
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                E[aX+b]&=\sum_{x}(ax+b)f_X(x)\\
+                                &=\sum_{x}(axf_X(x)+bf_X(x))\\
+                                &=a\sum_{x}xf_X(x)+b\sum_{x}f_X(x)\\
+                                &=aE[X]+b
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \(X\) が連続型確率変数の場合
+                            <p>
+                                \(X\) の確率密度関数を \(f(x)\) とすると
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{align}
+                                E[aX+b]&=\int_{-\infty}^\infty(ax+b)f_X(x)dx\\
+                                &=\int_{-\infty}^\infty(axf_X(x)+bf_X(x))dx\\
+                                &=a\int_{-\infty}^\infty xf_X(x)dx+b\int_{-\infty}^\infty f_X(x)dx\\
+                                &=aE[X]+b
+                                \end{align}
+                                \]
+                            </div>
+                        </li>
+                    </ol>
                 </details>
             </section>
             <section id="2">
@@ -159,16 +166,33 @@
             <section id="ex">
                 <h2>演習問題</h2>
                 <figure class="ex-practice">
-                    <figcaption>問題</figcaption>
-                    
+                    <figcaption>問題１</figcaption>
+                    <p class="indent">
+                        確率変数 \(X\) に対して、\(E[X]=6.0,~V[X]=2.5\) のとき、\(E[X^2]\) を求めよ。
+                    </p>
                 </figure>
                 <details class="ans">
                     <summary>解答</summary>
+                    <p>
+                        \(V[X]=E[X^2]-E[X]^2\) であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        E[X^2]
+                        &= V[X]+E[X]^2 \\
+                        &= 2.5+6.0^2 \\
+                        &= 2.5+36.0 \\
+                        &= 38.5
+                        \end{align}
+                        \]
+                    </div>
                 </details>
             </section>
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

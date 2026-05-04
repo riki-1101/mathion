@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ラプラス変換の定義</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>ラプラス変換の定義</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>ラプラス変換の定義</h2>
+                <p class="indent">
+                    
+                </p>
+                <figure class="def">
+                    <figcaption>定義（ラプラス変換・逆ラプラス変換）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        F(s)=\mathscr{L}[f(t)](s)=\int_0^\infty f(t)e^{-st}dt
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>ラプラス変換</strong>という。これに対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=\mathscr{L}^{-1}[F(s)](t)=\frac{1}{2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty} F(s)e^{st}ds
+                        \]
+                    </div>
+                    <p>
+                        を \(F(s)\) の<strong>逆ラプラス変換</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>ラプラス変換の計算例</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題1</figcaption>
+                    <p class="indent">
+                        次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=
+                        \begin{cases}
+                        0 & (t \lt 0) \\
+                        1 & (t \ge 0)
+                        \end{cases}
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        F(s) &= \int_0^\infty1\cdot e^{-st}dt \\
+                        &= \left[-\frac{1}{s}e^{-st}\right]_0^\infty \\
+                        &= \frac{1}{s} \quad (\operatorname{Re}s\gt0)
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-problem">
+                    <figcaption>例題2</figcaption>
+                    <p class="indent">
+                        次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=
+                        \begin{cases}
+                        0 & (t \lt 0) \\
+                        t & (t \ge 0)
+                        \end{cases}
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        F(s) &= \int_0^\infty te^{-st}dt \\
+                        &= \int_0^\infty t\left(-\frac{1}{s}e^{-st}\right)'dt \\
+                        &= \left[-\frac{1}{s}te^{-st}\right]_0^\infty - \int_0^\infty(t)'\left(-\frac{1}{s}e^{-st}\right)dt \\
+                        &= 0 + \int_0^\infty\frac{1}{s}e^{-st}dt \\
+                        &= \left[-\frac{1}{s^2}e^{-st}\right]_0^\infty \\
+                        &= \frac{1}{s^2} \quad (\operatorname{Re}s\gt0)
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>ラプラス変換の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（ラプラス変換の線形性）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t),g(t)\) 、定数 \(a,b\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div clss="math">
+                        \[
+                        \mathscr{L}[af(t)+bg(t)]=a\mathscr{L}[f(t)]+b\mathscr{L}[g(t)]
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（時間軸の推移）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) 、定数 \(\tau\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[f(t-\tau)]=e^{-\tau s}\mathscr{L}[f(t)]
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（減衰性）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) 、定数 \(a\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[f(t)e^{-at}]=F(s+a)
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（相似性）</figcaption>
+                    <p class="indent">
+                        関数 \(f(t)\) 、定数 \(a\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[f(at)]=\frac{1}{a}F\left(\frac{s}{a}\right) \quad (a\gt0)
+                        \]
+                    </div>
+                </figure>
+                <figure class="th">
+                    <figcaption>定理（時間積分）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}\left[\int_0^tf(\tau)d\tau\right]=\frac{1}{s}F(s)
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
