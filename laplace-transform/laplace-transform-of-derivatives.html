@@ -77,35 +77,44 @@
                 </div>
             </section>
             <section id="3">
-                <h2>ラプラス変換の計算例</h2>
-                
+                <h2>例題</h2>
                 <figure class="ex-problem">
-                    <figcaption>例題1</figcaption>
+                    <figcaption>例題</figcaption>
                     <p class="indent">
-                        次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                        関数 \(f(t)\) は
                     </p>
                     <div class="math">
                         \[
-                        f(t)=
-                        \begin{cases}
-                        0 & (t \lt 0) \\
-                        1 & (t \ge 0)
-                        \end{cases}
+                        \frac{df(t)}{dt}-2f(t)=t,\quad f(0)=0
                         \]
                     </div>
+                    <p>
+                        を満たすとき、\(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                    </p>
                 </figure>
                 <figure class="ex-answer">
                     <figcaption>解答例</figcaption>
+                    <p>
+                        両辺をラプラス変換すると
+                    </p>
                     <div class="math">
                         \[
-                        \begin{align}
-                        F(s) &= \int_0^\infty1\cdot e^{-st}dt \\
-                        &= \left[-\frac{1}{s}e^{-st}\right]_0^\infty \\
-                        &= \frac{1}{s} \quad (\operatorname{Re}s\gt0)
-                        \end{align}
+                        sF(s)-f(0)-2F(s)=\frac{1}{s}
+                        \]
+                    </div>
+                    <p>
+                        \(f(0)=0\) より、\(F(s)\) について解くと
+                    </p>
+                    <div class="math">
+                        \[
+                        F(s)=\frac{1}{s(s-2)}
                         \]
                     </div>
                 </figure>
+                <p class="indent">
+                    この例題のように、\(f(t)\) が具体的に求まっていなくても、\(f(t)\) が満たす方程式からラプラス変換 \(F(s)\) を求めることができます。
+                    このことから、求まったラプラス変換 \(F(s)\) を逆変換することで、元の \(f(t)\) が求められるのではないかと予想されます。
+                </p>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
