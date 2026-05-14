@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>留数定理</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>留数定理</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>留数</h2>
+                <figure class="def">
+                    <figcaption>定義（留数）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) は孤立特異点 \(z=\alpha\) を持ち、\(z=\alpha\) を中心とする円環領域 \(D:r_1 \lt |z-\alpha| \lt r_2\) で正則であるとし、ローラン展開
+                    </p>
+                    <div class="math">
+                        \[
+                        f(z)=\sum_{n=-\infty}^\infty c_n(z-\alpha)
+                        \]
+                    </div>
+                    <p>
+                        を持つとする。
+                        このとき、ローラン展開における \((z-\alpha)^{-1}\) の係数 \(c_{-1}\) を<strong>留数</strong>といい
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Res}_\limits{z=\alpha}f(z),\quad \operatorname{Res}(f(z),\alpha), \quad \operatorname{Res}(\alpha;f(z))
+                        \]
+                    </div>
+                    <p>
+                        などと表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>留数の計算法</h2>
+                <h3>\(1\) 位の極における留数</h3>
+                <p class="indent">
+                    複素関数 \(f(z)\) が \(z=\alpha\) で \(1\) 位の極を持つとき
+                </p>
+                <div class="math">
+                    \[
+                    f(z) = \frac{b_{1}}{z-\alpha} + \sum_{n=0}^\infty a_n(z-\alpha)^n \quad (b_1\neq 0)
+                    \]
+                </div>
+                <p>
+                    と表されます。
+                </p>
+                <p>
+                    両辺に \((z-\alpha)\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    (z-\alpha)f(z) = b_{1} + \sum_{n=0}^\infty a_n(z-\alpha)^{n+1}
+                    \]
+                </div>
+                <p>
+                    ここで、\(z\to\alpha\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{z\to\alpha}(z-\alpha)f(z) = b_{1} + 0
+                    \]
+                </div>
+                <p>
+                    \(b_1\) が求める留数なので、\(f(z)\) が \(z=\alpha\) に \(1\) 位の極を持つとき
+                </p>
+                <div class="math">
+                    \[
+                    \operatorname{Res}_\limits{z=\alpha}f(z) = \lim_{z\to\alpha}(z-\alpha)f(z)
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <h3>\(2\) 位の極における留数</h3>
+                <p class="indent">
+                    複素関数 \(f(z)\) が \(z=\alpha\) で \(2\) 位の極を持つとき
+                </p>
+                <div class="math">
+                    \[
+                    f(z) = \frac{b_{2}}{(z-\alpha)^2} + \frac{b_{1}}{z-\alpha} + \sum_{n=0}^\infty a_n(z-\alpha)^n \quad (b_2\neq 0)
+                    \]
+                </div>
+                <p>
+                    と表されます。
+                </p>
+                <p>
+                    両辺に \((z-\alpha)^2\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    (z-\alpha)^2f(z) = b_{1}(z-\alpha) + \sum_{n=0}^\infty a_n(z-\alpha)^{n+2}
+                    \]
+                </div>
+                <p>
+                    両辺を \(z\) で微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{d}{dz}\left\{(z-\alpha)^2f(z)\right\} = b_{1} + \sum_{n=0}^\infty a_n(n+2)(z-\alpha)^{n+1}
+                    \]
+                </div>
+                <p>
+                    ここで、\(z\to\alpha\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{z\to\alpha}\frac{d}{dz}\left\{(z-\alpha)^2f(z)\right\} = b_{1} + 0
+                    \]
+                </div>
+                <p>
+                    \(b_1\) が求める留数なので、\(f(z)\) が \(z=\alpha\) に \(2\) 位の極を持つとき
+                </p>
+                <div class="math">
+                    \[
+                    \operatorname{Res}_\limits{z=\alpha}f(z) = \lim_{z\to\alpha}\frac{d}{dz}\left\{(z-\alpha)^2f(z)\right\}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <h3>\(3\) 位の極における留数</h3>
+                <p class="indent">
+                    複素関数 \(f(z)\) が \(z=\alpha\) で \(3\) 位の極を持つとき
+                </p>
+                <div class="math">
+                    \[
+                    f(z) = \frac{b_{3}}{(z-\alpha)^3} + \frac{b_{2}}{(z-\alpha)^2} + \frac{b_{1}}{z-\alpha} + \sum_{n=0}^\infty a_n(z-\alpha)^n \quad (b_3\neq 0)
+                    \]
+                </div>
+                <p>
+                    と表されます。
+                </p>
+                <p>
+                    両辺に \((z-\alpha)^3\) を掛けると
+                </p>
+                <div class="math">
+                    \[
+                    (z-\alpha)^3f(z) = b_2(z-\alpha) + b_1(z-\alpha)^2  + \sum_{n=0}^\infty a_n(z-\alpha)^{n+3}
+                    \]
+                </div>
+                <p>
+                    両辺を \(z\) で微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{d}{dz}\left\{(z-\alpha)^3f(z)\right\} = b_2 + 2b_1(z-\alpha) + \sum_{n=0}^\infty a_n(n+3)(z-\alpha)^{n+2}
+                    \]
+                </div>
+                <p>
+                    両辺を \(z\) でもう一度微分すると
+                </p>
+                <div class="math">
+                    \[
+                    \frac{d^2}{dz^2}\left\{(z-\alpha)^3f(z)\right\} = 2b_1 + \sum_{n=0}^\infty a_n(n+3)(n+2)(z-\alpha)^{n+1}
+                    \]
+                </div>
+                <p>
+                    ここで、\(z\to\alpha\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \lim_{z\to\alpha}\frac{d^2}{dz^2}\left\{(z-\alpha)^3f(z)\right\} = 2b_{1} + 0
+                    \]
+                </div>
+                <p>
+                    \(b_1\) が求める留数なので、\(f(z)\) が \(z=\alpha\) に \(3\) 位の極を持つとき
+                </p>
+                <div class="math">
+                    \[
+                    \operatorname{Res}_\limits{z=\alpha}f(z) = \lim_{z\to\alpha}\frac{1}{2}\frac{d^2}{dz^2}\left\{(z-\alpha)^3f(z)\right\}
+                    \]
+                </div>
+                <p>
+                    となります。
+                </p>
+                <h3>\(k\) 位の極における留数</h3>
+                <p class="indent">
+                    一般に、\(f(z)\) が \(z=\alpha\) に \(k\) 位の極を持つとき、\(z=\alpha\) における留数は次のようになります。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（留数の計算法）</figcaption>
+                    <p class="indent">
+                        複素関数 \(f(z)\) が \(z=\alpha\) で \(k\) 位の極を持つとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Res}_\limits{z=\alpha}f(z) = \lim_{z\to\alpha}\frac{1}{(k-1)!}\frac{d^{k-1}}{dz^{k-1}}\left\{(z-\alpha)^kf(z)\right\}
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p class="indent">
+                        \(f(z)\) が \(z=\alpha\) で \(k\) 位の極を持つとき
+                    </p>
+                    <div class="math">
+                        \[
+                        f(z) = \sum_{n=k}^\infty\frac{b_n}{(z-\alpha)^n} + \sum_{n=0}^\infty a_n(z-\alpha)^n \quad (b_k\neq 0)
+                        \]
+                    </div>
+                    <p>
+                        と表される。
+                    </p>
+                    <p>
+                        両辺に \((z-\alpha)^k\) を掛けると
+                    </p>
+                    <div class="math">
+                        \[
+                        (z-\alpha)^kf(z) = \sum_{n=k}^\infty\frac{b_n}{(z-\alpha)^{n-k}} + \sum_{n=0}^\infty a_n(z-\alpha)^{n+k}
+                        \]
+                    </div>
+                    <p>
+                        両辺を \(z\) で \(k-1\) 回微分すると
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{d^{k-1}}{dz^{k-1}}\left\{(z-\alpha)^kf(z)\right\} = (k-1)!b_{1} + \sum_{n=0}^\infty a_ng(n)(z-\alpha)^{n+1}
+                        \]
+                    </div>
+                    <p>
+                        ここで、\(z\to\alpha\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        \frac{d^{k-1}}{dz^{k-1}}\left\{(z-\alpha)^kf(z)\right\} = (k-1)!b_{1} + 0
+                        \]
+                    </div>
+                    <p>
+                        \(b_1\) が求める留数なので、\(f(z)\) が \(z=\alpha\) に \(k\) 位の極を持つとき
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Res}_\limits{z=\alpha}f(z) = \lim_{z\to\alpha}\frac{1}{(k-1)!}\frac{d^{k-1}}{dz^{k-1}}\left\{(z-\alpha)^kf(z)\right\}
+                        \]
+                    </div>
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
