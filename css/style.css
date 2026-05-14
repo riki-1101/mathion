@@ -500,12 +500,12 @@ footer {
     padding-left: 2em;
 }
 .pf summary::before {  /* summary の前にアイコン（▶ / ▼）をつける */
-    content: "▶";
+    content: "＋";
     position: absolute;
     left: 0;
 }
 .pf[open] summary::before {  /* 開いたときに矢印を下向きに */
-    content: "▼";
+    content: "－";
 }
 
 /* 例題用 */
