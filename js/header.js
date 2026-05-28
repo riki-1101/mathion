@@ -10,6 +10,7 @@ if( header != null) {
         </div>
         <ul>
             <li><a href="/mathion/index.html">ホーム</a></li>
+            <li><a href="/mathion/about.html">当サイトについて</a></li>
         </ul>
     </nav>
     `
