@@ -15,24 +15,100 @@
             <div id="table-of-contents"></div>
             <section id="1">
                 <h2>複素対数関数の定義</h2>
+                <p class="indent">
+                    実数 \(p, x\) に対しては
+                </p>
+                <div class="math">
+                    \[
+                    e^p=x \quad\Longleftrightarrow\quad p=\log x
+                    \]
+                </div>
+                <p>
+                    として、対数 \(\log x\) を定義しました。
+                    これを複素数の場合で考えてみます。
+                </p>
+                <p class="indent">
+                    \(z\) を \(0\) でない複素数とし、複素数 \(w\) に関する方程式
+                </p>
+                <div class="math">
+                    \[
+                    e^w=z \quad (z\neq0) \tag{$*$}
+                    \]
+                </div>
+                <p>
+                    を考えます。
+                    これを \(w\) について解くために
+                </p>
+                <div class="math">
+                    \[
+                    w=a+bi,\quad z=re^{i\theta}\quad (0 \le \theta \lt2 \pi)
+                    \]
+                </div>
+                <p>
+                    とおきます。
+                </p>
+                <div class="math">
+                    \[
+                    e^{a+bi}=re^{i\theta}
+                    \]
+                </div>
+                <p>
+                    指数法則より
+                </p>
+                <div class="math">
+                    \[
+                    e^ae^{bi}=re^{i\theta}
+                    \]
+                </div>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    e^a = r, \quad b = \theta + 2\pi n \quad (n\in\mathbb{Z})
+                    \]
+                </div>
+                <p>
+                    \(a,r\in\mathbb{R}\) より
+                </p>
+                <div class="math">
+                    \[
+                    a = \log r, \quad b = \theta + 2\pi n \quad (n\in\mathbb{Z})
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    w = \log r + i(\theta + 2\pi n) \quad (n\in\mathbb{Z})
+                    \]
+                </div>
+                <p>
+                    ここで、\(r=|z|\) であり、\(\theta+2\pi n=\arg z\) なので
+                </p>
+                <div class="math">
+                    \[
+                    w = \log|z| + i\arg z
+                    \]
+                </div>
+                <p>
+                    と解くことができます。
+                    この \(w\) を \(\log z\) と書き、\(z\) の<strong>対数</strong>といいます。
+                </p>
                 <figure class="def">
-                    <figcaption>定義（複素数の対数）</figcaption>
+                    <figcaption>定義（複素数の対数と複素対数関数）</figcaption>
                     <p class="indent">
-                        複素数 \(w\neq0\) に対して、方程式 \(e^z=w\) の解を
+                        複素数 \(z\neq0\) に対して、\(w\) に関する方程式 \(e^w=z\) の解を
                     </p>
                     <div class="math">
                         \[
-                        \log w
+                        \log z
                         \]
                     </div>
                     <p>
-                        と書き、\(w\) の<strong>対数</strong>という。
-                    </p>
-                </figure>
-                <figure class="def">
-                    <figcaption>定義（複素対数関数）</figcaption>
-                    <p class="indent">
-                        任意の複素数 \(z\neq0\) に対して
+                        と書き、\(z\) の<strong>対数</strong>という。
+                        また
                     </p>
                     <div class="math">
                         \[
@@ -43,17 +119,59 @@
                         で定まる多価関数を<strong>複素対数関数</strong>という。
                     </p>
                 </figure>
+                <p class="indent">
+                    複素対数関数 \(\log z\) の計算では偏角 \(\arg z\) が登場するので、\(z\) を極形式で表してから計算するとよいです。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の複素対数関数の値を求めよ。
+                    </p>
+                    <ol>
+                        <li>\(\log 1\)</li>
+                        <li>\(\log(1+\sqrt{3}i)\)</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>
+                            \(
+                            \begin{align}
+                            \log 1 &= \log|1| + i\arg(1) \\
+                            &= 0 + i(0 + 2\pi n) \\
+                            &= 2\pi ni \quad (n\in\mathbb{Z})
+                            \end{align}
+                            \)
+                        </li>
+                        <li>
+                            \(
+                            1+\sqrt{3}i = 2\left(\dfrac{1}{2}+\dfrac{\sqrt{3}}{2}i\right)
+                            = 2e^{i\frac{\pi}{3}}
+                            \)
+                            より
+                            \(
+                            \begin{align}
+                            \log(1+\sqrt{3}i) &= \log(2e^{i\frac{\pi}{3}}) \\
+                            &= \log|2e^{i\frac{\pi}{3}}| + i\arg(2e^{i\frac{\pi}{3}}) \\
+                            &= \log2 + i\left(\frac{\pi}{3} + 2\pi n\right) \\
+                            &= \log2 + i\left(2n+\frac{1}{3}\right)\pi \quad (n\in\mathbb{Z})
+                            \end{align}
+                            \)
+                        </li>
+                    </ol>
+                </details>
             </section>
             <section id="2">
                 <h2>複素対数関数の主値</h2>
                 <figure class="def">
-                    <figcaption>定義（複素対数関数）</figcaption>
+                    <figcaption>定義（複素対数関数の主値）</figcaption>
                     <p class="indent">
                         任意の複素数 \(z\neq0\) の偏角の主値を \(\operatorname{Arg}z\) とするとき
                     </p>
                     <div class="math">
                         \[
-                        \operatorname{Log}z=\log|z|+i\operatorname{Arg}z
+                        \operatorname{Log}z:=\log|z|+i\operatorname{Arg}z
                         \]
                     </div>
                     <p>
@@ -68,20 +186,53 @@
                 </p>
                 <div class="math">
                     \[
-                    \log z=\operatorname{Log}z+2m\pi i \quad (m\in\mathbb{Z})
+                    \log z=\operatorname{Log}z+2\pi ni \quad (n\in\mathbb{Z})
                     \]
                 </div>
                 <p>
                     と書けます。
                 </p>
-            </section>
-            <section id="3">
-                <h2>複素対数関数の計算</h2>
-                <p class="indent">
-                    例題を解いてみましょう。
-                </p>
                 <figure class="ex-problem">
                     <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の複素対数関数の主値を求めよ。
+                        ただし、\(z\) の偏角の主値は \(-\pi\lt\operatorname{Arg}z\le\pi\) とする。
+                    </p>
+                    <ol>
+                        <li>\(\operatorname{Log}(-1)\)</li>
+                        <li>\(\operatorname{Log}(1-i)\)</li>
+                    </ol>
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    <ol>
+                        <li>
+                            \(
+                            \begin{align}
+                            \operatorname{Log}(-1) &= \operatorname{Log}(e^{i\pi}) \\
+                            &= \log|e^{i\pi}| + i\operatorname{Arg}(e^{i\pi}) \\
+                            &= 0 + i\pi \\
+                            &= i\pi
+                            \end{align}
+                            \)
+                        </li>
+                        <li>
+                            \(
+                            \begin{align}
+                            \operatorname{Log}(1-i) &= \operatorname{Log}(\sqrt{2}e^{-i\frac{\pi}{4}}) \\
+                            &= \log|\sqrt{2}e^{-i\frac{\pi}{4}}| + i\operatorname{Arg}(\sqrt{2}e^{-i\frac{\pi}{4}}) \\
+                            &= \log\sqrt{2} - i\frac{\pi}{4} \\
+                            &= \frac{1}{2}\log2 - i\frac{\pi}{4}
+                            \end{align}
+                            \)
+                        </li>
+                    </ol>
+                </details>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
                     <p class="indent">
                         次の複素対数関数の値と、その主値を求めよ。
                         ただし、偏角の主値範囲は \(-\pi\lt\operatorname{Arg}z\le\pi\) とする。
@@ -92,15 +243,6 @@
                         <li>\(\log i\)</li>
                         <li>\(\log(1+2i)\)</li>
                     </ol>
-                </figure>
-            </section>
-            <section id="ex">
-                <h2>演習問題</h2>
-                <figure class="ex-practice">
-                    <figcaption>問題</figcaption>
-                    <p>
-                        
-                    </p>
                 </figure>
                 <details class="ans">
                     <summary>解答</summary>
