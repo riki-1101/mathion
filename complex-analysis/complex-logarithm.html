@@ -163,11 +163,39 @@
                 </details>
             </section>
             <section id="2">
+                <h2>複素対数関数の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（複素対数関数の性質）</figcaption>
+                    <p class="indent">
+                        複素数 \(z_1,z_2\neq0\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \log(z_1z_2) = \log z_1 + \log z_2
+                        \]
+                    </div>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \log(z_1z_2) &=  \log|z_1z_2| + i\arg(z_1z_2) \\
+                        &= \log(|z_1||z_2|) + i\arg(z_1z_2) \\
+                        &= \log|z_1| + \log|z_2| + i(\arg z_1 + \arg z_2) \\
+                        &= (\log|z_1| + i\arg z_1) + (\log|z_2| + i\arg z_2) \\
+                        &= \log z_1 + \log z_2
+                        \end{align}
+                        \]
+                    </div>
+                </details>
+            </section>
+            <section id="3">
                 <h2>複素対数関数の主値</h2>
                 <figure class="def">
                     <figcaption>定義（複素対数関数の主値）</figcaption>
                     <p class="indent">
-                        任意の複素数 \(z\neq0\) の偏角の主値を \(\operatorname{Arg}z\) とするとき
+                        複素数 \(z\neq0\) の偏角の主値を \(\operatorname{Arg}z\) とするとき
                     </p>
                     <div class="math">
                         \[
@@ -238,10 +266,9 @@
                         ただし、偏角の主値範囲は \(-\pi\lt\operatorname{Arg}z\le\pi\) とする。
                     </p>
                     <ol>
-                        <li>\(\log 1\)</li>
-                        <li>\(\log(-1)\)</li>
-                        <li>\(\log i\)</li>
-                        <li>\(\log(1+2i)\)</li>
+                        <li>\(\log e\)</li>
+                        <li>\(\log(-2i)\)</li>
+                        <li>\(\log(3+3i)\)</li>
                     </ol>
                 </figure>
                 <details class="ans">
