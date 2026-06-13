@@ -56,17 +56,24 @@
                 <figure class="th">
                     <figcaption>定理（複素積分の性質）</figcaption>
                     <p class="indent">
-                        曲線 \(C\) 上で複素関数 \(f(z),g(z)\) に対して、次が成り立つ。
+                        \(C\) を区分的に滑らかな曲線とし、複素関数 \(f(z),g(z)\) は \(C\) を含む領域で連続とするとき、次が成り立つ。
                     </p>
                     <ol>
                         <li>
-                            \(k,l\in\mathbb{C}\) に対して<br>
-                            \(\displaystyle\int_C\{kf(z)+lg(z)\}dz=k\int_Cf(z)dz+l\int_Cg(z)dz\)
+                            \(\alpha, \beta \in\mathbb{C}\) に対して<br>
+                            \(\displaystyle\int_C\{\alpha f(z) + \beta g(z)\}dz = \alpha\int_Cf(z)dz + \beta\int_Cg(z)dz\)
                         </li>
-                        <li>\(\displaystyle\int_{-C}f(z)dz=-\int_Cf(z)dz\)</li>
+                        <li>
+                            \(-C\) を \(C\) の逆向きの曲線とすると<br>
+                            \(\displaystyle\int_{-C}f(z)dz=-\int_Cf(z)dz\)
+                        </li>
                         <li>
                             \(C=C_1+C_2\) のとき<br>
-                            \(\displaystyle\int_{C_1+C_2}f(z)dz=\int_{C_1}f(z)dz+\int_{C_2}f(z)dz\)
+                            \(\displaystyle\int_Cf(z)dz=\int_{C_1}f(z)dz+\int_{C_2}f(z)dz\)
+                        </li>
+                        <li>
+                            積分路の長さを \(L\) とするとき<br>
+                            \(\displaystyle \left|\int_Cf(z)dz\right| \le \left(\max_{z\in C}|f(z)|\right)\cdot L\)
                         </li>
                     </ol>
                 </figure>
@@ -91,8 +98,11 @@
                     \]
                 </div>
                 <p>
-                    となるならば、\(z=z(t)\) を \(f(z)\) に代入することで、曲線上（1次元）に帰着することができます。
-                    このことから、次の公式が得られます。
+                    となるとすると、\(z=z(t)\) を \(f(z)\) に代入したもの \(f(z(t))\) は、定義域が曲線 \(C\) 上に制限された \(f(z)\) となります。
+                    先ほど述べた通り、複素積分 \(\displaystyle\int_Cf(z)dz\) に関与するのは \(f(z)\) の \(C\) 上の値のみであることから、\(\displaystyle\int_Cf(z)dz\) は \(f(z(t))\) によって計算することができます。
+                </p>
+                <p class="indent">
+                    また、これは実質 \(z=z(t)\) と変数変換したことになるので、置換積分と同様に、次の公式が得られます。
                 </p>
                 <figure class="th">
                     <figcaption>定理（複素積分の計算公式）</figcaption>
@@ -108,54 +118,6 @@
                         が成り立つ。
                     </p>
                 </figure>
-                <figure class="th">
-                    <figcaption>定理（周回積分の基本公式）</figcaption>
-                    <p class="indent">
-                        \(C\) を \(\alpha\in\mathbb{C}\) を中心とする半径 \(r\) の円とする。
-                        \(m\in\mathbb{Z}\) とすると、\(r\) の値によらず次が成り立つ。
-                    </p>
-                    <div class="math">
-                        \[
-                        \oint_C(z-\alpha)^mdz=\begin{cases} 0 & (m\neq -1) \\ 2\pi i & (m=-1) \end{cases}
-                        \]
-                    </div>
-                </figure>
-                <details class="pf">
-                    <summary>証明</summary>
-                    <p>
-                        積分路 \(C\) は \(z(t)=\alpha+re^{it}~(0\le t\le 2\pi)\) と表せる。
-                        このとき \(\displaystyle\frac{dz}{dt}=ire^{it}\) である。
-                    </p>
-                    <ol>
-                        <li>
-                            \(m\neq -1\) のとき
-                            <div class="math">
-                                \[
-                                \begin{align}
-                                \oint_C(z-\alpha)^mdz
-                                &= \int_0^{2\pi}(re^{it})^m\cdot ire^{it}dt \\
-                                &= ir^{m+1}\int_0^{2\pi}e^{i(m+1)t}dt \\
-                                &= ir^{m+1}\left[\frac{1}{i(m+1)}e^{i(m+1)t}\right]_0^{2\pi} \\
-                                &= 0
-                                \end{align}
-                                \]
-                            </div>
-                        </li>
-                        <li>
-                            \(m=-1\) のとき
-                            <div class="math">
-                                \[
-                                \begin{align}
-                                \oint_C(z-\alpha)^mdz
-                                &= \int_0^{2\pi}(re^{it})^{-1}\cdot ire^{it}dt \\
-                                &= \int_0^{2\pi}idt \\
-                                &= 2\pi i
-                                \end{align}
-                                \]
-                            </div>
-                        </li>
-                    </ol>
-                </details>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>

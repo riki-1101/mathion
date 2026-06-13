@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>対角化</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>対角化</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>対角化</h2>
+                <p class="indent">
+                    正方行列を座標変換によって、対角行列に変換することを<strong>対角化</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（対角化）</figcaption>
+                    <p class="indent">
+                        正方行列 \(A\) に対して、ある正則行列 \(P\) が存在して
+                    </p>
+                    <div class="math">
+                        \[
+                        P^{-1}AP
+                        \]
+                    </div>
+                    <p>
+                        が対角行列となるとき、\(A\) は<strong>対角化可能</strong>であるといい、この操作を<strong>対角化</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>対角化の計算例</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        正方行列 \(A=\begin{bmatrix} 1 & 3 \\ 2 & -4 \end{bmatrix}\) を対角化せよ。
+                    </p>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <p>
+                        \(A\) の固有値を \(\lambda\) 、対応する固有ベクトルを \(\boldsymbol{x} \neq \boldsymbol{0}\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        A\boldsymbol{x}=\lambda\boldsymbol{x}
+                        \]
+                    </div>
+                    <div class="math">
+                        \[
+                        (A-\lambda E)\boldsymbol{x}=\boldsymbol{0} \tag{$*$}
+                        \]
+                    </div>
+                    <p>
+                        \((*)\) は非自明な解を持つので \(|A-\lambda E| = 0\) となる。
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        &|A-\lambda E| = 0 \\
+                        \\
+                        &\Longleftrightarrow \quad \begin{vmatrix} 1-\lambda & 3 \\ 2 & -4-\lambda \end{vmatrix} = 0 \\
+                        \\
+                        &\Longleftrightarrow \quad (1-\lambda)(-4-\lambda)-6 = 0 \\
+                        \\
+                        &\Longleftrightarrow \quad \lambda^2+3\lambda-10 = 0 \\
+                        \\
+                        &\Longleftrightarrow \quad (\lambda-2)(\lambda+5) = 0 \\
+                        \\
+                        &\therefore \quad \lambda = 2,-5
+                        \end{align}
+                        \]
+                    </div>
+                    <ol>
+                        <li>
+                            \(\lambda=2\)（重複度 \(1\)）について
+                            <p>
+                                対応する固有ベクトルを \(\boldsymbol{x}_1 = \begin{bmatrix} \alpha_1 \\ \alpha_2 \end{bmatrix}\) とおくと、\((*)\) は
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{bmatrix} -1 & 3 \\ 2 & -6 \end{bmatrix}\begin{bmatrix} \alpha_1 \\ \alpha_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+                                \quad \Longleftrightarrow \quad
+                                -\alpha_1 + 3\alpha_2 = 0
+                                \]
+                            </div>
+                            <p>
+                                よって \(\lambda=2\) の固有空間 \(W_2\) とその次元は
+                            </p>
+                            <div class="math">
+                                \[
+                                W_2 = \left\langle \begin{bmatrix} 3 \\ 1 \end{bmatrix} \right\rangle, \quad \dim W_2 = 1
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            \(\lambda=-5\)（重複度 \(1\)）について
+                            <p>
+                                対応する固有ベクトルを \(\boldsymbol{x}_2 = \begin{bmatrix} \beta_1 \\ \beta_2 \end{bmatrix}\) とおくと、\((*)\) は
+                            </p>
+                            <div class="math">
+                                \[
+                                \begin{bmatrix} 6 & 3 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} \beta_1 \\ \beta_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+                                \quad \Longleftrightarrow \quad
+                                2\beta_1 + \beta_2 = 0
+                                \]
+                            </div>
+                            <p>
+                                よって \(\lambda=-5\) の固有空間 \(W_{-5}\) とその次元は
+                            </p>
+                            <div class="math">
+                                \[
+                                W_{-5} = \left\langle \begin{bmatrix} 1 \\ -2 \end{bmatrix} \right\rangle, \quad \dim W_{-5} = 1
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                    <p>
+                        以上より、\(A\) のすべての固有値と固有空間の次元が一致するので、\(A\) は対角化可能である。
+                        このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        P = \begin{bmatrix} 3 & 1 \\ 1 & -2 \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        とおくと
+                    </p>
+                    <div class="math">
+                        \[
+                        P^{-1}AP = \begin{bmatrix} 2 & 0 \\ 0 & -5 \end{bmatrix}
+                        \]
+                    </div>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
