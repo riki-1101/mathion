@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>フーリエ変換</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>フーリエ変換</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>フーリエ変換の定義</h2>
+                <figure class="def">
+                    <figcaption>定義（フーリエ変換・逆フーリエ変換）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        F(\omega)=\mathscr{F}[f(t)](\omega)=\int_{-\infty}^\infty f(t)e^{-i\omega t}dt
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>フーリエ変換</strong>という。
+                        これに対して
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=\mathscr{F}^{-1}[F(\omega)](t)=\frac{1}{2\pi}\int_{-\infty}^\infty F(\omega)e^{i\omega t}d\omega
+                        \]
+                    </div>
+                    <p>
+                        を \(F(\omega)\) の<strong>逆フーリエ変換</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>フーリエ変換の導出</h2>
+                <p class="indent">
+                    信号 \(f(t)\) は、複素フーリエ級数展開により次式で表されます。
+                </p>
+                <div class="math">
+                    \[
+                    f(t)\sim\frac{1}{T}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)e^{-i\frac{2\pi}{T}n\tau}d\tau\right)e^{i\frac{2\pi}{T}nt}
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    \Delta\omega := \frac{2\pi}{T}
+                    \]
+                </div>
+                <p>
+                    とおくと
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(t)&\sim\frac{\Delta\omega}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}\\
+                    &=\frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\frac{T}{2}}^\frac{T}{2}f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}\Delta\omega
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    \(T\to\infty\) とすると、\(\Delta\omega\to0\) となるので
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \lim_{\Delta\omega\to0}\frac{1}{2\pi}\sum_{n=-\infty}^\infty\left(\int_{-\infty}^\infty f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}\Delta\omega
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    ここで
+                </p>
+                <div class="math">
+                    \[
+                    g(n\Delta\omega):=\left(\int_{-\infty}^\infty f(\tau)e^{-in\Delta\omega\tau}d\tau\right)e^{in\Delta\omega t}
+                    \]
+                </div>
+                <p>
+                    とおくと、次のように書けます。
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    \lim_{\Delta\omega\to0}\frac{1}{2\pi}\sum_{n=-\infty}^\infty g(n\Delta\omega)\Delta\omega
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    そして、次の定理を用います。
+                </p>
+                <figure class="th">
+                    <figcaption>定理（無限区間の積分）</figcaption>
+                    <div class="math">
+                        \[
+                        \lim_{\Delta x\to 0}\sum_{n=-\infty}^\infty f(n\Delta x)\Delta x=\int_{-\infty}^\infty f(x)dx
+                        \]
+                    </div>
+                </figure>
+                <p>
+                    よって
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    f(t)&\sim\frac{1}{2\pi}\int_{-\infty}^\infty g(\omega)d\omega\\
+                    &=\frac{1}{2\pi}\int_{-\infty}^\infty \left(\int_{-\infty}^\infty f(\tau)e^{-i\omega\tau}d\tau\right)e^{i\omega t}d\omega
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    このとき、内側の積分
+                </p>
+                <div class="math">
+                    \[
+                    F(\omega)=\int_{-\infty}^\infty f(\tau)e^{-i\omega \tau}d\tau
+                    \]
+                </div>
+                <p>
+                    を<strong>フーリエ変換</strong>といい、外側の積分
+                </p>
+                <div class="math">
+                    \[
+                    f(t)=\frac{1}{2\pi}\int_{-\infty}^\infty F(\omega)e^{i\omega t}d\omega
+                    \]
+                </div>
+                <p>
+                    を<strong>逆フーリエ変換</strong>といいます。
+                </p>
+            </section>
+            <section id="3">
+                <h2>フーリエ変換の性質</h2>
+                <figure class="th">
+                    <figcaption>定理（フーリエ変換の線形性）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t),g(t)\) 、定数 \(a,b\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div clss="math">
+                        \[
+                        \mathscr{F}[af(t)+bg(t)]=a\mathscr{F}[f(t)]+b\mathscr{F}[g(t)]
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（時間軸の推移）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) 、定数 \(\tau\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{F}[f(t-\tau)]=e^{-i\omega\tau}F(\omega)
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（周波数軸の推移）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) 、定数 \(\omega_0\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{F}[f(t)e^{i\omega_0t}]=F(\omega-\omega_0)
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（時間軸スケーリング）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t)\) 、定数 \(a\in\mathbb{R}\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{F}[f(at)]=\frac{1}{|a|}F\left(\frac{\omega}{a}\right)
+                        \]
+                    </div>
+                </figure>
+                <p></p>
+                <figure class="th">
+                    <figcaption>定理（畳み込みのフーリエ変換）</figcaption>
+                    <p class="indent">
+                        信号 \(f(t),g(t)\) に対して次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{F}[f(t)*g(t)]=F(\omega)G(\omega)
+                        \]
+                    </div>
+                </figure>
+            </section>
+            <section id="4">
+                <h2>フーリエ変換のスペクトル</h2>
+                <p class="indent">
+
+                </p>
+                <figure class="def">
+                    <figcaption>定義（フーリエ変換の振幅スペクトル）</figcaption>
+                    <p class="indent">
+                        ある信号 \(f(t)\) に対して、そのフーリエ変換を \(F(\omega)\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        |F(\omega)|
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>振幅スペクトル</strong>という。
+                    </p>
+                </figure>
+                <p></p>
+                <figure class="def">
+                    <figcaption>定義（フーリエ変換の位相スペクトル）</figcaption>
+                    <p class="indent">
+                        ある信号 \(f(t)\) に対して、そのフーリエ変換を \(F(\omega)\) とすると
+                    </p>
+                    <div class="math">
+                        \[
+                        \arg F(\omega)
+                        \]
+                    </div>
+                    <p>
+                        を \(f(t)\) の<strong>位相スペクトル</strong>という。
+                    </p>
+                    <p class="indent">
+                        偏角は不定性があるが、\(\arg F(\omega)\in(-\pi,\pi]\) とすることが多い。
+                    </p>
+                </figure>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>

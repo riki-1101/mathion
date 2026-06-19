@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>フーリエ変換におけるパーセバルの等式</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>フーリエ変換におけるパーセバルの等式</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>フーリエ変換におけるパーセバルの等式</h2>
+                <figure class="th">
+                    <figcaption>定義（フーリエ変換におけるパーセバルの等式）</figcaption>
+                    <p class="indent">
+                        区分的に滑らかで、絶対可積分である関数 \(f(x)\) と、そのフーリエ変換 \(F(\omega)\) に対して、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \int_{-\infty}^\infty \{f(x)\}^2 dx = \frac{1}{2\pi}\int_{-\infty}^\infty |F(\omega)|^2 d\omega
+                        \]
+                    </div>
+                </figure>
+                <p>証明</p>
+                <div class="math">
+                    \[
+                    \mathscr{F}[f(x)g(x)] = \frac{1}{2\pi}\mathscr{F}[f(x)]*\mathscr{F}[g(x)]
+                    \]
+                </div>
+                <p>
+                    すなわち
+                </p>
+                <div class="math">
+                    \[
+                    \int_{-\infty}^\infty f(x)g(x)e^{-i\omega x} dx = \frac{1}{2\pi}\int_{-\infty}^\infty F(\tilde{\omega})G(\omega-\tilde{\omega})d\tilde{\omega}
+                    \]
+                </div>
+                <p>
+                    ここで、\(g(x)=f(x),~\omega=0\) とすると
+                </p>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    (\text{左辺})
+                    &= \int_{-\infty}^\infty f(x)f(x)e^{-i\cdot0\cdot x} dx \\
+                    &= \int_{-\infty}^\infty \{f(x)\}^2 dx
+                    \end{align}
+                    \]
+                </div>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    (\text{右辺})
+                    &= \frac{1}{2\pi}\int_{-\infty}^\infty F(\tilde{\omega})F(0-\tilde{\omega}) d\tilde{\omega} \\
+                    &= \frac{1}{2\pi}\int_{-\infty}^\infty F(\tilde{\omega})\overline{F(\tilde{\omega})} d\tilde{\omega} \\
+                    &= \frac{1}{2\pi}\int_{-\infty}^\infty |F(\tilde{\omega})|^2 d\tilde{\omega} \\
+                    &= \frac{1}{2\pi}\int_{-\infty}^\infty |F(\omega)|^2 d\omega
+                    \end{align}
+                    \]
+                </div>
+                <p>
+                    したがって
+                </p>
+                <div class="math">
+                    \[
+                    \int_{-\infty}^\infty \{f(x)\}^2 dx = \frac{1}{2\pi}\int_{-\infty}^\infty |F(\omega)|^2 d\omega
+                    \]
+                </div>
+                <p>
+                    が成り立つ。
+                </p>
+            </section>
+            <section id="2">
+                <h2>例題</h2>
+            </section>
+            <section id="ex">
+                <h2>演習問題</h2>
+                <figure class="ex-practice">
+                    <figcaption>問題</figcaption>
+                            
+                </figure>
+                <details class="ans">
+                    <summary>解答</summary>
+                    
+                </details>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
