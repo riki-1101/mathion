@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>グラム・シュミットの正規直交化法</h1>
             <div id="table-of-contents"></div>
@@ -21,11 +22,11 @@
                     </p>
                     <div class="math">
                         \[
-                        1\le i,j\le n,~i\neq j ~\Longrightarrow~ \langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle = 0
+                        \langle \boldsymbol{v}_i,\boldsymbol{v}_j \rangle = 0 \quad (i,j = 1,\cdots,n,~~i \neq j)
                         \]
                     </div>
                     <p class="indent">
-                        さらに、次の条件を満たす直交基底を \(V\) の<strong>正規直交基底</strong>という。
+                        さらに、次の条件を満たすとき \(V\) の<strong>正規直交基底</strong>という。
                     </p>
                     <div class="math">
                         \[
@@ -36,6 +37,39 @@
             </section>
             <section id="2">
                 <h2>グラム・シュミットの正規直交化法</h2>
+                <figure class="th">
+                    <figcaption>定理（グラム・シュミットの正規直交化法）</figcaption>
+                    <p class="indent">
+                        \(\mathbb{R}^n\) における一般の基底 \(\{\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\}\) は、次の手順で正規直交基底 \(\{\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_n\}\) に変換することができる。
+                    </p>
+                    <ol>
+                        <li>
+                            次を設定する。
+                            <div class="math">
+                                \[
+                                \boldsymbol{w}_1 = \boldsymbol{v}_1
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            直交するベクトルを求める。
+                            <div class="math">
+                                \[
+                                \boldsymbol{w}_m = \boldsymbol{v}_m - \sum_{k=1}^{m-1} (\boldsymbol{w}_k\cdot\boldsymbol{v}_m)\boldsymbol{w}_k \quad (m=2,3,\cdots,n)
+                                \]
+                            </div>
+                        </li>
+                        <li>
+                            正規化する。
+                            <div class="math">
+                                \[
+                                \boldsymbol{u}_m = \frac{1}{\|\boldsymbol{w}_m\|}\boldsymbol{w}_m \quad (m=1,2,\cdots,n)
+                                \]
+                            </div>
+                        </li>
+                    </ol>
+                    
+                </figure>
                 <p>
                     まず、\(\boldsymbol{v}_1'=\boldsymbol{v}_1\) とおきます。
                 </p>
@@ -88,6 +122,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>

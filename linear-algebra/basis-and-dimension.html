@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>基底と次元</h1>
             <div id="table-of-contents"></div>
@@ -79,6 +80,60 @@
                     </p>
                     <p class="indent">
                         また、\(V=\{\boldsymbol{0}\}\) のとき \(\dim V=0\) とする。
+                    </p>
+                </figure>
+            </section>
+            <section id="3">
+                <h2>例題</h2>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        \(\mathbb{R}^2\) の部分空間
+                    </p>
+                    <div class="math">
+                        \[
+                        W=\left\{\left.\begin{bmatrix} x \\ y \end{bmatrix}\right|~x-2y=0\right\}
+                        \]
+                    </div>
+                    <p>
+                        の１組の基底と、次元 \(\dim W\) を求めよ。
+                    </p>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <p>
+                        任意の \(\begin{bmatrix} a \\ b \end{bmatrix}\in W\) に対して、\(a-2b=0\) が成り立つ。
+                        \(b=t~~(t\in\mathbb{R})\) とおくと \(b=2t\) より
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{bmatrix} a \\ b \end{bmatrix}
+                        =\begin{bmatrix} 2t \\ t \end{bmatrix}
+                        =t\begin{bmatrix} 2 \\ 1 \end{bmatrix}
+                        \]
+                    </div>
+                    <p>
+                        と書ける。
+                        よって
+                    </p>
+                    <div class="math">
+                        \[
+                        W=\left\langle \begin{bmatrix} 2 \\ 1 \end{bmatrix} \right\rangle
+                        \]
+                    </div>
+                    <p>
+                        また、\(\begin{bmatrix} 2 \\ 1 \end{bmatrix}\) はこれのみで線形独立である。
+                    </p>
+                    <p>
+                        よって
+                    </p>
+                    <div class="math">
+                        \[
+                        \left\{ \begin{bmatrix} 2 \\ 1 \end{bmatrix} \right\}
+                        \]
+                    </div>
+                    <p>
+                        は \(W\) の１組の基底であり、\(\dim W=1\) である。
                     </p>
                 </figure>
             </section>
@@ -233,6 +288,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
