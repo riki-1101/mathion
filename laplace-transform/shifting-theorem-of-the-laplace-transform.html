@@ -14,9 +14,9 @@
             <h1>ラプラス変換の移動法則</h1>
             <div id="table-of-contents"></div>
             <section id="1">
-                <h2>ラプラス変換の移動法則</h2>
+                <h2>ラプラス変換の第一移動法則</h2>
                 <figure class="th">
-                    <figcaption>定理（ラプラス変換の移動法則）</figcaption>
+                    <figcaption>定理（ラプラス変換の第一移動法則）</figcaption>
                     <p class="indent">
                         \(a\in\mathbb{C}\) とし、関数 \(f(t)\) のラプラス変換を \(F(s)\) とするとき、次が成り立つ。
                     </p>
@@ -37,42 +37,84 @@
                     \begin{align}
                     \mathscr{L}[e^{at}f(t)]
                     &= \int_0^\infty e^{at}f(t)e^{-st}dt \\
+                    \\
                     &= \int_0^\infty f(t)e^{-(s-a)t}dt \\
+                    \\
                     &= F(s-a)
                     \end{align}
                     \]
                 </div>
-            </section>
-            <section id="">
-                <h2>三角関数のラプラス変換の存在</h2>
-                
                 <figure class="ex-problem">
-                    <figcaption>例題1</figcaption>
+                    <figcaption>例題</figcaption>
                     <p class="indent">
                         次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
                     </p>
                     <div class="math">
                         \[
-                        f(t)=
-                        \begin{cases}
-                        0 & (t \lt 0) \\
-                        1 & (t \ge 0)
-                        \end{cases}
+                        f(t)=e^{2t}\cos 3t \quad (t \ge 0)
                         \]
                     </div>
                 </figure>
                 <figure class="ex-answer">
                     <figcaption>解答例</figcaption>
+                    <p>
+                        \(g(t) = \cos 3t\) とおくと
+                    </p>
                     <div class="math">
                         \[
                         \begin{align}
-                        F(s) &= \int_0^\infty1\cdot e^{-st}dt \\
-                        &= \left[-\frac{1}{s}e^{-st}\right]_0^\infty \\
-                        &= \frac{1}{s} \quad (\operatorname{Re}s\gt0)
+                        G(s) := \mathscr{L}[g(t)] = \mathscr{L}[\cos 3t] = \frac{s}{s^2+9}
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        よって
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        F(s) &= \mathscr{L}[f(t)] = \mathscr{L}[e^{2t}g(t)] \\
+                        \\
+                        &= G(s-2) = \frac{s-2}{(s-2)^2+9}
                         \end{align}
                         \]
                     </div>
                 </figure>
+            </section>
+            <section id="2">
+                <h2>ラプラス変換の第二移動法則</h2>
+                <figure class="th">
+                    <figcaption>定理（ラプラス変換の第二移動法則）</figcaption>
+                    <p class="indent">
+                        \(a\ge0\) とし、関数 \(f(t)\) のラプラス変換を \(F(s)\) とするとき、次が成り立つ。
+                    </p>
+                    <div class="math">
+                        \[
+                        \mathscr{L}[f(t-a)u(t-a)]=e^{-as}F(s)
+                        \]
+                    </div>
+                </figure>
+                <div class="math">
+                    \[
+                    \begin{align}
+                    &\mathscr{L}[f(t-a)u(t-a)] \\
+                    \\
+                    &= \int_0^\infty f(t-a)u(t-a)e^{-st}dt \\
+                    \\
+                    &= \int_0^a f(t-a)u(t-a)e^{-st}dt + \int_a^\infty f(t-a)u(t-a)e^{-st}dt \\
+                    \\
+                    &= \int_0^a f(t-a)\cdot 0\cdot e^{-st}dt + \int_a^\infty f(t-a)\cdot 1\cdot e^{-st}dt \\
+                    \\
+                    &= 0 + \int_a^\infty f(t-a)e^{-st}dt \\
+                    \\
+                    &= \int_0^\infty f(\tau)e^{-s(\tau+a)}dt \quad (\tau = t-a) \\
+                    \\
+                    &= e^{-as}\int_0^\infty f(\tau)e^{-s\tau}dt \\
+                    \\
+                    &= e^{-as}F(s)
+                    \end{align}
+                    \]
+                </div>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
