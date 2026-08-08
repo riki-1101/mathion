@@ -93,6 +93,9 @@
                         \mathscr{L}[f(t-a)u(t-a)]=e^{-as}F(s)
                         \]
                     </div>
+                    <p>
+                        ここで、\(u(t)\) は単位ステップ関数である。
+                    </p>
                 </figure>
                 <div class="math">
                     \[
@@ -115,6 +118,42 @@
                     \end{align}
                     \]
                 </div>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の関数 \(f(t)\) のラプラス変換 \(F(s)\) を求めよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f(t)=(t-5)^2u(t-5)
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <p>
+                        \(g(t) = t^2\) とおくと
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        G(s) := \mathscr{L}[g(t)] = \mathscr{L}[t^2] = \frac{\Gamma(3)}{s^3} = \frac{2!}{s^3} = \frac{2}{s^3}
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        よって
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        F(s) &= \mathscr{L}[f(t)] = \mathscr{L}[g(t-5)u(t-5)] \\
+                        \\
+                        &= e^{-5s}G(s) = \frac{2e^{-5s}}{s^3}
+                        \end{align}
+                        \]
+                    </div>
+                </figure>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
