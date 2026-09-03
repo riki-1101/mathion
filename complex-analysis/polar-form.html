@@ -24,7 +24,7 @@
                 </p>
                 <div class="math">
                     \[
-                    \cos\theta=\frac{a}{\sqrt{a^2+b^2}},\quad \sin\theta=\frac{b}{\sqrt{a^2+b^2}}
+                    \cos\theta = \frac{a}{r}, \quad \sin\theta = \frac{b}{r}, \quad r = \sqrt{a^2+b^2}
                     \]
                 </div>
                 <p>
@@ -34,28 +34,18 @@
                     \[
                     \begin{align}
                     z&=a+bi \\
+                    \\
                     &=\sqrt{a^2+b^2}\left(\frac{a}{\sqrt{a^2+b^2}}+\frac{b}{\sqrt{a^2+b^2}}i\right) \\
+                    \\
+                    &=r\left(\frac{a}{r}+\frac{b}{r}i\right) \\
+                    \\
                     &=r(\cos\theta+i\sin\theta)
                     \end{align}
                     \]
                 </div>
-                <figure class="def">
-                    <figcaption>定義（極形式）</figcaption>
-                    <p class="indent">
-                        複素数 \(z=a+bi~(a,b\in\mathbb{R})\) に対して、\(\theta=\arctan\dfrac{y}{x}\) とするとき
-                    </p>
-                    <div class="math">
-                        \[
-                        z=r(\cos\theta+i\sin\theta) \quad (r\gt0)
-                        \]
-                    </div>
-                    <p>
-                        と表せて、これを \(z\) の<strong>極形式</strong>という。
-                    </p>
-                </figure>
-            </section>
-            <section id="2">
-                <h2>偏角</h2>
+                <p>
+                    ここで、\(\theta\) を \(z\) の<strong>偏角</strong>といい、\(\arg z\) という記号を使って表します。
+                </p>
                 <figure class="def">
                     <figcaption>定義（偏角）</figcaption>
                     <p class="indent">
@@ -91,6 +81,85 @@
                 <p>
                     と書きます。
                 </p>
+                <p class="indent">
+                    複素数を、その絶対値と偏角を用いて書く表記を<strong>極形式</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（極形式）</figcaption>
+                    <p class="indent">
+                        複素数 \(z\) に対して、\(r = |z|,~\arg z = \theta\) とするとき
+                    </p>
+                    <div class="math">
+                        \[
+                        z=r(\cos\theta+i\sin\theta) \quad (r\gt0)
+                        \]
+                    </div>
+                    <p>
+                        と表せて、これを \(z\) の<strong>極形式</strong>という。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>極形式による複素数の積と商</h2>
+                <figure class="th">
+                    <figcaption>定理（極形式による複素数の積と商）</figcaption>
+                    <p class="indent">
+                        \(z_1 = r_1(\cos\theta_1 + i\sin\theta_1), ~ z_2 = r_2(\cos\theta_2 + i\sin\theta_2)\) とするとき
+                    </p>
+                    <ol>
+                        <li>
+                            <div class="math">
+                                \(
+                                z_1z_2 =  r_1r_2\{\cos(\theta_1+\theta_2) + i\sin(\theta_1+\theta_2)\}
+                                \)
+                            </div>
+                        </li>
+                        <li>
+                            <div class="math">
+                                \(
+                                \dfrac{z_1}{z_2} =  \dfrac{r_1}{r_2}\{\cos(\theta_1-\theta_2) + i\sin(\theta_1-\theta_2)\} \quad (z_2 \neq 0)
+                                \)
+                            </div>
+                        </li>
+                    </ol>
+                </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <ol>
+                        <li>
+                            <div class="math">
+                                \(
+                                \begin{align}
+                                z_1z_2 &= r_1(\cos\theta_1 + i\sin\theta_1) \cdot r_2(\cos\theta_2 + i\sin\theta_2) \\
+                                \\
+                                &=r_1r_2(\cos\theta_1\cos\theta_2 + i\cos\theta_1\sin\theta_2 + i\sin\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2) \\
+                                \\
+                                &=r_1r_2\{(\cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2) + i(\sin\theta_1\cos\theta_2 + \cos\theta_1\sin\theta_2)\} \\
+                                \\
+                                &= r_1r_2\{\cos(\theta_1+\theta_2) + i\sin(\theta_1+\theta_2)\}
+                                \end{align}
+                                \)
+                            </div>
+                        </li>
+                        <li>
+                            <div class="math">
+                                \(
+                                \begin{align}
+                                \frac{z_1}{z_2} &= \frac{r_1(\cos\theta_1 + i\sin\theta_1)}{r_2(\cos\theta_2 + i\sin\theta_2)} \\
+                                \\
+                                &=\frac{r_1(\cos\theta_1 + i\sin\theta_1)(\cos\theta_2 - i\sin\theta_2)}{r_2(\cos\theta_2 + i\sin\theta_2)(\cos\theta_2 - i\sin\theta_2)} \\
+                                \\
+                                &=\frac{r_1(\cos\theta_1\cos\theta_2 - i\cos\theta_1\sin\theta_2 + i\sin\theta_1\cos\theta_2 + \sin\theta_1\sin\theta_2)}{r_2(\cos^2\theta_2 + \sin^2\theta_2)} \\
+                                \\
+                                &=\frac{r_1\{(\cos\theta_1\cos\theta_2 + \sin\theta_1\sin\theta_2) + i(\sin\theta_1\cos\theta_2 - \cos\theta_1\sin\theta_2)\}}{r_2} \\
+                                \\
+                                &= \frac{r_1}{r_2}\{\cos(\theta_1-\theta_2) + i\sin(\theta_1-\theta_2)\}
+                                \end{align}
+                                \)
+                            </div>
+                        </li>
+                    </ol>
+                </details>
             </section>
         </main>
         <footer id="footer"></footer>
