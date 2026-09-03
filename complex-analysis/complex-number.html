@@ -16,7 +16,11 @@
             <section id="1">
                 <h2>虚数単位の導入</h2>
                 <p class="indent">
-                    
+                    方程式 \(x^2 = 2\) は、有理数の範囲では解が存在しませんが、「\(2\) 乗して \(2\) となる数」として、記号 \(\sqrt{2}\) を導入することで、解を \(x=\pm\sqrt{2}\) と表記することができます。
+                </p>
+                <p class="indent">
+                    方程式 \(x^2 = -1\) において、その解は実数の範囲では存在しません。
+                    そこで新たに「\(2\) 乗して \(-1\) となる数」として、記号 \(i\) を導入します。
                 </p>
                 <figure class="def">
                     <figcaption>定義（虚数単位）</figcaption>
@@ -32,17 +36,20 @@
                         と定義し、\(i\) を<strong>虚数単位</strong>という。
                     </p>
                 </figure>
+                <p class="indent">
+                    この定義により、方程式 \(x^2 = -1\) の解を \(x = \pm i\) と表すことができます。
+                </p>
             </section>
             <section id="2">
                 <h2>複素数の定義</h2>
                 <figure class="def">
                     <figcaption>定義（複素数）</figcaption>
                     <p class="indent">
-                        虚数単位 \(i\) と \(a,b \in\mathbb{R}\) を用いて
+                        虚数単位 \(i\) と \(x, y \in \mathbb{R}\) を用いて
                     </p>
                     <div class="math">
                         \[
-                        a+bi
+                        x + yi
                         \]
                     </div>
                     <p>
@@ -51,7 +58,7 @@
                     </p>
                     <div class="math">
                         \[
-                        \mathbb{C}:=\{a+bi \mid a,b\in\mathbb{R}\}
+                        \mathbb{C} := \{x + yi \mid x, y \in \mathbb{R}\}
                         \]
                     </div>
                     <p>
@@ -81,14 +88,39 @@
                 </figure>
             </section>
             <section id="3">
+                <h2>複素数の演算</h2>
+                <figure class="def">
+                    <figcaption>定義（複素数の相等）</figcaption>
+                    <p class="indent">
+                        2つの複素数 \(z, w\) が<strong>等しい</strong>とは
+                    </p>
+                    <div class="math">
+                        \[
+                        \operatorname{Re}z = \operatorname{Re}w \quad かつ \quad \operatorname{Im}z=\operatorname{Im}w
+                        \]
+                    </div>
+                    <p>
+                        であると定め、このとき
+                    </p>
+                    <div class="math">
+                        \[
+                        z = w
+                        \]
+                    </div>
+                    <p>
+                        と表す。
+                    </p>
+                </figure>
+            </section>
+            <section id="4">
                 <h2>共役複素数</h2>
                 <p class="indent">
-                    虚部の符号が異なる数を<strong>共役複素数</strong>といいます。
+                    自身と虚部の符号が異なる数を<strong>共役複素数</strong>といいます。
                 </p>
                 <figure class="def">
                     <figcaption>定義（共役複素数）</figcaption>
                     <p class="indent">
-                        複素数 \(z=a+bi\) に対し
+                        複素数 \(z=a+bi~(a,b \in \mathbb{R})\) に対して
                     </p>
                     <div class="math">
                         \[
@@ -99,7 +131,9 @@
                         を \(z\) の<strong>共役複素数</strong>という。
                     </p>
                 </figure>
-                <p></p>
+                <p class="indent">
+                    共役複素数には、次のような性質があります。
+                </p>
                 <figure class="th">
                     <figcaption>定理（共役複素数の性質）</figcaption>
                     <p class="indent">
@@ -177,23 +211,25 @@
                     </ol>
                 </details>
             </section>
-            <section id="4">
+            <section id="5">
                 <h2>複素数の絶対値</h2>
                 <figure class="def">
                     <figcaption>定義（複素数の絶対値）</figcaption>
                     <p class="indent">
-                        複素数 \(z=a+bi\) に対し
+                        複素数 \(z=a+bi~(a,b \in \mathbb{R})\) に対して
                     </p>
                     <div class="math">
                         \[
-                        |z|=\sqrt{a^2+b^2}
+                        |z|:=\sqrt{a^2+b^2}
                         \]
                     </div>
                     <p>
                         を \(z\) の<strong>絶対値</strong>という。
                     </p>
                 </figure>
-                <p></p>
+                <p class="indent">
+                    複素数の絶対値には、次のような性質があります。
+                </p>
                 <figure class="th">
                     <figcaption>定理（複素数の絶対値の性質）</figcaption>
                     <p class="indent">
@@ -208,7 +244,7 @@
                     </ol>
                 </figure>
             </section>
-            <section id="5">
+            <section id="6">
                 <h2>実数条件と純虚数条件</h2>
                 <figure class="th">
                     <figcaption>定理（実数条件と純虚数条件）</figcaption>
