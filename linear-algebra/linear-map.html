@@ -9,6 +9,7 @@
     </head>
     <body>
         <header id="header"></header>
+        <aside id="sidebar"></aside>
         <main id="contents">
             <h1>線形写像</h1>
             <div id="table-of-contents"></div>
@@ -18,19 +19,116 @@
                     <figcaption>定義（線形写像）</figcaption>
                     <p class="indent">
                         \(V,W\) を \(K\) 上のベクトル空間とする。
-                        写像 \(f:V\to W\) が次の2つの条件を満たすとき、写像 \(f\) を \(K\) 上の<strong>線形写像</strong>という。
+                        写像 \(f:V\to W\) が次の2つの条件を満たすとき、\(f\) は \(K\) 上の<strong>線形写像</strong>であるという。
                     </p>
                     <ol>
-                        <li>\(\forall \boldsymbol{v}_1,\boldsymbol{v}_2\in V:f(\boldsymbol{v}_1+\boldsymbol{v}_2)=f(\boldsymbol{v}_1)+f(\boldsymbol{v}_2)\)</li>
-                        <li>\(\forall \boldsymbol{v}\in V,~\forall k\in K:f(k\boldsymbol{v})=kf(\boldsymbol{v})\)</li>
+                        <li>\(\forall \boldsymbol{x},\boldsymbol{y}\in V:f(\boldsymbol{x}+\boldsymbol{y})=f(\boldsymbol{x})+f(\boldsymbol{y})\)</li>
+                        <li>\(\forall \boldsymbol{x}\in V,~\forall k\in K:f(k\boldsymbol{x})=kf(\boldsymbol{x})\)</li>
                     </ol>
                     <p class="indent">
                         また、\(W=V\) であるとき、すなわち、写像 \(f:V\to V\) を \(V\) の \(K\) 上の<strong>線形変換</strong>という。
                     </p>
                 </figure>
+                <p class="indent">
+                    (1), (2) は合わせて<strong>線形性</strong>と呼ばれます。
+                    また、これら2つの条件は
+                </p>
+                <div class="math">
+                    \[
+                    \forall \boldsymbol{x},\boldsymbol{y}\in V,~\forall a,b\in K:f(a\boldsymbol{x}+b\boldsymbol{y}) = af(\boldsymbol{x}) + bf(\boldsymbol{y})
+                    \]
+                </div>
+                <p>
+                    と1つにまとめることができます。
+                </p>
+                <figure class="ex-problem">
+                    <figcaption>例題</figcaption>
+                    <p class="indent">
+                        次の写像 \(f:\mathbb{R}^2\to\mathbb{R}^2\) が線形写像であるかを調べよ。
+                    </p>
+                    <div class="math">
+                        \[
+                        f\left(\begin{bmatrix} x \\ y \end{bmatrix}\right) = \begin{bmatrix} 2x-3y \\ x+2y \end{bmatrix}
+                        \]
+                    </div>
+                </figure>
+                <figure class="ex-answer">
+                    <figcaption>解答例</figcaption>
+                    <p>
+                        任意の \(\begin{bmatrix} x_1 \\ y_1 \end{bmatrix}, \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} \in \mathbb{R}^2\) に対して 
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        f\left( \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} + \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} \right)
+                        &= f\left( \begin{bmatrix} x_1 + x_2 \\ y_1 + y_2 \end{bmatrix} \right) \\
+                        \\
+                        &= \begin{bmatrix} 2(x_1 + x_2) - 3(y_1 + y_2) \\ (x_1 + x_2) + 2(y_1 + y_2) \end{bmatrix} \\
+                        \\
+                        &= \begin{bmatrix} 2x_1 - 3y_1 \\ x_1 + 2y_1 \end{bmatrix} + \begin{bmatrix} 2x_2 - 3y_2 \\ x_2 + 2y_2 \end{bmatrix} \\
+                        \\
+                        &= f\left(\begin{bmatrix} x_1 \\ y_1 \end{bmatrix}\right) + f\left(\begin{bmatrix} x_2 \\ y_2 \end{bmatrix}\right)
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        任意の \(\begin{bmatrix} x \\ y \end{bmatrix} \in \mathbb{R}^2\) と任意の \(k \in \mathbb{R}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        f\left( k \begin{bmatrix} x \\ y \end{bmatrix} \right)
+                        &= f\left( \begin{bmatrix} kx \\ ky \end{bmatrix} \right) \\
+                        \\
+                        &= \begin{bmatrix} 2(kx) - 3(ky) \\ (kx) + 2(ky) \end{bmatrix} \\
+                        \\
+                        &= \begin{bmatrix} k(2x - 3y) \\ k(x + 2y) \end{bmatrix} \\
+                        \\
+                        &= k \begin{bmatrix} 2x - 3y \\ x + 2y \end{bmatrix} \\
+                        \\
+                        &= k f\left(\begin{bmatrix} x \\ y \end{bmatrix}\right)
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        以上より、\(f\) は線形写像である。
+                    </p>
+                </figure>
             </section>
             <section id="2">
                 <h2>行列と線形写像</h2>
+                <p class="indent">
+                    先ほどの例題において、写像
+                </p>
+                <div class="math">
+                    \[
+                    f\left(\begin{bmatrix} x \\ y \end{bmatrix}\right) = \begin{bmatrix} 2x-3y \\ x+2y \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    は線形写像であることがわかりました。
+                    この右辺を行列の積を用いて変形すると
+                </p>
+                <div class="math">
+                    \[
+                    f\left(\begin{bmatrix} x \\ y \end{bmatrix}\right) = \begin{bmatrix} 2 & -3 \\ 1 & 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
+                    \]
+                </div>
+                <p>
+                    と書くことができます。
+                    「ベクトル \(\boldsymbol{x}\) を写像 \(f\) でおくること」が、「\(\boldsymbol{x}\) に行列 \(A\) を左から掛けること」に対応していることがわかります。
+                </p>
+                <p class="indent">
+                    一般に、行列 \(A\) によって
+                </p>
+                <div class="math">
+                    \[
+                    f(\boldsymbol{x})=A\boldsymbol{x}
+                    \]
+                </div>
+                <p>
+                    という形で定義される写像 \(f\) は線形写像となります。
+                </p>
                 <figure class="th">
                     <figcaption>定理（行列と線形写像）</figcaption>
                     <p class="indent">
@@ -61,6 +159,7 @@
         </main>
         <footer id="footer"></footer>
         <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/script.js"></script>
     </body>
