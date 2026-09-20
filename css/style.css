@@ -486,30 +486,35 @@ footer {
     padding: 0.2em 0;
 }
 
-/* 証明部分（details全体） */
-.pf {
+/* details全体 */
+#contents details {
     margin: 1em 0;
-    padding: 1em;
-    border: 1px solid #aaa;
-    border-left: 4px solid #666;
+    padding: 0;
     border-radius: 4px;
-    background-color: whitesmoke;
 }
-.pf summary {  /* 証明タイトル（summary） */
+#contents details summary {
+    padding: 1em 0;
     font-weight: bold;
     font-family: sans-serif;
     cursor: pointer;
     list-style: none; /* デフォルトの▶マークを消す */
     position: relative;
-    padding-left: 2em;
+    padding-left: 2.5em;
 }
-.pf summary::before {  /* summary の前にアイコン（▶ / ▼）をつける */
+#contents details summary::before {  /* summary の前にアイコンをつける */
     content: "＋";
     position: absolute;
-    left: 0;
+    left: 1em;
 }
-.pf[open] summary::before {  /* 開いたときに矢印を下向きに */
+#contents details[open] summary::before {  /* 開いたときに変更する */
     content: "－";
+}
+
+/* 証明部分（details全体） */
+#contents details.pf {
+    border: 1px solid #aaa;
+    border-left: 4px solid #666;
+    background-color: whitesmoke;
 }
 
 /* 例題用 */
@@ -537,29 +542,14 @@ footer {
 }
 
 /* 解答部分（details全体） */
-.ans {
-    margin: 1em 0;
-    padding: 1em;
+#contents details.ans {
     border: 1px solid #aaa;
     border-left: 4px solid #666;
-    border-radius: 4px;
     background-color: whitesmoke;
 }
-.ans summary {  /* 解答タイトル（summary） */
-    font-weight: bold;
-    cursor: pointer;
-    list-style: none; /* デフォルトの▶マークを消す */
-    position: relative;
-    padding-left: 2em;
-}
-.ans summary::before {  /* summary の前にアイコン（▶ / ▼）をつける */
-    content: "＋";
-    position: absolute;
-    left: 0;
-}
-.ans[open] summary::before {  /* 開いたときに矢印を下向きに */
-    content: "－";
-}
+
+
+
 
 /* 注意書き */
 details.annotation {
