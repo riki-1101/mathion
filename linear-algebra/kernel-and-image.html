@@ -137,9 +137,86 @@
                         このとき、\(\operatorname{Im}f\) は \(W\) の部分空間である。
                     </p>
                 </figure>
+                <details class="pf">
+                    <summary>証明</summary>
+                    <p>
+                        \(f\) は線形写像なので、\(f(\boldsymbol{0}_V) = \boldsymbol{0}_W\) であるから
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{0}_W \in \operatorname{Im}f
+                        \]
+                    </div>
+                    <p>
+                        任意の \(\boldsymbol{y}_1,\boldsymbol{y}_2 \in \operatorname{Im}f\) をとる。
+                        これらはある \(\boldsymbol{v}_1, \boldsymbol{v}_2 \in V\) によって
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{y}_1 = f(\boldsymbol{v}_1), \quad \boldsymbol{y}_2 = f(\boldsymbol{v}_2)
+                        \]
+                    </div>
+                    <p>
+                        と表せることから
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        \boldsymbol{y}_1 + \boldsymbol{y}_2
+                        &= f(\boldsymbol{v}_1) + f(\boldsymbol{v}_2) \\
+                        \\
+                        &= f(\boldsymbol{v}_1 + \boldsymbol{v}_2)
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        \(\boldsymbol{v}_1 + \boldsymbol{v}_2 \in V\) より
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{y}_1 + \boldsymbol{y}_2 \in \operatorname{Im}f
+                        \]
+                    </div>
+                    <p>
+                        任意の \(\boldsymbol{y} \in \operatorname{Im}f, ~ k \in K\) をとる。
+                        \(\boldsymbol{y}\) はある \(\boldsymbol{v}\in V\) によって
+                    </p>
+                    <div class="math">
+                        \[
+                        \boldsymbol{y} = f(\boldsymbol{v})
+                        \]
+                    </div>
+                    <p>
+                        と表せることから
+                    </p>
+                    <div class="math">
+                        \[
+                        \begin{align}
+                        k\boldsymbol{y}
+                        &= kf(\boldsymbol{v}) \\
+                        \\
+                        &= f(k\boldsymbol{v})
+                        \end{align}
+                        \]
+                    </div>
+                    <p>
+                        \(k\boldsymbol{v} \in V\) より
+                    </p>
+                    <div class="math">
+                        \[
+                        k\boldsymbol{y} \in \operatorname{Im}f
+                        \]
+                    </div>
+                    <p>
+                        以上より、\(\operatorname{Im}f\) は \(W\) の部分空間である。
+                    </p>
+                </details>
             </section>
             <section id="3">
                 <h2>線形写像の階数</h2>
+                <p class="indent">
+                    線形写像の像の次元を、<strong>線形写像の階数（ランク）</strong>といいます。
+                </p>
                 <figure class="def">
                     <figcaption>定義（線形写像の階数）</figcaption>
                     <p class="indent">
@@ -151,18 +228,21 @@
                         \]
                     </div>
                     <p>
-                        を \(f\) の階数という。
+                        を \(f\) の<strong>階数（ランク）</strong>という。
                     </p>
                 </figure>
-                <p></p>
+                <p class="indent">
+                    線形写像の階数は、その線形写像の表現行列の階数となります。
+                </p>
                 <figure class="th">
-                    <figcaption>定理（行列写像の階数）</figcaption>
+                    <figcaption>定理（線形写像の階数と表現行列）</figcaption>
                     <p class="indent">
-                        \(K\) の要素を成分にもつ \(m\times n\) 行列 \(A\) によって定まる線形写像 \(f_A:K^n\to K^m\) に対して
+                        \(V,W\) を \(K\) 上のベクトル空間とし、\(f: V \to W\) を線形写像とする。
+                        任意の基底に関する \(f\) の表現行列を \(A\) とするとき
                     </p>
                     <div class="math">
                         \[
-                        \operatorname{rank}f_A=\operatorname{rank}A
+                        \operatorname{rank}f=\operatorname{rank}A
                         \]
                     </div>
                     <p>
@@ -180,13 +260,16 @@
                     </p>
                     <div class="math">
                         \[
-                        \dim V=\operatorname{rank}f+\dim\operatorname{Ker}f
+                        \dim V = \operatorname{rank}f + \dim\operatorname{Ker}f
                         \]
                     </div>
                     <p>
                         が成り立つ。
                     </p>
                 </figure>
+                <p class="indent">
+                    \(\dim\operatorname{Ker}f\) は<strong>退化次数</strong>と呼ばれます。
+                </p>
             </section>
             <section id="ex">
                 <h2>演習問題</h2>
@@ -202,9 +285,11 @@
                         \]
                     </div>
                     <ol>
-                        <li>\(\operatorname{Ker}f\) の基底を1組求めよ。</li>
-                        <li>\(\operatorname{Im}f\) の基底を1組求めよ。</li>
-                        <li>\(\operatorname{rank}f\) を求めよ。</li>
+                        <li>核 \(\operatorname{Ker}f\) の基底を1組求めよ。</li>
+                        <li>像 \(\operatorname{Im}f\) の基底を1組求めよ。</li>
+                        <li>階数 \(\operatorname{rank}f\) を求めよ。</li>
+                        <li>退化次数 \(\dim\operatorname{Ker}f\) を求めよ。</li>
+                        <li>次元定理が成り立つことを確認せよ。</li>
                     </ol>
                 </figure>
             </section>
