@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>平均関数と分散関数</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>平均関数と分散関数</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>平均関数</h2>
+                <p class="indent">
+                    確率過程において、時刻 \(t\) における平均（期待値）とは、「時刻 \(t\) で確率過程が平均的にどのくらいの値をとるか」を表し、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（平均関数）</figcaption>
+                    <p class="indent">
+                        確率過程 \(\{X_t\}_{t\in T}\) に対して、時刻 \(t\) における平均を
+                    </p>
+                    <div class="math">
+                        \[
+                        \mu_X(t) := E[X_t]
+                        \]
+                    </div>
+                    <p>
+                        と定義する。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>分散関数</h2>
+                <p class="indent">
+                    確率過程において、時刻 \(t\) における分散とは、「時刻 \(t\) で確率過程が平均からどのくらいばらついているか」を表し、次のように定義されます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（分散関数）</figcaption>
+                    <p class="indent">
+                        確率過程 \(\{X_t\}_{t\in T}\) に対して、時刻 \(t\) における分散を
+                    </p>
+                    <div class="math">
+                        \[
+                        \sigma^2_X(t) := V[X_t] = E[(X_t - E[X_t])^2]
+                        \]
+                    </div>
+                    <p>
+                        と定義する。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
