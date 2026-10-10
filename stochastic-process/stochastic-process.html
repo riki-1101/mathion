@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>確率過程</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>確率過程</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>確率過程の定義</h2>
+                <p class="indent">
+                    時刻ごとに確率変数を定義し、それらを集めたものを<strong>確率過程</strong>といいます。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（確率過程）</figcaption>
+                    <p class="indent">
+                        確率空間 \((\Omega,\mathcal{F},P)\) 上の確率変数の族
+                    </p>
+                    <div class="math">
+                        \[
+                        \{X_t\}_{t\in T}
+                        \]
+                    </div>
+                    <p>
+                        を<strong>確率過程</strong>という。
+                        ただし、\(T\) は時間の集合である。
+                    </p>
+                    <p>
+                        各 \(t\in T\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        X_t : \Omega \to \mathbb{R}
+                        \]
+                    </div>
+                </figure>
+                <p class="indent">
+                    時刻 \(t\) が連続値をとる場合、\(\{X_t\}_{t\in T}\) を<strong>連続確率過程</strong>という。
+                    また、時刻 \(t\) が離散値をとる場合、\(\{X_t\}_{t\in T}\) を<strong>離散確率過程</strong>あるいは<strong>時系列</strong>という。
+                </p>
+                <figure class="ex">
+                    <figcaption>例（確率変数と確率過程）</figcaption>
+                    <p class="indent">
+                        サイコロを繰り返し振った結果を、時刻 \(t\) ごとに
+                    </p>
+                    <div class="math">
+                        \[
+                        X_1,~X_2,~X_3,~\cdots
+                        \]
+                    </div>
+                    <p>
+                        とすると、各 \(X_t\) は確率変数であり、それらを時刻に沿って集めたものが確率過程である。
+                    </p>
+                </figure>
+            </section>
+            <section id="2">
+                <h2>標本路</h2>
+                <figure class="def">
+                    <figcaption>定義（標本路）</figcaption>
+                    <p class="indent">
+                        確率過程 \(\{X_t\}_{t\in T}\) において、ある1つの根元事象 \(\omega\in \Omega\) を固定したとき
+                    </p>
+                    <div class="math">
+                        \[
+                        t \mapsto X_t(\omega)
+                        \]
+                    </div>
+                    <p>
+                        という \(t\) の関数を、\(\omega\) のもとでの<strong>標本路（パス）</strong>という。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
