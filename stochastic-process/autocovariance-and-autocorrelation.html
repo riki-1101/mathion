@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>自己共分散と自己相関</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/mathjax.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <aside id="sidebar"></aside>
+        <main id="contents">
+            <h1>自己共分散と自己相関</h1>
+            <div id="table-of-contents"></div>
+            <section id="1">
+                <h2>自己共分散</h2>
+                <p class="indent">
+                    確率過程において、「異なる時刻の確率変数がどのように関係しているか」を見る指標として、<strong>自己共分散</strong>があります。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（自己共分散）</figcaption>
+                    <p class="indent">
+                        確率過程 \(\{X_t\}_{t\in T}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \gamma_X(s, t) = \operatorname{Cov}[X_s, X_t]
+                        \]
+                    </div>
+                    <p>
+                        を時刻 \(s\) と時刻 \(t\) での<strong>自己共分散</strong>という。
+                    </p>
+                </figure>
+                <figure class="box">
+                    <figcaption>自己共分散の見方</figcaption>
+                    <ul>
+                        <li>\(\gamma_X(s, t) \gt 0\)：平均からのズレが同じ方向の傾向</li>
+                        <li>\(\gamma_X(s, t) \lt 0\)：平均からのズレが反対方向の傾向</li>
+                        <li>\(\gamma_X(s, t) = 0\)：線形な関係がない</li>
+                    </ul>
+                </figure>
+                <p class="indent">
+                    ただし、自己共分散が \(0\) でも、一般には独立とは限りません。
+                </p>
+                <div class="math">
+                    \[
+                    \gamma_{t,h} = \gamma_X(t, t-h) = \operatorname{Cov}[X_t, X_{t-h}]
+                    \]
+                </div>
+            </section>
+            <section id="2">
+                <h2>自己相関</h2>
+                <p class="indent">
+                    自己共分散は、単位や分散の大きさに依存するため、比較しやすいように正規化したものを<strong>自己相関</strong>として、次のように定義します。
+                </p>
+                <figure class="def">
+                    <figcaption>定義（自己相関）</figcaption>
+                    <p class="indent">
+                        確率過程 \(\{X_t\}_{t\in T}\) に対して
+                    </p>
+                    <div class="math">
+                        \[
+                        \rho_X(s, t) = \frac{\operatorname{Cov}[X_s, X_t]}{\sqrt{V[X_s]V[X_t]}}
+                        \]
+                    </div>
+                    <p>
+                        を時刻 \(s\) と時刻 \(t\) での<strong>自己相関</strong>という。
+                    </p>
+                </figure>
+            </section>
+        </main>
+        <footer id="footer"></footer>
+        <script src="../js/header.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/footer.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
